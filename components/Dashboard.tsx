@@ -9,7 +9,7 @@ import StatusBar from './StatusBar';
 import ScheduleReport from './ScheduleReport';
 import { fetchGDELTData, fetchScheduleData } from '@/lib/api';
 import { convertGDELTToROIs, ROI } from '@/lib/dataConverter';
-import 'react-split/dist/react-split.css';
+
 
 export default function Dashboard() {
   const [selectedROI, setSelectedROI] = useState<ROI | null>(null);
