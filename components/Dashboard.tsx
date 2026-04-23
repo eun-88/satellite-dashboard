@@ -1,128 +1,104 @@
 'use client';
 
-import { useState } from 'react';
-import { Satellite, Radio, TrendingUp } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import Split from 'react-split';
 import GlobalMap from './GlobalMap';
 import ROIList from './ROIList';
 import DetailPanel from './DetailPanel';
 import StatusBar from './StatusBar';
+import { fetchGDELTData, fetchScheduleData } from '@/lib/api';
+import { convertGDELTToROIs, ROI } from '@/lib/dataConverter';
+import 'react-split/dist/react-split.css';
 
 export default function Dashboard() {
-  const [selectedROI, setSelectedROI] = useState<string | null>(null);
-  const [filterStatus, setFilterStatus] = useState<'all' | 'pending' | 'scheduled'>('all');
+  const [selectedROI, setSelectedROI] = useState<ROI | null>(null);
+  const [rois, setRois] = useState<ROI[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [currentDate, setCurrentDate] = useState('20260414');
+
+  useEffect(() => {
+    async function loadData() {
+      setLoading(true);
+      
+      const gdeltData = await fetchGDELTData(currentDate);
+      const scheduleData = await fetchScheduleData(currentDate);
+      
+      if (gdeltData) {
+        const convertedROIs = convertGDELTToROIs(gdeltData, scheduleData || undefined);
+        setRois(convertedROIs);
+        if (convertedROIs.length > 0) {
+          setSelectedROI(convertedROIs[0]);
+        }
+      }
+      
+      setLoading(false);
+    }
+    
+    loadData();
+  }, [currentDate]);
+
+  if (loading) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-gray-900">
+        <div className="text-white text-xl">Loading data...</div>
+      </div>
+    );
+  }
 
   return (
-    <div className="h-screen w-screen flex flex-col bg-[var(--bg-primary)]">
-      {/* Top Header */}
-      <header className="h-16 border-b border-[var(--border-subtle)] bg-[var(--bg-secondary)] flex items-center justify-between px-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--accent-cyan)] to-[var(--accent-purple)] flex items-center justify-center">
-            <Satellite className="w-6 h-6 text-white" />
-          </div>
-          <div>
-            <h1 className="text-lg font-bold tracking-tight">SIA Dashboard</h1>
-            <p className="text-xs text-[var(--text-muted)]">Satellite Imaging Automation</p>
-          </div>
-        </div>
-        
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2 text-sm">
-            <div className="w-2 h-2 rounded-full bg-[var(--status-success)] pulse-border"></div>
-            <span className="text-[var(--text-secondary)]">System Active</span>
-          </div>
-          <div className="text-xs text-[var(--text-muted)] mono">
-            {new Date().toISOString().split('T')[0]}
-          </div>
-        </div>
-      </header>
+    <div className="h-screen flex flex-col bg-gray-900">
+      {/* 상단 상태바 */}
+      <StatusBar 
+        totalROIs={rois.length}
+        highPriority={rois.filter(r => r.priority === 'high').length}
+        scheduledPasses={rois.reduce((sum, r) => sum + (r.schedules?.length || 0), 0)}
+      />
 
-      {/* Main Content Area - 3 Column Layout */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Left Panel - ROI List */}
-        <aside className="w-80 border-r border-[var(--border-subtle)] bg-[var(--bg-secondary)] flex flex-col">
-          <div className="p-4 border-b border-[var(--border-subtle)]">
-            <h2 className="text-sm font-semibold mb-3 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-[var(--accent-gold)]" />
-              Priority ROIs
-            </h2>
-            
-            <div className="flex gap-2">
-              <button
-                onClick={() => setFilterStatus('all')}
-                className={`flex-1 px-3 py-2 rounded text-xs font-medium transition-colors ${
-                  filterStatus === 'all'
-                    ? 'bg-[var(--accent-cyan)] text-white'
-                    : 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--bg-elevated)]'
-                }`}
-              >
-                All
-              </button>
-              <button
-                onClick={() => setFilterStatus('pending')}
-                className={`flex-1 px-3 py-2 rounded text-xs font-medium transition-colors ${
-                  filterStatus === 'pending'
-                    ? 'bg-[var(--status-warning)] text-white'
-                    : 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--bg-elevated)]'
-                }`}
-              >
-                Pending
-              </button>
-              <button
-                onClick={() => setFilterStatus('scheduled')}
-                className={`flex-1 px-3 py-2 rounded text-xs font-medium transition-colors ${
-                  filterStatus === 'scheduled'
-                    ? 'bg-[var(--status-success)] text-white'
-                    : 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--bg-elevated)]'
-                }`}
-              >
-                Scheduled
-              </button>
-            </div>
-          </div>
-          
-          <div className="flex-1 overflow-y-auto">
-            <ROIList 
-              filterStatus={filterStatus}
-              selectedROI={selectedROI}
-              onSelectROI={setSelectedROI}
-            />
-          </div>
-        </aside>
+      {/* 메인 컨텐츠: 상하 분할 */}
+      <div className="flex-1 overflow-hidden">
+        <Split
+          direction="vertical"
+          sizes={[60, 40]}
+          minSize={[200, 150]}
+          gutterSize={8}
+          className="flex flex-col h-full"
+          style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
+        >
+          {/* 상단: 좌우 분할 */}
+          <div className="overflow-hidden">
+            <Split
+              sizes={[30, 70]}
+              minSize={[250, 400]}
+              gutterSize={8}
+              className="flex h-full"
+              style={{ display: 'flex', height: '100%' }}
+            >
+              {/* 왼쪽: ROI 목록 */}
+              <div className="overflow-hidden">
+                <ROIList
+                  rois={rois}
+                  selectedROI={selectedROI}
+                  onSelectROI={setSelectedROI}
+                />
+              </div>
 
-        {/* Center Panel - Global Map */}
-        <main className="flex-1 relative">
-          <GlobalMap selectedROI={selectedROI} onSelectROI={setSelectedROI} />
-          
-          {/* Status Overlay Cards */}
-          <div className="absolute top-4 left-4 right-4 flex gap-4 pointer-events-none">
-            <StatusBar />
+              {/* 오른쪽: 지도 */}
+              <div className="overflow-hidden">
+                <GlobalMap
+                  rois={rois}
+                  selectedROI={selectedROI}
+                  onSelectROI={setSelectedROI}
+                />
+              </div>
+            </Split>
           </div>
-        </main>
 
-        {/* Right Panel - Detail View */}
-        <aside className="w-96 border-l border-[var(--border-subtle)] bg-[var(--bg-secondary)] overflow-y-auto">
-          <div className="p-4 border-b border-[var(--border-subtle)]">
-            <h2 className="text-sm font-semibold flex items-center gap-2">
-              <Radio className="w-4 h-4 text-[var(--accent-purple)]" />
-              Event Analysis
-            </h2>
+          {/* 하단: Event Analysis */}
+          <div className="overflow-hidden border-t border-gray-700">
+            <DetailPanel roi={selectedROI} />
           </div>
-          
-          <DetailPanel selectedROI={selectedROI} />
-        </aside>
+        </Split>
       </div>
-
-      {/* Bottom Status Bar */}
-      <footer className="h-8 border-t border-[var(--border-subtle)] bg-[var(--bg-secondary)] flex items-center justify-between px-6 text-xs text-[var(--text-muted)]">
-        <div className="flex items-center gap-4">
-          <span>GDELT v1.0 Active</span>
-          <span>•</span>
-          <span>Last Update: 2 min ago</span>
-        </div>
-        <div className="mono">
-          API Status: <span className="text-[var(--status-success)]">OPERATIONAL</span>
-        </div>
-      </footer>
     </div>
   );
 }

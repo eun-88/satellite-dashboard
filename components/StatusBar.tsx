@@ -1,66 +1,40 @@
 'use client';
 
-import { Activity, MapPin, Satellite, TrendingDown } from 'lucide-react';
+interface StatusBarProps {
+  totalROIs: number;
+  highPriority: number;
+  scheduledPasses: number;
+}
 
-export default function StatusBar() {
-  const stats = [
-    {
-      icon: Activity,
-      label: 'Active Events',
-      value: '127',
-      trend: '+12',
-      color: 'var(--status-warning)',
-    },
-    {
-      icon: MapPin,
-      label: 'Critical ROIs',
-      value: '8',
-      trend: '+3',
-      color: 'var(--status-critical)',
-    },
-    {
-      icon: Satellite,
-      label: 'Scheduled',
-      value: '15',
-      trend: '+5',
-      color: 'var(--status-success)',
-    },
-    {
-      icon: TrendingDown,
-      label: 'Avg Goldstein',
-      value: '-7.8',
-      trend: '-1.2',
-      color: 'var(--accent-cyan)',
-    },
-  ];
-
+export default function StatusBar({ totalROIs, highPriority, scheduledPasses }: StatusBarProps) {
   return (
-    <div className="flex gap-3 pointer-events-auto">
-      {stats.map((stat, index) => (
-        <div
-          key={index}
-          className="glass-panel px-4 py-3 flex items-center gap-3 min-w-[180px]"
-        >
-          <div
-            className="w-10 h-10 rounded-lg flex items-center justify-center"
-            style={{ backgroundColor: `${stat.color}20` }}
-          >
-            <stat.icon className="w-5 h-5" style={{ color: stat.color }} />
+    <div className="bg-gray-800 border-b border-gray-700 px-6 py-4">
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-white">SIA Dashboard</h1>
+          <p className="text-sm text-gray-400">위성 촬영 스케줄링 자동화</p>
+        </div>
+
+        <div className="flex gap-6">
+          {/* 총 ROI */}
+          <div className="bg-gray-700 rounded-lg px-4 py-2">
+            <div className="text-xs text-gray-400">총 ROI</div>
+            <div className="text-2xl font-bold text-white">{totalROIs}</div>
           </div>
-          <div>
-            <div className="text-xs text-[var(--text-muted)] mb-0.5">{stat.label}</div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-bold mono">{stat.value}</span>
-              <span
-                className="text-xs font-semibold mono"
-                style={{ color: stat.color }}
-              >
-                {stat.trend}
-              </span>
-            </div>
+
+          {/* 긴급 지역 */}
+          <div className="bg-gray-700 rounded-lg px-4 py-2">
+            <div className="text-xs text-gray-400">긴급 지역</div>
+            <div className="text-2xl font-bold text-red-400">{highPriority}</div>
+          </div>
+
+          {/* 예정 촬영 */}
+          <div className="bg-gray-700 rounded-lg px-4 py-2">
+            <div className="text-xs text-gray-400">예정 촬영</div>
+            <div className="text-2xl font-bold text-green-400">{scheduledPasses}</div>
           </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 }
