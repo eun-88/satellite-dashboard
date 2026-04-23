@@ -8,7 +8,7 @@ import DetailPanel from './DetailPanel';
 import StatusBar from './StatusBar';
 import { fetchGDELTData, fetchScheduleData } from '@/lib/api';
 import { convertGDELTToROIs, ROI } from '@/lib/dataConverter';
-import 'react-split/dist/react-split.css';
+import 'react-split/react-split.css';
 
 export default function Dashboard() {
   const [selectedROI, setSelectedROI] = useState<ROI | null>(null);
