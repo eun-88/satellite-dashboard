@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import maplibregl from 'maplibre-gl';
-import 'maplibre-gl/dist/maplibre-gl.css';
+import { useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { ROI } from '@/lib/dataConverter';
 
 interface GlobalMapProps {
@@ -11,81 +12,74 @@ interface GlobalMapProps {
   onSelectROI: (roi: ROI) => void;
 }
 
-export default function GlobalMap({ rois, selectedROI, onSelectROI }: GlobalMapProps) {
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<maplibregl.Map | null>(null);
-  const markers = useRef<maplibregl.Marker[]>([]);
-
-  // 지도 초기화
+// 선택된 ROI로 이동하는 컴포넌트
+function MapController({ selectedROI }: { selectedROI: ROI | null }) {
+  const map = useMap();
+  
   useEffect(() => {
-    if (!mapContainer.current || map.current) return;
-
-    map.current = new maplibregl.Map({
-      container: mapContainer.current,
-      style: {
-        version: 8,
-        sources: {
-          osm: {
-            type: 'raster',
-            tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
-            tileSize: 256,
-          },
-        },
-        layers: [
-          {
-            id: 'osm',
-            type: 'raster',
-            source: 'osm',
-          },
-        ],
-      },
-      center: [35.2, 33.1],
-      zoom: 8,
-    });
-
-    return () => {
-      map.current?.remove();
-      map.current = null;
-    };
-  }, []);
-
-  // 마커 업데이트
-  useEffect(() => {
-    if (!map.current) return;
-
-    markers.current.forEach(marker => marker.remove());
-    markers.current = [];
-
-    rois.forEach((roi) => {
-      const el = document.createElement('div');
-      el.style.width = '30px';
-      el.style.height = '30px';
-      el.style.borderRadius = '50%';
-      el.style.cursor = 'pointer';
-      el.style.backgroundColor = roi.priority === 'high' ? '#ef4444' : '#f97316';
-      el.style.border = selectedROI?.id === roi.id ? '3px solid white' : '2px solid rgba(255,255,255,0.5)';
-
-      const marker = new maplibregl.Marker({ element: el })
-        .setLngLat([roi.lng, roi.lat])
-        .addTo(map.current!);
-
-      el.addEventListener('click', () => onSelectROI(roi));
-      markers.current.push(marker);
-    });
-  }, [rois, selectedROI, onSelectROI]);
-
-  useEffect(() => {
-    if (selectedROI && map.current) {
-      map.current.flyTo({
-        center: [selectedROI.lng, selectedROI.lat],
-        zoom: 10,
-      });
+    if (selectedROI) {
+      map.flyTo([selectedROI.lat, selectedROI.lng], 10, { duration: 1 });
     }
-  }, [selectedROI]);
+  }, [selectedROI, map]);
+  
+  return null;
+}
+
+export default function GlobalMap({ rois, selectedROI, onSelectROI }: GlobalMapProps) {
+  // 커스텀 마커 아이콘 생성
+  const createIcon = (priority: string, isSelected: boolean) => {
+    const color = priority === 'high' ? '#ef4444' : priority === 'medium' ? '#f97316' : '#eab308';
+    const border = isSelected ? '3px solid white' : '2px solid rgba(255,255,255,0.5)';
+    
+    return L.divIcon({
+      html: `<div style="
+        width: 30px;
+        height: 30px;
+        background-color: ${color};
+        border: ${border};
+        border-radius: 50%;
+        cursor: pointer;
+      "></div>`,
+      className: '',
+      iconSize: [30, 30],
+      iconAnchor: [15, 15],
+    });
+  };
 
   return (
-    <div className="flex-1 relative bg-gray-900">
-      <div ref={mapContainer} className="absolute inset-0" />
+    <div className="flex-1 relative">
+      <MapContainer
+        center={[33.1, 35.2]}
+        zoom={8}
+        style={{ height: '100%', width: '100%' }}
+        className="z-0"
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        />
+        
+        <MapController selectedROI={selectedROI} />
+        
+        {rois.map((roi) => (
+          <Marker
+            key={roi.id}
+            position={[roi.lat, roi.lng]}
+            icon={createIcon(roi.priority, selectedROI?.id === roi.id)}
+            eventHandlers={{
+              click: () => onSelectROI(roi),
+            }}
+          >
+            <Popup>
+              <div className="text-sm">
+                <strong>{roi.name}</strong>
+                <br />
+                {roi.riskLabel}
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
     </div>
   );
 }
