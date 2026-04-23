@@ -1,4 +1,4 @@
-@import 'react-split/react-split.css';
+
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -160,4 +160,29 @@ code, .mono {
 .gutter.gutter-vertical {
   cursor: row-resize;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+}
+
+/* React Split 스타일 */
+.split {
+  display: flex;
+}
+
+.gutter {
+  background-color: #e5e7eb;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+  cursor: col-resize;
+  width: 5px;
+}
+
+.gutter.gutter-vertical {
+  cursor: row-resize;
+  height: 5px;
+}
+
+.gutter:hover {
+  background-color: #d1d5db;
 }
