@@ -186,3 +186,5 @@ code, .mono {
 .gutter:hover {
   background-color: #d1d5db;
 }
+
+@import 'leaflet/dist/leaflet.css';

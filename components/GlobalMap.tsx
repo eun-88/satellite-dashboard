@@ -31,7 +31,7 @@ export default function GlobalMap({ rois, selectedROI, onSelectROI }: GlobalMapP
 function MapComponent({ rois, selectedROI, onSelectROI }: GlobalMapProps) {
   const { MapContainer, TileLayer, Marker, Popup, useMap } = require('react-leaflet');
   const L = require('leaflet');
-  require('leaflet/dist/leaflet.css');
+
 
   // MapController 함수
   function MapController({ selectedROI }: { selectedROI: ROI | null }) {
