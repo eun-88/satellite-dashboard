@@ -6,28 +6,37 @@ import GlobalMap from './GlobalMap';
 import ROIList from './ROIList';
 import DetailPanel from './DetailPanel';
 import StatusBar from './StatusBar';
+import ScheduleReport from './ScheduleReport';
 import { fetchGDELTData, fetchScheduleData } from '@/lib/api';
 import { convertGDELTToROIs, ROI } from '@/lib/dataConverter';
+import 'react-split/dist/react-split.css';
 
 export default function Dashboard() {
   const [selectedROI, setSelectedROI] = useState<ROI | null>(null);
   const [rois, setRois] = useState<ROI[]>([]);
+  const [scheduleData, setScheduleData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [currentDate, setCurrentDate] = useState('20260414');
+  const [activeTab, setActiveTab] = useState<'analysis' | 'schedule'>('analysis');
 
+  // 데이터 로드
   useEffect(() => {
     async function loadData() {
       setLoading(true);
       
       const gdeltData = await fetchGDELTData(currentDate);
-      const scheduleData = await fetchScheduleData(currentDate);
+      const scheduleDataResult = await fetchScheduleData(currentDate);
       
       if (gdeltData) {
-        const convertedROIs = convertGDELTToROIs(gdeltData, scheduleData || undefined);
+        const convertedROIs = convertGDELTToROIs(gdeltData, scheduleDataResult || undefined);
         setRois(convertedROIs);
         if (convertedROIs.length > 0) {
           setSelectedROI(convertedROIs[0]);
         }
+      }
+      
+      if (scheduleDataResult) {
+        setScheduleData(scheduleDataResult);
       }
       
       setLoading(false);
@@ -92,9 +101,40 @@ export default function Dashboard() {
             </Split>
           </div>
 
-          {/* 하단: Event Analysis */}
-          <div className="overflow-hidden border-t border-gray-700">
-            <DetailPanel roi={selectedROI} />
+          {/* 하단: 탭 전환 */}
+          <div className="overflow-hidden border-t border-gray-700 flex flex-col">
+            {/* 탭 버튼 */}
+            <div className="flex border-b border-gray-700 bg-gray-800">
+              <button
+                onClick={() => setActiveTab('analysis')}
+                className={`px-6 py-3 font-medium transition-colors ${
+                  activeTab === 'analysis'
+                    ? 'bg-gray-900 text-white border-b-2 border-blue-500'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                📊 Event Analysis
+              </button>
+              <button
+                onClick={() => setActiveTab('schedule')}
+                className={`px-6 py-3 font-medium transition-colors ${
+                  activeTab === 'schedule'
+                    ? 'bg-gray-900 text-white border-b-2 border-blue-500'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                🛰️ Schedule Report
+              </button>
+            </div>
+
+            {/* 탭 컨텐츠 */}
+            <div className="flex-1 overflow-hidden">
+              {activeTab === 'analysis' ? (
+                <DetailPanel roi={selectedROI} />
+              ) : (
+                <ScheduleReport scheduleData={scheduleData} rois={rois} />
+              )}
+            </div>
           </div>
         </Split>
       </div>
