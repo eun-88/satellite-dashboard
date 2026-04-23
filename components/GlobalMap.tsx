@@ -1,9 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import { useEffect, useState } from 'react';
 import { ROI } from '@/lib/dataConverter';
 
 interface GlobalMapProps {
@@ -12,20 +9,43 @@ interface GlobalMapProps {
   onSelectROI: (roi: ROI) => void;
 }
 
-// 선택된 ROI로 이동하는 컴포넌트
-function MapController({ selectedROI }: { selectedROI: ROI | null }) {
-  const map = useMap();
-  
+export default function GlobalMap({ rois, selectedROI, onSelectROI }: GlobalMapProps) {
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
-    if (selectedROI) {
-      map.flyTo([selectedROI.lat, selectedROI.lng], 10, { duration: 1 });
-    }
-  }, [selectedROI, map]);
-  
-  return null;
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return (
+      <div className="flex-1 relative bg-gray-900 flex items-center justify-center">
+        <div className="text-white">지도 로딩 중...</div>
+      </div>
+    );
+  }
+
+  return <MapComponent rois={rois} selectedROI={selectedROI} onSelectROI={onSelectROI} />;
 }
 
-export default function GlobalMap({ rois, selectedROI, onSelectROI }: GlobalMapProps) {
+// 실제 지도 컴포넌트
+function MapComponent({ rois, selectedROI, onSelectROI }: GlobalMapProps) {
+  const { MapContainer, TileLayer, Marker, Popup, useMap } = require('react-leaflet');
+  const L = require('leaflet');
+  require('leaflet/dist/leaflet.css');
+
+  // MapController 함수
+  function MapController({ selectedROI }: { selectedROI: ROI | null }) {
+    const map = useMap();
+    
+    useEffect(() => {
+      if (selectedROI) {
+        map.flyTo([selectedROI.lat, selectedROI.lng], 10, { duration: 1 });
+      }
+    }, [selectedROI, map]);
+    
+    return null;
+  }
+
   // 커스텀 마커 아이콘 생성
   const createIcon = (priority: string, isSelected: boolean) => {
     const color = priority === 'high' ? '#ef4444' : priority === 'medium' ? '#f97316' : '#eab308';
