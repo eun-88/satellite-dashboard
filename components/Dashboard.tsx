@@ -486,7 +486,7 @@ export default function Dashboard() {
                 <table style={{ width:'100%', borderCollapse:'collapse' }}>
                   <thead>
                     <tr>
-                      {['#','도시','TIER','위험도','충돌지수','Z-SCORE','패스'].map(h => (
+                      {['#','도시','TIER','위험도','충돌지수','NM','패스'].map(h => (
                         <th key={h} style={{ padding:'8px 14px', fontFamily:S.mono, fontSize:9, letterSpacing:'.1em', color:S.textDim, textTransform:'uppercase', textAlign:'left', fontWeight:400, borderBottom:`1px solid ${S.border}` }}>{h}</th>
                       ))}
                     </tr>
@@ -510,7 +510,7 @@ export default function Dashboard() {
                             <span style={{ fontFamily:S.mono, fontSize:11, color:S.textMid, minWidth:36, textAlign:'right' }}>{t.conflict_index.toFixed(0)}</span>
                           </div>
                         </td>
-                        <td style={{ padding:'9px 14px', fontFamily:S.mono, fontSize:12, color:S.amber }}>{t.innov_z.toFixed(1)}</td>
+                        <td style={{ padding:'9px 14px', fontFamily:S.mono, fontSize:12, color:S.amber }}>{t.mentions_total.toLocaleString()}</td>
                         <td style={{ padding:'9px 14px', fontFamily:S.mono, fontSize:11, color:S.textMid }}>{t.satellite_passes.length}</td>
                       </tr>
                     ))}
