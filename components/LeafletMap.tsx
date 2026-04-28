@@ -118,27 +118,26 @@ function MarkersLayer({ targets, selected, onSelect }: LeafletMapProps) {
           eventHandlers={{ click: () => onSelect(target.city) }}
         >
           <Popup>
-            <div style={{ minWidth: 180, fontFamily: "'Barlow', sans-serif" }}>
+            <div style={{ minWidth: 200, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               <div style={{ fontSize:10, fontWeight:600, color: target.risk_label==='위기'?'#e05252':'#d4883a', marginBottom:4 }}>
                 {target.risk_label} · TIER {target.tier}
               </div>
-              <div style={{ fontSize:14, fontWeight:700, marginBottom:8, color:'#0f172a' }}>
+              <div style={{ fontSize:15, fontWeight:700, marginBottom:8, color:'#0f172a', lineHeight:1.2 }}>
                 {target.display_name}
               </div>
-              <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:4 }}>
-                {([
-                  ['Z-score',  target.innov_z.toFixed(1)],
-                  ['충돌지수', target.conflict_index.toFixed(0)],
-                  ['이벤트',   String(target.events)],
-                  ['언급수',   target.mentions_total.toLocaleString()],
-                ] as [string,string][]).map(([label,val]) => (
-                  <div key={label} style={{ background:'#f8fafc', padding:'4px 6px', borderRadius:3 }}>
-                    <div style={{ fontSize:9, color:'#94a3b8', fontFamily:"'Martian Mono', monospace" }}>{label}</div>
-                    <div style={{ fontSize:12, fontWeight:700, color:'#0f172a', fontFamily:"'Martian Mono', monospace" }}>{val}</div>
-                  </div>
-                ))}
+              <div style={{ fontSize:11, color:'#374151', lineHeight:1.6, marginBottom:10 }}>
+                {target.llm_message}
               </div>
-              <div style={{ marginTop:6, fontSize:10, color:'#64748b', lineHeight:1.5 }}>{target.llm_message}</div>
+              <button
+                onClick={() => onSelect(target.city)}
+                style={{
+                  width:'100%', padding:'6px 0', fontSize:11, fontWeight:600,
+                  background:'#0f172a', color:'#ffffff', border:'none',
+                  borderRadius:4, cursor:'pointer', letterSpacing:'.02em',
+                }}
+              >
+                상세 분석 보기 →
+              </button>
             </div>
           </Popup>
         </Marker>

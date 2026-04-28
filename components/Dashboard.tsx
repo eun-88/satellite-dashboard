@@ -78,15 +78,14 @@ const S = {
   red:     '#e05252', redDim:   'rgba(224,82,82,0.12)',
   amber:   '#d4883a', amberDim: 'rgba(212,136,58,0.12)',
   blue:    '#4a90d4', blueDim:  'rgba(74,144,212,0.12)',
-  green:   '#4ab87a', greenDim: 'rgba(74,184,122,0.12)',
-  text:    '#f0f0f0', textSub: '#999999', textDim: '#555555',
+  green:   '#5fe6a0', greenDim: 'rgba(95,230,160,0.12)',
+  text:    '#ffffff', textSub: '#aaaaaa', textDim: '#555555',
   mono:    "'Martian Mono', monospace",
-  body:    "'Barlow', sans-serif",
-  display: "'Bebas Neue', sans-serif",
+  body:    "'Plus Jakarta Sans', sans-serif",
+  display: "'Plus Jakarta Sans', sans-serif",
 } as const;
 
 const globalStyles = `
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background:${S.bg}; color:${S.text}; font-family:${S.body}; min-height:100vh; font-size:13px; -webkit-font-smoothing:antialiased; overflow:hidden; }
 
@@ -215,38 +214,24 @@ function TrendChart({ city, currentDate }: { city: string; currentDate: string }
     <div style={{ marginBottom:12 }}>
       <div style={{ fontFamily:S.body, fontSize:9, color:S.textDim, letterSpacing:'.08em', textTransform:'uppercase', marginBottom:6 }}>7일 트렌드</div>
 
-      <div style={{ marginBottom:3 }}>
-        <div style={{ fontFamily:S.mono, fontSize:8, color:S.textDim, marginBottom:2 }}>MENTIONS</div>
-        <ResponsiveContainer width="100%" height={75}>
-          <ComposedChart data={trend} margin={{ top:2, right:4, bottom:0, left:-10 }}>
-            <CartesianGrid strokeDasharray="2 4" stroke="rgba(255,255,255,0.05)" vertical={false}/>
-            <XAxis dataKey="date" tick={{ fontFamily:S.mono, fontSize:8, fill:S.textDim }} tickLine={false} axisLine={false}/>
-            <YAxis tick={{ fontFamily:S.mono, fontSize:8, fill:S.textDim }} tickLine={false} axisLine={false} width={40}/>
-            <Tooltip content={<CustomTooltip/>}/>
-            <Bar dataKey="mentions" name="언급수" fill={S.amber} fillOpacity={0.75} radius={[1,1,0,0]}/>
-          </ComposedChart>
-        </ResponsiveContainer>
-      </div>
-
       <div>
         <div style={{ fontFamily:S.mono, fontSize:8, color:S.textDim, marginBottom:2 }}>AVG TONE</div>
-        <ResponsiveContainer width="100%" height={75}>
-          <ComposedChart data={trend} margin={{ top:2, right:4, bottom:0, left:-10 }}>
+        <ResponsiveContainer width="100%" height={90}>
+          <ComposedChart data={trend} margin={{ top:4, right:4, bottom:0, left:-10 }}>
             <CartesianGrid strokeDasharray="2 4" stroke="rgba(255,255,255,0.05)" vertical={false}/>
             <XAxis dataKey="date" tick={{ fontFamily:S.mono, fontSize:8, fill:S.textDim }} tickLine={false} axisLine={false}/>
             <YAxis tick={{ fontFamily:S.mono, fontSize:8, fill:S.textDim }} tickLine={false} axisLine={false} width={40}/>
             <Tooltip content={<CustomTooltip/>}/>
-            <Line dataKey="tone" name="Z-score" stroke={S.red} strokeWidth={1.5} dot={{ r:2, fill:S.red, strokeWidth:0 }} activeDot={{ r:3 }}/>
-            <Line dataKey="conflict" name="충돌지수" stroke={S.blue} strokeWidth={1.5} dot={{ r:2, fill:S.blue, strokeWidth:0 }} activeDot={{ r:3 }} strokeDasharray="3 2"/>
+            <Line dataKey="tone"     name="Z-score"  stroke="#5fe6a0" strokeWidth={1.5} dot={{ r:2, fill:'#5fe6a0', strokeWidth:0 }} activeDot={{ r:3 }}/>
+            <Line dataKey="conflict" name="충돌지수" stroke="#5fe6a0" strokeWidth={1.5} dot={{ r:2, fill:'#5fe6a0', strokeWidth:0 }} activeDot={{ r:3 }} strokeDasharray="3 2" opacity={0.6}/>
           </ComposedChart>
         </ResponsiveContainer>
       </div>
 
       <div style={{ display:'flex', gap:10, marginTop:3 }}>
         {([
-          [S.amber, '■', '언급수'],
-          [S.red,   '—', 'Z-score'],
-          [S.blue,  '- -', '충돌지수'],
+          ['#5fe6a0', '—',   'Z-score'],
+          ['#5fe6a0', '- -', '충돌지수'],
         ] as [string,string,string][]).map(([color,sym,label]) => (
           <div key={label} style={{ display:'flex', alignItems:'center', gap:3 }}>
             <span style={{ fontFamily:S.mono, fontSize:9, color }}>{sym}</span>
@@ -314,7 +299,7 @@ function DetailPanel({ target, pass, approved, onApprove, currentDate }: {
         <span style={{ fontSize:10, color:S.textDim }}>TIER {target.tier}</span>
         {pass && <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, marginLeft:'auto' }}>{pass.satellite}</span>}
       </div>
-      <div style={{ fontFamily:S.display, fontSize:18, fontWeight:400, marginBottom:6, lineHeight:1.2 }}>
+      <div style={{ fontFamily:S.display, fontSize:24, fontWeight:800, marginBottom:6, lineHeight:1.2, color:'#ffffff' }}>
         {target.display_name}
       </div>
       <div style={{ fontSize:11, color:S.textSub, lineHeight:1.6, marginBottom:10, paddingBottom:10, borderBottom:`1px solid ${S.border}` }}>
@@ -394,7 +379,7 @@ function DetailPanel({ target, pass, approved, onApprove, currentDate }: {
                 <span style={{ fontFamily:S.mono, fontSize:9, color:S.blue, flexShrink:0 }}>↗</span>
                 <div style={{ minWidth:0 }}>
                   <div style={{ fontSize:9, color:S.textDim, marginBottom:1 }}>{domain}</div>
-                  <div style={{ fontSize:9, color:S.textSub, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{url}</div>
+                  <div style={{ fontSize:10, color:S.blue, fontWeight:500 }}>기사 원문 바로가기</div>
                 </div>
               </a>
             );
@@ -458,10 +443,11 @@ export default function Dashboard() {
 
         {/* HEADER */}
         <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', paddingBottom:8, borderBottom:`1px solid ${S.border}`, flexShrink:0 }}>
-          <div style={{ display:'flex', alignItems:'center', gap:14 }}>
-            <div style={{ width:3, height:28, background:S.red, borderRadius:2, flexShrink:0 }}/>
+          <div style={{ display:'flex', alignItems:'center', gap:12 }}>
+            <img src="/sia-logo.jpg" alt="SIA" style={{ height:32, objectFit:'contain' }}/>
+            <div style={{ width:1, height:24, background:S.border }}/>
             <div>
-              <div style={{ fontFamily:S.display, fontSize:28, fontWeight:400, letterSpacing:'.04em' }}>SATSCHEDULE</div>
+              <div style={{ fontFamily:S.display, fontSize:20, fontWeight:800, letterSpacing:'.06em', color:'#ffffff' }}>SI ANALYSIS</div>
               <div style={{ fontSize:10, color:S.textDim, marginTop:1 }}>위성 촬영 스케줄링 자동화 · 이란-미국 분쟁 지역</div>
             </div>
           </div>
@@ -491,22 +477,7 @@ export default function Dashboard() {
         >
           {/* 1열: 지도 */}
           <div className="panel">
-            <PanelHeader title="지도" right="GDELT · GEOINT"/>
-
-            {/* 인디케이터 */}
-            <div style={{ display:'flex', borderBottom:`1px solid ${S.border}`, flexShrink:0 }}>
-              {([
-                ['타겟 도시', String(data.summary.satellite_targets), S.text],
-                ['전체 패스', String(data.summary.total_passes),      S.text],
-                ['즉시 촬영', String(urgentCount),                    urgentCount > 0 ? S.red : S.text],
-                ['투입 위성', String(Object.keys(satGroups).length),  S.text],
-              ] as [string,string,string][]).map(([label,val,color])=>(
-                <div key={label} className="ind-card">
-                  <div className="ind-lbl">{label}</div>
-                  <div className="ind-val" style={{ color }}>{val}</div>
-                </div>
-              ))}
-            </div>
+            <PanelHeader title="전술 지도" right="GDELT · GEOINT"/>
 
             {/* 지도 */}
             <div style={{ flex:1, minHeight:0, overflow:'hidden' }}>
