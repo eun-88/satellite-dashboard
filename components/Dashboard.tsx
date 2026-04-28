@@ -6,18 +6,12 @@ import type { Target, SatPass } from './LeafletMap';
 
 const LeafletMap = dynamic(() => import('./LeafletMap'), { ssr: false });
 
-// ══════════════════════════════════════════════════
-//  CONFIG
-// ══════════════════════════════════════════════════
 const AVAILABLE_DATES = [
   '20260322','20260323','20260324','20260325','20260326',
   '20260327','20260328','20260329','20260330','20260331',
 ];
 const dashboardPath = (date: string) => `/data/dashboard/daily_${date}.json`;
 
-// ══════════════════════════════════════════════════
-//  TYPES
-// ══════════════════════════════════════════════════
 interface DashboardData {
   date: string;
   generated_at: string;
@@ -31,9 +25,6 @@ interface FlatPass extends SatPass {
   tier: string;
 }
 
-// ══════════════════════════════════════════════════
-//  HELPERS
-// ══════════════════════════════════════════════════
 const fmtUTC = (iso: string) => {
   const d = new Date(iso);
   return `${String(d.getUTCHours()).padStart(2,'0')}:${String(d.getUTCMinutes()).padStart(2,'0')} UTC`;
@@ -52,135 +43,78 @@ function flattenPasses(targets: Target[]): FlatPass[] {
 }
 const passKey = (p: FlatPass) => `${p.city}-${p.satellite}-${p.pass_time_utc}`;
 
-// ══════════════════════════════════════════════════
-//  DESIGN TOKENS (HTML 프로토타입과 동일)
-// ══════════════════════════════════════════════════
 const S = {
-  bg:       '#090c10',
-  bg2:      '#0d1117',
-  bg3:      '#131920',
-  border:   'rgba(255,255,255,0.07)',
-  borderB:  'rgba(255,255,255,0.14)',
-  red:      '#ff3b3b',
-  redDim:   'rgba(255,59,59,0.15)',
-  amber:    '#f5a623',
-  amberDim: 'rgba(245,166,35,0.12)',
-  cyan:     '#00e5ff',
-  cyanDim:  'rgba(0,229,255,0.1)',
-  green:    '#00ff94',
-  greenDim: 'rgba(0,255,148,0.1)',
-  text:     '#e2e8f0',
-  textDim:  '#64748b',
-  textMid:  '#94a3b8',
-  mono:     '"Space Mono", monospace',
-  sans:     '"DM Sans", sans-serif',
+  bg:      '#090c10', bg2: '#0d1117', bg3: '#131920',
+  border:  'rgba(255,255,255,0.07)', borderB: 'rgba(255,255,255,0.14)',
+  red:     '#ff3b3b', redDim:  'rgba(255,59,59,0.15)',
+  amber:   '#f5a623', amberDim:'rgba(245,166,35,0.12)',
+  cyan:    '#00e5ff', cyanDim: 'rgba(0,229,255,0.1)',
+  green:   '#00ff94', greenDim:'rgba(0,255,148,0.1)',
+  text:    '#e2e8f0', textDim: '#64748b', textMid: '#94a3b8',
+  mono:    '"Space Mono", monospace',
+  sans:    '"DM Sans", sans-serif',
 } as const;
 
-// ══════════════════════════════════════════════════
-//  GLOBAL STYLES
-// ══════════════════════════════════════════════════
 const globalStyles = `
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: ${S.bg};
-    color: ${S.text};
-    font-family: ${S.sans};
-    min-height: 100vh;
-  }
+  body { background: ${S.bg}; color: ${S.text}; font-family: ${S.sans}; min-height: 100vh; }
   .sat-scanline::before {
-    content: '';
-    position: fixed;
-    inset: 0;
+    content: ''; position: fixed; inset: 0;
     background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,229,255,0.015) 2px, rgba(0,229,255,0.015) 4px);
-    pointer-events: none;
-    z-index: 0;
+    pointer-events: none; z-index: 0;
   }
-  /* 로고 애니메이션 */
   .logo-orbit::before {
-    content: '';
-    position: absolute;
-    width: 18px; height: 18px;
-    border: 1.5px solid ${S.cyan};
-    border-radius: 50%;
+    content: ''; position: absolute; width: 18px; height: 18px;
+    border: 1.5px solid ${S.cyan}; border-radius: 50%;
     animation: orbit 3s linear infinite;
   }
-  .logo-dot {
-    width: 5px; height: 5px;
-    background: ${S.cyan};
-    border-radius: 50%;
-    box-shadow: 0 0 8px ${S.cyan};
-    z-index: 1;
-  }
+  .logo-dot { width:5px; height:5px; background:${S.cyan}; border-radius:50%; box-shadow:0 0 8px ${S.cyan}; z-index:1; }
   @keyframes orbit {
     from { transform: rotate(0deg) translateX(8px) rotate(0deg); }
     to   { transform: rotate(360deg) translateX(8px) rotate(-360deg); }
   }
-  /* 상태 점 깜빡임 */
   .status-dot-anim {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: ${S.green};
-    box-shadow: 0 0 6px ${S.green};
+    width:6px; height:6px; border-radius:50%;
+    background:${S.green}; box-shadow:0 0 6px ${S.green};
     animation: blink 2s ease-in-out infinite;
   }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.4} }
-  /* 스탯 카드 top border */
   .stat-red::before   { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:${S.red}; }
   .stat-amber::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:${S.amber}; }
   .stat-cyan::before  { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:${S.cyan}; }
   .stat-green::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:${S.green}; }
-  /* ROI 테이블 hover */
   .roi-row:hover { background: rgba(255,255,255,0.03); }
   .roi-row.selected { background: rgba(0,229,255,0.1); }
-  /* 스케줄 아이템 hover */
   .sch-item:hover { background: rgba(255,255,255,0.025); }
-  /* 탭 버튼 */
-  .tab-active { color: ${S.cyan}; border-bottom: 2px solid ${S.cyan}; }
-  .tab-inactive { color: ${S.textDim}; border-bottom: 2px solid transparent; }
-  .tab-inactive:hover { color: ${S.textMid}; }
-  /* 날짜 드롭다운 */
+  .tab-active   { color:${S.cyan};    border-bottom:2px solid ${S.cyan}; }
+  .tab-inactive { color:${S.textDim}; border-bottom:2px solid transparent; }
+  .tab-inactive:hover { color:${S.textMid}; }
   .date-select {
-    appearance: none;
-    background: ${S.bg3};
-    border: 1px solid ${S.borderB};
-    color: ${S.cyan};
-    font-family: ${S.mono};
-    font-size: 11px;
-    padding: 6px 28px 6px 10px;
-    cursor: pointer;
-    outline: none;
+    appearance:none; background:${S.bg3}; border:1px solid ${S.borderB};
+    color:${S.cyan}; font-family:${S.mono}; font-size:11px;
+    padding:6px 28px 6px 10px; cursor:pointer; outline:none;
   }
   .date-select:hover { border-color: rgba(255,255,255,0.3); }
-  /* 승인 버튼 */
   .action-btn {
-    width: 100%; padding: 10px; cursor: pointer;
-    font-family: ${S.mono}; font-size: 11px;
-    letter-spacing: .1em; text-transform: uppercase;
-    transition: background .15s;
-    background: ${S.redDim}; border: 1px solid ${S.red}; color: ${S.red};
+    width:100%; padding:10px; cursor:pointer;
+    font-family:${S.mono}; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    transition:background .15s;
+    background:${S.redDim}; border:1px solid ${S.red}; color:${S.red};
   }
   .action-btn:hover { background: rgba(255,59,59,0.25); }
-  .action-btn.approved {
-    background: ${S.greenDim}; border-color: ${S.green}; color: ${S.green};
-  }
-  /* 스코어 바 글로우 */
-  .score-fill { height: 100%; background: ${S.red}; box-shadow: 0 0 4px ${S.red}; }
-  /* 타임라인 이벤트 */
-  .tl-sar-urgent  { background: ${S.red};   color: #fff; }
-  .tl-sar-normal  { background: ${S.amber}; color: #000; }
-  .tl-eo-urgent   { background: #ff8c00;    color: #fff; }
-  .tl-eo-normal   { background: ${S.cyan};  color: #000; }
-  /* 기사 링크 */
-  .article-link:hover { border-color: rgba(0,229,255,0.4); background: ${S.bg3}; }
-  /* 스크롤바 */
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: ${S.bg2}; }
-  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+  .action-btn.approved { background:${S.greenDim}; border-color:${S.green}; color:${S.green}; }
+  .score-fill { height:100%; background:${S.red}; box-shadow:0 0 4px ${S.red}; }
+  .tl-sar-urgent { background:${S.red};   color:#fff; }
+  .tl-sar-normal { background:${S.amber}; color:#000; }
+  .tl-eo-urgent  { background:#ff8c00;    color:#fff; }
+  .tl-eo-normal  { background:${S.cyan};  color:#000; }
+  .article-link:hover { border-color: rgba(0,229,255,0.4); background:${S.bg3}; }
+  ::-webkit-scrollbar { width:4px; }
+  ::-webkit-scrollbar-track { background:${S.bg2}; }
+  ::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:2px; }
 `;
 
-// ══════════════════════════════════════════════════
-//  SUB-COMPONENTS
-// ══════════════════════════════════════════════════
+// ── SUB COMPONENTS ──
 
 function PanelHeader({ title, tag }: { title: string; tag: string }) {
   return (
@@ -191,14 +125,15 @@ function PanelHeader({ title, tag }: { title: string; tag: string }) {
   );
 }
 
+// 작아진 스탯 카드 — 지도 아래 가로 배치용
 function StatCard({ label, value, color, meta, cls }: {
   label:string; value:string|number; color:string; meta:string; cls:string;
 }) {
   return (
-    <div className={cls} style={{ flex:1, background:S.bg2, border:`1px solid ${S.border}`, padding:'12px 14px', position:'relative', overflow:'hidden' }}>
-      <div style={{ fontFamily:S.mono, fontSize:10, letterSpacing:'.1em', color:S.textDim, textTransform:'uppercase', marginBottom:6 }}>{label}</div>
-      <div style={{ fontFamily:S.mono, fontSize:28, fontWeight:700, color, lineHeight:1, marginBottom:4 }}>{value}</div>
-      <div style={{ fontSize:11, color:S.textDim }}>{meta}</div>
+    <div className={cls} style={{ flex:1, background:S.bg2, borderRight:`1px solid ${S.border}`, padding:'8px 12px', position:'relative', overflow:'hidden' }}>
+      <div style={{ fontFamily:S.mono, fontSize:9, letterSpacing:'.1em', color:S.textDim, textTransform:'uppercase', marginBottom:4 }}>{label}</div>
+      <div style={{ fontFamily:S.mono, fontSize:20, fontWeight:700, color, lineHeight:1, marginBottom:2 }}>{value}</div>
+      <div style={{ fontSize:10, color:S.textDim }}>{meta}</div>
     </div>
   );
 }
@@ -209,28 +144,19 @@ function ScheduleCard({ pass, approved, onSelect }: {
   const urgent = pass.action_priority_label === '즉시 촬영';
   const cloudPct = pass.cloud_cover_pct;
   const cloudColor = cloudPct < 30 ? S.green : cloudPct > 70 ? S.red : S.amber;
-
   return (
-    <div
-      className="sch-item"
-      onClick={onSelect}
-      style={{
-        padding:'12px 14px',
-        borderBottom:`1px solid ${S.border}`,
-        borderLeft:`3px solid ${urgent ? S.red : S.amber}`,
-        cursor:'pointer', transition:'background .15s',
-      }}
-    >
+    <div className="sch-item" onClick={onSelect}
+      style={{ padding:'12px 14px', borderBottom:`1px solid ${S.border}`, borderLeft:`3px solid ${urgent?S.red:S.amber}`, cursor:'pointer', transition:'background .15s' }}>
       <div style={{ display:'flex', justifyContent:'space-between', marginBottom:6 }}>
         <span style={{ fontFamily:S.mono, fontSize:10, color:S.cyan }}>{pass.satellite}</span>
         <span style={{ fontFamily:S.mono, fontSize:10, color:S.textDim }}>{fmtMD(pass.pass_time_utc)} {fmtUTC(pass.pass_time_utc)}</span>
       </div>
       <div style={{ fontSize:13, fontWeight:500, marginBottom:4 }}>{pass.city}</div>
       <div style={{ display:'flex', gap:10, marginBottom:5, flexWrap:'wrap' }}>
-        <span style={{ fontSize:10, color: urgent ? S.green : S.textDim }}>{pass.action_priority_label}</span>
+        <span style={{ fontSize:10, color: urgent?S.green:S.textDim }}>{pass.action_priority_label}</span>
         <span style={{ fontSize:10, color:S.textDim }}>EL {pass.max_elevation_deg.toFixed(1)}°</span>
-        <span style={{ fontSize:10, color:S.textDim }}>{pass.daylight ? '☀ 주간' : '🌙 야간'}</span>
-        <span style={{ fontSize:10, fontFamily:S.mono, color: pass.sensor_type==='sar' ? S.cyan : S.green }}>{pass.sensor_type.toUpperCase()}</span>
+        <span style={{ fontSize:10, color:S.textDim }}>{pass.daylight?'☀ 주간':'🌙 야간'}</span>
+        <span style={{ fontSize:10, fontFamily:S.mono, color:pass.sensor_type==='sar'?S.cyan:S.green }}>{pass.sensor_type.toUpperCase()}</span>
         <span style={{ fontSize:10, color:S.textDim }}>{pass.resolution_m}m</span>
         {approved && <span style={{ fontSize:10, color:S.green }}>✓ 승인</span>}
       </div>
@@ -254,8 +180,7 @@ function ArticleLinks({ urls }: { urls: string[] }) {
         {urls.map((url, i) => {
           const domain = (() => { try { return new URL(url).hostname.replace('www.',''); } catch { return url; } })();
           return (
-            <a key={i} href={url} target="_blank" rel="noopener noreferrer"
-              className="article-link"
+            <a key={i} href={url} target="_blank" rel="noopener noreferrer" className="article-link"
               style={{ display:'flex', alignItems:'flex-start', gap:8, padding:'6px 10px', background:S.bg2, border:`1px solid ${S.border}`, textDecoration:'none', transition:'all .15s' }}>
               <span style={{ fontFamily:S.mono, fontSize:9, color:S.cyan, flexShrink:0, marginTop:2 }}>↗</span>
               <div style={{ minWidth:0 }}>
@@ -281,7 +206,6 @@ function DetailPanel({ target, pass, approved, onApprove }: {
       </div>
     );
   }
-
   return (
     <div style={{ padding:14 }}>
       <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:4 }}>
@@ -289,22 +213,18 @@ function DetailPanel({ target, pass, approved, onApprove }: {
         <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>TIER {target.tier}</span>
       </div>
       <div style={{ fontSize:22, fontWeight:600, marginBottom:10 }}>{target.display_name}</div>
-
-      {/* LLM 메시지 */}
       <div style={{ background:S.bg3, border:`1px solid ${S.border}`, padding:'8px 10px', marginBottom:10 }}>
         <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, marginBottom:4 }}>LLM 판단</div>
         <div style={{ fontSize:11, color:'#cbd5e1', lineHeight:1.5 }}>{target.llm_message}</div>
       </div>
-
-      {/* 메트릭 그리드 */}
       <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8, marginBottom:10 }}>
         {([
-          ['Goldstein Z',  target.innov_z.toFixed(1),        S.red],
-          ['충돌 지수',    target.conflict_index.toFixed(0),  S.amber],
-          ['이벤트',       String(target.events),             S.text],
-          ['소스 수',      String(target.sources_total),      S.cyan],
-          ['언급 수',      String(target.mentions_total),     S.textMid],
-          ['LLM 상태',     target.llm_status,                 target.llm_status==='SUCCESS'?S.green:S.amber],
+          ['Goldstein Z', target.innov_z.toFixed(1),       S.red],
+          ['충돌 지수',   target.conflict_index.toFixed(0), S.amber],
+          ['이벤트',      String(target.events),            S.text],
+          ['소스 수',     String(target.sources_total),     S.cyan],
+          ['언급 수',     String(target.mentions_total),    S.textMid],
+          ['LLM 상태',    target.llm_status,                target.llm_status==='SUCCESS'?S.green:S.amber],
         ] as [string,string,string][]).map(([label, val, color]) => (
           <div key={label} style={{ background:S.bg3, border:`1px solid ${S.border}`, padding:'8px 10px' }}>
             <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, letterSpacing:'.08em', marginBottom:3 }}>{label}</div>
@@ -312,8 +232,6 @@ function DetailPanel({ target, pass, approved, onApprove }: {
           </div>
         ))}
       </div>
-
-      {/* 선택된 패스 */}
       {pass && (
         <>
           <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, letterSpacing:'.1em', textTransform:'uppercase', marginBottom:8 }}>선택된 패스</div>
@@ -342,8 +260,6 @@ function DetailPanel({ target, pass, approved, onApprove }: {
           </button>
         </>
       )}
-
-      {/* 전체 패스 목록 */}
       {target.satellite_passes.length > 0 && (
         <div style={{ marginTop:12 }}>
           <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, letterSpacing:'.1em', textTransform:'uppercase', marginBottom:6 }}>
@@ -351,7 +267,7 @@ function DetailPanel({ target, pass, approved, onApprove }: {
           </div>
           {target.satellite_passes.map((p, i) => (
             <div key={i} style={{ display:'flex', alignItems:'center', gap:8, padding:'6px 0', borderBottom:`1px solid rgba(255,255,255,0.05)`, fontSize:11 }}>
-              <span style={{ fontFamily:S.mono, fontSize:9, color: p.sensor_type==='sar'?S.cyan:S.green, textTransform:'uppercase' }}>{p.sensor_type}</span>
+              <span style={{ fontFamily:S.mono, fontSize:9, color:p.sensor_type==='sar'?S.cyan:S.green, textTransform:'uppercase' }}>{p.sensor_type}</span>
               <span style={{ color:S.textMid, flex:1 }}>{p.satellite}</span>
               <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>{fmtUTC(p.pass_time_utc)}</span>
               <span style={{ fontFamily:S.mono, fontSize:9, color:S.amber }}>{p.cloud_cover_pct}%</span>
@@ -359,15 +275,13 @@ function DetailPanel({ target, pass, approved, onApprove }: {
           ))}
         </div>
       )}
-
-      {/* 기사 원문 */}
       <ArticleLinks urls={target.urls_sent} />
     </div>
   );
 }
 
 // ══════════════════════════════════════════════════
-//  MAIN DASHBOARD
+//  MAIN
 // ══════════════════════════════════════════════════
 export default function Dashboard() {
   const [date,     setDate]     = useState(AVAILABLE_DATES[AVAILABLE_DATES.length - 1]);
@@ -422,10 +336,9 @@ export default function Dashboard() {
       <div className="sat-scanline" style={{ background:S.bg, color:S.text, fontFamily:S.sans, minHeight:'100vh', padding:16 }}>
         <div style={{ position:'relative', zIndex:1, maxWidth:1400, margin:'0 auto' }}>
 
-          {/* ── HEADER ── */}
+          {/* HEADER */}
           <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'12px 16px', background:S.bg2, border:`1px solid ${S.border}`, borderTop:`2px solid ${S.cyan}`, marginBottom:12 }}>
             <div style={{ display:'flex', alignItems:'center', gap:16 }}>
-              {/* 로고 애니메이션 */}
               <div className="logo-orbit" style={{ width:36, height:36, border:`1.5px solid ${S.cyan}`, borderRadius:4, display:'flex', alignItems:'center', justifyContent:'center', position:'relative', overflow:'hidden' }}>
                 <div className="logo-dot"/>
               </div>
@@ -439,7 +352,6 @@ export default function Dashboard() {
                 <div className="status-dot-anim"/>
                 <span style={{ fontFamily:S.mono, fontSize:10, color:S.textMid }}>LIVE PIPELINE</span>
               </div>
-              {/* 날짜 드롭다운 */}
               <div style={{ position:'relative' }}>
                 <select className="date-select" value={date} onChange={e => setDate(e.target.value)}>
                   {AVAILABLE_DATES.map(d => (
@@ -454,29 +366,31 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* ── STATS ── */}
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:8, marginBottom:12 }}>
-            <StatCard cls="stat-red"   label="타겟 도시"  value={data.summary.satellite_targets}  color={S.red}   meta="위성 촬영 대상"/>
-            <StatCard cls="stat-amber" label="전체 패스"  value={data.summary.total_passes}       color={S.amber} meta="스케줄 후보"/>
-            <StatCard cls="stat-cyan"  label="즉시 촬영"  value={urgentCount}                     color={S.cyan}  meta="우선 실행 패스"/>
-            <StatCard cls="stat-green" label="투입 위성"  value={Object.keys(satGroups).length}   color={S.green} meta="활성 위성 수"/>
-          </div>
-
-          {/* ── MAIN GRID ── */}
+          {/* MAIN GRID */}
           <div style={{ display:'grid', gridTemplateColumns:'1fr 380px', gap:12, marginBottom:12 }}>
 
-            {/* LEFT: 지도 + 테이블 */}
+            {/* LEFT */}
             <div style={{ background:S.bg2, border:`1px solid ${S.border}` }}>
               <PanelHeader title="전술 지도" tag="GDELT·GEOINT"/>
+
+              {/* 지도 */}
               <LeafletMap targets={targets} selected={selected} onSelect={city => { setSelected(city); setSelPass(null); }}/>
+
+              {/* ── 스탯 카드 (지도 바로 아래, 지도 너비에 맞춤) ── */}
+              <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', borderBottom:`1px solid ${S.border}` }}>
+                <StatCard cls="stat-red"   label="타겟 도시" value={data.summary.satellite_targets}  color={S.red}   meta="위성 촬영 대상"/>
+                <StatCard cls="stat-amber" label="전체 패스" value={data.summary.total_passes}       color={S.amber} meta="스케줄 후보"/>
+                <StatCard cls="stat-cyan"  label="즉시 촬영" value={urgentCount}                     color={S.cyan}  meta="우선 실행 패스"/>
+                <StatCard cls="stat-green" label="투입 위성" value={Object.keys(satGroups).length}   color={S.green} meta="활성 위성 수" />
+              </div>
 
               {/* 탭 */}
               <div style={{ display:'flex', borderBottom:`1px solid ${S.border}` }}>
                 {(['roi','sensor'] as const).map(t => (
                   <button key={t} onClick={() => setTab(t)}
-                    className={tab===t ? 'tab-active' : 'tab-inactive'}
+                    className={tab===t?'tab-active':'tab-inactive'}
                     style={{ padding:'8px 14px', fontFamily:S.mono, fontSize:10, letterSpacing:'.08em', textTransform:'uppercase', cursor:'pointer', background:'none', border:'none', transition:'color .15s' }}>
-                    {t==='roi' ? 'ROI 우선순위' : '패스 요약'}
+                    {t==='roi'?'ROI 우선순위':'패스 요약'}
                   </button>
                 ))}
               </div>
@@ -522,15 +436,15 @@ export default function Dashboard() {
               {tab==='sensor' && (
                 <div>
                   {([
-                    ['전체 타겟',  String(data.summary.satellite_targets),                            S.red],
-                    ['전체 패스',  String(data.summary.total_passes),                                 S.amber],
-                    ['즉시 촬영',  String(urgentCount),                                               S.green],
-                    ['SAR 패스',   String(allPasses.filter(p=>p.sensor_type==='sar').length),        S.cyan],
-                    ['EO 패스',    String(allPasses.filter(p=>p.sensor_type==='optical').length),    S.textMid],
-                    ['야간 패스',  String(allPasses.filter(p=>!p.daylight).length),                  S.textDim],
-                    ['구름 없음',  String(allPasses.filter(p=>p.cloud_cover_pct<30).length),        S.green],
-                    ['구름 많음',  String(allPasses.filter(p=>p.cloud_cover_pct>70).length),        S.red],
-                    ['투입 위성',  String(Object.keys(satGroups).length),                            S.cyan],
+                    ['전체 타겟', String(data.summary.satellite_targets),                          S.red],
+                    ['전체 패스', String(data.summary.total_passes),                               S.amber],
+                    ['즉시 촬영', String(urgentCount),                                             S.green],
+                    ['SAR 패스',  String(allPasses.filter(p=>p.sensor_type==='sar').length),      S.cyan],
+                    ['EO 패스',   String(allPasses.filter(p=>p.sensor_type==='optical').length),  S.textMid],
+                    ['야간 패스', String(allPasses.filter(p=>!p.daylight).length),                S.textDim],
+                    ['구름 없음', String(allPasses.filter(p=>p.cloud_cover_pct<30).length),      S.green],
+                    ['구름 많음', String(allPasses.filter(p=>p.cloud_cover_pct>70).length),      S.red],
+                    ['투입 위성', String(Object.keys(satGroups).length),                          S.cyan],
                   ] as [string,string,string][]).map(([name, val, color]) => (
                     <div key={name} style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'8px 14px', borderBottom:`1px solid ${S.border}` }}>
                       <span style={{ fontFamily:S.mono, fontSize:10, color:S.textMid }}>{name}</span>
@@ -544,7 +458,7 @@ export default function Dashboard() {
             {/* RIGHT: 스케줄 */}
             <div style={{ background:S.bg2, border:`1px solid ${S.border}` }}>
               <PanelHeader title="촬영 스케줄" tag={`즉시 촬영 ×${urgentCount}`}/>
-              <div style={{ overflowY:'auto', maxHeight:640 }}>
+              <div style={{ overflowY:'auto', maxHeight:700 }}>
                 {allPasses.map((p, i) => (
                   <ScheduleCard key={i} pass={p} approved={approved.has(passKey(p))}
                     onSelect={() => { setSelected(p.city); setSelPass(p); }}/>
@@ -553,14 +467,13 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* ── BOTTOM GRID ── */}
+          {/* BOTTOM GRID */}
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:12 }}>
 
             {/* 타임라인 */}
             <div style={{ background:S.bg2, border:`1px solid ${S.border}` }}>
               <PanelHeader title="24H 촬영 타임라인" tag={`${Object.keys(satGroups).length} 위성`}/>
               <div style={{ padding:'12px 14px' }}>
-                {/* 시간축 */}
                 <div style={{ display:'flex', marginLeft:108, marginBottom:6 }}>
                   {[0,4,8,12,16,20,24].map(h => (
                     <div key={h} style={{ flex:1, fontFamily:S.mono, fontSize:9, color:S.textDim, textAlign:'center' }}>
@@ -568,7 +481,6 @@ export default function Dashboard() {
                     </div>
                   ))}
                 </div>
-                {/* 위성별 행 */}
                 {Object.entries(satGroups).map(([sat, passes]) => (
                   <div key={sat} style={{ display:'flex', alignItems:'center', marginBottom:8, gap:8 }}>
                     <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, width:100, flexShrink:0, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }} title={sat}>
@@ -578,11 +490,9 @@ export default function Dashboard() {
                       {passes.map((p, ei) => {
                         const d = new Date(p.pass_time_utc);
                         const hr = d.getUTCHours() + d.getUTCMinutes()/60;
-                        const isSAR    = p.sensor_type === 'sar';
+                        const isSAR = p.sensor_type === 'sar';
                         const isUrgent = p.action_priority_label === '즉시 촬영';
-                        const cls = isUrgent
-                          ? (isSAR ? 'tl-sar-urgent' : 'tl-eo-urgent')
-                          : (isSAR ? 'tl-sar-normal' : 'tl-eo-normal');
+                        const cls = isUrgent ? (isSAR?'tl-sar-urgent':'tl-eo-urgent') : (isSAR?'tl-sar-normal':'tl-eo-normal');
                         return (
                           <div key={ei} className={cls}
                             title={`${p.city} | ${p.action_priority_label} | EL${p.max_elevation_deg.toFixed(0)}° | 운량${p.cloud_cover_pct}%`}
@@ -595,14 +505,8 @@ export default function Dashboard() {
                     </div>
                   </div>
                 ))}
-                {/* 범례 */}
                 <div style={{ display:'flex', gap:12, marginTop:10, paddingTop:8, borderTop:`1px solid rgba(255,255,255,0.05)` }}>
-                  {([
-                    ['tl-sar-urgent','SAR 즉시'],
-                    ['tl-sar-normal','SAR 우선'],
-                    ['tl-eo-urgent', 'EO 즉시'],
-                    ['tl-eo-normal', 'EO 우선'],
-                  ] as [string,string][]).map(([cls, label]) => (
+                  {([['tl-sar-urgent','SAR 즉시'],['tl-sar-normal','SAR 우선'],['tl-eo-urgent','EO 즉시'],['tl-eo-normal','EO 우선']] as [string,string][]).map(([cls, label]) => (
                     <div key={label} style={{ display:'flex', alignItems:'center', gap:4 }}>
                       <div className={cls} style={{ width:12, height:12, borderRadius:2 }}/>
                       <span style={{ fontFamily:S.mono, fontSize:8, color:S.textDim }}>{label}</span>
@@ -624,8 +528,8 @@ export default function Dashboard() {
                 />
               </div>
             </div>
-
           </div>
+
         </div>
       </div>
     </>
