@@ -7,7 +7,7 @@ import type { Target, SatPass } from './LeafletMap';
 const LeafletMap = dynamic(() => import('./LeafletMap'), { ssr: false });
 
 // ══════════════════════════════════════════════════
-//  CONFIG — 날짜 목록만 관리하면 됨
+//  CONFIG
 // ══════════════════════════════════════════════════
 const AVAILABLE_DATES = [
   '20260322','20260323','20260324','20260325','20260326',
@@ -50,55 +50,217 @@ function flattenPasses(targets: Target[]): FlatPass[] {
     t.satellite_passes.map(p => ({ ...p, city: t.city, innov_z: t.innov_z, tier: t.tier }))
   ).sort((a, b) => new Date(a.pass_time_utc).getTime() - new Date(b.pass_time_utc).getTime());
 }
-
 const passKey = (p: FlatPass) => `${p.city}-${p.satellite}-${p.pass_time_utc}`;
+
+// ══════════════════════════════════════════════════
+//  DESIGN TOKENS (HTML 프로토타입과 동일)
+// ══════════════════════════════════════════════════
+const S = {
+  bg:       '#090c10',
+  bg2:      '#0d1117',
+  bg3:      '#131920',
+  border:   'rgba(255,255,255,0.07)',
+  borderB:  'rgba(255,255,255,0.14)',
+  red:      '#ff3b3b',
+  redDim:   'rgba(255,59,59,0.15)',
+  amber:    '#f5a623',
+  amberDim: 'rgba(245,166,35,0.12)',
+  cyan:     '#00e5ff',
+  cyanDim:  'rgba(0,229,255,0.1)',
+  green:    '#00ff94',
+  greenDim: 'rgba(0,255,148,0.1)',
+  text:     '#e2e8f0',
+  textDim:  '#64748b',
+  textMid:  '#94a3b8',
+  mono:     '"Space Mono", monospace',
+  sans:     '"DM Sans", sans-serif',
+} as const;
+
+// ══════════════════════════════════════════════════
+//  GLOBAL STYLES
+// ══════════════════════════════════════════════════
+const globalStyles = `
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: ${S.bg};
+    color: ${S.text};
+    font-family: ${S.sans};
+    min-height: 100vh;
+  }
+  .sat-scanline::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,229,255,0.015) 2px, rgba(0,229,255,0.015) 4px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* 로고 애니메이션 */
+  .logo-orbit::before {
+    content: '';
+    position: absolute;
+    width: 18px; height: 18px;
+    border: 1.5px solid ${S.cyan};
+    border-radius: 50%;
+    animation: orbit 3s linear infinite;
+  }
+  .logo-dot {
+    width: 5px; height: 5px;
+    background: ${S.cyan};
+    border-radius: 50%;
+    box-shadow: 0 0 8px ${S.cyan};
+    z-index: 1;
+  }
+  @keyframes orbit {
+    from { transform: rotate(0deg) translateX(8px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(8px) rotate(-360deg); }
+  }
+  /* 상태 점 깜빡임 */
+  .status-dot-anim {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: ${S.green};
+    box-shadow: 0 0 6px ${S.green};
+    animation: blink 2s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.4} }
+  /* 스탯 카드 top border */
+  .stat-red::before   { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:${S.red}; }
+  .stat-amber::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:${S.amber}; }
+  .stat-cyan::before  { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:${S.cyan}; }
+  .stat-green::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:${S.green}; }
+  /* ROI 테이블 hover */
+  .roi-row:hover { background: rgba(255,255,255,0.03); }
+  .roi-row.selected { background: rgba(0,229,255,0.1); }
+  /* 스케줄 아이템 hover */
+  .sch-item:hover { background: rgba(255,255,255,0.025); }
+  /* 탭 버튼 */
+  .tab-active { color: ${S.cyan}; border-bottom: 2px solid ${S.cyan}; }
+  .tab-inactive { color: ${S.textDim}; border-bottom: 2px solid transparent; }
+  .tab-inactive:hover { color: ${S.textMid}; }
+  /* 날짜 드롭다운 */
+  .date-select {
+    appearance: none;
+    background: ${S.bg3};
+    border: 1px solid ${S.borderB};
+    color: ${S.cyan};
+    font-family: ${S.mono};
+    font-size: 11px;
+    padding: 6px 28px 6px 10px;
+    cursor: pointer;
+    outline: none;
+  }
+  .date-select:hover { border-color: rgba(255,255,255,0.3); }
+  /* 승인 버튼 */
+  .action-btn {
+    width: 100%; padding: 10px; cursor: pointer;
+    font-family: ${S.mono}; font-size: 11px;
+    letter-spacing: .1em; text-transform: uppercase;
+    transition: background .15s;
+    background: ${S.redDim}; border: 1px solid ${S.red}; color: ${S.red};
+  }
+  .action-btn:hover { background: rgba(255,59,59,0.25); }
+  .action-btn.approved {
+    background: ${S.greenDim}; border-color: ${S.green}; color: ${S.green};
+  }
+  /* 스코어 바 글로우 */
+  .score-fill { height: 100%; background: ${S.red}; box-shadow: 0 0 4px ${S.red}; }
+  /* 타임라인 이벤트 */
+  .tl-sar-urgent  { background: ${S.red};   color: #fff; }
+  .tl-sar-normal  { background: ${S.amber}; color: #000; }
+  .tl-eo-urgent   { background: #ff8c00;    color: #fff; }
+  .tl-eo-normal   { background: ${S.cyan};  color: #000; }
+  /* 기사 링크 */
+  .article-link:hover { border-color: rgba(0,229,255,0.4); background: ${S.bg3}; }
+  /* 스크롤바 */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: ${S.bg2}; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+`;
 
 // ══════════════════════════════════════════════════
 //  SUB-COMPONENTS
 // ══════════════════════════════════════════════════
+
 function PanelHeader({ title, tag }: { title: string; tag: string }) {
   return (
-    <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-white/[0.07]">
-      <span className="font-mono-space text-[10px] tracking-widest text-slate-400 uppercase">{title}</span>
-      <span className="font-mono-space text-[9px] px-1.5 py-0.5 border border-white/[0.14] text-slate-500">{tag}</span>
+    <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'10px 14px', borderBottom:`1px solid ${S.border}` }}>
+      <span style={{ fontFamily:S.mono, fontSize:10, letterSpacing:'.12em', color:S.textMid, textTransform:'uppercase' }}>{title}</span>
+      <span style={{ fontFamily:S.mono, fontSize:9, padding:'2px 7px', border:`1px solid ${S.borderB}`, color:S.textDim }}>{tag}</span>
     </div>
   );
 }
 
-function StatCard({ label, value, accent, meta }: {
-  label: string; value: string | number; accent: string; meta: string;
+function StatCard({ label, value, color, meta, cls }: {
+  label:string; value:string|number; color:string; meta:string; cls:string;
 }) {
   return (
-    <div className="relative flex-1 bg-[#0d1117] border border-white/[0.07] px-3.5 py-3 overflow-hidden">
-      <div className={`absolute top-0 left-0 right-0 h-0.5 ${accent}`}/>
-      <p className="font-mono-space text-[10px] tracking-widest text-slate-500 uppercase mb-1.5">{label}</p>
-      <p className={`font-mono-space text-3xl font-bold leading-none mb-1 ${accent.replace('bg-','text-')}`}>{value}</p>
-      <p className="text-[11px] text-slate-500">{meta}</p>
+    <div className={cls} style={{ flex:1, background:S.bg2, border:`1px solid ${S.border}`, padding:'12px 14px', position:'relative', overflow:'hidden' }}>
+      <div style={{ fontFamily:S.mono, fontSize:10, letterSpacing:'.1em', color:S.textDim, textTransform:'uppercase', marginBottom:6 }}>{label}</div>
+      <div style={{ fontFamily:S.mono, fontSize:28, fontWeight:700, color, lineHeight:1, marginBottom:4 }}>{value}</div>
+      <div style={{ fontSize:11, color:S.textDim }}>{meta}</div>
     </div>
   );
 }
 
-// ── 기사 원문 카드
+function ScheduleCard({ pass, approved, onSelect }: {
+  pass: FlatPass; approved: boolean; onSelect: () => void;
+}) {
+  const urgent = pass.action_priority_label === '즉시 촬영';
+  const cloudPct = pass.cloud_cover_pct;
+  const cloudColor = cloudPct < 30 ? S.green : cloudPct > 70 ? S.red : S.amber;
+
+  return (
+    <div
+      className="sch-item"
+      onClick={onSelect}
+      style={{
+        padding:'12px 14px',
+        borderBottom:`1px solid ${S.border}`,
+        borderLeft:`3px solid ${urgent ? S.red : S.amber}`,
+        cursor:'pointer', transition:'background .15s',
+      }}
+    >
+      <div style={{ display:'flex', justifyContent:'space-between', marginBottom:6 }}>
+        <span style={{ fontFamily:S.mono, fontSize:10, color:S.cyan }}>{pass.satellite}</span>
+        <span style={{ fontFamily:S.mono, fontSize:10, color:S.textDim }}>{fmtMD(pass.pass_time_utc)} {fmtUTC(pass.pass_time_utc)}</span>
+      </div>
+      <div style={{ fontSize:13, fontWeight:500, marginBottom:4 }}>{pass.city}</div>
+      <div style={{ display:'flex', gap:10, marginBottom:5, flexWrap:'wrap' }}>
+        <span style={{ fontSize:10, color: urgent ? S.green : S.textDim }}>{pass.action_priority_label}</span>
+        <span style={{ fontSize:10, color:S.textDim }}>EL {pass.max_elevation_deg.toFixed(1)}°</span>
+        <span style={{ fontSize:10, color:S.textDim }}>{pass.daylight ? '☀ 주간' : '🌙 야간'}</span>
+        <span style={{ fontSize:10, fontFamily:S.mono, color: pass.sensor_type==='sar' ? S.cyan : S.green }}>{pass.sensor_type.toUpperCase()}</span>
+        <span style={{ fontSize:10, color:S.textDim }}>{pass.resolution_m}m</span>
+        {approved && <span style={{ fontSize:10, color:S.green }}>✓ 승인</span>}
+      </div>
+      <div style={{ display:'flex', alignItems:'center', gap:5 }}>
+        <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>운량</span>
+        <div style={{ flex:1, height:2, background:'rgba(255,255,255,0.06)' }}>
+          <div style={{ height:'100%', width:`${cloudPct}%`, background:cloudColor }}/>
+        </div>
+        <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>{cloudPct}%</span>
+      </div>
+    </div>
+  );
+}
+
 function ArticleLinks({ urls }: { urls: string[] }) {
   if (!urls?.length) return null;
   return (
-    <div className="mt-2">
-      <p className="font-mono-space text-[9px] text-slate-500 tracking-widest uppercase mb-1.5">참조 기사</p>
-      <div className="space-y-1.5">
+    <div style={{ marginTop:10 }}>
+      <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, letterSpacing:'.1em', textTransform:'uppercase', marginBottom:8 }}>참조 기사</div>
+      <div style={{ display:'flex', flexDirection:'column', gap:6 }}>
         {urls.map((url, i) => {
           const domain = (() => { try { return new URL(url).hostname.replace('www.',''); } catch { return url; } })();
           return (
-            <a
-              key={i}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-start gap-2 px-2.5 py-2 bg-[#0d1117] border border-white/[0.07] hover:border-[#00e5ff]/40 hover:bg-[#131920] transition-colors group"
-            >
-              <span className="font-mono-space text-[9px] text-[#00e5ff] shrink-0 mt-0.5 group-hover:text-[#00e5ff]">↗</span>
-              <div className="min-w-0">
-                <p className="font-mono-space text-[9px] text-slate-500 mb-0.5">{domain}</p>
-                <p className="text-[10px] text-slate-300 break-all leading-relaxed line-clamp-2">{url}</p>
+            <a key={i} href={url} target="_blank" rel="noopener noreferrer"
+              className="article-link"
+              style={{ display:'flex', alignItems:'flex-start', gap:8, padding:'6px 10px', background:S.bg2, border:`1px solid ${S.border}`, textDecoration:'none', transition:'all .15s' }}>
+              <span style={{ fontFamily:S.mono, fontSize:9, color:S.cyan, flexShrink:0, marginTop:2 }}>↗</span>
+              <div style={{ minWidth:0 }}>
+                <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, marginBottom:2 }}>{domain}</div>
+                <div style={{ fontSize:10, color:S.textMid, wordBreak:'break-all', lineHeight:1.4, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>{url}</div>
               </div>
             </a>
           );
@@ -108,88 +270,45 @@ function ArticleLinks({ urls }: { urls: string[] }) {
   );
 }
 
-function ScheduleCard({ pass, approved, onSelect }: {
-  pass: FlatPass; approved: boolean; onSelect: () => void;
-}) {
-  const urgent = pass.action_priority_label === '즉시 촬영';
-  const cloudColor = pass.cloud_cover_pct < 30 ? 'bg-[#00ff94]'
-    : pass.cloud_cover_pct > 70 ? 'bg-[#ff3b3b]' : 'bg-[#f5a623]';
-
-  return (
-    <div
-      onClick={onSelect}
-      className={`px-3.5 py-3 border-b border-white/[0.07] cursor-pointer hover:bg-white/[0.02] transition-colors
-        ${urgent ? 'border-l-[3px] border-l-[#ff3b3b]' : 'border-l-[3px] border-l-[#f5a623]'}`}
-    >
-      <div className="flex items-center justify-between mb-1.5">
-        <span className="font-mono-space text-[10px] text-[#00e5ff]">{pass.satellite}</span>
-        <span className="font-mono-space text-[10px] text-slate-500">{fmtMD(pass.pass_time_utc)} {fmtUTC(pass.pass_time_utc)}</span>
-      </div>
-      <p className="text-[13px] font-medium mb-1">{pass.city}</p>
-      <div className="flex items-center gap-2.5 mb-1.5 flex-wrap">
-        <span className={`text-[10px] ${urgent ? 'text-[#00ff94]' : 'text-slate-400'}`}>{pass.action_priority_label}</span>
-        <span className="text-[10px] text-slate-500">EL {pass.max_elevation_deg.toFixed(1)}°</span>
-        <span className="text-[10px] text-slate-500">{pass.daylight ? '☀ 주간' : '🌙 야간'}</span>
-        <span className={`text-[10px] font-mono-space uppercase ${pass.sensor_type === 'sar' ? 'text-[#00e5ff]' : 'text-[#00ff94]'}`}>
-          {pass.sensor_type}
-        </span>
-        <span className="text-[10px] text-slate-500">{pass.resolution_m}m</span>
-        {approved && <span className="text-[10px] text-[#00ff94]">✓ 승인</span>}
-      </div>
-      <div className="flex items-center gap-1.5">
-        <span className="font-mono-space text-[9px] text-slate-500">운량</span>
-        <div className="flex-1 h-0.5 bg-white/[0.06]">
-          <div className={`h-full ${cloudColor}`} style={{ width:`${pass.cloud_cover_pct}%` }}/>
-        </div>
-        <span className="font-mono-space text-[9px] text-slate-500">{pass.cloud_cover_pct}%</span>
-      </div>
-    </div>
-  );
-}
-
 function DetailPanel({ target, pass, approved, onApprove }: {
-  target: Target | null;
-  pass: FlatPass | null;
-  approved: boolean;
-  onApprove: () => void;
+  target: Target | null; pass: FlatPass | null; approved: boolean; onApprove: () => void;
 }) {
   if (!target) {
     return (
-      <div className="flex flex-col items-center justify-center h-48 text-slate-600 gap-2">
-        <span className="text-2xl opacity-30">⊙</span>
-        <p className="font-mono-space text-[10px] tracking-widest">ROI 또는 스케줄 항목을 선택하세요</p>
+      <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:200, color:S.textDim, gap:8 }}>
+        <span style={{ fontSize:24, opacity:.3 }}>⊙</span>
+        <p style={{ fontFamily:S.mono, fontSize:10, letterSpacing:'.1em' }}>ROI 또는 스케줄 항목을 선택하세요</p>
       </div>
     );
   }
 
   return (
-    <div className="p-3.5">
-      {/* 헤더 */}
-      <div className="flex items-center gap-2 mb-1">
-        <span className="font-mono-space text-[10px] px-1.5 py-0.5 border border-[#ff3b3b] text-[#ff3b3b]">{target.risk_label}</span>
-        <span className="font-mono-space text-[10px] text-slate-500">TIER {target.tier}</span>
+    <div style={{ padding:14 }}>
+      <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:4 }}>
+        <span style={{ fontFamily:S.mono, fontSize:9, padding:'2px 6px', border:`1px solid ${S.red}`, color:S.red }}>{target.risk_label}</span>
+        <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>TIER {target.tier}</span>
       </div>
-      <p className="text-[22px] font-semibold mb-2">{target.display_name}</p>
+      <div style={{ fontSize:22, fontWeight:600, marginBottom:10 }}>{target.display_name}</div>
 
       {/* LLM 메시지 */}
-      <div className="bg-[#131920] border border-white/[0.07] px-2.5 py-2 mb-3">
-        <p className="font-mono-space text-[9px] text-slate-500 mb-1">LLM 판단</p>
-        <p className="text-[11px] text-slate-300 leading-relaxed">{target.llm_message}</p>
+      <div style={{ background:S.bg3, border:`1px solid ${S.border}`, padding:'8px 10px', marginBottom:10 }}>
+        <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, marginBottom:4 }}>LLM 판단</div>
+        <div style={{ fontSize:11, color:'#cbd5e1', lineHeight:1.5 }}>{target.llm_message}</div>
       </div>
 
-      {/* 타겟 메트릭 */}
-      <div className="grid grid-cols-2 gap-2 mb-3">
+      {/* 메트릭 그리드 */}
+      <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8, marginBottom:10 }}>
         {([
-          ['Goldstein Z',  target.innov_z.toFixed(1),         'text-[#ff3b3b]'],
-          ['충돌 지수',    target.conflict_index.toFixed(0),   'text-[#f5a623]'],
-          ['이벤트',       String(target.events),              'text-white'],
-          ['소스 수',      String(target.sources_total),       'text-[#00e5ff]'],
-          ['언급 수',      String(target.mentions_total),      'text-slate-300'],
-          ['LLM 상태',     target.llm_status,                  target.llm_status === 'SUCCESS' ? 'text-[#00ff94]' : 'text-[#f5a623]'],
+          ['Goldstein Z',  target.innov_z.toFixed(1),        S.red],
+          ['충돌 지수',    target.conflict_index.toFixed(0),  S.amber],
+          ['이벤트',       String(target.events),             S.text],
+          ['소스 수',      String(target.sources_total),      S.cyan],
+          ['언급 수',      String(target.mentions_total),     S.textMid],
+          ['LLM 상태',     target.llm_status,                 target.llm_status==='SUCCESS'?S.green:S.amber],
         ] as [string,string,string][]).map(([label, val, color]) => (
-          <div key={label} className="bg-[#131920] border border-white/[0.07] px-2.5 py-2">
-            <p className="font-mono-space text-[9px] text-slate-500 mb-1">{label}</p>
-            <p className={`font-mono-space text-[13px] font-bold ${color}`}>{val}</p>
+          <div key={label} style={{ background:S.bg3, border:`1px solid ${S.border}`, padding:'8px 10px' }}>
+            <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, letterSpacing:'.08em', marginBottom:3 }}>{label}</div>
+            <div style={{ fontFamily:S.mono, fontSize:14, fontWeight:700, color }}>{val}</div>
           </div>
         ))}
       </div>
@@ -197,36 +316,28 @@ function DetailPanel({ target, pass, approved, onApprove }: {
       {/* 선택된 패스 */}
       {pass && (
         <>
-          <p className="font-mono-space text-[9px] text-slate-500 tracking-widest uppercase mb-2">선택된 패스</p>
-          <div className="bg-[#0d1117] border border-[#00e5ff]/20 px-3 py-2.5 mb-3">
-            <div className="flex items-center justify-between mb-2">
-              <span className="font-mono-space text-[12px] text-[#00e5ff]">{pass.satellite}</span>
-              <span className="font-mono-space text-[10px] text-slate-400">{fmtMD(pass.pass_time_utc)} {fmtUTC(pass.pass_time_utc)}</span>
+          <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, letterSpacing:'.1em', textTransform:'uppercase', marginBottom:8 }}>선택된 패스</div>
+          <div style={{ background:S.bg2, border:`1px solid rgba(0,229,255,0.2)`, padding:'10px 12px', marginBottom:10 }}>
+            <div style={{ display:'flex', justifyContent:'space-between', marginBottom:8 }}>
+              <span style={{ fontFamily:S.mono, fontSize:12, color:S.cyan }}>{pass.satellite}</span>
+              <span style={{ fontFamily:S.mono, fontSize:10, color:S.textDim }}>{fmtMD(pass.pass_time_utc)} {fmtUTC(pass.pass_time_utc)}</span>
             </div>
-            <div className="grid grid-cols-2 gap-1.5 mb-2">
+            <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:6, marginBottom:8 }}>
               {([
-                ['앙각',   `${pass.max_elevation_deg.toFixed(1)}°`, 'text-white'],
-                ['운량',   `${pass.cloud_cover_pct}%`,              pass.cloud_cover_pct > 70 ? 'text-[#f5a623]' : 'text-[#00ff94]'],
-                ['센서',   pass.sensor_type.toUpperCase(),          pass.sensor_type === 'sar' ? 'text-[#00e5ff]' : 'text-[#00ff94]'],
-                ['해상도', `${pass.resolution_m}m`,                 'text-slate-300'],
+                ['앙각',   `${pass.max_elevation_deg.toFixed(1)}°`, S.text],
+                ['운량',   `${pass.cloud_cover_pct}%`,              pass.cloud_cover_pct>70?S.amber:S.green],
+                ['센서',   pass.sensor_type.toUpperCase(),          pass.sensor_type==='sar'?S.cyan:S.green],
+                ['해상도', `${pass.resolution_m}m`,                 S.textMid],
               ] as [string,string,string][]).map(([label, val, color]) => (
-                <div key={label} className="bg-[#131920] px-2 py-1.5">
-                  <p className="font-mono-space text-[8px] text-slate-500">{label}</p>
-                  <p className={`font-mono-space text-[12px] font-bold ${color}`}>{val}</p>
+                <div key={label} style={{ background:S.bg3, padding:'6px 8px' }}>
+                  <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, marginBottom:2 }}>{label}</div>
+                  <div style={{ fontFamily:S.mono, fontSize:13, fontWeight:700, color }}>{val}</div>
                 </div>
               ))}
             </div>
-            <p className="text-[10px] text-slate-400">{pass.recommendation_reason}</p>
+            <div style={{ fontSize:10, color:S.textMid }}>{pass.recommendation_reason}</div>
           </div>
-
-          <button
-            onClick={onApprove}
-            className={`w-full py-2.5 font-mono-space text-[11px] tracking-widest uppercase transition-colors cursor-pointer mb-3
-              ${approved
-                ? 'bg-[rgba(0,255,148,0.1)] border border-[#00ff94] text-[#00ff94]'
-                : 'bg-[rgba(255,59,59,0.15)] border border-[#ff3b3b] text-[#ff3b3b] hover:bg-[rgba(255,59,59,0.25)]'
-              }`}
-          >
+          <button className={`action-btn${approved?' approved':''}`} onClick={onApprove}>
             {approved ? '✓ 촬영 승인됨' : '▶ 촬영 승인 / 스케줄 확정'}
           </button>
         </>
@@ -234,16 +345,16 @@ function DetailPanel({ target, pass, approved, onApprove }: {
 
       {/* 전체 패스 목록 */}
       {target.satellite_passes.length > 0 && (
-        <div className="mb-3">
-          <p className="font-mono-space text-[9px] text-slate-500 tracking-widest uppercase mb-2">전체 패스 ({target.satellite_passes.length})</p>
+        <div style={{ marginTop:12 }}>
+          <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, letterSpacing:'.1em', textTransform:'uppercase', marginBottom:6 }}>
+            전체 패스 ({target.satellite_passes.length})
+          </div>
           {target.satellite_passes.map((p, i) => (
-            <div key={i} className="flex items-center gap-2 py-1.5 border-b border-white/[0.05] text-[11px]">
-              <span className={`font-mono-space text-[9px] uppercase ${p.sensor_type === 'sar' ? 'text-[#00e5ff]' : 'text-[#00ff94]'}`}>
-                {p.sensor_type}
-              </span>
-              <span className="text-slate-300 flex-1">{p.satellite}</span>
-              <span className="font-mono-space text-[9px] text-slate-500">{fmtUTC(p.pass_time_utc)}</span>
-              <span className="font-mono-space text-[9px] text-[#f5a623]">{p.cloud_cover_pct}%</span>
+            <div key={i} style={{ display:'flex', alignItems:'center', gap:8, padding:'6px 0', borderBottom:`1px solid rgba(255,255,255,0.05)`, fontSize:11 }}>
+              <span style={{ fontFamily:S.mono, fontSize:9, color: p.sensor_type==='sar'?S.cyan:S.green, textTransform:'uppercase' }}>{p.sensor_type}</span>
+              <span style={{ color:S.textMid, flex:1 }}>{p.satellite}</span>
+              <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>{fmtUTC(p.pass_time_utc)}</span>
+              <span style={{ fontFamily:S.mono, fontSize:9, color:S.amber }}>{p.cloud_cover_pct}%</span>
             </div>
           ))}
         </div>
@@ -268,12 +379,8 @@ export default function Dashboard() {
   const [loading,  setLoading]  = useState(true);
   const [error,    setError]    = useState<string | null>(null);
 
-  // 날짜 바뀌면 데이터 새로 fetch
   useEffect(() => {
-    setLoading(true);
-    setError(null);
-    setSelected(null);
-    setSelPass(null);
+    setLoading(true); setError(null); setSelected(null); setSelPass(null);
     (async () => {
       try {
         const res = await fetch(dashboardPath(date));
@@ -281,9 +388,7 @@ export default function Dashboard() {
         setData(await res.json());
       } catch (e: unknown) {
         setError(e instanceof Error ? e.message : 'fetch 실패');
-      } finally {
-        setLoading(false);
-      }
+      } finally { setLoading(false); }
     })();
   }, [date]);
 
@@ -292,13 +397,13 @@ export default function Dashboard() {
   }, []);
 
   if (loading) return (
-    <div className="bg-[#090c10] text-slate-500 font-mono-space text-[11px] flex items-center justify-center h-screen tracking-widest">
+    <div style={{ background:S.bg, color:S.textDim, fontFamily:S.mono, fontSize:11, display:'flex', alignItems:'center', justifyContent:'center', height:'100vh', letterSpacing:'.1em' }}>
       LOADING INTEL DATA...
     </div>
   );
   if (error || !data) return (
-    <div className="bg-[#090c10] text-[#ff3b3b] font-mono-space text-[11px] p-8">
-      ⚠ {error ?? '데이터 없음'} — /data/dashboard/daily_{date}.json 경로를 확인하세요
+    <div style={{ background:S.bg, color:S.red, fontFamily:S.mono, fontSize:11, padding:32 }}>
+      ⚠ {error ?? '데이터 없음'}
     </div>
   );
 
@@ -312,228 +417,217 @@ export default function Dashboard() {
   }, {} as Record<string, FlatPass[]>);
 
   return (
-    <div className="bg-[#090c10] text-[#e2e8f0] font-dm min-h-screen p-4">
-      {/* 스캔라인 */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{ background:'repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,229,255,0.015) 2px,rgba(0,229,255,0.015) 4px)' }}
-      />
+    <>
+      <style>{globalStyles}</style>
+      <div className="sat-scanline" style={{ background:S.bg, color:S.text, fontFamily:S.sans, minHeight:'100vh', padding:16 }}>
+        <div style={{ position:'relative', zIndex:1, maxWidth:1400, margin:'0 auto' }}>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto space-y-3">
-
-        {/* HEADER */}
-        <header className="flex items-center justify-between px-4 py-3 bg-[#0d1117] border border-white/[0.07] border-t-2 border-t-[#00e5ff]">
-          <div className="flex items-center gap-4">
-            <div className="w-9 h-9 border border-[#00e5ff] rounded flex items-center justify-center">
-              <span className="font-mono-space text-[#00e5ff] text-base">⊕</span>
-            </div>
-            <div>
-              <p className="font-mono-space text-[13px] tracking-[.12em] text-[#00e5ff] uppercase">SATSCHEDULE · INTEL OPS</p>
-              <p className="text-[11px] text-slate-500 mt-0.5">이란-미국 분쟁 지역 / 위성 촬영 스케줄링 자동화</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00ff94] shadow-[0_0_6px_#00ff94] animate-pulse"/>
-              <span className="font-mono-space text-[10px] text-slate-400">LIVE PIPELINE</span>
-            </div>
-
-            {/* 날짜 드롭다운 */}
-            <div className="relative">
-              <select
-                value={date}
-                onChange={e => setDate(e.target.value)}
-                className="appearance-none bg-[#131920] border border-white/[0.14] text-[#00e5ff] font-mono-space text-[11px] px-3 py-1.5 pr-7 cursor-pointer focus:outline-none focus:border-[#00e5ff]/50 hover:border-white/30 transition-colors"
-              >
-                {AVAILABLE_DATES.map(d => (
-                  <option key={d} value={d} className="bg-[#131920] text-[#e2e8f0]">
-                    📅 {fmtDateLabel(d)}
-                  </option>
-                ))}
-              </select>
-              <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[#00e5ff] text-[10px] pointer-events-none">▾</span>
-            </div>
-
-            <span className="bg-[rgba(255,59,59,0.15)] border border-[#ff3b3b] text-[#ff3b3b] font-mono-space text-[11px] px-2.5 py-0.5">
-              ▲ {targets.length} TARGETS
-            </span>
-          </div>
-        </header>
-
-        {/* STATS */}
-        <div className="flex gap-2">
-          <StatCard label="타겟 도시"  value={data.summary.satellite_targets}  accent="bg-[#ff3b3b]" meta="위성 촬영 대상"/>
-          <StatCard label="전체 패스"  value={data.summary.total_passes}       accent="bg-[#f5a623]" meta="스케줄 후보"/>
-          <StatCard label="즉시 촬영"  value={urgentCount}                     accent="bg-[#00e5ff]" meta="우선 실행 패스"/>
-          <StatCard label="투입 위성"  value={Object.keys(satGroups).length}   accent="bg-[#00ff94]" meta="활성 위성 수"/>
-        </div>
-
-        {/* MAIN GRID */}
-        <div className="grid grid-cols-[1fr_380px] gap-3">
-
-          {/* LEFT */}
-          <div className="bg-[#0d1117] border border-white/[0.07]">
-            <PanelHeader title="전술 지도" tag="GDELT·GEOINT"/>
-            <LeafletMap
-              targets={targets}
-              selected={selected}
-              onSelect={city => { setSelected(city); setSelPass(null); }}
-            />
-
-            {/* 탭 */}
-            <div className="flex border-b border-white/[0.07]">
-              {(['roi','sensor'] as const).map(t => (
-                <button key={t} onClick={() => setTab(t)}
-                  className={`px-3.5 py-2 font-mono-space text-[10px] tracking-wide uppercase cursor-pointer border-b-2 transition-colors
-                    ${tab === t ? 'text-[#00e5ff] border-[#00e5ff]' : 'text-slate-500 border-transparent hover:text-slate-300'}`}>
-                  {t === 'roi' ? 'ROI 우선순위' : '패스 요약'}
-                </button>
-              ))}
-            </div>
-
-            {tab === 'roi' && (
-              <table className="w-full">
-                <thead>
-                  <tr>
-                    {['#','도시','Tier','위험도','충돌지수','Z-score','패스'].map(h => (
-                      <th key={h} className="px-3 py-2 font-mono-space text-[9px] tracking-widest text-slate-500 uppercase text-left font-normal border-b border-white/[0.07]">{h}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {targets.map((t, i) => (
-                    <tr key={t.city} onClick={() => { setSelected(t.city); setSelPass(null); }}
-                      className={`border-b border-white/[0.07] cursor-pointer transition-colors
-                        ${selected === t.city ? 'bg-[rgba(0,229,255,0.1)]' : 'hover:bg-white/[0.03]'}`}>
-                      <td className="px-3 py-2.5 font-mono-space text-[11px] text-slate-500">{String(i+1).padStart(2,'0')}</td>
-                      <td className="px-3 py-2.5 text-[12px] font-medium">{t.display_name}</td>
-                      <td className="px-3 py-2.5 font-mono-space text-[11px] text-[#00e5ff]">{t.tier}</td>
-                      <td className="px-3 py-2.5">
-                        <span className="bg-[rgba(255,59,59,0.15)] text-[#ff3b3b] border border-[#ff3b3b] font-mono-space text-[9px] font-bold px-1.5 py-0.5">{t.risk_label}</span>
-                      </td>
-                      <td className="px-3 py-2.5">
-                        <div className="flex items-center gap-1.5">
-                          <div className="flex-1 h-[3px] bg-white/[0.08]">
-                            <div className="h-full bg-[#ff3b3b]" style={{ width:`${(t.conflict_index/maxCI*100).toFixed(0)}%` }}/>
-                          </div>
-                          <span className="font-mono-space text-[10px] text-slate-400 min-w-[36px] text-right">{t.conflict_index.toFixed(0)}</span>
-                        </div>
-                      </td>
-                      <td className="px-3 py-2.5 font-mono-space text-[12px] text-[#f5a623]">{t.innov_z.toFixed(1)}</td>
-                      <td className="px-3 py-2.5 font-mono-space text-[11px] text-slate-400">{t.satellite_passes.length}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
-
-            {tab === 'sensor' && (
+          {/* ── HEADER ── */}
+          <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'12px 16px', background:S.bg2, border:`1px solid ${S.border}`, borderTop:`2px solid ${S.cyan}`, marginBottom:12 }}>
+            <div style={{ display:'flex', alignItems:'center', gap:16 }}>
+              {/* 로고 애니메이션 */}
+              <div className="logo-orbit" style={{ width:36, height:36, border:`1.5px solid ${S.cyan}`, borderRadius:4, display:'flex', alignItems:'center', justifyContent:'center', position:'relative', overflow:'hidden' }}>
+                <div className="logo-dot"/>
+              </div>
               <div>
-                {([
-                  ['전체 타겟',  String(data.summary.satellite_targets),                              'text-[#ff3b3b]'],
-                  ['전체 패스',  String(data.summary.total_passes),                                   'text-[#f5a623]'],
-                  ['즉시 촬영',  String(urgentCount),                                                 'text-[#00ff94]'],
-                  ['SAR 패스',   String(allPasses.filter(p=>p.sensor_type==='sar').length),           'text-[#00e5ff]'],
-                  ['EO 패스',    String(allPasses.filter(p=>p.sensor_type==='optical').length),       'text-slate-300'],
-                  ['야간 패스',  String(allPasses.filter(p=>!p.daylight).length),                    'text-slate-400'],
-                  ['구름 없음',  String(allPasses.filter(p=>p.cloud_cover_pct<30).length),           'text-[#00ff94]'],
-                  ['구름 많음',  String(allPasses.filter(p=>p.cloud_cover_pct>70).length),           'text-[#ff3b3b]'],
-                  ['투입 위성',  String(Object.keys(satGroups).length),                              'text-[#00e5ff]'],
-                ] as [string,string,string][]).map(([name, val, color]) => (
-                  <div key={name} className="flex items-center justify-between px-3.5 py-2 border-b border-white/[0.07]">
-                    <span className="font-mono-space text-[10px] text-slate-400">{name}</span>
-                    <span className={`font-mono-space text-[12px] ${color}`}>{val}</span>
-                  </div>
-                ))}
+                <div style={{ fontFamily:S.mono, fontSize:13, letterSpacing:'.12em', color:S.cyan, textTransform:'uppercase' }}>SATSCHEDULE · INTEL OPS</div>
+                <div style={{ fontSize:11, color:S.textDim, marginTop:2 }}>이란-미국 분쟁 지역 / 위성 촬영 스케줄링 자동화</div>
               </div>
-            )}
-          </div>
-
-          {/* RIGHT: 스케줄 */}
-          <div className="bg-[#0d1117] border border-white/[0.07]">
-            <PanelHeader title="촬영 스케줄" tag={`즉시 촬영 ×${urgentCount}`}/>
-            <div className="overflow-y-auto max-h-[640px]">
-              {allPasses.map((p, i) => (
-                <ScheduleCard key={i} pass={p} approved={approved.has(passKey(p))}
-                  onSelect={() => { setSelected(p.city); setSelPass(p); }}/>
-              ))}
+            </div>
+            <div style={{ display:'flex', alignItems:'center', gap:20 }}>
+              <div style={{ display:'flex', alignItems:'center', gap:6 }}>
+                <div className="status-dot-anim"/>
+                <span style={{ fontFamily:S.mono, fontSize:10, color:S.textMid }}>LIVE PIPELINE</span>
+              </div>
+              {/* 날짜 드롭다운 */}
+              <div style={{ position:'relative' }}>
+                <select className="date-select" value={date} onChange={e => setDate(e.target.value)}>
+                  {AVAILABLE_DATES.map(d => (
+                    <option key={d} value={d} style={{ background:S.bg3 }}>📅 {fmtDateLabel(d)}</option>
+                  ))}
+                </select>
+                <span style={{ position:'absolute', right:8, top:'50%', transform:'translateY(-50%)', color:S.cyan, fontSize:10, pointerEvents:'none' }}>▾</span>
+              </div>
+              <div style={{ background:S.redDim, border:`1px solid ${S.red}`, color:S.red, fontFamily:S.mono, fontSize:11, padding:'3px 10px' }}>
+                ▲ {targets.length} TARGETS
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* BOTTOM GRID */}
-        <div className="grid grid-cols-2 gap-3">
+          {/* ── STATS ── */}
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:8, marginBottom:12 }}>
+            <StatCard cls="stat-red"   label="타겟 도시"  value={data.summary.satellite_targets}  color={S.red}   meta="위성 촬영 대상"/>
+            <StatCard cls="stat-amber" label="전체 패스"  value={data.summary.total_passes}       color={S.amber} meta="스케줄 후보"/>
+            <StatCard cls="stat-cyan"  label="즉시 촬영"  value={urgentCount}                     color={S.cyan}  meta="우선 실행 패스"/>
+            <StatCard cls="stat-green" label="투입 위성"  value={Object.keys(satGroups).length}   color={S.green} meta="활성 위성 수"/>
+          </div>
 
-          {/* 타임라인 */}
-          <div className="bg-[#0d1117] border border-white/[0.07]">
-            <PanelHeader title="24H 촬영 타임라인" tag={`${Object.keys(satGroups).length} 위성`}/>
-            <div className="p-3.5">
-              <div className="flex ml-[110px] mb-1.5">
-                {[0,4,8,12,16,20,24].map(h => (
-                  <div key={h} className="flex-1 font-mono-space text-[9px] text-slate-500 text-center">
-                    {String(h).padStart(2,'0')}h
-                  </div>
+          {/* ── MAIN GRID ── */}
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 380px', gap:12, marginBottom:12 }}>
+
+            {/* LEFT: 지도 + 테이블 */}
+            <div style={{ background:S.bg2, border:`1px solid ${S.border}` }}>
+              <PanelHeader title="전술 지도" tag="GDELT·GEOINT"/>
+              <LeafletMap targets={targets} selected={selected} onSelect={city => { setSelected(city); setSelPass(null); }}/>
+
+              {/* 탭 */}
+              <div style={{ display:'flex', borderBottom:`1px solid ${S.border}` }}>
+                {(['roi','sensor'] as const).map(t => (
+                  <button key={t} onClick={() => setTab(t)}
+                    className={tab===t ? 'tab-active' : 'tab-inactive'}
+                    style={{ padding:'8px 14px', fontFamily:S.mono, fontSize:10, letterSpacing:'.08em', textTransform:'uppercase', cursor:'pointer', background:'none', border:'none', transition:'color .15s' }}>
+                    {t==='roi' ? 'ROI 우선순위' : '패스 요약'}
+                  </button>
                 ))}
               </div>
-              {Object.entries(satGroups).map(([sat, passes]) => (
-                <div key={sat} className="flex items-center mb-2 gap-2">
-                  <div className="font-mono-space text-[9px] text-slate-500 w-[106px] shrink-0 overflow-hidden text-ellipsis whitespace-nowrap" title={sat}>
-                    {sat.replace('ICEYE-','').replace('Sentinel-','S').replace('SpaceEye-','SE-')}
-                  </div>
-                  <div className="flex-1 h-5 bg-white/[0.04] rounded-sm relative">
-                    {passes.map((p, ei) => {
-                      const d = new Date(p.pass_time_utc);
-                      const hr = d.getUTCHours() + d.getUTCMinutes() / 60;
-                      const isSAR    = p.sensor_type === 'sar';
-                      const isUrgent = p.action_priority_label === '즉시 촬영';
-                      const bg = isUrgent
-                        ? (isSAR ? 'bg-[#ff3b3b]' : 'bg-[#ff8c00]')
-                        : (isSAR ? 'bg-[#f5a623]' : 'bg-[#00e5ff]');
-                      const tc = (isSAR && isUrgent) ? 'text-white' : 'text-black';
-                      return (
-                        <div key={ei} title={`${p.city} | ${p.action_priority_label} | EL${p.max_elevation_deg.toFixed(0)}° | 운량${p.cloud_cover_pct}%`}
-                          onClick={() => { setSelected(p.city); setSelPass(p); }}
-                          className={`absolute h-full rounded-sm flex items-center px-1 font-mono-space text-[8px] overflow-hidden whitespace-nowrap cursor-pointer hover:opacity-80 ${bg} ${tc}`}
-                          style={{ left:`${(hr/24*100).toFixed(1)}%`, width:'6%', minWidth:'4px' }}>
-                          {p.city.substring(0,3)}
-                        </div>
-                      );
-                    })}
-                  </div>
+
+              {/* ROI 테이블 */}
+              {tab==='roi' && (
+                <table style={{ width:'100%', borderCollapse:'collapse' }}>
+                  <thead>
+                    <tr>
+                      {['#','도시','TIER','위험도','충돌지수','Z-SCORE','패스'].map(h => (
+                        <th key={h} style={{ padding:'8px 14px', fontFamily:S.mono, fontSize:9, letterSpacing:'.1em', color:S.textDim, textTransform:'uppercase', textAlign:'left', fontWeight:400, borderBottom:`1px solid ${S.border}` }}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {targets.map((t, i) => (
+                      <tr key={t.city} onClick={() => { setSelected(t.city); setSelPass(null); }}
+                        className={`roi-row${selected===t.city?' selected':''}`}
+                        style={{ borderBottom:`1px solid ${S.border}`, cursor:'pointer', transition:'background .15s' }}>
+                        <td style={{ padding:'9px 14px', fontFamily:S.mono, fontSize:11, color:S.textDim }}>{String(i+1).padStart(2,'0')}</td>
+                        <td style={{ padding:'9px 14px', fontSize:12, fontWeight:500 }}>{t.display_name}</td>
+                        <td style={{ padding:'9px 14px', fontFamily:S.mono, fontSize:11, color:S.cyan }}>{t.tier}</td>
+                        <td style={{ padding:'9px 14px' }}>
+                          <span style={{ background:S.redDim, color:S.red, border:`1px solid ${S.red}`, fontFamily:S.mono, fontSize:9, fontWeight:700, padding:'2px 6px' }}>{t.risk_label}</span>
+                        </td>
+                        <td style={{ padding:'9px 14px' }}>
+                          <div style={{ display:'flex', alignItems:'center', gap:6 }}>
+                            <div style={{ flex:1, height:3, background:'rgba(255,255,255,0.08)' }}>
+                              <div className="score-fill" style={{ width:`${(t.conflict_index/maxCI*100).toFixed(0)}%` }}/>
+                            </div>
+                            <span style={{ fontFamily:S.mono, fontSize:11, color:S.textMid, minWidth:36, textAlign:'right' }}>{t.conflict_index.toFixed(0)}</span>
+                          </div>
+                        </td>
+                        <td style={{ padding:'9px 14px', fontFamily:S.mono, fontSize:12, color:S.amber }}>{t.innov_z.toFixed(1)}</td>
+                        <td style={{ padding:'9px 14px', fontFamily:S.mono, fontSize:11, color:S.textMid }}>{t.satellite_passes.length}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+
+              {/* 패스 요약 */}
+              {tab==='sensor' && (
+                <div>
+                  {([
+                    ['전체 타겟',  String(data.summary.satellite_targets),                            S.red],
+                    ['전체 패스',  String(data.summary.total_passes),                                 S.amber],
+                    ['즉시 촬영',  String(urgentCount),                                               S.green],
+                    ['SAR 패스',   String(allPasses.filter(p=>p.sensor_type==='sar').length),        S.cyan],
+                    ['EO 패스',    String(allPasses.filter(p=>p.sensor_type==='optical').length),    S.textMid],
+                    ['야간 패스',  String(allPasses.filter(p=>!p.daylight).length),                  S.textDim],
+                    ['구름 없음',  String(allPasses.filter(p=>p.cloud_cover_pct<30).length),        S.green],
+                    ['구름 많음',  String(allPasses.filter(p=>p.cloud_cover_pct>70).length),        S.red],
+                    ['투입 위성',  String(Object.keys(satGroups).length),                            S.cyan],
+                  ] as [string,string,string][]).map(([name, val, color]) => (
+                    <div key={name} style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'8px 14px', borderBottom:`1px solid ${S.border}` }}>
+                      <span style={{ fontFamily:S.mono, fontSize:10, color:S.textMid }}>{name}</span>
+                      <span style={{ fontFamily:S.mono, fontSize:12, color }}>{val}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-              {/* 범례 */}
-              <div className="flex gap-3 mt-3 pt-2 border-t border-white/[0.05]">
-                {([
-                  ['bg-[#ff3b3b]','SAR 즉시'],
-                  ['bg-[#f5a623]','SAR 우선'],
-                  ['bg-[#ff8c00]','EO 즉시'],
-                  ['bg-[#00e5ff]','EO 우선'],
-                ] as [string,string][]).map(([color, label]) => (
-                  <div key={label} className="flex items-center gap-1">
-                    <div className={`w-3 h-3 rounded-sm ${color}`}/>
-                    <span className="font-mono-space text-[8px] text-slate-500">{label}</span>
-                  </div>
+              )}
+            </div>
+
+            {/* RIGHT: 스케줄 */}
+            <div style={{ background:S.bg2, border:`1px solid ${S.border}` }}>
+              <PanelHeader title="촬영 스케줄" tag={`즉시 촬영 ×${urgentCount}`}/>
+              <div style={{ overflowY:'auto', maxHeight:640 }}>
+                {allPasses.map((p, i) => (
+                  <ScheduleCard key={i} pass={p} approved={approved.has(passKey(p))}
+                    onSelect={() => { setSelected(p.city); setSelPass(p); }}/>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* 상세 분석 */}
-          <div className="bg-[#0d1117] border border-white/[0.07]">
-            <PanelHeader title="상세 분석" tag={selected ?? '선택 없음'}/>
-            <div className="overflow-y-auto max-h-[420px]">
-              <DetailPanel
-                target={selTarget}
-                pass={selPass}
-                approved={selPass ? approved.has(passKey(selPass)) : false}
-                onApprove={() => selPass && approve(passKey(selPass))}
-              />
-            </div>
-          </div>
+          {/* ── BOTTOM GRID ── */}
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:12 }}>
 
+            {/* 타임라인 */}
+            <div style={{ background:S.bg2, border:`1px solid ${S.border}` }}>
+              <PanelHeader title="24H 촬영 타임라인" tag={`${Object.keys(satGroups).length} 위성`}/>
+              <div style={{ padding:'12px 14px' }}>
+                {/* 시간축 */}
+                <div style={{ display:'flex', marginLeft:108, marginBottom:6 }}>
+                  {[0,4,8,12,16,20,24].map(h => (
+                    <div key={h} style={{ flex:1, fontFamily:S.mono, fontSize:9, color:S.textDim, textAlign:'center' }}>
+                      {String(h).padStart(2,'0')}h
+                    </div>
+                  ))}
+                </div>
+                {/* 위성별 행 */}
+                {Object.entries(satGroups).map(([sat, passes]) => (
+                  <div key={sat} style={{ display:'flex', alignItems:'center', marginBottom:8, gap:8 }}>
+                    <div style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, width:100, flexShrink:0, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }} title={sat}>
+                      {sat.replace('ICEYE-','').replace('Sentinel-','S').replace('SpaceEye-','SE-')}
+                    </div>
+                    <div style={{ flex:1, height:20, background:'rgba(255,255,255,0.04)', borderRadius:2, position:'relative' }}>
+                      {passes.map((p, ei) => {
+                        const d = new Date(p.pass_time_utc);
+                        const hr = d.getUTCHours() + d.getUTCMinutes()/60;
+                        const isSAR    = p.sensor_type === 'sar';
+                        const isUrgent = p.action_priority_label === '즉시 촬영';
+                        const cls = isUrgent
+                          ? (isSAR ? 'tl-sar-urgent' : 'tl-eo-urgent')
+                          : (isSAR ? 'tl-sar-normal' : 'tl-eo-normal');
+                        return (
+                          <div key={ei} className={cls}
+                            title={`${p.city} | ${p.action_priority_label} | EL${p.max_elevation_deg.toFixed(0)}° | 운량${p.cloud_cover_pct}%`}
+                            onClick={() => { setSelected(p.city); setSelPass(p); }}
+                            style={{ position:'absolute', height:'100%', left:`${(hr/24*100).toFixed(1)}%`, width:'6%', minWidth:4, borderRadius:2, display:'flex', alignItems:'center', padding:'0 4px', fontFamily:S.mono, fontSize:8, overflow:'hidden', whiteSpace:'nowrap', cursor:'pointer' }}>
+                            {p.city.substring(0,3)}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+                {/* 범례 */}
+                <div style={{ display:'flex', gap:12, marginTop:10, paddingTop:8, borderTop:`1px solid rgba(255,255,255,0.05)` }}>
+                  {([
+                    ['tl-sar-urgent','SAR 즉시'],
+                    ['tl-sar-normal','SAR 우선'],
+                    ['tl-eo-urgent', 'EO 즉시'],
+                    ['tl-eo-normal', 'EO 우선'],
+                  ] as [string,string][]).map(([cls, label]) => (
+                    <div key={label} style={{ display:'flex', alignItems:'center', gap:4 }}>
+                      <div className={cls} style={{ width:12, height:12, borderRadius:2 }}/>
+                      <span style={{ fontFamily:S.mono, fontSize:8, color:S.textDim }}>{label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* 상세 분석 */}
+            <div style={{ background:S.bg2, border:`1px solid ${S.border}` }}>
+              <PanelHeader title="상세 분석" tag={selected ?? '선택 없음'}/>
+              <div style={{ overflowY:'auto', maxHeight:420 }}>
+                <DetailPanel
+                  target={selTarget}
+                  pass={selPass}
+                  approved={selPass ? approved.has(passKey(selPass)) : false}
+                  onApprove={() => selPass && approve(passKey(selPass))}
+                />
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
