@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap, ZoomControl } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -64,11 +64,12 @@ function MapController({ targets, selected }: { targets: Target[]; selected: str
   return null;
 }
 
-// 마커 업데이트만 담당 — 지도 자체는 유지
 function MarkersLayer({ targets, selected, onSelect }: LeafletMapProps) {
   const createIcon = (target: Target, isSelected: boolean) => {
-    const z = target.innov_z;
-    const color = z > 20 ? '#e05252' : z > 5 ? '#d4883a' : '#4a90d4';
+    // 위험도 라벨 기반 색상
+    const color = target.risk_label === '위기' ? '#e05252'
+                : target.risk_label === '주의' ? '#d4883a'
+                : '#f5c842'; // 관심/기타
     const size  = isSelected ? 14 : 10;
     const ring  = isSelected
       ? `box-shadow: 0 0 0 2px rgba(255,255,255,0.9), 0 0 0 4px ${color}, 0 0 10px ${color}55;`
@@ -157,41 +158,51 @@ export default function LeafletMap({ targets, selected, onSelect }: LeafletMapPr
         .leaflet-popup-content-wrapper {
           background: #fff; border-radius: 6px;
           box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-          font-family: 'Barlow', sans-serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
           border: 1px solid #e2e8f0; color: #1e293b;
         }
         .leaflet-popup-tip { background: #fff; }
         .leaflet-popup-close-button { color: #94a3b8 !important; }
-        .leaflet-control-zoom {
+        /* 줌 버튼 하단 배치 */
+        .leaflet-bottom.leaflet-left { display: block; }
+        .leaflet-top.leaflet-left .leaflet-control-zoom { display: none; }
+        .leaflet-bottom.leaflet-left .leaflet-control-zoom {
+          display: block;
           border: 1px solid rgba(255,255,255,0.15) !important;
           box-shadow: none !important;
+          margin-bottom: 10px;
+          margin-left: 10px;
         }
         .leaflet-control-zoom a {
           background: #1a1a1a !important;
           color: #888 !important;
           border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-          font-family: 'Barlow', sans-serif !important;
+          font-family: 'Plus Jakarta Sans', sans-serif !important;
         }
         .leaflet-control-zoom a:hover {
           background: #222 !important;
           color: #fff !important;
         }
+        /* attribution 숨기기 */
+        .leaflet-control-attribution { display: none !important; }
       `}</style>
 
-      {/* key 고정 — 리마운트 방지 */}
       <MapContainer
         key="sat-map"
         center={[centerLat || 32.0, centerLng || 35.0]}
         zoom={6}
         style={{ height: '100%', width: '100%' }}
         className="z-0"
+        zoomControl={false}
       >
         <TileLayer
           url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-          attribution='&copy; Esri'
+          attribution=""
         />
         <MapController targets={targets} selected={selected} />
         <MarkersLayer targets={targets} selected={selected} onSelect={onSelect} />
+        {/* 줌 버튼을 하단 왼쪽으로 */}
+        <ZoomControl position="bottomleft" />
       </MapContainer>
     </div>
   );
