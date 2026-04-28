@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Mono, DM_Sans } from "next/font/google";
+import { Space_Mono, DM_Sans, Syne, Barlow, Martian_Mono } from "next/font/google";
 import "./globals.css";
 
 const spaceMono = Space_Mono({
@@ -10,6 +10,24 @@ const spaceMono = Space_Mono({
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
+
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const barlow = Barlow({
+  variable: "--font-barlow",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
+
+const martianMono = Martian_Mono({
+  variable: "--font-martian-mono",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
 });
@@ -27,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${spaceMono.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${spaceMono.variable} ${dmSans.variable} ${syne.variable} ${barlow.variable} ${martianMono.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
     </html>
