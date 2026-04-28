@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -47,25 +47,32 @@ interface LeafletMapProps {
   onSelect: (city: string) => void;
 }
 
+// 지도 이동만 담당 — 리마운트 없이 flyTo만
 function MapController({ targets, selected }: { targets: Target[]; selected: string | null }) {
   const map = useMap();
+  const prevSelected = useRef<string | null>(null);
+
   useEffect(() => {
-    if (!selected) return;
+    if (!selected || selected === prevSelected.current) return;
     const t = targets.find(t => t.city === selected);
-    if (t) map.flyTo([t.lat, t.lng], 10, { duration: 1 });
+    if (t) {
+      map.flyTo([t.lat, t.lng], 10, { duration: 0.8, easeLinearity: 0.5 });
+      prevSelected.current = selected;
+    }
   }, [selected, targets, map]);
+
   return null;
 }
 
-export default function LeafletMap({ targets, selected, onSelect }: LeafletMapProps) {
+// 마커 업데이트만 담당 — 지도 자체는 유지
+function MarkersLayer({ targets, selected, onSelect }: LeafletMapProps) {
   const createIcon = (target: Target, isSelected: boolean) => {
     const z = target.innov_z;
-    // 라이트 모드 기반 색상
-    const color = z > 20 ? '#dc2626' : z > 5 ? '#d97706' : '#2563eb';
+    const color = z > 20 ? '#e05252' : z > 5 ? '#d4883a' : '#4a90d4';
     const size  = isSelected ? 14 : 10;
     const ring  = isSelected
-      ? `box-shadow: 0 0 0 3px rgba(255,255,255,0.9), 0 0 0 5px ${color};`
-      : `box-shadow: 0 1px 3px rgba(0,0,0,0.3);`;
+      ? `box-shadow: 0 0 0 2px rgba(255,255,255,0.9), 0 0 0 4px ${color}, 0 0 10px ${color}55;`
+      : `box-shadow: 0 1px 4px rgba(0,0,0,0.5);`;
 
     return L.divIcon({
       html: `
@@ -73,24 +80,23 @@ export default function LeafletMap({ targets, selected, onSelect }: LeafletMapPr
           <div style="
             width:${size}px; height:${size}px;
             background:${color};
-            border:2px solid white;
+            border:1.5px solid rgba(255,255,255,0.8);
             border-radius:50%;
             ${ring}
           "></div>
           <div style="
             position:absolute;
-            top:${size + 4}px;
+            top:${size + 3}px;
             left:50%;
             transform:translateX(-50%);
             white-space:nowrap;
             font-family:'Barlow', sans-serif;
-            font-size:11px;
+            font-size:10px;
             font-weight:600;
-            color:#1e293b;
-            background:rgba(255,255,255,0.92);
+            color:#ffffff;
+            background:rgba(0,0,0,0.65);
             padding:1px 5px;
-            border-radius:3px;
-            box-shadow:0 1px 3px rgba(0,0,0,0.15);
+            border-radius:2px;
             pointer-events:none;
             letter-spacing:0.01em;
           ">${target.display_name}</div>
@@ -102,86 +108,91 @@ export default function LeafletMap({ targets, selected, onSelect }: LeafletMapPr
     });
   };
 
+  return (
+    <>
+      {targets.map(target => (
+        <Marker
+          key={target.city}
+          position={[target.lat, target.lng]}
+          icon={createIcon(target, selected === target.city)}
+          eventHandlers={{ click: () => onSelect(target.city) }}
+        >
+          <Popup>
+            <div style={{ minWidth: 180, fontFamily: "'Barlow', sans-serif" }}>
+              <div style={{ fontSize:10, fontWeight:600, color: target.risk_label==='위기'?'#e05252':'#d4883a', marginBottom:4 }}>
+                {target.risk_label} · TIER {target.tier}
+              </div>
+              <div style={{ fontSize:14, fontWeight:700, marginBottom:8, color:'#0f172a' }}>
+                {target.display_name}
+              </div>
+              <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:4 }}>
+                {([
+                  ['Z-score',  target.innov_z.toFixed(1)],
+                  ['충돌지수', target.conflict_index.toFixed(0)],
+                  ['이벤트',   String(target.events)],
+                  ['언급수',   target.mentions_total.toLocaleString()],
+                ] as [string,string][]).map(([label,val]) => (
+                  <div key={label} style={{ background:'#f8fafc', padding:'4px 6px', borderRadius:3 }}>
+                    <div style={{ fontSize:9, color:'#94a3b8', fontFamily:"'Martian Mono', monospace" }}>{label}</div>
+                    <div style={{ fontSize:12, fontWeight:700, color:'#0f172a', fontFamily:"'Martian Mono', monospace" }}>{val}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ marginTop:6, fontSize:10, color:'#64748b', lineHeight:1.5 }}>{target.llm_message}</div>
+            </div>
+          </Popup>
+        </Marker>
+      ))}
+    </>
+  );
+}
+
+export default function LeafletMap({ targets, selected, onSelect }: LeafletMapProps) {
   const centerLat = targets.reduce((s, t) => s + t.lat, 0) / (targets.length || 1);
   const centerLng = targets.reduce((s, t) => s + t.lng, 0) / (targets.length || 1);
 
   return (
-    <div style={{ height: 380, borderBottom: '1px solid #e2e8f0', position: 'relative' }}>
+    <div style={{ height: '100%', width: '100%', position: 'relative' }}>
       <style>{`
-        .leaflet-container { background: #e8e0d8; }
+        .leaflet-container { background: #1a1a1a; }
         .leaflet-popup-content-wrapper {
-          background: #fff;
-          border-radius: 6px;
-          box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+          background: #fff; border-radius: 6px;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.2);
           font-family: 'Barlow', sans-serif;
-          border: 1px solid #e2e8f0;
-          color: #1e293b;
+          border: 1px solid #e2e8f0; color: #1e293b;
         }
         .leaflet-popup-tip { background: #fff; }
         .leaflet-popup-close-button { color: #94a3b8 !important; }
         .leaflet-control-zoom {
-          border: 1px solid #e2e8f0 !important;
-          box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+          border: 1px solid rgba(255,255,255,0.15) !important;
+          box-shadow: none !important;
         }
         .leaflet-control-zoom a {
-          background: #fff !important;
-          color: #475569 !important;
-          border-bottom: 1px solid #e2e8f0 !important;
+          background: #1a1a1a !important;
+          color: #888 !important;
+          border-bottom: 1px solid rgba(255,255,255,0.1) !important;
           font-family: 'Barlow', sans-serif !important;
         }
         .leaflet-control-zoom a:hover {
-          background: #f8fafc !important;
-          color: #1e293b !important;
+          background: #222 !important;
+          color: #fff !important;
         }
       `}</style>
 
+      {/* key 고정 — 리마운트 방지 */}
       <MapContainer
+        key="sat-map"
         center={[centerLat || 32.0, centerLng || 35.0]}
         zoom={6}
         style={{ height: '100%', width: '100%' }}
         className="z-0"
       >
-        {/* ESRI 위성 이미지 */}
         <TileLayer
           url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-          attribution='&copy; <a href="https://www.esri.com/">Esri</a>'
+          attribution='&copy; Esri'
         />
-
         <MapController targets={targets} selected={selected} />
-
-        {targets.map(target => (
-          <Marker
-            key={target.city}
-            position={[target.lat, target.lng]}
-            icon={createIcon(target, selected === target.city)}
-            eventHandlers={{ click: () => onSelect(target.city) }}
-          >
-            <Popup>
-              <div style={{ minWidth: 180, fontFamily: "'Barlow', sans-serif" }}>
-                <div style={{ fontSize: 11, fontWeight: 600, color: target.risk_label === '위기' ? '#dc2626' : '#d97706', marginBottom: 4, letterSpacing: '.03em' }}>
-                  {target.risk_label} · TIER {target.tier}
-                </div>
-                <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 8, color: '#0f172a' }}>
-                  {target.display_name}
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 4, marginBottom: 6 }}>
-                  {([
-                    ['Z-score',  target.innov_z.toFixed(1)],
-                    ['충돌지수', target.conflict_index.toFixed(0)],
-                    ['이벤트',   String(target.events)],
-                    ['소스',     String(target.sources_total)],
-                  ] as [string, string][]).map(([label, val]) => (
-                    <div key={label} style={{ background: '#f8fafc', padding: '4px 6px', borderRadius: 3 }}>
-                      <div style={{ fontSize: 9, color: '#94a3b8', fontFamily: "'Martian Mono', monospace" }}>{label}</div>
-                      <div style={{ fontSize: 12, fontWeight: 700, color: '#0f172a', fontFamily: "'Martian Mono', monospace" }}>{val}</div>
-                    </div>
-                  ))}
-                </div>
-                <div style={{ fontSize: 10, color: '#64748b', lineHeight: 1.5 }}>{target.llm_message}</div>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
+        <MarkersLayer targets={targets} selected={selected} onSelect={onSelect} />
       </MapContainer>
     </div>
   );
