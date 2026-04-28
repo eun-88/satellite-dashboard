@@ -82,10 +82,11 @@ const S = {
   text:    '#f0f0f0', textSub: '#999999', textDim: '#555555',
   mono:    "'Martian Mono', monospace",
   body:    "'Barlow', sans-serif",
-  display: "'Syne', sans-serif",
+  display: "'Bebas Neue', sans-serif",
 } as const;
 
 const globalStyles = `
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background:${S.bg}; color:${S.text}; font-family:${S.body}; min-height:100vh; font-size:13px; -webkit-font-smoothing:antialiased; overflow:hidden; }
 
@@ -313,7 +314,7 @@ function DetailPanel({ target, pass, approved, onApprove, currentDate }: {
         <span style={{ fontSize:10, color:S.textDim }}>TIER {target.tier}</span>
         {pass && <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, marginLeft:'auto' }}>{pass.satellite}</span>}
       </div>
-      <div style={{ fontFamily:S.display, fontSize:18, fontWeight:700, marginBottom:6, lineHeight:1.2 }}>
+      <div style={{ fontFamily:S.display, fontSize:18, fontWeight:400, marginBottom:6, lineHeight:1.2 }}>
         {target.display_name}
       </div>
       <div style={{ fontSize:11, color:S.textSub, lineHeight:1.6, marginBottom:10, paddingBottom:10, borderBottom:`1px solid ${S.border}` }}>
@@ -460,7 +461,7 @@ export default function Dashboard() {
           <div style={{ display:'flex', alignItems:'center', gap:14 }}>
             <div style={{ width:3, height:28, background:S.red, borderRadius:2, flexShrink:0 }}/>
             <div>
-              <div style={{ fontFamily:S.display, fontSize:15, fontWeight:800, letterSpacing:'.04em' }}>SATSCHEDULE</div>
+              <div style={{ fontFamily:S.display, fontSize:28, fontWeight:400, letterSpacing:'.04em' }}>SATSCHEDULE</div>
               <div style={{ fontSize:10, color:S.textDim, marginTop:1 }}>위성 촬영 스케줄링 자동화 · 이란-미국 분쟁 지역</div>
             </div>
           </div>
@@ -490,7 +491,7 @@ export default function Dashboard() {
         >
           {/* 1열: 지도 */}
           <div className="panel">
-            <PanelHeader title="전술 지도" right="GDELT · GEOINT"/>
+            <PanelHeader title="지도" right="GDELT · GEOINT"/>
 
             {/* 인디케이터 */}
             <div style={{ display:'flex', borderBottom:`1px solid ${S.border}`, flexShrink:0 }}>
