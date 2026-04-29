@@ -57,6 +57,9 @@ function getRiskColor(risk_label: string) {
   return '#f5c842';
 }
 
+const riskDisplay = (label: string) =>
+  label === '위기' ? '심각' : label === '위험' ? '주의' : '관심';
+
 function MapController({ targets, selected }: { targets: Target[]; selected: string | null }) {
   const map = useMap();
   const prevSelected = useRef<string | null>(null);
@@ -135,8 +138,8 @@ function MarkersLayer({ targets, selected, onSelect }: LeafletMapProps) {
         >
           <Popup>
             <div style={{ minWidth: 200, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              <div style={{ fontSize:10, fontWeight:600, color: target.risk_label==='위기'?'#e05252':'#d4883a', marginBottom:4 }}>
-                {target.risk_label} · TIER {target.tier}
+              <div style={{ fontSize:10, fontWeight:600, color: target.risk_label==='위기'?'#e05252':target.risk_label==='위험'?'#d4883a':'#f5c842', marginBottom:4 }}>
+                {riskDisplay(target.risk_label)}
               </div>
               <div style={{ fontSize:15, fontWeight:700, marginBottom:8, color:'#0f172a', lineHeight:1.2 }}>
                 {target.display_name}
@@ -196,14 +199,14 @@ export default function LeafletMap({ targets, selected, onSelect }: LeafletMapPr
 
       <MapContainer
         key="sat-map"
-        center={[centerLat || 32.0, centerLng || 35.0]}
-        zoom={6}
+        center={[centerLat || 32.0, centerLng || 44.0]}
+        zoom={5}
         style={{ height: '100%', width: '100%' }}
         className="z-0"
         zoomControl={false}
       >
         <TileLayer
-          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
           attribution=""
         />
         <MapController targets={targets} selected={selected} />

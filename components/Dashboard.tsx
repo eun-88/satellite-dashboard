@@ -53,6 +53,12 @@ const fmtDateLabel = (date: string) => {
 const fmtDateShort = (date: string) =>
   `${date.slice(4,6)}/${date.slice(6,8)}`;
 
+const riskDisplay = (label: string) =>
+  label === '위기' ? '심각' : label === '위험' ? '주의' : '관심';
+
+const riskClass = (label: string) =>
+  label === '위기' ? 'red' : label === '위험' ? 'amber' : 'yellow';
+
 function flattenPasses(targets: Target[]): FlatPass[] {
   const sorted = [...targets].sort((a,b) => b.innov_z - a.innov_z);
   const rankMap = new Map(sorted.map((t,i) => [t.city, i+1]));
@@ -117,8 +123,9 @@ const globalStyles = `
   .panel-tag   { font-family:${S.mono}; font-size:9px; color:${S.textDim}; }
 
   .badge { display:inline-block; padding:1px 5px; font-size:9px; font-weight:500; border-radius:2px; font-family:${S.body}; }
-  .b-red   { background:${S.redDim};   color:${S.red};   border:1px solid rgba(224,82,82,0.2); }
-  .b-amber { background:${S.amberDim}; color:${S.amber}; border:1px solid rgba(212,136,58,0.2); }
+  .b-red    { background:${S.redDim};   color:${S.red};   border:1px solid rgba(224,82,82,0.2); }
+  .b-amber  { background:${S.amberDim}; color:${S.amber}; border:1px solid rgba(212,136,58,0.2); }
+  .b-yellow { background:rgba(245,200,66,0.12); color:#f5c842; border:1px solid rgba(245,200,66,0.2); }
 
   .sch-row { border-left:2px solid transparent; transition:background .1s; }
   .sch-row:hover { background:rgba(255,255,255,0.025); }
@@ -294,7 +301,7 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel }: {
   return (
     <div style={{ padding:12 }}>
       <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:5 }}>
-        <span className={`badge b-${target.risk_label==='위기'?'red':'amber'}`}>{target.risk_label}</span>
+        <span className={`badge b-${riskClass(target.risk_label)}`}>{riskDisplay(target.risk_label)}</span>
       </div>
       <div style={{ fontFamily:S.display, fontSize:24, fontWeight:800, marginBottom:8, lineHeight:1.2, color:'#ffffff' }}>
         {target.display_name}
@@ -597,7 +604,7 @@ export default function Dashboard() {
                   <div key={target.city}>
                     <div style={{ padding:'6px 10px', background:S.bg3, borderBottom:`1px solid ${S.border}`, display:'flex', alignItems:'center', gap:8, position:'sticky', top:0, zIndex:1 }}>
                       <span style={{ fontFamily:S.mono, fontSize:10, color:S.textDim, minWidth:20 }}>#{rank}</span>
-                      <span className={`badge b-${target.risk_label==='위기'?'red':'amber'}`}>{target.risk_label}</span>
+                      <span className={`badge b-${riskClass(target.risk_label)}`}>{riskDisplay(target.risk_label)}</span>
                       <span style={{ fontSize:12, fontWeight:600, color:'#ffffff' }}>{target.display_name}</span>
                       <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, marginLeft:'auto' }}>Z {target.innov_z.toFixed(1)}</span>
                     </div>
