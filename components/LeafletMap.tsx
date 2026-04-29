@@ -47,7 +47,13 @@ interface LeafletMapProps {
   onSelect: (city: string) => void;
 }
 
-// 지도 이동만 담당 — 리마운트 없이 flyTo만
+// 위험도 기반 색상
+function getRiskColor(risk_label: string) {
+  if (risk_label === '위기') return '#e05252';
+  if (risk_label === '위험') return '#d4883a';
+  return '#f5c842';
+}
+
 function MapController({ targets, selected }: { targets: Target[]; selected: string | null }) {
   const map = useMap();
   const prevSelected = useRef<string | null>(null);
@@ -66,10 +72,7 @@ function MapController({ targets, selected }: { targets: Target[]; selected: str
 
 function MarkersLayer({ targets, selected, onSelect }: LeafletMapProps) {
   const createIcon = (target: Target, isSelected: boolean) => {
-    // 위험도 라벨 기반 색상
-    const color = target.risk_label === '위기' ? '#e05252'
-                : target.risk_label === '주의' ? '#d4883a'
-                : '#f5c842'; // 관심/기타
+    const color = getRiskColor(target.risk_label);
     const size  = isSelected ? 14 : 10;
     const ring  = isSelected
       ? `box-shadow: 0 0 0 2px rgba(255,255,255,0.9), 0 0 0 4px ${color}, 0 0 10px ${color}55;`
@@ -85,13 +88,23 @@ function MarkersLayer({ targets, selected, onSelect }: LeafletMapProps) {
             border-radius:50%;
             ${ring}
           "></div>
+          ${isSelected ? '' : `<div style="
+            position:absolute;
+            top:50%; left:50%;
+            transform:translate(-50%,-50%);
+            width:${size}px; height:${size}px;
+            border-radius:50%;
+            background:${color};
+            opacity:0.4;
+            animation:pulse 2s ease-out infinite;
+          "></div>`}
           <div style="
             position:absolute;
             top:${size + 3}px;
             left:50%;
             transform:translateX(-50%);
             white-space:nowrap;
-            font-family:'Barlow', sans-serif;
+            font-family:'Plus Jakarta Sans', sans-serif;
             font-size:10px;
             font-weight:600;
             color:#ffffff;
@@ -99,7 +112,6 @@ function MarkersLayer({ targets, selected, onSelect }: LeafletMapProps) {
             padding:1px 5px;
             border-radius:2px;
             pointer-events:none;
-            letter-spacing:0.01em;
           ">${target.display_name}</div>
         </div>
       `,
@@ -153,7 +165,6 @@ export default function LeafletMap({ targets, selected, onSelect }: LeafletMapPr
         }
         .leaflet-popup-tip { background: #fff; }
         .leaflet-popup-close-button { color: #94a3b8 !important; }
-        /* 줌 버튼 하단 배치 */
         .leaflet-bottom.leaflet-left { display: block; }
         .leaflet-top.leaflet-left .leaflet-control-zoom { display: none; }
         .leaflet-bottom.leaflet-left .leaflet-control-zoom {
@@ -167,14 +178,17 @@ export default function LeafletMap({ targets, selected, onSelect }: LeafletMapPr
           background: #1a1a1a !important;
           color: #888 !important;
           border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-          font-family: 'Plus Jakarta Sans', sans-serif !important;
         }
         .leaflet-control-zoom a:hover {
           background: #222 !important;
           color: #fff !important;
         }
-        /* attribution 숨기기 */
         .leaflet-control-attribution { display: none !important; }
+        @keyframes pulse {
+          0%   { transform: translate(-50%,-50%) scale(1);   opacity: 0.4; }
+          70%  { transform: translate(-50%,-50%) scale(2.5); opacity: 0; }
+          100% { transform: translate(-50%,-50%) scale(1);   opacity: 0; }
+        }
       `}</style>
 
       <MapContainer
@@ -186,12 +200,11 @@ export default function LeafletMap({ targets, selected, onSelect }: LeafletMapPr
         zoomControl={false}
       >
         <TileLayer
-          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+          url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
           attribution=""
         />
         <MapController targets={targets} selected={selected} />
         <MarkersLayer targets={targets} selected={selected} onSelect={onSelect} />
-        {/* 줌 버튼을 하단 왼쪽으로 */}
         <ZoomControl position="bottomleft" />
       </MapContainer>
     </div>
