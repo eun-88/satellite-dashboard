@@ -463,7 +463,7 @@ export default function Dashboard() {
             <img src="/sia-logo.jpg" alt="SIA" style={{ height:32, objectFit:'contain' }}/>
             <div style={{ width:1, height:24, background:S.border }}/>
             <div>
-              <div style={{ fontFamily:S.display, fontSize:20, fontWeight:800, letterSpacing:'.06em', color:'#ffffff' }}>SI ANALYSIS</div>
+              <div style={{ fontFamily:S.display, fontSize:20, fontWeight:800, letterSpacing:'.06em', color:'#ffffff' }}>SI ANALYTICS</div>
               <div style={{ fontSize:10, color:S.textDim, marginTop:1 }}>위성 촬영 스케줄링 자동화 · 이란-미국 분쟁 지역</div>
             </div>
           </div>
@@ -635,6 +635,13 @@ export default function Dashboard() {
             </div>
           </div>
         </Split>
+
+        {/* FOOTER */}
+        <div style={{ flexShrink:0, borderTop:`1px solid ${S.border}`, padding:'6px 16px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+          <span style={{ fontFamily:S.body, fontSize:10, color:S.textDim }}>
+            본 사이트는 SIA와 모두의연구소의 협력을 통한 교육과정에서 제작된 결과물입니다.
+          </span>
+        </div>
 
       </div>
     </>
