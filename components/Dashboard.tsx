@@ -388,6 +388,8 @@ export default function Dashboard() {
   const [selected, setSelected] = useState<string|null>(null);
   const [selPass,  setSelPass]  = useState<FlatPass|null>(null);
   const [approved, setApproved] = useState<string[]>([]);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [mapExpanded, setMapExpanded] = useState(false);
   const [loading,  setLoading]  = useState(true);
   const [error,    setError]    = useState<string|null>(null);
 
@@ -573,7 +575,18 @@ export default function Dashboard() {
           </div>
 
           {/* 2열: 지도 + 장바구니 (가운데) */}
-          <div className="panel">
+          <div className="panel" style={{ position:'relative' }}>
+            {/* 전체화면 버튼 */}
+            <button
+              onClick={() => setMapExpanded(true)}
+              style={{
+                position:'absolute', top:8, right:8, zIndex:10,
+                background:'rgba(0,0,0,0.6)', border:`1px solid ${S.border}`,
+                color:S.textSub, cursor:'pointer', padding:'4px 7px',
+                fontSize:11, borderRadius:3, fontFamily:S.body,
+              }}
+              title="전체화면"
+            >⛶</button>
             <div style={{ flex:1, minHeight:0, overflow:'hidden' }}>
               <LeafletMap
                 targets={targets}
@@ -590,33 +603,40 @@ export default function Dashboard() {
                 }}
               />
             </div>
+            {/* 촬영 승인 목록 토글 */}
             <div style={{ flexShrink:0, borderTop:`1px solid ${S.border}`, background:S.bg3 }}>
-              <div style={{ display:'flex', alignItems:'center', padding:'6px 10px', borderBottom:`1px solid ${S.border}` }}>
-                <span style={{ fontFamily:S.body, fontSize:10, fontWeight:600, color:S.textSub }}>
-                  촬영 승인 목록
-                </span>
-                {approvedPasses.length > 0 && (
-                  <span style={{ fontFamily:S.mono, fontSize:9, color:S.green, marginLeft:6 }}>({approvedPasses.length})</span>
-                )}
-              </div>
-              {approvedPasses.length === 0 ? (
-                <div style={{ padding:'8px 10px', fontSize:10, color:S.textDim }}>승인된 촬영이 없습니다</div>
-              ) : (
-                <div style={{ maxHeight:120, overflowY:'auto' }}>
-                  {approvedPasses.map(p => (
-                    <div key={passKey(p)} className="cart-item">
-                      <span style={{ fontFamily:S.mono, fontSize:9, color:S.green, flexShrink:0 }}>✓</span>
-                      <span style={{ fontSize:11, fontWeight:500, color:'#ffffff', flex:1 }}>{p.city}</span>
-                      <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>{p.satellite}</span>
-                      <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, marginLeft:6 }}>{fmtMD(p.pass_time_utc)} {fmtUTC(p.pass_time_utc)}</span>
-                      <button
-                        onClick={() => cancelApprove(passKey(p))}
-                        style={{ background:'none', border:'none', color:S.textDim, cursor:'pointer', fontSize:12, padding:'0 2px', marginLeft:4, lineHeight:1 }}
-                        title="승인 취소"
-                      >×</button>
-                    </div>
-                  ))}
+              <div
+                onClick={() => setCartOpen(prev => !prev)}
+                style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'6px 10px', cursor:'pointer', borderBottom: cartOpen ? `1px solid ${S.border}` : 'none' }}
+              >
+                <div style={{ display:'flex', alignItems:'center', gap:6 }}>
+                  <span style={{ fontFamily:S.body, fontSize:10, fontWeight:600, color:S.textSub }}>촬영 승인 목록</span>
+                  {approvedPasses.length > 0 && (
+                    <span style={{ fontFamily:S.mono, fontSize:9, color:S.green }}>({approvedPasses.length})</span>
+                  )}
                 </div>
+                <span style={{ fontSize:10, color:S.textDim }}>{cartOpen ? '▲' : '▼'}</span>
+              </div>
+              {cartOpen && (
+                approvedPasses.length === 0 ? (
+                  <div style={{ padding:'8px 10px', fontSize:10, color:S.textDim }}>승인된 촬영이 없습니다</div>
+                ) : (
+                <div style={{ maxHeight:130, overflowY:'auto' }}>
+                    {approvedPasses.map(p => (
+                      <div key={passKey(p)} className="cart-item">
+                        <span style={{ fontFamily:S.mono, fontSize:9, color:S.green, flexShrink:0 }}>✓</span>
+                        <span style={{ fontSize:11, fontWeight:500, color:'#ffffff', flex:1 }}>{p.city}</span>
+                        <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>{p.satellite}</span>
+                        <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, marginLeft:6 }}>{fmtMD(p.pass_time_utc)} {fmtUTC(p.pass_time_utc)}</span>
+                        <button
+                          onClick={e => { e.stopPropagation(); cancelApprove(passKey(p)); }}
+                          style={{ background:'none', border:'none', color:S.textDim, cursor:'pointer', fontSize:12, padding:'0 2px', marginLeft:4, lineHeight:1 }}
+                          title="승인 취소"
+                        >×</button>
+                      </div>
+                    ))}
+                  </div>
+                )
               )}
             </div>
           </div>
@@ -635,6 +655,39 @@ export default function Dashboard() {
             </div>
           </div>
         </Split>
+
+        {/* 지도 전체화면 오버레이 */}
+        {mapExpanded && (
+          <div style={{
+            position:'fixed', inset:0, zIndex:9999,
+            background:S.bg, display:'flex', flexDirection:'column',
+          }}>
+            <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'8px 12px', borderBottom:`1px solid ${S.border}`, background:S.bg2, flexShrink:0 }}>
+              <span style={{ fontFamily:S.body, fontSize:11, fontWeight:600, color:S.textSub }}>전술 지도</span>
+              <button
+                onClick={() => setMapExpanded(false)}
+                style={{ background:'none', border:`1px solid ${S.border}`, color:S.text, cursor:'pointer', padding:'4px 10px', fontSize:13, borderRadius:3 }}
+              >✕</button>
+            </div>
+            <div style={{ flex:1, minHeight:0 }}>
+              <LeafletMap
+                targets={targets}
+                selected={selected}
+                onSelect={city=>{
+                  setSelected(city);
+                  const t = targets.find(t => t.city === city);
+                  if (t?.satellite_passes?.length) {
+                    const fp = { ...t.satellite_passes[0], city: t.city, innov_z: t.innov_z, tier: t.tier };
+                    setSelPass(fp);
+                  } else {
+                    setSelPass(null);
+                  }
+                  setMapExpanded(false);
+                }}
+              />
+            </div>
+          </div>
+        )}
 
         {/* FOOTER */}
         <div style={{ flexShrink:0, borderTop:`1px solid ${S.border}`, padding:'6px 16px', display:'flex', alignItems:'center', justifyContent:'center' }}>

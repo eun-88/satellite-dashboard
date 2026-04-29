@@ -74,7 +74,7 @@ export default function MapLibreMap({ targets, selected, onSelect }: LeafletMapP
     const map = new maplibregl.Map({
       container: mapContainer.current,
       style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
-      center: [centerLng || 44.0, centerLat || 32.0],
+      center: [44.0, 29.0],
       zoom: 5,
       attributionControl: false,
     });
@@ -104,70 +104,23 @@ export default function MapLibreMap({ targets, selected, onSelect }: LeafletMapP
         const isSelected = selected === target.city;
         const size = isSelected ? 14 : 10;
 
-        // 마커 엘리먼트
+        // 점 마커 엘리먼트 - 정확히 size x size 만
         const el = document.createElement('div');
         el.style.cssText = `
-          position: relative;
           width: ${size}px;
           height: ${size}px;
           cursor: pointer;
-        `;
-
-        // 점
-        const dot = document.createElement('div');
-        dot.style.cssText = `
-          width: ${size}px;
-          height: ${size}px;
+          border-radius: 50%;
           background: ${color};
           border: 1.5px solid rgba(255,255,255,0.8);
-          border-radius: 50%;
           box-shadow: ${isSelected
             ? `0 0 0 2px rgba(255,255,255,0.9), 0 0 0 4px ${color}, 0 0 10px ${color}88`
             : '0 1px 4px rgba(0,0,0,0.5)'};
         `;
 
-        // pulse 애니메이션
-        if (!isSelected) {
-          const pulse = document.createElement('div');
-          pulse.style.cssText = `
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: ${size}px;
-            height: ${size}px;
-            border-radius: 50%;
-            background: ${color};
-            opacity: 0.4;
-            animation: pulse 2s ease-out infinite;
-          `;
-          el.appendChild(pulse);
-        }
-
-        // 라벨
-        const label = document.createElement('div');
-        label.style.cssText = `
-          position: absolute;
-          top: ${size + 3}px;
-          left: 50%;
-          transform: translateX(-50%);
-          white-space: nowrap;
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 10px;
-          font-weight: 600;
-          color: #ffffff;
-          background: rgba(0,0,0,0.65);
-          padding: 1px 5px;
-          border-radius: 2px;
-          pointer-events: none;
-        `;
-        label.textContent = target.display_name;
-
-        el.appendChild(dot);
-        el.appendChild(label);
-
         // 팝업
         const popup = new maplibregl.Popup({
-          offset: 12,
+          offset: size / 2 + 4,
           closeButton: true,
           maxWidth: '220px',
         }).setHTML(`
@@ -190,12 +143,35 @@ export default function MapLibreMap({ targets, selected, onSelect }: LeafletMapP
           popupRef.current = popup;
         });
 
+        // 점 마커 - anchor center로 정확히 좌표에 고정
         const marker = new maplibregl.Marker({ element: el, anchor: 'center' })
           .setLngLat([target.lng, target.lat])
           .setPopup(popup)
           .addTo(map);
 
         markersRef.current.push(marker);
+
+        // 라벨 마커 - 별도로 분리해서 점 위치에 영향 없음
+        const labelEl = document.createElement('div');
+        labelEl.style.cssText = `
+          white-space: nowrap;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 10px;
+          font-weight: 600;
+          color: #ffffff;
+          background: rgba(0,0,0,0.65);
+          padding: 1px 5px;
+          border-radius: 2px;
+          pointer-events: none;
+          margin-top: ${size / 2 + 3}px;
+        `;
+        labelEl.textContent = target.display_name;
+
+        const labelMarker = new maplibregl.Marker({ element: labelEl, anchor: 'top' })
+          .setLngLat([target.lng, target.lat])
+          .addTo(map);
+
+        markersRef.current.push(labelMarker);
       });
     };
 
