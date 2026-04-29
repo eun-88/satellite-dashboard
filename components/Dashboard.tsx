@@ -235,20 +235,24 @@ function ScheduleRow({ pass, rank, approved, onSelect }: {
   pass: FlatPass; rank: number; approved: boolean; onSelect: () => void;
 }) {
   const urgent = pass.action_priority_label === '즉시 촬영';
-  const cp = pass.cloud_cover_pct;
-  const cloudColor = cp < 30 ? S.green : cp > 70 ? S.red : S.amber;
   return (
     <div className={`sch-row${urgent?' urg':''}`} onClick={onSelect}
       style={{ padding:'8px 10px', borderBottom:`1px solid rgba(255,255,255,0.04)`, cursor:'pointer' }}>
-      <div style={{ display:'flex', justifyContent:'space-between', marginBottom:3 }}>
-        <div style={{ display:'flex', alignItems:'center', gap:6 }}>
-          <span style={{ fontSize:12, fontWeight:500, color:'#ffffff' }}>{pass.city}</span>
-          <span style={{ fontSize:10, color:S.textDim }}>{pass.satellite}</span>
+      <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center' }}>
+        <div style={{ display:'flex', alignItems:'center', gap:8 }}>
+          <span style={{
+            fontSize:9, fontWeight:600, padding:'1px 5px', borderRadius:2,
+            background:'rgba(255,255,255,0.06)',
+            color: S.textSub,
+            border: '1px solid rgba(255,255,255,0.1)',
+            fontFamily: S.mono,
+          }}>{pass.sensor_type === 'optical' ? 'EO' : pass.sensor_type.toUpperCase()}</span>
+          <span style={{ fontSize:12, fontWeight:500, color:'#ffffff' }}>{pass.satellite}</span>
         </div>
-        <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>{fmtMD(pass.pass_time_utc)} {fmtUTC(pass.pass_time_utc)}</span>
-      </div>
-      <div style={{ display:'flex', alignItems:'center', gap:8 }}>
-        {approved && <span style={{ fontSize:10, color:S.green }}>✓ 승인</span>}
+        <div style={{ display:'flex', alignItems:'center', gap:8 }}>
+          {approved && <span style={{ fontSize:10, color:S.green }}>✓ 승인</span>}
+          <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>{fmtMD(pass.pass_time_utc)} {fmtUTC(pass.pass_time_utc)}</span>
+        </div>
       </div>
     </div>
   );
