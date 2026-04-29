@@ -484,62 +484,13 @@ export default function Dashboard() {
         {/* 3분할 */}
         <Split
           className="split-horiz"
-          sizes={[34, 33, 33]}
+          sizes={[33, 34, 33]}
           minSize={200}
           gutterSize={5}
           direction="horizontal"
           style={{ flex:1, minHeight:0 }}
         >
-          {/* 1열: 지도 + 장바구니 */}
-          <div className="panel">
-            <div style={{ height:460, flexShrink:0, overflow:'hidden' }}>
-              <LeafletMap
-                targets={targets}
-                selected={selected}
-                onSelect={city=>{
-                  setSelected(city);
-                  const t = targets.find(t => t.city === city);
-                  if (t?.satellite_passes?.length) {
-                    const fp = { ...t.satellite_passes[0], city: t.city, innov_z: t.innov_z, tier: t.tier };
-                    setSelPass(fp);
-                  } else {
-                    setSelPass(null);
-                  }
-                }}
-              />
-            </div>
-            <div style={{ flexShrink:0, borderTop:`1px solid ${S.border}`, background:S.bg3 }}>
-              <div style={{ display:'flex', alignItems:'center', padding:'6px 10px', borderBottom:`1px solid ${S.border}` }}>
-                <span style={{ fontFamily:S.body, fontSize:10, fontWeight:600, color:S.textSub }}>
-                  촬영 승인 목록
-                </span>
-                {approvedPasses.length > 0 && (
-                  <span style={{ fontFamily:S.mono, fontSize:9, color:S.green, marginLeft:6 }}>({approvedPasses.length})</span>
-                )}
-              </div>
-              {approvedPasses.length === 0 ? (
-                <div style={{ padding:'8px 10px', fontSize:10, color:S.textDim }}>승인된 촬영이 없습니다</div>
-              ) : (
-                <div style={{ maxHeight:120, overflowY:'auto' }}>
-                  {approvedPasses.map(p => (
-                    <div key={passKey(p)} className="cart-item">
-                      <span style={{ fontFamily:S.mono, fontSize:9, color:S.green, flexShrink:0 }}>✓</span>
-                      <span style={{ fontSize:11, fontWeight:500, color:'#ffffff', flex:1 }}>{p.city}</span>
-                      <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>{p.satellite}</span>
-                      <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, marginLeft:6 }}>{fmtMD(p.pass_time_utc)} {fmtUTC(p.pass_time_utc)}</span>
-                      <button
-                        onClick={() => cancelApprove(passKey(p))}
-                        style={{ background:'none', border:'none', color:S.textDim, cursor:'pointer', fontSize:12, padding:'0 2px', marginLeft:4, lineHeight:1 }}
-                        title="승인 취소"
-                      >×</button>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* 2열: 타임라인 + 스케줄 — flex column, 높이 100% */}
+          {/* 1열: 타임라인 + 스케줄 */}
           <div style={{ display:'flex', flexDirection:'column', gap:6, minHeight:0 }}>
 
             {/* 타임라인 */}
@@ -596,7 +547,7 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* 스케줄 — flex:1 로 남은 공간 채움 */}
+            {/* 스케줄 */}
             <div className="panel" style={{ flex:1, minHeight:0 }}>
               <PanelHeader title="촬영 스케줄"/>
               <div style={{ overflowY:'auto', flex:1 }}>
@@ -618,6 +569,55 @@ export default function Dashboard() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* 2열: 지도 + 장바구니 (가운데) */}
+          <div className="panel">
+            <div style={{ flex:1, minHeight:0, overflow:'hidden' }}>
+              <LeafletMap
+                targets={targets}
+                selected={selected}
+                onSelect={city=>{
+                  setSelected(city);
+                  const t = targets.find(t => t.city === city);
+                  if (t?.satellite_passes?.length) {
+                    const fp = { ...t.satellite_passes[0], city: t.city, innov_z: t.innov_z, tier: t.tier };
+                    setSelPass(fp);
+                  } else {
+                    setSelPass(null);
+                  }
+                }}
+              />
+            </div>
+            <div style={{ flexShrink:0, borderTop:`1px solid ${S.border}`, background:S.bg3 }}>
+              <div style={{ display:'flex', alignItems:'center', padding:'6px 10px', borderBottom:`1px solid ${S.border}` }}>
+                <span style={{ fontFamily:S.body, fontSize:10, fontWeight:600, color:S.textSub }}>
+                  촬영 승인 목록
+                </span>
+                {approvedPasses.length > 0 && (
+                  <span style={{ fontFamily:S.mono, fontSize:9, color:S.green, marginLeft:6 }}>({approvedPasses.length})</span>
+                )}
+              </div>
+              {approvedPasses.length === 0 ? (
+                <div style={{ padding:'8px 10px', fontSize:10, color:S.textDim }}>승인된 촬영이 없습니다</div>
+              ) : (
+                <div style={{ maxHeight:120, overflowY:'auto' }}>
+                  {approvedPasses.map(p => (
+                    <div key={passKey(p)} className="cart-item">
+                      <span style={{ fontFamily:S.mono, fontSize:9, color:S.green, flexShrink:0 }}>✓</span>
+                      <span style={{ fontSize:11, fontWeight:500, color:'#ffffff', flex:1 }}>{p.city}</span>
+                      <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>{p.satellite}</span>
+                      <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim, marginLeft:6 }}>{fmtMD(p.pass_time_utc)} {fmtUTC(p.pass_time_utc)}</span>
+                      <button
+                        onClick={() => cancelApprove(passKey(p))}
+                        style={{ background:'none', border:'none', color:S.textDim, cursor:'pointer', fontSize:12, padding:'0 2px', marginLeft:4, lineHeight:1 }}
+                        title="승인 취소"
+                      >×</button>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 

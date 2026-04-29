@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap, ZoomControl } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import { useEffect, useRef, useCallback } from 'react';
+import maplibregl from 'maplibre-gl';
+import 'maplibre-gl/dist/maplibre-gl.css';
 
 export interface SatPass {
   satellite: string;
@@ -50,7 +49,6 @@ interface LeafletMapProps {
   onSelect: (city: string) => void;
 }
 
-// 위험도 기반 색상
 function getRiskColor(risk_label: string) {
   if (risk_label === '위기') return '#e05252';
   if (risk_label === '위험') return '#d4883a';
@@ -60,159 +58,214 @@ function getRiskColor(risk_label: string) {
 const riskDisplay = (label: string) =>
   label === '위기' ? '심각' : label === '위험' ? '주의' : '관심';
 
-function MapController({ targets, selected }: { targets: Target[]; selected: string | null }) {
-  const map = useMap();
-  const prevSelected = useRef<string | null>(null);
+export default function MapLibreMap({ targets, selected, onSelect }: LeafletMapProps) {
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<maplibregl.Map | null>(null);
+  const markersRef = useRef<maplibregl.Marker[]>([]);
+  const popupRef = useRef<maplibregl.Popup | null>(null);
 
-  useEffect(() => {
-    if (!selected || selected === prevSelected.current) return;
-    const t = targets.find(t => t.city === selected);
-    if (t) {
-      map.flyTo([t.lat, t.lng], 10, { duration: 0.8, easeLinearity: 0.5 });
-      prevSelected.current = selected;
-    }
-  }, [selected, targets, map]);
-
-  return null;
-}
-
-function MarkersLayer({ targets, selected, onSelect }: LeafletMapProps) {
-  const createIcon = (target: Target, isSelected: boolean) => {
-    const color = getRiskColor(target.risk_label);
-    const size  = isSelected ? 14 : 10;
-    const ring  = isSelected
-      ? `box-shadow: 0 0 0 2px rgba(255,255,255,0.9), 0 0 0 4px ${color}, 0 0 10px ${color}55;`
-      : `box-shadow: 0 1px 4px rgba(0,0,0,0.5);`;
-
-    return L.divIcon({
-      html: `
-        <div style="position:relative;">
-          <div style="
-            width:${size}px; height:${size}px;
-            background:${color};
-            border:1.5px solid rgba(255,255,255,0.8);
-            border-radius:50%;
-            ${ring}
-          "></div>
-          ${isSelected ? '' : `<div style="
-            position:absolute;
-            top:50%; left:50%;
-            transform:translate(-50%,-50%);
-            width:${size}px; height:${size}px;
-            border-radius:50%;
-            background:${color};
-            opacity:0.4;
-            animation:pulse 2s ease-out infinite;
-          "></div>`}
-          <div style="
-            position:absolute;
-            top:${size + 3}px;
-            left:50%;
-            transform:translateX(-50%);
-            white-space:nowrap;
-            font-family:'Plus Jakarta Sans', sans-serif;
-            font-size:10px;
-            font-weight:600;
-            color:#ffffff;
-            background:rgba(0,0,0,0.65);
-            padding:1px 5px;
-            border-radius:2px;
-            pointer-events:none;
-          ">${target.display_name}</div>
-        </div>
-      `,
-      className: '',
-      iconSize: [size, size],
-      iconAnchor: [size / 2, size / 2],
-    });
-  };
-
-  return (
-    <>
-      {targets.map(target => (
-        <Marker
-          key={target.city}
-          position={[target.lat, target.lng]}
-          icon={createIcon(target, selected === target.city)}
-          eventHandlers={{ click: () => onSelect(target.city) }}
-        >
-          <Popup>
-            <div style={{ minWidth: 200, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              <div style={{ fontSize:10, fontWeight:600, color: target.risk_label==='위기'?'#e05252':target.risk_label==='위험'?'#d4883a':'#f5c842', marginBottom:4 }}>
-                {riskDisplay(target.risk_label)}
-              </div>
-              <div style={{ fontSize:15, fontWeight:700, marginBottom:8, color:'#0f172a', lineHeight:1.2 }}>
-                {target.display_name}
-              </div>
-              <div style={{ fontSize:11, color:'#374151', lineHeight:1.6 }}>
-                {target.llm_message}
-              </div>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
-    </>
-  );
-}
-
-export default function LeafletMap({ targets, selected, onSelect }: LeafletMapProps) {
   const centerLat = targets.reduce((s, t) => s + t.lat, 0) / (targets.length || 1);
   const centerLng = targets.reduce((s, t) => s + t.lng, 0) / (targets.length || 1);
+
+  // 지도 초기화
+  useEffect(() => {
+    if (!mapContainer.current || mapRef.current) return;
+
+    const map = new maplibregl.Map({
+      container: mapContainer.current,
+      style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+      center: [centerLng || 44.0, centerLat || 32.0],
+      zoom: 5,
+      attributionControl: false,
+    });
+
+    map.addControl(new maplibregl.NavigationControl({ showCompass: true }), 'bottom-left');
+
+    mapRef.current = map;
+
+    return () => {
+      map.remove();
+      mapRef.current = null;
+    };
+  }, []);
+
+  // 마커 업데이트
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+
+    const addMarkers = () => {
+      // 기존 마커 제거
+      markersRef.current.forEach(m => m.remove());
+      markersRef.current = [];
+
+      targets.forEach(target => {
+        const color = getRiskColor(target.risk_label);
+        const isSelected = selected === target.city;
+        const size = isSelected ? 14 : 10;
+
+        // 마커 엘리먼트
+        const el = document.createElement('div');
+        el.style.cssText = `
+          position: relative;
+          width: ${size}px;
+          height: ${size}px;
+          cursor: pointer;
+        `;
+
+        // 점
+        const dot = document.createElement('div');
+        dot.style.cssText = `
+          width: ${size}px;
+          height: ${size}px;
+          background: ${color};
+          border: 1.5px solid rgba(255,255,255,0.8);
+          border-radius: 50%;
+          box-shadow: ${isSelected
+            ? `0 0 0 2px rgba(255,255,255,0.9), 0 0 0 4px ${color}, 0 0 10px ${color}88`
+            : '0 1px 4px rgba(0,0,0,0.5)'};
+        `;
+
+        // pulse 애니메이션
+        if (!isSelected) {
+          const pulse = document.createElement('div');
+          pulse.style.cssText = `
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: ${size}px;
+            height: ${size}px;
+            border-radius: 50%;
+            background: ${color};
+            opacity: 0.4;
+            animation: pulse 2s ease-out infinite;
+          `;
+          el.appendChild(pulse);
+        }
+
+        // 라벨
+        const label = document.createElement('div');
+        label.style.cssText = `
+          position: absolute;
+          top: ${size + 3}px;
+          left: 50%;
+          transform: translateX(-50%);
+          white-space: nowrap;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 10px;
+          font-weight: 600;
+          color: #ffffff;
+          background: rgba(0,0,0,0.65);
+          padding: 1px 5px;
+          border-radius: 2px;
+          pointer-events: none;
+        `;
+        label.textContent = target.display_name;
+
+        el.appendChild(dot);
+        el.appendChild(label);
+
+        // 팝업
+        const popup = new maplibregl.Popup({
+          offset: 12,
+          closeButton: true,
+          maxWidth: '220px',
+        }).setHTML(`
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; padding:2px;">
+            <div style="font-size:10px;font-weight:600;color:${color};margin-bottom:4px;">
+              ${riskDisplay(target.risk_label)}
+            </div>
+            <div style="font-size:15px;font-weight:700;color:#0f172a;margin-bottom:8px;line-height:1.2;">
+              ${target.display_name}
+            </div>
+            <div style="font-size:11px;color:#374151;line-height:1.6;">
+              ${target.llm_message}
+            </div>
+          </div>
+        `);
+
+        el.addEventListener('click', () => {
+          onSelect(target.city);
+          if (popupRef.current) popupRef.current.remove();
+          popupRef.current = popup;
+        });
+
+        const marker = new maplibregl.Marker({ element: el, anchor: 'center' })
+          .setLngLat([target.lng, target.lat])
+          .setPopup(popup)
+          .addTo(map);
+
+        markersRef.current.push(marker);
+      });
+    };
+
+    if (map.loaded()) {
+      addMarkers();
+    } else {
+      map.on('load', addMarkers);
+    }
+  }, [targets, selected, onSelect]);
+
+  // 선택된 도시로 flyTo
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !selected) return;
+    const t = targets.find(t => t.city === selected);
+    if (t) {
+      map.flyTo({
+        center: [t.lng, t.lat],
+        zoom: 10,
+        duration: 800,
+        essential: true,
+      });
+    }
+  }, [selected, targets]);
 
   return (
     <div style={{ height: '100%', width: '100%', position: 'relative' }}>
       <style>{`
-        .leaflet-container { background: #1a1a1a; }
-        .leaflet-popup-content-wrapper {
-          background: #fff; border-radius: 6px;
-          box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          border: 1px solid #e2e8f0; color: #1e293b;
-        }
-        .leaflet-popup-tip { background: #fff; }
-        .leaflet-popup-close-button { color: #94a3b8 !important; }
-        .leaflet-bottom.leaflet-left { display: block; }
-        .leaflet-top.leaflet-left .leaflet-control-zoom { display: none; }
-        .leaflet-bottom.leaflet-left .leaflet-control-zoom {
-          display: block;
-          border: 1px solid rgba(255,255,255,0.15) !important;
-          box-shadow: none !important;
-          margin-bottom: 10px;
-          margin-left: 10px;
-        }
-        .leaflet-control-zoom a {
-          background: #1a1a1a !important;
-          color: #888 !important;
-          border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-        }
-        .leaflet-control-zoom a:hover {
-          background: #222 !important;
-          color: #fff !important;
-        }
-        .leaflet-control-attribution { display: none !important; }
         @keyframes pulse {
           0%   { transform: translate(-50%,-50%) scale(1);   opacity: 0.4; }
           70%  { transform: translate(-50%,-50%) scale(2.5); opacity: 0; }
           100% { transform: translate(-50%,-50%) scale(1);   opacity: 0; }
         }
+        .maplibregl-popup-content {
+          background: #fff;
+          border-radius: 6px;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+          border: 1px solid #e2e8f0;
+          padding: 10px 12px;
+        }
+        .maplibregl-popup-close-button {
+          color: #94a3b8;
+          font-size: 16px;
+          padding: 4px 6px;
+        }
+        .maplibregl-ctrl-attrib { display: none !important; }
+        .maplibregl-ctrl-bottom-left .maplibregl-ctrl {
+          margin: 0 0 10px 10px;
+        }
+        .maplibregl-ctrl-group {
+          background: #1a1a1a !important;
+          border: 1px solid rgba(255,255,255,0.15) !important;
+          box-shadow: none !important;
+        }
+        .maplibregl-ctrl-group button {
+          background: #1a1a1a !important;
+          color: #888 !important;
+        }
+        .maplibregl-ctrl-group button:hover {
+          background: #222 !important;
+          color: #fff !important;
+        }
+        .maplibregl-ctrl-icon {
+          filter: invert(0.5);
+        }
+        .maplibregl-ctrl-icon:hover {
+          filter: invert(1);
+        }
       `}</style>
-
-      <MapContainer
-        key="sat-map"
-        center={[centerLat || 32.0, centerLng || 44.0]}
-        zoom={5}
-        style={{ height: '100%', width: '100%' }}
-        className="z-0"
-        zoomControl={false}
-      >
-        <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-          attribution=""
-        />
-        <MapController targets={targets} selected={selected} />
-        <MarkersLayer targets={targets} selected={selected} onSelect={onSelect} />
-        <ZoomControl position="bottomleft" />
-      </MapContainer>
+      <div ref={mapContainer} style={{ height: '100%', width: '100%' }} />
     </div>
   );
 }
