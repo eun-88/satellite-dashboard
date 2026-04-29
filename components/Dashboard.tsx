@@ -209,7 +209,7 @@ function TrendChart({ target }: { target: Target }) {
           <XAxis dataKey="date" tick={{ fontFamily:S.mono, fontSize:7, fill:S.textDim }} tickLine={false} axisLine={false} interval={4}/>
           <YAxis tick={{ fontFamily:S.mono, fontSize:8, fill:S.textDim }} tickLine={false} axisLine={false} width={40}/>
           <Tooltip content={<CustomTooltip/>}/>
-          <Line dataKey="z" name="Z-score" stroke="#5fe6a0" strokeWidth={1.5} dot={false} activeDot={{ r:3 }}/>
+          <Line dataKey="z" name="innov_z" stroke="#5fe6a0" strokeWidth={1.5} dot={false} activeDot={{ r:3 }}/>
         </ComposedChart>
       </ResponsiveContainer>
       <div style={{ display:'flex', gap:10, marginTop:3 }}>
