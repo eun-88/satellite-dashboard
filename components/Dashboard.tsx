@@ -11,10 +11,6 @@ import type { Target, SatPass } from './LeafletMap';
 
 const LeafletMap = dynamic(() => import('./LeafletMap'), { ssr: false });
 
-const AVAILABLE_DATES = [
-  '20260322','20260323','20260324','20260325','20260326',
-  '20260327','20260328','20260329','20260330','20260331',
-];
 const dashboardPath = (date: string) => `/data/dashboard/daily_${date}.json`;
 
 interface DashboardData {
@@ -31,8 +27,14 @@ interface FlatPass extends SatPass {
 }
 interface TrendPoint {
   date: string;
-  tone: number;
-  conflict: number;
+  z: number;
+  goldstein: number;
+}
+interface History30d {
+  date: string;
+  z: number;
+  sources: number;
+  goldstein: number;
 }
 
 const fmtUTC = (iso: string) => {
@@ -157,35 +159,8 @@ function useUTCClock() {
   return `${String(now.getUTCHours()).padStart(2,'0')}:${String(now.getUTCMinutes()).padStart(2,'0')}:${String(now.getUTCSeconds()).padStart(2,'0')} UTC`;
 }
 
-function TrendChart({ city, currentDate }: { city: string; currentDate: string }) {
-  const [trend, setTrend] = useState<TrendPoint[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (!city) return;
-    setLoading(true);
-    const idx = AVAILABLE_DATES.indexOf(currentDate);
-    const dates = AVAILABLE_DATES.slice(Math.max(0, idx - 6), idx + 1);
-    Promise.all(dates.map(d => fetch(dashboardPath(d)).then(r => r.json())))
-      .then(results => {
-        setTrend(results.map((data, i) => {
-          const t = data.targets?.find((t: Target) => t.city === city);
-          return {
-            date:     fmtDateShort(dates[i]),
-            tone:     t ? parseFloat(t.innov_z.toFixed(1)) : 0,
-            conflict: t ? parseFloat(t.conflict_index.toFixed(0)) : 0,
-          };
-        }));
-      })
-      .catch(() => setTrend([]))
-      .finally(() => setLoading(false));
-  }, [city, currentDate]);
-
-  if (loading) return (
-    <div style={{ height:100, display:'flex', alignItems:'center', justifyContent:'center', color:S.textDim, fontFamily:S.mono, fontSize:10 }}>
-      LOADING TREND...
-    </div>
-  );
+function TrendChart({ target }: { target: Target }) {
+  const history = target.history_30d ?? [];
 
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (!active || !payload?.length) return null;
@@ -199,17 +174,35 @@ function TrendChart({ city, currentDate }: { city: string; currentDate: string }
     );
   };
 
+  if (!history.length) return null;
+
+  // 최근 30일 데이터를 날짜 포맷해서 사용
+  const data = history.map(h => ({
+    date: `${h.date.slice(4,6)}/${h.date.slice(6,8)}`,
+    z: parseFloat(h.z.toFixed(1)),
+    goldstein: parseFloat(h.goldstein.toFixed(1)),
+  }));
+
   return (
     <div style={{ marginBottom:12 }}>
-      <div style={{ fontFamily:S.body, fontSize:9, color:S.textDim, letterSpacing:'.08em', textTransform:'uppercase', marginBottom:4 }}>7일 트렌드</div>
+      <div style={{ fontFamily:S.body, fontSize:9, color:S.textDim, letterSpacing:'.08em', textTransform:'uppercase', marginBottom:4 }}>
+        30일 트렌드
+        {target.delta_z !== undefined && (
+          <span style={{ marginLeft:8, color: target.delta_z > 0 ? S.red : S.green }}>
+            {target.delta_z > 0 ? '▲' : '▼'} {Math.abs(target.delta_z).toFixed(1)}
+          </span>
+        )}
+        {target.consecutive_anomaly_days !== undefined && target.consecutive_anomaly_days > 0 && (
+          <span style={{ marginLeft:8, color:S.amber }}>{target.consecutive_anomaly_days}일 연속 이상</span>
+        )}
+      </div>
       <ResponsiveContainer width="100%" height={90}>
-        <ComposedChart data={trend} margin={{ top:4, right:4, bottom:0, left:-10 }}>
+        <ComposedChart data={data} margin={{ top:4, right:4, bottom:0, left:-10 }}>
           <CartesianGrid strokeDasharray="2 4" stroke="rgba(255,255,255,0.05)" vertical={false}/>
-          <XAxis dataKey="date" tick={{ fontFamily:S.mono, fontSize:8, fill:S.textDim }} tickLine={false} axisLine={false}/>
+          <XAxis dataKey="date" tick={{ fontFamily:S.mono, fontSize:7, fill:S.textDim }} tickLine={false} axisLine={false} interval={4}/>
           <YAxis tick={{ fontFamily:S.mono, fontSize:8, fill:S.textDim }} tickLine={false} axisLine={false} width={40}/>
           <Tooltip content={<CustomTooltip/>}/>
-          <Line dataKey="tone"     name="Z-score"  stroke="#5fe6a0" strokeWidth={1.5} dot={{ r:2, fill:'#5fe6a0', strokeWidth:0 }} activeDot={{ r:3 }}/>
-          <Line dataKey="conflict" name="충돌지수" stroke="#5fe6a0" strokeWidth={1.5} dot={{ r:2, fill:'#5fe6a0', strokeWidth:0 }} activeDot={{ r:3 }} strokeDasharray="3 2" opacity={0.6}/>
+          <Line dataKey="z" name="Z-score" stroke="#5fe6a0" strokeWidth={1.5} dot={false} activeDot={{ r:3 }}/>
         </ComposedChart>
       </ResponsiveContainer>
       <div style={{ display:'flex', gap:10, marginTop:3 }}>
@@ -289,9 +282,9 @@ function ApprovedCart({ approvedPasses, onRemove }: {
   );
 }
 
-function DetailPanel({ target, pass, approved, onApprove, onCancel, currentDate }: {
+function DetailPanel({ target, pass, approved, onApprove, onCancel }: {
   target: Target|null; pass: FlatPass|null; approved: boolean;
-  onApprove: () => void; onCancel: () => void; currentDate: string;
+  onApprove: () => void; onCancel: () => void;
 }) {
   if (!target) return (
     <div style={{ display:'flex', alignItems:'center', justifyContent:'center', height:120, color:S.textDim, fontSize:12 }}>
@@ -310,7 +303,7 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel, currentDate 
         {target.llm_message}
       </div>
 
-      <TrendChart city={target.city} currentDate={currentDate}/>
+      <TrendChart target={target}/>
 
       <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:4, marginBottom:10 }}>
         {([
@@ -382,7 +375,8 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel, currentDate 
 // ══════════════════════════════════════════════════
 export default function Dashboard() {
   const utcClock = useUTCClock();
-  const [date,     setDate]     = useState(AVAILABLE_DATES[AVAILABLE_DATES.length-1]);
+  const [dates,    setDates]    = useState<string[]>([]);
+  const [date,     setDate]     = useState('');
   const [data,     setData]     = useState<DashboardData|null>(null);
   const [selected, setSelected] = useState<string|null>(null);
   const [selPass,  setSelPass]  = useState<FlatPass|null>(null);
@@ -390,7 +384,29 @@ export default function Dashboard() {
   const [loading,  setLoading]  = useState(true);
   const [error,    setError]    = useState<string|null>(null);
 
+  // 날짜 목록 로드
+  useEffect(() => {
+    fetch('/api/dates')
+      .then(r => r.json())
+      .then(({ dates }) => {
+        if (dates?.length) {
+          setDates(dates);
+          setDate(dates[dates.length - 1]);
+        }
+      })
+      .catch(() => {
+        // fallback: 기존 10일치
+        const fallback = [
+          '20260322','20260323','20260324','20260325','20260326',
+          '20260327','20260328','20260329','20260330','20260331',
+        ];
+        setDates(fallback);
+        setDate(fallback[fallback.length - 1]);
+      });
+  }, []);
+
   useEffect(()=>{
+    if (!date) return;
     setLoading(true); setError(null); setSelected(null); setSelPass(null);
     setApproved([]);
     (async()=>{
@@ -449,7 +465,7 @@ export default function Dashboard() {
             <div style={{ width:1, height:16, background:S.border }}/>
             <div style={{ position:'relative' }}>
               <select className="date-sel" value={date} onChange={e=>setDate(e.target.value)}>
-                {AVAILABLE_DATES.map(d=>(
+                {dates.map(d=>(
                   <option key={d} value={d} style={{ background:S.bg3 }}>{fmtDateLabel(d)}</option>
                 ))}
               </select>
@@ -608,7 +624,6 @@ export default function Dashboard() {
                 approved={selPass?approved.includes(passKey(selPass)):false}
                 onApprove={()=>selPass&&approve(passKey(selPass))}
                 onCancel={()=>selPass&&cancelApprove(passKey(selPass))}
-                currentDate={date}
               />
             </div>
           </div>

@@ -1,6 +1,6 @@
 {
   "date": "20260330",
-  "generated_at": "2026-04-27T07:09:41Z",
+  "generated_at": "2026-04-29T04:37:23Z",
   "config": {
     "model": "gemini-3.1-flash-lite-preview",
     "prompt_version": "v8",
@@ -40,6 +40,190 @@
         "https://www.yahoo.com/news/articles/trump-mulls-seizing-iranian-island-055003275.html",
         "https://www.newburytoday.co.uk/national/starmer-calls-for-joint-effort-with-business-on-iran-war-economic-impact-164752/"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": 2.459,
+          "sources": 8.4,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260302",
+          "z": 1.061,
+          "sources": 1.0,
+          "goldstein": -9.53
+        },
+        {
+          "date": "20260303",
+          "z": 1.042,
+          "sources": 1.0,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260304",
+          "z": -0.063,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260305",
+          "z": -0.062,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260306",
+          "z": -0.061,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260307",
+          "z": -0.06,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260308",
+          "z": 1.245,
+          "sources": 1.0,
+          "goldstein": -9.64
+        },
+        {
+          "date": "20260309",
+          "z": 1.441,
+          "sources": 1.0,
+          "goldstein": -9.75
+        },
+        {
+          "date": "20260310",
+          "z": 1.199,
+          "sources": 1.0,
+          "goldstein": -9.53
+        },
+        {
+          "date": "20260311",
+          "z": 3.311,
+          "sources": 1.86,
+          "goldstein": -9.4
+        },
+        {
+          "date": "20260312",
+          "z": 7.552,
+          "sources": 9.78,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260313",
+          "z": 3.122,
+          "sources": 1.2,
+          "goldstein": -9.78
+        },
+        {
+          "date": "20260314",
+          "z": 53.639,
+          "sources": 6.37,
+          "goldstein": -9.84
+        },
+        {
+          "date": "20260315",
+          "z": 49.812,
+          "sources": 11.64,
+          "goldstein": -9.91
+        },
+        {
+          "date": "20260316",
+          "z": 29.391,
+          "sources": 3.77,
+          "goldstein": -9.86
+        },
+        {
+          "date": "20260317",
+          "z": 5.552,
+          "sources": 1.17,
+          "goldstein": -9.65
+        },
+        {
+          "date": "20260318",
+          "z": 4.563,
+          "sources": 1.16,
+          "goldstein": -9.77
+        },
+        {
+          "date": "20260319",
+          "z": 20.503,
+          "sources": 1.95,
+          "goldstein": -9.23
+        },
+        {
+          "date": "20260320",
+          "z": 7.581,
+          "sources": 1.62,
+          "goldstein": -9.35
+        },
+        {
+          "date": "20260321",
+          "z": 15.424,
+          "sources": 2.21,
+          "goldstein": -9.58
+        },
+        {
+          "date": "20260322",
+          "z": 5.642,
+          "sources": 1.5,
+          "goldstein": -9.37
+        },
+        {
+          "date": "20260323",
+          "z": 6.147,
+          "sources": 2.65,
+          "goldstein": -9.57
+        },
+        {
+          "date": "20260324",
+          "z": 14.045,
+          "sources": 11.22,
+          "goldstein": -9.46
+        },
+        {
+          "date": "20260325",
+          "z": 10.855,
+          "sources": 3.11,
+          "goldstein": -9.16
+        },
+        {
+          "date": "20260326",
+          "z": 30.835,
+          "sources": 9.26,
+          "goldstein": -9.31
+        },
+        {
+          "date": "20260327",
+          "z": 8.046,
+          "sources": 1.93,
+          "goldstein": -9.14
+        },
+        {
+          "date": "20260328",
+          "z": 2.474,
+          "sources": 2.83,
+          "goldstein": -9.24
+        },
+        {
+          "date": "20260329",
+          "z": 15.241,
+          "sources": 2.23,
+          "goldstein": -9.24
+        },
+        {
+          "date": "20260330",
+          "z": 35.324,
+          "sources": 4.34,
+          "goldstein": -9.38
+        }
+      ],
+      "delta_z": 20.083,
+      "consecutive_anomaly_days": 20,
       "satellite_passes": [
         {
           "satellite": "ICEYE-X2",
@@ -61,7 +245,7 @@
         {
           "satellite": "SpaceEye-T",
           "norad_id": 63229,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.25,
           "pass_time_utc": "2026-04-01T06:53:34Z",
           "max_elevation_deg": 63.0,
@@ -112,6 +296,190 @@
         "https://www.cp24.com/news/world/2026/03/29/iran-warns-us-ground-troops-would-be-set-on-fire-as-regional-diplomats-meet-on-the-war/",
         "https://www.northcountrypublicradio.org/news/npr/nx-s1-5765967/trump-is-weighing-all-options-on-iran-s-kharg-island"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": 553.135,
+          "sources": 8.78,
+          "goldstein": -9.85
+        },
+        {
+          "date": "20260302",
+          "z": 384.398,
+          "sources": 5.19,
+          "goldstein": -9.86
+        },
+        {
+          "date": "20260303",
+          "z": 292.033,
+          "sources": 4.68,
+          "goldstein": -9.75
+        },
+        {
+          "date": "20260304",
+          "z": 262.172,
+          "sources": 5.63,
+          "goldstein": -9.82
+        },
+        {
+          "date": "20260305",
+          "z": 226.82,
+          "sources": 4.02,
+          "goldstein": -9.86
+        },
+        {
+          "date": "20260306",
+          "z": 162.405,
+          "sources": 4.67,
+          "goldstein": -9.82
+        },
+        {
+          "date": "20260307",
+          "z": 159.558,
+          "sources": 9.5,
+          "goldstein": -9.79
+        },
+        {
+          "date": "20260308",
+          "z": 143.831,
+          "sources": 6.06,
+          "goldstein": -9.74
+        },
+        {
+          "date": "20260309",
+          "z": 107.78,
+          "sources": 4.94,
+          "goldstein": -9.8
+        },
+        {
+          "date": "20260310",
+          "z": 78.772,
+          "sources": 3.15,
+          "goldstein": -9.76
+        },
+        {
+          "date": "20260311",
+          "z": 71.94,
+          "sources": 5.17,
+          "goldstein": -9.79
+        },
+        {
+          "date": "20260312",
+          "z": 62.902,
+          "sources": 3.56,
+          "goldstein": -9.82
+        },
+        {
+          "date": "20260313",
+          "z": 106.908,
+          "sources": 5.51,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260314",
+          "z": 68.895,
+          "sources": 4.65,
+          "goldstein": -9.84
+        },
+        {
+          "date": "20260315",
+          "z": 18.399,
+          "sources": 4.3,
+          "goldstein": -9.86
+        },
+        {
+          "date": "20260316",
+          "z": 26.148,
+          "sources": 5.92,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260317",
+          "z": 92.32,
+          "sources": 7.59,
+          "goldstein": -9.81
+        },
+        {
+          "date": "20260318",
+          "z": 81.664,
+          "sources": 5.17,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260319",
+          "z": 65.038,
+          "sources": 4.15,
+          "goldstein": -9.87
+        },
+        {
+          "date": "20260320",
+          "z": 43.819,
+          "sources": 4.44,
+          "goldstein": -9.8
+        },
+        {
+          "date": "20260321",
+          "z": 40.917,
+          "sources": 5.57,
+          "goldstein": -9.82
+        },
+        {
+          "date": "20260322",
+          "z": 22.585,
+          "sources": 5.38,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260323",
+          "z": 28.45,
+          "sources": 5.15,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260324",
+          "z": 50.841,
+          "sources": 7.63,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260325",
+          "z": 40.801,
+          "sources": 5.56,
+          "goldstein": -9.59
+        },
+        {
+          "date": "20260326",
+          "z": 16.552,
+          "sources": 4.18,
+          "goldstein": -9.76
+        },
+        {
+          "date": "20260327",
+          "z": -7.478,
+          "sources": 4.22,
+          "goldstein": -9.71
+        },
+        {
+          "date": "20260328",
+          "z": 19.228,
+          "sources": 6.52,
+          "goldstein": -9.78
+        },
+        {
+          "date": "20260329",
+          "z": 44.651,
+          "sources": 6.65,
+          "goldstein": -9.53
+        },
+        {
+          "date": "20260330",
+          "z": 35.28,
+          "sources": 5.17,
+          "goldstein": -9.65
+        }
+      ],
+      "delta_z": -9.371,
+      "consecutive_anomaly_days": 3,
       "satellite_passes": [
         {
           "satellite": "ICEYE-X2",
@@ -133,7 +501,7 @@
         {
           "satellite": "SpaceEye-T",
           "norad_id": 63229,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.25,
           "pass_time_utc": "2026-04-01T06:55:11Z",
           "max_elevation_deg": 44.5,
@@ -184,6 +552,190 @@
         "https://www.hindustantimes.com/world-news/ground-invasion-soon-why-kharg-island-finds-itself-at-the-centre-of-iran-us-war-101774864704314.html",
         "http://www.bignewsnetwork.com/news/278952951/trump-is-prolonging-iran-war-to-appease-his-billionaire-associates-fulfill-israel-agenda-middle-east-expert-waiel-awwad"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": 1.086,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260302",
+          "z": 0.541,
+          "sources": 5.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260303",
+          "z": -0.03,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260304",
+          "z": -0.03,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260305",
+          "z": -0.029,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260306",
+          "z": -0.029,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260307",
+          "z": 0.841,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260308",
+          "z": -0.043,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260309",
+          "z": 0.393,
+          "sources": 1.0,
+          "goldstein": -8.6
+        },
+        {
+          "date": "20260310",
+          "z": 0.603,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260311",
+          "z": 0.72,
+          "sources": 11.0,
+          "goldstein": -7.2
+        },
+        {
+          "date": "20260312",
+          "z": 0.364,
+          "sources": 1.0,
+          "goldstein": -9.5
+        },
+        {
+          "date": "20260313",
+          "z": 2.696,
+          "sources": 1.27,
+          "goldstein": -9.91
+        },
+        {
+          "date": "20260314",
+          "z": 43.239,
+          "sources": 5.34,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260315",
+          "z": 14.29,
+          "sources": 3.49,
+          "goldstein": -9.93
+        },
+        {
+          "date": "20260316",
+          "z": 6.186,
+          "sources": 1.48,
+          "goldstein": -9.91
+        },
+        {
+          "date": "20260317",
+          "z": 3.065,
+          "sources": 1.38,
+          "goldstein": -9.91
+        },
+        {
+          "date": "20260318",
+          "z": 0.026,
+          "sources": 1.2,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260319",
+          "z": 17.614,
+          "sources": 4.19,
+          "goldstein": -8.96
+        },
+        {
+          "date": "20260320",
+          "z": 11.304,
+          "sources": 1.46,
+          "goldstein": -9.13
+        },
+        {
+          "date": "20260321",
+          "z": 4.369,
+          "sources": 1.39,
+          "goldstein": -9.51
+        },
+        {
+          "date": "20260322",
+          "z": 0.17,
+          "sources": 1.57,
+          "goldstein": -9.5
+        },
+        {
+          "date": "20260323",
+          "z": 2.016,
+          "sources": 4.5,
+          "goldstein": -9.72
+        },
+        {
+          "date": "20260324",
+          "z": 1.657,
+          "sources": 3.67,
+          "goldstein": -9.01
+        },
+        {
+          "date": "20260325",
+          "z": 1.891,
+          "sources": 1.36,
+          "goldstein": -9.09
+        },
+        {
+          "date": "20260326",
+          "z": 4.401,
+          "sources": 1.95,
+          "goldstein": -9.5
+        },
+        {
+          "date": "20260327",
+          "z": 0.584,
+          "sources": 1.2,
+          "goldstein": -8.83
+        },
+        {
+          "date": "20260328",
+          "z": -0.984,
+          "sources": 1.0,
+          "goldstein": -8.6
+        },
+        {
+          "date": "20260329",
+          "z": 0.463,
+          "sources": 1.1,
+          "goldstein": -9.62
+        },
+        {
+          "date": "20260330",
+          "z": 10.152,
+          "sources": 5.03,
+          "goldstein": -9.54
+        }
+      ],
+      "delta_z": 9.689,
+      "consecutive_anomaly_days": 1,
       "satellite_passes": [
         {
           "satellite": "ICEYE-X2",
@@ -205,7 +757,7 @@
         {
           "satellite": "SpaceEye-T",
           "norad_id": 63229,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.25,
           "pass_time_utc": "2026-04-01T06:53:34Z",
           "max_elevation_deg": 62.9,
@@ -256,11 +808,195 @@
         "https://timesofindia.indiatimes.com/world/middle-east/watch-missile-shrapnel-from-iran-causes-fire-damage-to-israels-negev-industrial-hub/articleshow/129890621.cms",
         "https://www.aol.co.uk/articles/iran-accuses-us-plotting-ground-164251605.html"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": 0.021,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260302",
+          "z": 3.216,
+          "sources": 2.27,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260303",
+          "z": 2.043,
+          "sources": 1.1,
+          "goldstein": -9.72
+        },
+        {
+          "date": "20260304",
+          "z": 0.358,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260305",
+          "z": -0.083,
+          "sources": 1.0,
+          "goldstein": -7.2
+        },
+        {
+          "date": "20260306",
+          "z": -0.299,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260307",
+          "z": 1.368,
+          "sources": 3.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260308",
+          "z": 3.203,
+          "sources": 2.18,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260309",
+          "z": 0.497,
+          "sources": 1.0,
+          "goldstein": -9.75
+        },
+        {
+          "date": "20260310",
+          "z": 0.272,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260311",
+          "z": 0.05,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260312",
+          "z": 1.48,
+          "sources": 1.83,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260313",
+          "z": 3.052,
+          "sources": 1.38,
+          "goldstein": -9.85
+        },
+        {
+          "date": "20260314",
+          "z": 1.497,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260315",
+          "z": -0.049,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260316",
+          "z": 0.821,
+          "sources": 1.0,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260317",
+          "z": -0.496,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260318",
+          "z": 1.978,
+          "sources": 1.75,
+          "goldstein": -9.9
+        },
+        {
+          "date": "20260319",
+          "z": 0.133,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260320",
+          "z": 0.131,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260321",
+          "z": -0.088,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260322",
+          "z": 5.25,
+          "sources": 11.67,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260323",
+          "z": 0.487,
+          "sources": 1.0,
+          "goldstein": -9.84
+        },
+        {
+          "date": "20260324",
+          "z": 0.915,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260325",
+          "z": 0.032,
+          "sources": 1.0,
+          "goldstein": -9.73
+        },
+        {
+          "date": "20260326",
+          "z": -0.622,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260327",
+          "z": -0.395,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260328",
+          "z": 8.778,
+          "sources": 11.43,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260329",
+          "z": 12.392,
+          "sources": 4.41,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260330",
+          "z": 10.082,
+          "sources": 11.58,
+          "goldstein": -9.96
+        }
+      ],
+      "delta_z": -2.31,
+      "consecutive_anomaly_days": 3,
       "satellite_passes": [
         {
           "satellite": "KOMPSAT-7",
           "norad_id": 66820,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.3,
           "pass_time_utc": "2026-03-31T11:15:16Z",
           "max_elevation_deg": 64.1,
@@ -328,11 +1064,195 @@
         "https://www.wuwf.org/2026-03-30/trump-is-weighing-all-options-on-irans-kharg-island",
         "https://www.wsls.com/news/national/2026/03/30/fbi-says-a-man-who-crashed-his-pickup-into-michigan-synagogue-was-inspired-by-hezbollah/"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": 12.077,
+          "sources": 4.76,
+          "goldstein": -9.97
+        },
+        {
+          "date": "20260302",
+          "z": 72.471,
+          "sources": 3.75,
+          "goldstein": -9.95
+        },
+        {
+          "date": "20260303",
+          "z": 77.043,
+          "sources": 5.5,
+          "goldstein": -9.7
+        },
+        {
+          "date": "20260304",
+          "z": 51.844,
+          "sources": 4.88,
+          "goldstein": -9.84
+        },
+        {
+          "date": "20260305",
+          "z": 38.859,
+          "sources": 5.58,
+          "goldstein": -9.89
+        },
+        {
+          "date": "20260306",
+          "z": 68.863,
+          "sources": 7.75,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260307",
+          "z": 35.532,
+          "sources": 9.36,
+          "goldstein": -9.91
+        },
+        {
+          "date": "20260308",
+          "z": 36.307,
+          "sources": 4.84,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260309",
+          "z": 26.096,
+          "sources": 2.88,
+          "goldstein": -9.96
+        },
+        {
+          "date": "20260310",
+          "z": 5.103,
+          "sources": 1.85,
+          "goldstein": -9.96
+        },
+        {
+          "date": "20260311",
+          "z": 11.667,
+          "sources": 1.84,
+          "goldstein": -9.93
+        },
+        {
+          "date": "20260312",
+          "z": 45.682,
+          "sources": 5.58,
+          "goldstein": -9.94
+        },
+        {
+          "date": "20260313",
+          "z": 43.773,
+          "sources": 8.22,
+          "goldstein": -9.95
+        },
+        {
+          "date": "20260314",
+          "z": 20.979,
+          "sources": 7.68,
+          "goldstein": -9.85
+        },
+        {
+          "date": "20260315",
+          "z": 4.442,
+          "sources": 3.62,
+          "goldstein": -9.92
+        },
+        {
+          "date": "20260316",
+          "z": 19.613,
+          "sources": 7.73,
+          "goldstein": -9.81
+        },
+        {
+          "date": "20260317",
+          "z": 13.188,
+          "sources": 2.7,
+          "goldstein": -9.95
+        },
+        {
+          "date": "20260318",
+          "z": 32.103,
+          "sources": 4.28,
+          "goldstein": -9.9
+        },
+        {
+          "date": "20260319",
+          "z": 18.218,
+          "sources": 2.94,
+          "goldstein": -9.9
+        },
+        {
+          "date": "20260320",
+          "z": -1.44,
+          "sources": 2.03,
+          "goldstein": -9.86
+        },
+        {
+          "date": "20260321",
+          "z": 14.367,
+          "sources": 12.23,
+          "goldstein": -9.82
+        },
+        {
+          "date": "20260322",
+          "z": 2.913,
+          "sources": 4.63,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260323",
+          "z": 3.532,
+          "sources": 3.0,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260324",
+          "z": 21.338,
+          "sources": 6.27,
+          "goldstein": -9.85
+        },
+        {
+          "date": "20260325",
+          "z": 14.737,
+          "sources": 4.68,
+          "goldstein": -9.86
+        },
+        {
+          "date": "20260326",
+          "z": 4.662,
+          "sources": 5.6,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260327",
+          "z": 8.379,
+          "sources": 3.78,
+          "goldstein": -9.84
+        },
+        {
+          "date": "20260328",
+          "z": 17.963,
+          "sources": 5.28,
+          "goldstein": -9.89
+        },
+        {
+          "date": "20260329",
+          "z": 21.371,
+          "sources": 11.93,
+          "goldstein": -9.93
+        },
+        {
+          "date": "20260330",
+          "z": 8.266,
+          "sources": 5.47,
+          "goldstein": -9.88
+        }
+      ],
+      "delta_z": -13.105,
+      "consecutive_anomaly_days": 10,
       "satellite_passes": [
         {
           "satellite": "KOMPSAT-7",
           "norad_id": 66820,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.3,
           "pass_time_utc": "2026-03-31T11:15:54Z",
           "max_elevation_deg": 77.2,
@@ -400,11 +1320,195 @@
         "https://diplomat.so/articles/1033/Israel-Expands-Buffer-Zone-to-Counter-Hezbollah-Threat",
         "https://www.presstv.ir/Detail/2026/03/29/766046/US-Israeli-aggression-on-Iran--What-happened-on-30th-day-of-the-imposed-war"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": 141.633,
+          "sources": 9.82,
+          "goldstein": -9.9
+        },
+        {
+          "date": "20260302",
+          "z": 63.627,
+          "sources": 3.89,
+          "goldstein": -9.94
+        },
+        {
+          "date": "20260303",
+          "z": 55.121,
+          "sources": 4.43,
+          "goldstein": -9.77
+        },
+        {
+          "date": "20260304",
+          "z": 37.673,
+          "sources": 3.78,
+          "goldstein": -9.87
+        },
+        {
+          "date": "20260305",
+          "z": 57.054,
+          "sources": 5.77,
+          "goldstein": -9.82
+        },
+        {
+          "date": "20260306",
+          "z": 39.166,
+          "sources": 4.16,
+          "goldstein": -9.84
+        },
+        {
+          "date": "20260307",
+          "z": 21.056,
+          "sources": 2.5,
+          "goldstein": -9.75
+        },
+        {
+          "date": "20260308",
+          "z": 36.476,
+          "sources": 4.93,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260309",
+          "z": 31.667,
+          "sources": 4.23,
+          "goldstein": -9.74
+        },
+        {
+          "date": "20260310",
+          "z": 11.951,
+          "sources": 2.83,
+          "goldstein": -9.84
+        },
+        {
+          "date": "20260311",
+          "z": 20.199,
+          "sources": 2.23,
+          "goldstein": -9.84
+        },
+        {
+          "date": "20260312",
+          "z": 13.599,
+          "sources": 5.23,
+          "goldstein": -9.89
+        },
+        {
+          "date": "20260313",
+          "z": 12.148,
+          "sources": 4.58,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260314",
+          "z": -1.615,
+          "sources": 2.37,
+          "goldstein": -9.91
+        },
+        {
+          "date": "20260315",
+          "z": 23.578,
+          "sources": 4.9,
+          "goldstein": -9.97
+        },
+        {
+          "date": "20260316",
+          "z": 5.729,
+          "sources": 1.94,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260317",
+          "z": 28.398,
+          "sources": 9.22,
+          "goldstein": -9.95
+        },
+        {
+          "date": "20260318",
+          "z": 59.036,
+          "sources": 5.44,
+          "goldstein": -9.97
+        },
+        {
+          "date": "20260319",
+          "z": 10.797,
+          "sources": 1.82,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260320",
+          "z": 12.398,
+          "sources": 2.05,
+          "goldstein": -9.82
+        },
+        {
+          "date": "20260321",
+          "z": 22.421,
+          "sources": 14.84,
+          "goldstein": -9.93
+        },
+        {
+          "date": "20260322",
+          "z": 4.297,
+          "sources": 2.41,
+          "goldstein": -9.92
+        },
+        {
+          "date": "20260323",
+          "z": 7.374,
+          "sources": 6.29,
+          "goldstein": -9.8
+        },
+        {
+          "date": "20260324",
+          "z": 33.533,
+          "sources": 5.91,
+          "goldstein": -9.84
+        },
+        {
+          "date": "20260325",
+          "z": 24.331,
+          "sources": 5.41,
+          "goldstein": -9.86
+        },
+        {
+          "date": "20260326",
+          "z": 41.112,
+          "sources": 9.46,
+          "goldstein": -9.85
+        },
+        {
+          "date": "20260327",
+          "z": 1.781,
+          "sources": 2.18,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260328",
+          "z": 3.864,
+          "sources": 3.26,
+          "goldstein": -9.73
+        },
+        {
+          "date": "20260329",
+          "z": 1.487,
+          "sources": 1.94,
+          "goldstein": -9.81
+        },
+        {
+          "date": "20260330",
+          "z": 5.937,
+          "sources": 5.31,
+          "goldstein": -9.86
+        }
+      ],
+      "delta_z": 4.45,
+      "consecutive_anomaly_days": 1,
       "satellite_passes": [
         {
           "satellite": "KOMPSAT-7",
           "norad_id": 66820,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.3,
           "pass_time_utc": "2026-03-31T11:15:29Z",
           "max_elevation_deg": 66.1,
@@ -472,6 +1576,190 @@
         "https://www.wuwf.org/2026-03-30/trump-is-weighing-all-options-on-irans-kharg-island",
         "https://www.houstonpublicmedia.org/npr/2026/03/30/nx-s1-5765967/trump-is-weighing-all-options-on-irans-kharg-island/"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260302",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260303",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260304",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260305",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260306",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260307",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260308",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260309",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260310",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260311",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260312",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260313",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260314",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260315",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260316",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260317",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260318",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260319",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260320",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260321",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260322",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260323",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260324",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260325",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260326",
+          "z": -0.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260327",
+          "z": 1.775,
+          "sources": 1.29,
+          "goldstein": -9.71
+        },
+        {
+          "date": "20260328",
+          "z": 3.921,
+          "sources": 5.89,
+          "goldstein": -9.78
+        },
+        {
+          "date": "20260329",
+          "z": 0.134,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260330",
+          "z": 4.597,
+          "sources": 12.5,
+          "goldstein": -9.92
+        }
+      ],
+      "delta_z": 4.463,
+      "consecutive_anomaly_days": 1,
       "satellite_passes": [
         {
           "satellite": "ICEYE-X2",
@@ -493,7 +1781,7 @@
         {
           "satellite": "SkySat-C12",
           "norad_id": 43797,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.5,
           "pass_time_utc": "2026-04-01T04:20:59Z",
           "max_elevation_deg": 71.4,
@@ -544,6 +1832,190 @@
         "https://www.weau.com/2026/03/29/iran-warns-us-against-ground-invasion-regional-powers-plan-meet-pakistan/",
         "http://www.pakistantelegraph.com/news/278952756/iran-using-banned-cluster-weapons-says-rights-watchdog"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": 8.295,
+          "sources": 2.79,
+          "goldstein": -9.98
+        },
+        {
+          "date": "20260302",
+          "z": 2.625,
+          "sources": 1.31,
+          "goldstein": -9.95
+        },
+        {
+          "date": "20260303",
+          "z": 9.846,
+          "sources": 2.41,
+          "goldstein": -9.74
+        },
+        {
+          "date": "20260304",
+          "z": 6.017,
+          "sources": 2.04,
+          "goldstein": -9.79
+        },
+        {
+          "date": "20260305",
+          "z": 1.203,
+          "sources": 1.64,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260306",
+          "z": 3.174,
+          "sources": 1.32,
+          "goldstein": -9.92
+        },
+        {
+          "date": "20260307",
+          "z": 5.218,
+          "sources": 2.05,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260308",
+          "z": 5.092,
+          "sources": 1.56,
+          "goldstein": -9.61
+        },
+        {
+          "date": "20260309",
+          "z": 9.719,
+          "sources": 3.14,
+          "goldstein": -9.58
+        },
+        {
+          "date": "20260310",
+          "z": 3.713,
+          "sources": 3.0,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260311",
+          "z": 3.802,
+          "sources": 2.16,
+          "goldstein": -9.81
+        },
+        {
+          "date": "20260312",
+          "z": 0.188,
+          "sources": 1.0,
+          "goldstein": -9.65
+        },
+        {
+          "date": "20260313",
+          "z": -0.685,
+          "sources": 1.0,
+          "goldstein": -9.6
+        },
+        {
+          "date": "20260314",
+          "z": 1.045,
+          "sources": 1.31,
+          "goldstein": -9.78
+        },
+        {
+          "date": "20260315",
+          "z": 10.256,
+          "sources": 8.33,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260316",
+          "z": 2.642,
+          "sources": 1.3,
+          "goldstein": -9.72
+        },
+        {
+          "date": "20260317",
+          "z": -1.077,
+          "sources": 1.4,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260318",
+          "z": -1.532,
+          "sources": 1.67,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260319",
+          "z": -1.726,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260320",
+          "z": 1.368,
+          "sources": 2.55,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260321",
+          "z": 9.388,
+          "sources": 3.06,
+          "goldstein": -9.97
+        },
+        {
+          "date": "20260322",
+          "z": 7.138,
+          "sources": 5.55,
+          "goldstein": -9.87
+        },
+        {
+          "date": "20260323",
+          "z": 4.552,
+          "sources": 5.82,
+          "goldstein": -9.78
+        },
+        {
+          "date": "20260324",
+          "z": 0.792,
+          "sources": 1.0,
+          "goldstein": -9.82
+        },
+        {
+          "date": "20260325",
+          "z": 2.993,
+          "sources": 1.08,
+          "goldstein": -9.53
+        },
+        {
+          "date": "20260326",
+          "z": 27.985,
+          "sources": 22.92,
+          "goldstein": -9.82
+        },
+        {
+          "date": "20260327",
+          "z": 12.21,
+          "sources": 3.18,
+          "goldstein": -9.84
+        },
+        {
+          "date": "20260328",
+          "z": 4.292,
+          "sources": 2.77,
+          "goldstein": -9.98
+        },
+        {
+          "date": "20260329",
+          "z": 7.302,
+          "sources": 19.52,
+          "goldstein": -9.81
+        },
+        {
+          "date": "20260330",
+          "z": 4.04,
+          "sources": 5.42,
+          "goldstein": -9.65
+        }
+      ],
+      "delta_z": -3.262,
+      "consecutive_anomaly_days": 6,
       "satellite_passes": [
         {
           "satellite": "ICEYE-X2",
@@ -565,7 +2037,7 @@
         {
           "satellite": "SpaceEye-T",
           "norad_id": 63229,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.25,
           "pass_time_utc": "2026-04-01T06:54:23Z",
           "max_elevation_deg": 46.5,
@@ -616,6 +2088,190 @@
         "http://www.newyorktelegraph.com/news/278952902/iran-confirms-irgc-naval-commander-killed",
         "https://www.presstv.ir/Detail/2026/03/29/766046/US-Israeli-aggression-on-Iran--What-happened-on-30th-day-of-the-imposed-war"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": 1.246,
+          "sources": 1.0,
+          "goldstein": -9.86
+        },
+        {
+          "date": "20260302",
+          "z": 0.916,
+          "sources": 1.2,
+          "goldstein": -9.8
+        },
+        {
+          "date": "20260303",
+          "z": 1.641,
+          "sources": 1.0,
+          "goldstein": -9.8
+        },
+        {
+          "date": "20260304",
+          "z": 0.742,
+          "sources": 1.0,
+          "goldstein": -9.8
+        },
+        {
+          "date": "20260305",
+          "z": 1.598,
+          "sources": 1.0,
+          "goldstein": -9.36
+        },
+        {
+          "date": "20260306",
+          "z": 1.262,
+          "sources": 1.14,
+          "goldstein": -9.86
+        },
+        {
+          "date": "20260307",
+          "z": -0.408,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260308",
+          "z": 0.251,
+          "sources": 1.0,
+          "goldstein": -9.67
+        },
+        {
+          "date": "20260309",
+          "z": 0.464,
+          "sources": 1.67,
+          "goldstein": -9.67
+        },
+        {
+          "date": "20260310",
+          "z": 1.76,
+          "sources": 1.0,
+          "goldstein": -9.7
+        },
+        {
+          "date": "20260311",
+          "z": 0.119,
+          "sources": 1.5,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260312",
+          "z": 0.642,
+          "sources": 1.0,
+          "goldstein": -9.8
+        },
+        {
+          "date": "20260313",
+          "z": -0.455,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260314",
+          "z": 0.204,
+          "sources": 2.0,
+          "goldstein": -9.25
+        },
+        {
+          "date": "20260315",
+          "z": 1.67,
+          "sources": 1.38,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260316",
+          "z": -0.478,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260317",
+          "z": 0.182,
+          "sources": 1.0,
+          "goldstein": -9.73
+        },
+        {
+          "date": "20260318",
+          "z": 0.397,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260319",
+          "z": 2.169,
+          "sources": 10.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260320",
+          "z": 0.792,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260321",
+          "z": -0.307,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260322",
+          "z": 0.132,
+          "sources": 1.0,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260323",
+          "z": 5.619,
+          "sources": 1.64,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260324",
+          "z": 0.737,
+          "sources": 1.4,
+          "goldstein": -9.9
+        },
+        {
+          "date": "20260325",
+          "z": -0.616,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260326",
+          "z": 19.722,
+          "sources": 2.87,
+          "goldstein": -9.98
+        },
+        {
+          "date": "20260327",
+          "z": 5.014,
+          "sources": 1.67,
+          "goldstein": -9.77
+        },
+        {
+          "date": "20260328",
+          "z": 0.698,
+          "sources": 3.75,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260329",
+          "z": 1.201,
+          "sources": 1.0,
+          "goldstein": -9.64
+        },
+        {
+          "date": "20260330",
+          "z": 3.381,
+          "sources": 1.93,
+          "goldstein": -10.0
+        }
+      ],
+      "delta_z": 2.18,
+      "consecutive_anomaly_days": 1,
       "satellite_passes": [
         {
           "satellite": "ICEYE-X2",
@@ -654,7 +2310,7 @@
         {
           "satellite": "SkySat-C12",
           "norad_id": 43797,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.5,
           "pass_time_utc": "2026-04-02T03:41:08Z",
           "max_elevation_deg": 89.3,
@@ -688,6 +2344,190 @@
         "https://www.camera.org/article/bbc-narrative-on-terror-linked-journalists-moves-to-lebanon/",
         "https://www.abc.net.au/news/2026-03-30/idf-misinformation-on-lebanese-journalist/106511282"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": -0.018,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260302",
+          "z": -0.017,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260303",
+          "z": -0.017,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260304",
+          "z": -0.017,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260305",
+          "z": -0.016,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260306",
+          "z": -0.016,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260307",
+          "z": -0.016,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260308",
+          "z": -0.016,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260309",
+          "z": -0.015,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260310",
+          "z": -0.015,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260311",
+          "z": -0.015,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260312",
+          "z": -0.015,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260313",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260314",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260315",
+          "z": 0.675,
+          "sources": 2.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260316",
+          "z": -0.025,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260317",
+          "z": -0.024,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260318",
+          "z": -0.024,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260319",
+          "z": -0.024,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260320",
+          "z": -0.023,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260321",
+          "z": -0.023,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260322",
+          "z": -0.022,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260323",
+          "z": -0.022,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260324",
+          "z": -0.022,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260325",
+          "z": -0.021,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260326",
+          "z": -0.021,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260327",
+          "z": -0.021,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260328",
+          "z": 8.587,
+          "sources": 2.88,
+          "goldstein": -9.98
+        },
+        {
+          "date": "20260329",
+          "z": 15.811,
+          "sources": 10.59,
+          "goldstein": -9.97
+        },
+        {
+          "date": "20260330",
+          "z": 3.275,
+          "sources": 1.83,
+          "goldstein": -9.92
+        }
+      ],
+      "delta_z": -12.536,
+      "consecutive_anomaly_days": 3,
       "satellite_passes": [
         {
           "satellite": "ICEYE-X2",
@@ -726,7 +2566,7 @@
         {
           "satellite": "SpaceEye-T",
           "norad_id": 63229,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.25,
           "pass_time_utc": "2026-04-03T07:49:57Z",
           "max_elevation_deg": 62.8,
@@ -759,11 +2599,195 @@
       "urls_sent": [
         "https://www.newkerala.com/news/a/indonesias-un-peacekeeper-killed-after-strike-unifil-position-176.htm"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260302",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260303",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260304",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260305",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260306",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260307",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260308",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260309",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260310",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260311",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260312",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260313",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260314",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260315",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260316",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260317",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260318",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260319",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260320",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260321",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260322",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260323",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260324",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260325",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260326",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260327",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260328",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260329",
+          "z": 0.871,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260330",
+          "z": 2.456,
+          "sources": 4.2,
+          "goldstein": -10.0
+        }
+      ],
+      "delta_z": 1.585,
+      "consecutive_anomaly_days": 1,
       "satellite_passes": [
         {
           "satellite": "KOMPSAT-7",
           "norad_id": 66820,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.3,
           "pass_time_utc": "2026-03-31T11:15:45Z",
           "max_elevation_deg": 75.4,
@@ -831,11 +2855,195 @@
         "https://www.globalsecurity.org/wmd/library/news/iran/2026/03/iran-260329-presstv06.htm",
         "https://www.islamicinvitationturkey.com/iran-and-resistance-axis-prepare-operations-against-us-israeli-assets-on-march-29/"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": -0.18,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260302",
+          "z": -0.177,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260303",
+          "z": -0.173,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260304",
+          "z": -0.17,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260305",
+          "z": 0.267,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260306",
+          "z": 1.132,
+          "sources": 1.0,
+          "goldstein": -9.37
+        },
+        {
+          "date": "20260307",
+          "z": -0.192,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260308",
+          "z": -0.188,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260309",
+          "z": -0.185,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260310",
+          "z": -0.182,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260311",
+          "z": -0.179,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260312",
+          "z": 0.041,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260313",
+          "z": -0.177,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260314",
+          "z": -0.174,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260315",
+          "z": -0.171,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260316",
+          "z": -0.168,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260317",
+          "z": -0.166,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260318",
+          "z": -0.163,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260319",
+          "z": -0.161,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260320",
+          "z": -0.158,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260321",
+          "z": -0.156,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260322",
+          "z": -0.154,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260323",
+          "z": 0.501,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260324",
+          "z": 0.494,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260325",
+          "z": -0.166,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260326",
+          "z": -0.164,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260327",
+          "z": -0.161,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260328",
+          "z": -0.159,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260329",
+          "z": 0.932,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260330",
+          "z": 2.298,
+          "sources": 1.44,
+          "goldstein": -10.0
+        }
+      ],
+      "delta_z": 1.366,
+      "consecutive_anomaly_days": 1,
       "satellite_passes": [
         {
           "satellite": "KOMPSAT-7",
           "norad_id": 66820,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.3,
           "pass_time_utc": "2026-03-31T11:15:41Z",
           "max_elevation_deg": 74.7,
@@ -903,6 +3111,190 @@
         "https://www.globalsecurity.org/wmd/library/news/iran/2026/03/iran-260328-presstv12.htm",
         "https://blueprint.ng/middle-east-world-bank-cautions-on-supply-risks-cost-mounting-as-conflict-rages/"
       ],
+      "history_30d": [
+        {
+          "date": "20260301",
+          "z": -0.16,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260302",
+          "z": -0.157,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260303",
+          "z": -0.154,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260304",
+          "z": 0.283,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260305",
+          "z": -0.157,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260306",
+          "z": 0.063,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260307",
+          "z": -0.155,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260308",
+          "z": 1.97,
+          "sources": 28.5,
+          "goldstein": -9.5
+        },
+        {
+          "date": "20260309",
+          "z": 1.053,
+          "sources": 7.5,
+          "goldstein": -9.5
+        },
+        {
+          "date": "20260310",
+          "z": 0.013,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260311",
+          "z": -0.204,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260312",
+          "z": -0.201,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260313",
+          "z": 3.337,
+          "sources": 4.25,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260314",
+          "z": 0.4,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260315",
+          "z": -0.258,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260316",
+          "z": -0.254,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260317",
+          "z": 0.185,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260318",
+          "z": -0.253,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260319",
+          "z": -0.249,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260320",
+          "z": -0.245,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260321",
+          "z": 0.193,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260322",
+          "z": -0.027,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260323",
+          "z": -0.244,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260324",
+          "z": -0.241,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260325",
+          "z": -0.237,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260326",
+          "z": -0.016,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260327",
+          "z": 3.16,
+          "sources": 4.29,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260328",
+          "z": 0.374,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260329",
+          "z": 5.205,
+          "sources": 3.53,
+          "goldstein": -9.7
+        },
+        {
+          "date": "20260330",
+          "z": 2.073,
+          "sources": 1.2,
+          "goldstein": -9.75
+        }
+      ],
+      "delta_z": -3.132,
+      "consecutive_anomaly_days": 2,
       "satellite_passes": [
         {
           "satellite": "ICEYE-X2",
@@ -924,7 +3316,7 @@
         {
           "satellite": "SkySat-C12",
           "norad_id": 43797,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.5,
           "pass_time_utc": "2026-04-01T04:22:10Z",
           "max_elevation_deg": 65.9,
@@ -941,7 +3333,7 @@
         {
           "satellite": "SpaceEye-T",
           "norad_id": 63229,
-          "sensor_type": "optical",
+          "sensor_type": "EO",
           "resolution_m": 0.25,
           "pass_time_utc": "2026-04-01T06:54:10Z",
           "max_elevation_deg": 75.2,

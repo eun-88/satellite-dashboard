@@ -1,0 +1,4634 @@
+{
+  "date": "20260302",
+  "generated_at": "2026-04-29T03:08:48Z",
+  "config": {
+    "model": "gemini-3.1-flash-lite-preview",
+    "prompt_version": "v8",
+    "Q": 0.001,
+    "R": 10.0,
+    "coefs": {
+      "w_log_sources": 1.0
+    },
+    "risk_thresholds": [
+      5,
+      2,
+      0.5
+    ],
+    "top_k": 20,
+    "top_passes_per_city": 3
+  },
+  "summary": {
+    "satellite_targets": 18,
+    "total_passes": 54
+  },
+  "targets": [
+    {
+      "city": "Tehran",
+      "display_name": "Tehran",
+      "lat": 35.75,
+      "lng": 51.514801025390625,
+      "tier": "A",
+      "innov_z": 384.398,
+      "risk_label": "위기",
+      "events": 1204,
+      "conflict_index": 1376.874,
+      "sources_total": 6244,
+      "mentions_total": 35931,
+      "llm_status": "SUCCESS",
+      "llm_message": "이스라엘이 Tehran 내 군사 시설 및 지도부 거점을 공습하여 최고지도자가 사망했습니다.",
+      "urls_sent": [
+        "https://www.wamc.org/2026-03-01/3-american-troops-killed-and-trump-says-more-likely-in-war-against-iran",
+        "https://www.citizensvoice.com/2026/03/02/iran-israel-us-attack/"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": -8.303,
+          "sources": 1.34,
+          "goldstein": -9.54
+        },
+        {
+          "date": "20260202",
+          "z": -5.621,
+          "sources": 2.33,
+          "goldstein": -9.37
+        },
+        {
+          "date": "20260203",
+          "z": 8.276,
+          "sources": 3.92,
+          "goldstein": -9.67
+        },
+        {
+          "date": "20260204",
+          "z": 26.238,
+          "sources": 5.08,
+          "goldstein": -9.67
+        },
+        {
+          "date": "20260205",
+          "z": -0.727,
+          "sources": 4.65,
+          "goldstein": -9.59
+        },
+        {
+          "date": "20260206",
+          "z": 1.036,
+          "sources": 5.56,
+          "goldstein": -9.66
+        },
+        {
+          "date": "20260207",
+          "z": -5.032,
+          "sources": 4.87,
+          "goldstein": -9.71
+        },
+        {
+          "date": "20260208",
+          "z": -10.339,
+          "sources": 2.58,
+          "goldstein": -9.72
+        },
+        {
+          "date": "20260209",
+          "z": -15.731,
+          "sources": 1.35,
+          "goldstein": -9.45
+        },
+        {
+          "date": "20260210",
+          "z": -6.808,
+          "sources": 2.64,
+          "goldstein": -9.73
+        },
+        {
+          "date": "20260211",
+          "z": -6.656,
+          "sources": 2.83,
+          "goldstein": -9.69
+        },
+        {
+          "date": "20260212",
+          "z": -9.465,
+          "sources": 1.67,
+          "goldstein": -9.79
+        },
+        {
+          "date": "20260213",
+          "z": -1.858,
+          "sources": 6.23,
+          "goldstein": -9.82
+        },
+        {
+          "date": "20260214",
+          "z": -9.058,
+          "sources": 3.76,
+          "goldstein": -9.72
+        },
+        {
+          "date": "20260215",
+          "z": -17.122,
+          "sources": 2.91,
+          "goldstein": -9.43
+        },
+        {
+          "date": "20260216",
+          "z": 0.777,
+          "sources": 4.25,
+          "goldstein": -9.3
+        },
+        {
+          "date": "20260217",
+          "z": -0.247,
+          "sources": 3.22,
+          "goldstein": -9.12
+        },
+        {
+          "date": "20260218",
+          "z": -2.324,
+          "sources": 1.77,
+          "goldstein": -9.13
+        },
+        {
+          "date": "20260219",
+          "z": 16.294,
+          "sources": 3.65,
+          "goldstein": -9.31
+        },
+        {
+          "date": "20260220",
+          "z": 23.955,
+          "sources": 8.87,
+          "goldstein": -9.13
+        },
+        {
+          "date": "20260221",
+          "z": -4.16,
+          "sources": 4.51,
+          "goldstein": -9.26
+        },
+        {
+          "date": "20260222",
+          "z": -1.65,
+          "sources": 4.09,
+          "goldstein": -9.26
+        },
+        {
+          "date": "20260223",
+          "z": 0.972,
+          "sources": 1.87,
+          "goldstein": -9.51
+        },
+        {
+          "date": "20260224",
+          "z": 8.245,
+          "sources": 2.59,
+          "goldstein": -9.44
+        },
+        {
+          "date": "20260225",
+          "z": 2.008,
+          "sources": 3.35,
+          "goldstein": -9.28
+        },
+        {
+          "date": "20260226",
+          "z": 20.539,
+          "sources": 9.38,
+          "goldstein": -9.51
+        },
+        {
+          "date": "20260227",
+          "z": 0.742,
+          "sources": 3.85,
+          "goldstein": -9.61
+        },
+        {
+          "date": "20260228",
+          "z": 382.154,
+          "sources": 7.81,
+          "goldstein": -9.85
+        },
+        {
+          "date": "20260301",
+          "z": 553.135,
+          "sources": 8.78,
+          "goldstein": -9.85
+        },
+        {
+          "date": "20260302",
+          "z": 384.398,
+          "sources": 5.19,
+          "goldstein": -9.86
+        }
+      ],
+      "delta_z": -168.737,
+      "consecutive_anomaly_days": 3,
+      "satellite_passes": [
+        {
+          "satellite": "SpaceEye-T",
+          "norad_id": 63229,
+          "sensor_type": "EO",
+          "resolution_m": 0.25,
+          "pass_time_utc": "2026-03-04T06:34:04Z",
+          "max_elevation_deg": 87.5,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T17:38:25Z",
+          "max_elevation_deg": 49.9,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "SAR 관측 제한",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+        },
+        {
+          "satellite": "SpaceEye-T",
+          "norad_id": 63229,
+          "sensor_type": "EO",
+          "resolution_m": 0.25,
+          "pass_time_utc": "2026-03-05T06:14:57Z",
+          "max_elevation_deg": 45.6,
+          "within_swath": true,
+          "cloud_cover_pct": 30,
+          "cloud_status": "partial",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "EO 촬영 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+        }
+      ]
+    },
+    {
+      "city": "Beirut",
+      "display_name": "Beirut",
+      "lat": 33.87189865112305,
+      "lng": 35.509700775146484,
+      "tier": "A",
+      "innov_z": 72.471,
+      "risk_label": "위기",
+      "events": 217,
+      "conflict_index": 237.026,
+      "sources_total": 813,
+      "mentions_total": 2746,
+      "llm_status": "SUCCESS",
+      "llm_message": "이스라엘군이 Beirut 남부 교외 지역에 공습을 감행하여 직접적인 타격을 입혔습니다.",
+      "urls_sent": [
+        "https://www.winnipegfreepress.com/business/2026/03/01/israel-launches-airstrikes-on-lebanese-capital-after-hezbollah-fired-missiles-across-the-border",
+        "https://en.mercopress.com/2026/03/02/hezbollah-fires-first-cross-border-projectiles-since-2024-ceasefire-as-israel-strikes-lebanon"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": -0.83,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260202",
+          "z": -0.677,
+          "sources": 2.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260203",
+          "z": -0.224,
+          "sources": 1.33,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260204",
+          "z": -0.217,
+          "sources": 1.33,
+          "goldstein": -9.67
+        },
+        {
+          "date": "20260205",
+          "z": -0.769,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260206",
+          "z": 2.225,
+          "sources": 6.83,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260207",
+          "z": -0.811,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260208",
+          "z": -0.572,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260209",
+          "z": -0.557,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260210",
+          "z": 1.854,
+          "sources": 2.38,
+          "goldstein": -9.75
+        },
+        {
+          "date": "20260211",
+          "z": -0.807,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260212",
+          "z": -1.003,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": -0.978,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260214",
+          "z": -0.522,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260215",
+          "z": 0.583,
+          "sources": 3.5,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260216",
+          "z": 0.56,
+          "sources": 1.0,
+          "goldstein": -9.57
+        },
+        {
+          "date": "20260217",
+          "z": 0.801,
+          "sources": 1.29,
+          "goldstein": -9.53
+        },
+        {
+          "date": "20260218",
+          "z": 0.181,
+          "sources": 5.5,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260219",
+          "z": 0.652,
+          "sources": 3.5,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260220",
+          "z": -0.573,
+          "sources": 1.0,
+          "goldstein": -8.6
+        },
+        {
+          "date": "20260221",
+          "z": 0.316,
+          "sources": 4.33,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260222",
+          "z": 0.4,
+          "sources": 3.25,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260223",
+          "z": 1.107,
+          "sources": 1.38,
+          "goldstein": -9.52
+        },
+        {
+          "date": "20260224",
+          "z": 2.905,
+          "sources": 3.09,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260225",
+          "z": 0.645,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260226",
+          "z": -0.019,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260227",
+          "z": -0.018,
+          "sources": 1.5,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260228",
+          "z": 24.198,
+          "sources": 15.03,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260301",
+          "z": 12.077,
+          "sources": 4.76,
+          "goldstein": -9.97
+        },
+        {
+          "date": "20260302",
+          "z": 72.471,
+          "sources": 3.75,
+          "goldstein": -9.95
+        }
+      ],
+      "delta_z": 60.394,
+      "consecutive_anomaly_days": 3,
+      "satellite_passes": [
+        {
+          "satellite": "KOMPSAT-7",
+          "norad_id": 66820,
+          "sensor_type": "EO",
+          "resolution_m": 0.3,
+          "pass_time_utc": "2026-03-03T11:30:03Z",
+          "max_elevation_deg": 67.7,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T07:02:29Z",
+          "max_elevation_deg": 81.0,
+          "within_swath": true,
+          "cloud_cover_pct": 59,
+          "cloud_status": "overcast",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "RED 지역이며 구름이 많아 SAR 촬영 우선"
+        },
+        {
+          "satellite": "SpaceEye-T",
+          "norad_id": 63229,
+          "sensor_type": "EO",
+          "resolution_m": 0.25,
+          "pass_time_utc": "2026-03-05T07:48:49Z",
+          "max_elevation_deg": 66.3,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        }
+      ]
+    },
+    {
+      "city": "Tel Aviv",
+      "display_name": "Tel Aviv",
+      "lat": 32.06669998168945,
+      "lng": 34.766700744628906,
+      "tier": "A",
+      "innov_z": 63.627,
+      "risk_label": "위기",
+      "events": 201,
+      "conflict_index": 224.321,
+      "sources_total": 782,
+      "mentions_total": 2974,
+      "llm_status": "SUCCESS",
+      "llm_message": "이란의 미사일 공격으로 Tel Aviv 내 건물 타격 및 인명 피해 발생",
+      "urls_sent": [
+        "https://www.straitstimes.com/world/united-states/us-military-says-three-of-its-troops-killed-in-first-iran-operation-casualties",
+        "https://www.upr.org/npr-news/2026-03-02/a-4th-u-s-soldier-has-died-as-the-war-with-iran-further-engulfs-the-region"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": -0.336,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260202",
+          "z": 0.538,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260203",
+          "z": 0.089,
+          "sources": 1.0,
+          "goldstein": -9.95
+        },
+        {
+          "date": "20260204",
+          "z": -0.056,
+          "sources": 1.57,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260205",
+          "z": 0.806,
+          "sources": 1.73,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260206",
+          "z": -0.799,
+          "sources": 1.0,
+          "goldstein": -9.75
+        },
+        {
+          "date": "20260207",
+          "z": -2.074,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": -0.936,
+          "sources": 1.0,
+          "goldstein": -8.88
+        },
+        {
+          "date": "20260209",
+          "z": 0.297,
+          "sources": 1.1,
+          "goldstein": -9.9
+        },
+        {
+          "date": "20260210",
+          "z": 1.098,
+          "sources": 1.67,
+          "goldstein": -9.32
+        },
+        {
+          "date": "20260211",
+          "z": 0.081,
+          "sources": 1.38,
+          "goldstein": -9.55
+        },
+        {
+          "date": "20260212",
+          "z": 0.259,
+          "sources": 1.44,
+          "goldstein": -9.78
+        },
+        {
+          "date": "20260213",
+          "z": -1.173,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260214",
+          "z": -0.278,
+          "sources": 1.0,
+          "goldstein": -9.11
+        },
+        {
+          "date": "20260215",
+          "z": 3.202,
+          "sources": 10.82,
+          "goldstein": -9.77
+        },
+        {
+          "date": "20260216",
+          "z": 2.988,
+          "sources": 1.78,
+          "goldstein": -9.75
+        },
+        {
+          "date": "20260217",
+          "z": 2.397,
+          "sources": 1.59,
+          "goldstein": -9.15
+        },
+        {
+          "date": "20260218",
+          "z": 2.601,
+          "sources": 1.1,
+          "goldstein": -9.33
+        },
+        {
+          "date": "20260219",
+          "z": 3.665,
+          "sources": 1.35,
+          "goldstein": -9.06
+        },
+        {
+          "date": "20260220",
+          "z": -0.608,
+          "sources": 1.29,
+          "goldstein": -9.46
+        },
+        {
+          "date": "20260221",
+          "z": 0.4,
+          "sources": 1.08,
+          "goldstein": -9.68
+        },
+        {
+          "date": "20260222",
+          "z": 1.259,
+          "sources": 1.5,
+          "goldstein": -9.93
+        },
+        {
+          "date": "20260223",
+          "z": 3.258,
+          "sources": 3.56,
+          "goldstein": -9.54
+        },
+        {
+          "date": "20260224",
+          "z": -1.347,
+          "sources": 1.0,
+          "goldstein": -9.9
+        },
+        {
+          "date": "20260225",
+          "z": -0.325,
+          "sources": 1.11,
+          "goldstein": -9.8
+        },
+        {
+          "date": "20260226",
+          "z": 1.238,
+          "sources": 1.43,
+          "goldstein": -9.93
+        },
+        {
+          "date": "20260227",
+          "z": 0.833,
+          "sources": 1.14,
+          "goldstein": -9.39
+        },
+        {
+          "date": "20260228",
+          "z": 82.477,
+          "sources": 6.95,
+          "goldstein": -9.87
+        },
+        {
+          "date": "20260301",
+          "z": 141.633,
+          "sources": 9.82,
+          "goldstein": -9.9
+        },
+        {
+          "date": "20260302",
+          "z": 63.627,
+          "sources": 3.89,
+          "goldstein": -9.94
+        }
+      ],
+      "delta_z": -78.006,
+      "consecutive_anomaly_days": 3,
+      "satellite_passes": [
+        {
+          "satellite": "KOMPSAT-7",
+          "norad_id": 66820,
+          "sensor_type": "EO",
+          "resolution_m": 0.3,
+          "pass_time_utc": "2026-03-03T11:29:37Z",
+          "max_elevation_deg": 78.5,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        },
+        {
+          "satellite": "SkySat-C12",
+          "norad_id": 43797,
+          "sensor_type": "EO",
+          "resolution_m": 0.5,
+          "pass_time_utc": "2026-03-04T05:12:20Z",
+          "max_elevation_deg": 85.1,
+          "within_swath": true,
+          "cloud_cover_pct": 12,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T07:02:59Z",
+          "max_elevation_deg": 78.0,
+          "within_swath": true,
+          "cloud_cover_pct": 66,
+          "cloud_status": "overcast",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "RED 지역이며 구름이 많아 SAR 촬영 우선"
+        }
+      ]
+    },
+    {
+      "city": "Jerusalem",
+      "display_name": "Jerusalem",
+      "lat": 31.766700744628906,
+      "lng": 35.233299255371094,
+      "tier": "A",
+      "innov_z": 59.622,
+      "risk_label": "위기",
+      "events": 205,
+      "conflict_index": 229.041,
+      "sources_total": 1153,
+      "mentions_total": 3554,
+      "llm_status": "SUCCESS",
+      "llm_message": "이란의 미사일 공격으로 Jerusalem 인근에서 최소 9명 사망 및 다수 부상 발생",
+      "urls_sent": [
+        "https://themedialine.org/life-lines/as-iran-fires-missiles-israeli-hospitals-move-underground-once-again/",
+        "https://www.yahoo.com/news/articles/iranian-president-supreme-leader-believed-162252078.html"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": -1.949,
+          "sources": 1.39,
+          "goldstein": -9.65
+        },
+        {
+          "date": "20260202",
+          "z": 3.597,
+          "sources": 3.5,
+          "goldstein": -9.86
+        },
+        {
+          "date": "20260203",
+          "z": -1.18,
+          "sources": 2.33,
+          "goldstein": -9.72
+        },
+        {
+          "date": "20260204",
+          "z": 1.626,
+          "sources": 1.52,
+          "goldstein": -9.77
+        },
+        {
+          "date": "20260205",
+          "z": -2.142,
+          "sources": 1.83,
+          "goldstein": -9.61
+        },
+        {
+          "date": "20260206",
+          "z": -2.495,
+          "sources": 1.19,
+          "goldstein": -9.59
+        },
+        {
+          "date": "20260207",
+          "z": -3.119,
+          "sources": 2.92,
+          "goldstein": -9.9
+        },
+        {
+          "date": "20260208",
+          "z": -1.327,
+          "sources": 3.0,
+          "goldstein": -9.52
+        },
+        {
+          "date": "20260209",
+          "z": -1.524,
+          "sources": 1.24,
+          "goldstein": -9.42
+        },
+        {
+          "date": "20260210",
+          "z": 0.576,
+          "sources": 3.24,
+          "goldstein": -9.73
+        },
+        {
+          "date": "20260211",
+          "z": -1.051,
+          "sources": 1.13,
+          "goldstein": -9.59
+        },
+        {
+          "date": "20260212",
+          "z": -2.581,
+          "sources": 1.38,
+          "goldstein": -9.5
+        },
+        {
+          "date": "20260213",
+          "z": -1.663,
+          "sources": 1.18,
+          "goldstein": -9.81
+        },
+        {
+          "date": "20260214",
+          "z": -5.288,
+          "sources": 1.05,
+          "goldstein": -9.31
+        },
+        {
+          "date": "20260215",
+          "z": 0.869,
+          "sources": 1.94,
+          "goldstein": -9.51
+        },
+        {
+          "date": "20260216",
+          "z": 5.952,
+          "sources": 2.3,
+          "goldstein": -9.55
+        },
+        {
+          "date": "20260217",
+          "z": 1.78,
+          "sources": 2.42,
+          "goldstein": -9.64
+        },
+        {
+          "date": "20260218",
+          "z": 2.995,
+          "sources": 1.29,
+          "goldstein": -9.26
+        },
+        {
+          "date": "20260219",
+          "z": 7.861,
+          "sources": 2.02,
+          "goldstein": -9.73
+        },
+        {
+          "date": "20260220",
+          "z": 8.512,
+          "sources": 2.25,
+          "goldstein": -9.74
+        },
+        {
+          "date": "20260221",
+          "z": -1.159,
+          "sources": 1.9,
+          "goldstein": -9.54
+        },
+        {
+          "date": "20260222",
+          "z": -4.208,
+          "sources": 1.2,
+          "goldstein": -9.7
+        },
+        {
+          "date": "20260223",
+          "z": -1.952,
+          "sources": 1.08,
+          "goldstein": -9.53
+        },
+        {
+          "date": "20260224",
+          "z": 1.289,
+          "sources": 1.58,
+          "goldstein": -9.52
+        },
+        {
+          "date": "20260225",
+          "z": 2.41,
+          "sources": 1.35,
+          "goldstein": -9.48
+        },
+        {
+          "date": "20260226",
+          "z": 0.953,
+          "sources": 1.38,
+          "goldstein": -9.54
+        },
+        {
+          "date": "20260227",
+          "z": -2.132,
+          "sources": 1.18,
+          "goldstein": -9.66
+        },
+        {
+          "date": "20260228",
+          "z": 43.245,
+          "sources": 2.76,
+          "goldstein": -9.94
+        },
+        {
+          "date": "20260301",
+          "z": 61.601,
+          "sources": 3.98,
+          "goldstein": -9.9
+        },
+        {
+          "date": "20260302",
+          "z": 59.622,
+          "sources": 5.62,
+          "goldstein": -9.94
+        }
+      ],
+      "delta_z": -1.979,
+      "consecutive_anomaly_days": 3,
+      "satellite_passes": [
+        {
+          "satellite": "KOMPSAT-7",
+          "norad_id": 66820,
+          "sensor_type": "EO",
+          "resolution_m": 0.3,
+          "pass_time_utc": "2026-03-03T11:29:31Z",
+          "max_elevation_deg": 74.8,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        },
+        {
+          "satellite": "SkySat-C12",
+          "norad_id": 43797,
+          "sensor_type": "EO",
+          "resolution_m": 0.5,
+          "pass_time_utc": "2026-03-04T05:12:24Z",
+          "max_elevation_deg": 88.0,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T07:03:02Z",
+          "max_elevation_deg": 83.6,
+          "within_swath": true,
+          "cloud_cover_pct": 97,
+          "cloud_status": "overcast",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "RED 지역이며 구름이 많아 SAR 촬영 우선"
+        }
+      ]
+    },
+    {
+      "city": "Bet Shemesh",
+      "display_name": "Beit Shemesh",
+      "lat": 31.74959945678711,
+      "lng": 34.988800048828125,
+      "tier": "C",
+      "innov_z": 56.238,
+      "risk_label": "위기",
+      "events": 176,
+      "conflict_index": 182.799,
+      "sources_total": 626,
+      "mentions_total": 2379,
+      "llm_status": "SUCCESS",
+      "llm_message": "이란의 미사일 공격으로 Beit Shemesh의 방공호가 타격되어 9명이 사망하고 다수가 부상당했습니다.",
+      "urls_sent": [
+        "https://themedialine.org/life-lines/as-iran-fires-missiles-israeli-hospitals-move-underground-once-again/",
+        "https://www.sandiegouniontribune.com/2026/02/28/us-and-israel-pound-iran-as-trump-signals-willingness-to-talk-to-new-leaders-after-khameneis-death/"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260202",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260203",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260204",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260205",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260206",
+          "z": 0.204,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260207",
+          "z": -0.018,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": -0.017,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260209",
+          "z": -0.017,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260210",
+          "z": -0.016,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260211",
+          "z": -0.016,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260212",
+          "z": -0.016,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": -0.015,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260214",
+          "z": -0.015,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260215",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260216",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260217",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260218",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260219",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260220",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260221",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260222",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260223",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260224",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260225",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260226",
+          "z": 0.423,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260227",
+          "z": -0.02,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260228",
+          "z": -0.019,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260301",
+          "z": 54.215,
+          "sources": 8.29,
+          "goldstein": -9.94
+        },
+        {
+          "date": "20260302",
+          "z": 56.238,
+          "sources": 3.56,
+          "goldstein": -9.86
+        }
+      ],
+      "delta_z": 2.023,
+      "consecutive_anomaly_days": 2,
+      "satellite_passes": [
+        {
+          "satellite": "KOMPSAT-7",
+          "norad_id": 66820,
+          "sensor_type": "EO",
+          "resolution_m": 0.3,
+          "pass_time_utc": "2026-03-03T11:29:31Z",
+          "max_elevation_deg": 77.2,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        },
+        {
+          "satellite": "SkySat-C12",
+          "norad_id": 43797,
+          "sensor_type": "EO",
+          "resolution_m": 0.5,
+          "pass_time_utc": "2026-03-04T05:12:25Z",
+          "max_elevation_deg": 88.9,
+          "within_swath": true,
+          "cloud_cover_pct": 10,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T07:03:03Z",
+          "max_elevation_deg": 81.0,
+          "within_swath": true,
+          "cloud_cover_pct": 30,
+          "cloud_status": "partial",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "매우 높음",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "RED 지역의 선제 확인용 SAR 후보"
+        }
+      ]
+    },
+    {
+      "city": "Mīnāb",
+      "display_name": "Minab",
+      "lat": 25.7893009185791,
+      "lng": 61.102500915527344,
+      "tier": "C",
+      "innov_z": 40.737,
+      "risk_label": "위기",
+      "events": 134,
+      "conflict_index": 136.854,
+      "sources_total": 397,
+      "mentions_total": 1745,
+      "llm_status": "SUCCESS",
+      "llm_message": "미군이 Minab의 Shajareye Tayabeh 여학교를 공습하여 학생 43명이 사망했습니다.",
+      "urls_sent": [
+        "https://www.wamc.org/2026-03-01/3-american-troops-killed-and-trump-says-more-likely-in-war-against-iran",
+        "https://www.yahoo.com/news/articles/gop-rep-exposes-real-reason-181158595.html"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260202",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260203",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260204",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260205",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260206",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260207",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260209",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260210",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260211",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260212",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260214",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260215",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260216",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260217",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260218",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260219",
+          "z": 0.434,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260220",
+          "z": -0.009,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260221",
+          "z": -0.009,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260222",
+          "z": -0.009,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260223",
+          "z": -0.009,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260224",
+          "z": -0.009,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260225",
+          "z": -0.009,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260226",
+          "z": -0.008,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260227",
+          "z": -0.008,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260228",
+          "z": 49.962,
+          "sources": 5.88,
+          "goldstein": -9.97
+        },
+        {
+          "date": "20260301",
+          "z": 63.298,
+          "sources": 4.3,
+          "goldstein": -9.97
+        },
+        {
+          "date": "20260302",
+          "z": 40.737,
+          "sources": 2.96,
+          "goldstein": -9.92
+        }
+      ],
+      "delta_z": -22.561,
+      "consecutive_anomaly_days": 3,
+      "satellite_passes": [
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T05:29:26Z",
+          "max_elevation_deg": 59.0,
+          "within_swath": true,
+          "cloud_cover_pct": 12,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역의 선제 확인용 SAR 후보"
+        },
+        {
+          "satellite": "Sentinel-2A",
+          "norad_id": 40697,
+          "sensor_type": "EO",
+          "resolution_m": 10,
+          "pass_time_utc": "2026-03-04T06:37:30Z",
+          "max_elevation_deg": 78.2,
+          "within_swath": true,
+          "cloud_cover_pct": 13,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        },
+        {
+          "satellite": "KOMPSAT-7",
+          "norad_id": 66820,
+          "sensor_type": "EO",
+          "resolution_m": 0.3,
+          "pass_time_utc": "2026-03-04T09:51:31Z",
+          "max_elevation_deg": 70.6,
+          "within_swath": true,
+          "cloud_cover_pct": 2,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        }
+      ]
+    },
+    {
+      "city": "Dubai",
+      "display_name": "Dubai",
+      "lat": 25.252199172973633,
+      "lng": 55.279998779296875,
+      "tier": "A",
+      "innov_z": 32.186,
+      "risk_label": "위기",
+      "events": 102,
+      "conflict_index": 107.335,
+      "sources_total": 670,
+      "mentions_total": 2019,
+      "llm_status": "SUCCESS",
+      "llm_message": "이란이 미사일과 드론으로 Dubai 공항 및 주요 호텔을 직접 타격함.",
+      "urls_sent": [
+        "https://www.9news.com.au/world/us-israel-attacks-iran-middle-east-war-widens-to-include-militias-as-israeli-and-american-planes-pound-iran/15701ee3-65c8-45ed-a7c3-39d63aca3022",
+        "https://www.dailymail.co.uk/news/article-15604723/Adrian-Portellis-shocking-claim-hes-stranded-Dubai-Iranian-missiles-rain-down.html"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": 0.675,
+          "sources": 2.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260202",
+          "z": -0.063,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260203",
+          "z": -0.061,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260204",
+          "z": -0.275,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260205",
+          "z": 0.381,
+          "sources": 1.0,
+          "goldstein": -9.67
+        },
+        {
+          "date": "20260206",
+          "z": -0.063,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260207",
+          "z": -0.277,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": -0.269,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260209",
+          "z": 0.171,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260210",
+          "z": -0.267,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260211",
+          "z": -0.043,
+          "sources": 1.0,
+          "goldstein": -7.2
+        },
+        {
+          "date": "20260212",
+          "z": -0.259,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": -0.252,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260214",
+          "z": -0.246,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260215",
+          "z": -0.24,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260216",
+          "z": 0.325,
+          "sources": 1.5,
+          "goldstein": -9.5
+        },
+        {
+          "date": "20260217",
+          "z": -0.242,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260218",
+          "z": -0.237,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260219",
+          "z": -0.232,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260220",
+          "z": -0.01,
+          "sources": 1.0,
+          "goldstein": -7.2
+        },
+        {
+          "date": "20260221",
+          "z": -0.227,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260222",
+          "z": -0.005,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260223",
+          "z": 0.212,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260224",
+          "z": -0.226,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260225",
+          "z": -0.222,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260226",
+          "z": -0.217,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260227",
+          "z": 0.004,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260228",
+          "z": 23.871,
+          "sources": 3.51,
+          "goldstein": -9.92
+        },
+        {
+          "date": "20260301",
+          "z": 41.504,
+          "sources": 3.69,
+          "goldstein": -9.91
+        },
+        {
+          "date": "20260302",
+          "z": 32.186,
+          "sources": 6.57,
+          "goldstein": -9.94
+        }
+      ],
+      "delta_z": -9.318,
+      "consecutive_anomaly_days": 3,
+      "satellite_passes": [
+        {
+          "satellite": "SkySat-C12",
+          "norad_id": 43797,
+          "sensor_type": "EO",
+          "resolution_m": 0.5,
+          "pass_time_utc": "2026-03-04T03:40:56Z",
+          "max_elevation_deg": 67.7,
+          "within_swath": true,
+          "cloud_cover_pct": 1,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T05:29:51Z",
+          "max_elevation_deg": 60.4,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역의 선제 확인용 SAR 후보"
+        },
+        {
+          "satellite": "SpaceEye-T",
+          "norad_id": 63229,
+          "sensor_type": "EO",
+          "resolution_m": 0.25,
+          "pass_time_utc": "2026-03-04T06:31:13Z",
+          "max_elevation_deg": 76.7,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        }
+      ]
+    },
+    {
+      "city": "Baghdad",
+      "display_name": "Baghdad",
+      "lat": 33.338600158691406,
+      "lng": 44.39390182495117,
+      "tier": "A",
+      "innov_z": 20.107,
+      "risk_label": "위기",
+      "events": 49,
+      "conflict_index": 66.944,
+      "sources_total": 526,
+      "mentions_total": 1770,
+      "llm_status": "SUCCESS",
+      "llm_message": "Saraya Awliya al-Dam 민병대가 Baghdad 공항의 미군을 대상으로 드론 공격을 감행했습니다.",
+      "urls_sent": [
+        "https://www.tribuneindia.com/liveblog/top-headlines/us-israel-pound-iran-as-trump-signals-willingness-to-talk-to-new-leadership-after-khameneis-death/",
+        "https://www.latimes.com/world-nation/story/2026-03-01/irans-axis-of-resistance-proxy-forces-shaping-mideast-conflicts"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": -0.756,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260202",
+          "z": -0.731,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260203",
+          "z": 0.497,
+          "sources": 2.67,
+          "goldstein": -9.33
+        },
+        {
+          "date": "20260204",
+          "z": -0.724,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260205",
+          "z": -0.703,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260206",
+          "z": -0.25,
+          "sources": 1.0,
+          "goldstein": -9.5
+        },
+        {
+          "date": "20260207",
+          "z": -0.675,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": -0.224,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260209",
+          "z": -0.435,
+          "sources": 1.0,
+          "goldstein": -9.0
+        },
+        {
+          "date": "20260210",
+          "z": -0.639,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260211",
+          "z": -0.19,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260212",
+          "z": -0.618,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": -0.387,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260214",
+          "z": 2.237,
+          "sources": 31.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260215",
+          "z": 1.387,
+          "sources": 3.17,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260216",
+          "z": -0.247,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260217",
+          "z": -0.675,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260218",
+          "z": -0.443,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260219",
+          "z": -0.433,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260220",
+          "z": -0.641,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260221",
+          "z": -0.193,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260222",
+          "z": -0.623,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260223",
+          "z": -0.61,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260224",
+          "z": -0.164,
+          "sources": 1.0,
+          "goldstein": -8.6
+        },
+        {
+          "date": "20260225",
+          "z": -0.378,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260226",
+          "z": -0.587,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260227",
+          "z": 0.292,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260228",
+          "z": 6.457,
+          "sources": 3.52,
+          "goldstein": -9.98
+        },
+        {
+          "date": "20260301",
+          "z": 8.674,
+          "sources": 5.0,
+          "goldstein": -9.98
+        },
+        {
+          "date": "20260302",
+          "z": 20.107,
+          "sources": 10.73,
+          "goldstein": -9.62
+        }
+      ],
+      "delta_z": 11.433,
+      "consecutive_anomaly_days": 3,
+      "satellite_passes": [
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-03T17:52:32Z",
+          "max_elevation_deg": 85.1,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T17:38:07Z",
+          "max_elevation_deg": 58.6,
+          "within_swath": true,
+          "cloud_cover_pct": 2,
+          "cloud_status": "clear",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+        },
+        {
+          "satellite": "SkySat-C12",
+          "norad_id": 43797,
+          "sensor_type": "EO",
+          "resolution_m": 0.5,
+          "pass_time_utc": "2026-03-05T04:30:43Z",
+          "max_elevation_deg": 72.6,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        }
+      ]
+    },
+    {
+      "city": "Naţanz",
+      "display_name": "Natanz",
+      "lat": 33.49639892578125,
+      "lng": 51.92660140991211,
+      "tier": "A",
+      "innov_z": 19.618,
+      "risk_label": "위기",
+      "events": 53,
+      "conflict_index": 65.803,
+      "sources_total": 283,
+      "mentions_total": 1038,
+      "llm_status": "SUCCESS",
+      "llm_message": "미국과 이스라엘의 공습으로 Natanz 핵 시설이 타격받았습니다.",
+      "urls_sent": [
+        "https://www.asiaone.com:443/world/no-sign-irans-nuclear-sites-were-hit-iaea-says-iran-alleges-one-was",
+        "https://www.fox13news.com/news/where-things-stand-us-israeli-strikes-iran"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": 0.008,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260202",
+          "z": 0.008,
+          "sources": 1.0,
+          "goldstein": -9.2
+        },
+        {
+          "date": "20260203",
+          "z": -0.208,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260204",
+          "z": 1.017,
+          "sources": 9.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260205",
+          "z": 0.668,
+          "sources": 1.5,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260206",
+          "z": -0.468,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260207",
+          "z": -0.112,
+          "sources": 2.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260208",
+          "z": -0.452,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260209",
+          "z": -0.007,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260210",
+          "z": 0.495,
+          "sources": 2.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260211",
+          "z": 1.136,
+          "sources": 5.67,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260212",
+          "z": 0.957,
+          "sources": 2.5,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260213",
+          "z": 3.905,
+          "sources": 5.45,
+          "goldstein": -9.95
+        },
+        {
+          "date": "20260214",
+          "z": 0.482,
+          "sources": 1.0,
+          "goldstein": -9.24
+        },
+        {
+          "date": "20260215",
+          "z": 1.056,
+          "sources": 4.25,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260216",
+          "z": 0.013,
+          "sources": 1.0,
+          "goldstein": -8.73
+        },
+        {
+          "date": "20260217",
+          "z": 1.712,
+          "sources": 9.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260218",
+          "z": -0.243,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260219",
+          "z": 0.196,
+          "sources": 1.0,
+          "goldstein": -9.3
+        },
+        {
+          "date": "20260220",
+          "z": 1.836,
+          "sources": 1.09,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260221",
+          "z": -0.715,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260222",
+          "z": -0.7,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260223",
+          "z": 0.092,
+          "sources": 1.33,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260224",
+          "z": -0.688,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260225",
+          "z": -0.674,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260226",
+          "z": -0.661,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260227",
+          "z": 0.999,
+          "sources": 2.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260228",
+          "z": 14.616,
+          "sources": 8.6,
+          "goldstein": -9.84
+        },
+        {
+          "date": "20260301",
+          "z": 2.874,
+          "sources": 1.19,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260302",
+          "z": 19.618,
+          "sources": 5.34,
+          "goldstein": -9.98
+        }
+      ],
+      "delta_z": 16.744,
+      "consecutive_anomaly_days": 3,
+      "satellite_passes": [
+        {
+          "satellite": "SpaceEye-T",
+          "norad_id": 63229,
+          "sensor_type": "EO",
+          "resolution_m": 0.25,
+          "pass_time_utc": "2026-03-05T06:14:22Z",
+          "max_elevation_deg": 44.5,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "EO 촬영 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-05T17:23:23Z",
+          "max_elevation_deg": 81.7,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-06T17:08:57Z",
+          "max_elevation_deg": 61.3,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+        }
+      ]
+    },
+    {
+      "city": "Doha",
+      "display_name": "Doha",
+      "lat": 25.286699295043945,
+      "lng": 51.53329849243164,
+      "tier": "A",
+      "innov_z": 12.345,
+      "risk_label": "위기",
+      "events": 44,
+      "conflict_index": 41.757,
+      "sources_total": 90,
+      "mentions_total": 350,
+      "llm_status": "SUCCESS",
+      "llm_message": "이란의 미사일 공격으로 Doha 인근 Al Udeid 공군기지의 레이더 시설이 타격받고 폭발음이 발생함.",
+      "urls_sent": [
+        "https://krdo.com/news/2026/03/02/what-we-know-about-the-widening-us-war-with-iran-as-conflict-enters-third-day/",
+        "https://www.magnoliareporter.com/news_and_business/regional_news/article_5302ae28-516c-4809-8d8c-011b8771de9a.html"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": 0.006,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260202",
+          "z": 0.222,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260203",
+          "z": -0.432,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260204",
+          "z": 0.013,
+          "sources": 1.0,
+          "goldstein": -9.5
+        },
+        {
+          "date": "20260205",
+          "z": -0.42,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260206",
+          "z": -0.408,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260207",
+          "z": 0.595,
+          "sources": 1.25,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260208",
+          "z": -0.413,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260209",
+          "z": -0.402,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260210",
+          "z": -0.175,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260211",
+          "z": -0.387,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260212",
+          "z": 0.489,
+          "sources": 1.67,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260213",
+          "z": 0.044,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260214",
+          "z": -0.39,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260215",
+          "z": -0.381,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260216",
+          "z": -0.372,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260217",
+          "z": -0.147,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260218",
+          "z": -0.361,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260219",
+          "z": -0.353,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260220",
+          "z": -0.345,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260221",
+          "z": -0.121,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260222",
+          "z": -0.335,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260223",
+          "z": -0.111,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260224",
+          "z": 0.759,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260225",
+          "z": -0.124,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260226",
+          "z": -0.339,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260227",
+          "z": -0.332,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260228",
+          "z": 12.725,
+          "sources": 1.96,
+          "goldstein": -9.87
+        },
+        {
+          "date": "20260301",
+          "z": 9.104,
+          "sources": 1.82,
+          "goldstein": -9.98
+        },
+        {
+          "date": "20260302",
+          "z": 12.345,
+          "sources": 2.05,
+          "goldstein": -10.0
+        }
+      ],
+      "delta_z": 3.241,
+      "consecutive_anomaly_days": 3,
+      "satellite_passes": [
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T17:35:44Z",
+          "max_elevation_deg": 66.8,
+          "within_swath": true,
+          "cloud_cover_pct": 91,
+          "cloud_status": "overcast",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-05T17:21:19Z",
+          "max_elevation_deg": 71.9,
+          "within_swath": true,
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+        },
+        {
+          "satellite": "Sentinel-2A",
+          "norad_id": 40697,
+          "sensor_type": "EO",
+          "resolution_m": 10,
+          "pass_time_utc": "2026-03-06T07:19:07Z",
+          "max_elevation_deg": 86.0,
+          "within_swath": true,
+          "cloud_cover_pct": 34,
+          "cloud_status": "partial",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "높음",
+          "capture_condition_label": "EO 촬영 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+        }
+      ]
+    },
+    {
+      "city": "Kuwait City",
+      "display_name": "Kuwait City",
+      "lat": 29.369699478149414,
+      "lng": 47.97829818725586,
+      "tier": "C",
+      "innov_z": 8.998,
+      "risk_label": "위기",
+      "events": 14,
+      "conflict_index": 28.747,
+      "sources_total": 232,
+      "mentions_total": 1180,
+      "llm_status": "SUCCESS",
+      "llm_message": "쿠웨이트 방공망이 오인 사격으로 미군 전투기 3대를 격추하고 Kuwait City 내 미 대사관 인근에서 폭발 및 연기가 발생했습니다.",
+      "urls_sent": [
+        "https://www.yahoo.com/news/articles/three-us-fighter-jets-mistakenly-145121697.html",
+        "https://www.asiaone.com:443/world/kuwait-shoots-down-us-jets-friendly-fire-incident-us-centcom-says"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": -0.016,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260202",
+          "z": -0.016,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260203",
+          "z": -0.015,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260204",
+          "z": -0.015,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260205",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260206",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260207",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260209",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260210",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260211",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260212",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": -0.011,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260214",
+          "z": -0.011,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260215",
+          "z": -0.011,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260216",
+          "z": -0.011,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260217",
+          "z": -0.01,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260218",
+          "z": -0.01,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260219",
+          "z": -0.01,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260220",
+          "z": -0.01,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260221",
+          "z": -0.01,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260222",
+          "z": -0.009,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260223",
+          "z": -0.009,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260224",
+          "z": -0.009,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260225",
+          "z": -0.009,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260226",
+          "z": -0.009,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260227",
+          "z": -0.008,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260228",
+          "z": -0.008,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260301",
+          "z": -0.008,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260302",
+          "z": 8.998,
+          "sources": 16.57,
+          "goldstein": -10.0
+        }
+      ],
+      "delta_z": 9.006,
+      "consecutive_anomaly_days": 1,
+      "satellite_passes": [
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-03T17:51:22Z",
+          "max_elevation_deg": 58.1,
+          "within_swath": true,
+          "cloud_cover_pct": 30,
+          "cloud_status": "partial",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+        },
+        {
+          "satellite": "SpaceEye-T",
+          "norad_id": 63229,
+          "sensor_type": "EO",
+          "resolution_m": 0.25,
+          "pass_time_utc": "2026-03-04T06:32:39Z",
+          "max_elevation_deg": 42.4,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "EO 촬영 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T17:36:57Z",
+          "max_elevation_deg": 83.8,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+        }
+      ]
+    },
+    {
+      "city": "Gulf Of Oman",
+      "display_name": "Gulf Of Oman",
+      "lat": 25.44890022277832,
+      "lng": 57.79389953613281,
+      "tier": "A",
+      "innov_z": 8.188,
+      "risk_label": "위기",
+      "events": 32,
+      "conflict_index": 28.772,
+      "sources_total": 60,
+      "mentions_total": 292,
+      "llm_status": "SUCCESS",
+      "llm_message": "이란의 드론 보트 공격으로 Gulf Of Oman에서 유조선이 피격되어 선원 1명이 사망했습니다.",
+      "urls_sent": [
+        "https://www.euronews.com/2026/03/02/war-widens-as-israel-us-strike-iran-and-clash-with-hezbollah",
+        "http://www.heraldglobe.com/news/278896223/trump-says-us-forces-sink-9-iranian-warships"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": -0.086,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260202",
+          "z": 0.348,
+          "sources": 1.0,
+          "goldstein": -8.6
+        },
+        {
+          "date": "20260203",
+          "z": 0.337,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260204",
+          "z": 1.659,
+          "sources": 1.29,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260205",
+          "z": -0.155,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260206",
+          "z": -0.15,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260207",
+          "z": -0.146,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": -0.142,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260209",
+          "z": 0.294,
+          "sources": 1.0,
+          "goldstein": -8.6
+        },
+        {
+          "date": "20260210",
+          "z": 0.503,
+          "sources": 1.0,
+          "goldstein": -8.13
+        },
+        {
+          "date": "20260211",
+          "z": -0.159,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260212",
+          "z": -0.155,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": -0.151,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260214",
+          "z": 0.069,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260215",
+          "z": -0.149,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260216",
+          "z": -0.146,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260217",
+          "z": 8.908,
+          "sources": 5.19,
+          "goldstein": -9.08
+        },
+        {
+          "date": "20260218",
+          "z": 2.764,
+          "sources": 2.2,
+          "goldstein": -9.64
+        },
+        {
+          "date": "20260219",
+          "z": 1.833,
+          "sources": 1.33,
+          "goldstein": -9.01
+        },
+        {
+          "date": "20260220",
+          "z": 1.99,
+          "sources": 8.2,
+          "goldstein": -8.88
+        },
+        {
+          "date": "20260221",
+          "z": -0.488,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260222",
+          "z": 0.173,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260223",
+          "z": -0.481,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260224",
+          "z": -0.038,
+          "sources": 1.0,
+          "goldstein": -8.6
+        },
+        {
+          "date": "20260225",
+          "z": 0.397,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260226",
+          "z": -0.045,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260227",
+          "z": -0.478,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260228",
+          "z": 2.263,
+          "sources": 1.08,
+          "goldstein": -9.53
+        },
+        {
+          "date": "20260301",
+          "z": 16.792,
+          "sources": 4.62,
+          "goldstein": -9.92
+        },
+        {
+          "date": "20260302",
+          "z": 8.188,
+          "sources": 1.88,
+          "goldstein": -9.88
+        }
+      ],
+      "delta_z": -8.604,
+      "consecutive_anomaly_days": 3,
+      "satellite_passes": [
+        {
+          "satellite": "SkySat-C12",
+          "norad_id": 43797,
+          "sensor_type": "EO",
+          "resolution_m": 0.5,
+          "pass_time_utc": "2026-03-04T03:40:46Z",
+          "max_elevation_deg": 78.8,
+          "within_swath": true,
+          "cloud_cover_pct": 21,
+          "cloud_status": "partial",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "EO 촬영 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T05:29:41Z",
+          "max_elevation_deg": 86.6,
+          "within_swath": true,
+          "cloud_cover_pct": 32,
+          "cloud_status": "partial",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "RED 지역의 선제 확인용 SAR 후보"
+        },
+        {
+          "satellite": "SpaceEye-T",
+          "norad_id": 63229,
+          "sensor_type": "EO",
+          "resolution_m": 0.25,
+          "pass_time_utc": "2026-03-04T06:31:11Z",
+          "max_elevation_deg": 51.5,
+          "within_swath": true,
+          "cloud_cover_pct": 24,
+          "cloud_status": "partial",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "EO 촬영 좋음",
+          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+        }
+      ]
+    },
+    {
+      "city": "Ras Tanura",
+      "display_name": "Ras Tanura",
+      "lat": 26.64389991760254,
+      "lng": 50.15919876098633,
+      "tier": "C",
+      "innov_z": 7.871,
+      "risk_label": "위기",
+      "events": 29,
+      "conflict_index": 25.124,
+      "sources_total": 48,
+      "mentions_total": 169,
+      "llm_status": "SUCCESS",
+      "llm_message": "이란의 드론 공격으로 Ras Tanura 정유 시설에 화재 발생",
+      "urls_sent": [
+        "https://www.newkerala.com/news/a/limited-fire-reported-saudi-aramco-refinery-ras-tanura-881.htm",
+        "https://economictimes.indiatimes.com/industry/energy/oil-gas/iranisrael-war-fire-at-saudi-aramco-refinery-controlled-after-drone-strike-semafor-reports/articleshow/128939749.cms"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260202",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260203",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260204",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260205",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260206",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260207",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260209",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260210",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260211",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260212",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260214",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260215",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260216",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260217",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260218",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260219",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260220",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260221",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260222",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260223",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260224",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260225",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260226",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260227",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260228",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260301",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260302",
+          "z": 7.871,
+          "sources": 1.66,
+          "goldstein": -9.9
+        }
+      ],
+      "delta_z": 7.871,
+      "consecutive_anomaly_days": 1,
+      "satellite_passes": [
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T17:36:09Z",
+          "max_elevation_deg": 78.5,
+          "within_swath": true,
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-05T17:21:44Z",
+          "max_elevation_deg": 61.5,
+          "within_swath": true,
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-08T06:05:54Z",
+          "max_elevation_deg": 79.0,
+          "within_swath": true,
+          "cloud_cover_pct": 98,
+          "cloud_status": "overcast",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "RED 지역이며 구름이 많아 SAR 촬영 우선"
+        }
+      ]
+    },
+    {
+      "city": "Kashmīr",
+      "display_name": "Kashmir",
+      "lat": 25.69580078125,
+      "lng": 58.87889862060547,
+      "tier": "C",
+      "innov_z": 4.459,
+      "risk_label": "위험",
+      "events": 18,
+      "conflict_index": 15.159,
+      "sources_total": 31,
+      "mentions_total": 123,
+      "llm_status": "SUCCESS",
+      "llm_message": "Kashmir에서 시위대와 보안군 간의 충돌 발생",
+      "urls_sent": [
+        "https://www.news18.com/explainers/from-kashmir-to-ups-barabanki-tracing-indias-historical-links-to-iran-amid-khameneis-death-ws-l-9937858.html",
+        "https://www.naharnet.com/stories/en/318687-cheers-music-anger-world-reacts-as-iran-s-khamenei-is-killed"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260202",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260203",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260204",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260205",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260206",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260207",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": 0.205,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260209",
+          "z": -0.017,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260210",
+          "z": -0.017,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260211",
+          "z": -0.016,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260212",
+          "z": -0.016,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": -0.015,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260214",
+          "z": -0.015,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260215",
+          "z": -0.015,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260216",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260217",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260218",
+          "z": -0.014,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260219",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260220",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260221",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260222",
+          "z": -0.013,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260223",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260224",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260225",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260226",
+          "z": -0.012,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260227",
+          "z": -0.011,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260228",
+          "z": 0.423,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260301",
+          "z": 14.488,
+          "sources": 8.35,
+          "goldstein": -9.99
+        },
+        {
+          "date": "20260302",
+          "z": 4.459,
+          "sources": 1.72,
+          "goldstein": -9.94
+        }
+      ],
+      "delta_z": -10.029,
+      "consecutive_anomaly_days": 2,
+      "satellite_passes": [
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T05:29:34Z",
+          "max_elevation_deg": 81.5,
+          "within_swath": true,
+          "cloud_cover_pct": 45,
+          "cloud_status": "partial",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "상당함",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "SpaceEye-T",
+          "norad_id": 63229,
+          "sensor_type": "EO",
+          "resolution_m": 0.25,
+          "pass_time_utc": "2026-03-04T06:31:12Z",
+          "max_elevation_deg": 43.4,
+          "within_swath": true,
+          "cloud_cover_pct": 7,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "EO 촬영 좋음",
+          "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+        },
+        {
+          "satellite": "KOMPSAT-7",
+          "norad_id": 66820,
+          "sensor_type": "EO",
+          "resolution_m": 0.3,
+          "pass_time_utc": "2026-03-04T09:51:35Z",
+          "max_elevation_deg": 85.5,
+          "within_swath": true,
+          "cloud_cover_pct": 2,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        }
+      ]
+    },
+    {
+      "city": "Manama",
+      "display_name": "Manama",
+      "lat": 26.236099243164062,
+      "lng": 50.583099365234375,
+      "tier": "C",
+      "innov_z": 3.99,
+      "risk_label": "위험",
+      "events": 20,
+      "conflict_index": 13.863,
+      "sources_total": 20,
+      "mentions_total": 76,
+      "llm_status": "SUCCESS",
+      "llm_message": "이란이 Manama 내 미국 제5함대 관련 시설을 겨냥해 미사일 공격을 감행하여 폭발이 발생했습니다.",
+      "urls_sent": [
+        "https://www.thecable.ng/report-private-jet-flight-from-riyadh-to-europe-now-cost-n479m-as-elites-flee-middle-east-tensions/",
+        "https://www.hindustantimes.com/world-news/qatar-uae-syria-oman-full-list-of-places-that-saw-attacks-amid-us-iran-conflict-101772423641956.html"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": -0.007,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260202",
+          "z": -0.007,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260203",
+          "z": -0.007,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260204",
+          "z": -0.006,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260205",
+          "z": -0.006,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260206",
+          "z": -0.006,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260207",
+          "z": -0.006,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": -0.006,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260209",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260210",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260211",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260212",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260214",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260215",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260216",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260217",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260218",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260219",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260220",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260221",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260222",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260223",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260224",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260225",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260226",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260227",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260228",
+          "z": 9.64,
+          "sources": 1.32,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260301",
+          "z": 8.913,
+          "sources": 2.07,
+          "goldstein": -9.92
+        },
+        {
+          "date": "20260302",
+          "z": 3.99,
+          "sources": 1.0,
+          "goldstein": -9.8
+        }
+      ],
+      "delta_z": -4.923,
+      "consecutive_anomaly_days": 3,
+      "satellite_passes": [
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T17:36:01Z",
+          "max_elevation_deg": 74.8,
+          "within_swath": true,
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "주의",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-05T17:21:36Z",
+          "max_elevation_deg": 64.5,
+          "within_swath": true,
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "주의",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-08T06:05:59Z",
+          "max_elevation_deg": 73.3,
+          "within_swath": true,
+          "cloud_cover_pct": 98,
+          "cloud_status": "overcast",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "주의",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        }
+      ]
+    },
+    {
+      "city": "Al Jahrā’",
+      "display_name": "Ali Al Salem Air Base",
+      "lat": 29.350000381469727,
+      "lng": 47.52109909057617,
+      "tier": "C",
+      "innov_z": 3.924,
+      "risk_label": "위험",
+      "events": 17,
+      "conflict_index": 12.594,
+      "sources_total": 19,
+      "mentions_total": 88,
+      "llm_status": "SUCCESS",
+      "llm_message": "쿠웨이트 방공망의 오인 사격으로 Al Jahrā’ 상공에서 미군 F-15 전투기 3대가 격추됨.",
+      "urls_sent": [
+        "https://www.aol.co.uk/articles/where-us-military-bases-middle-101432381.html",
+        "https://www.dawn.com/news/1977491/kuwait-shoots-down-us-jets-in-friendly-fire-incident-us-centcom-says"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": -0.007,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260202",
+          "z": -0.007,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260203",
+          "z": -0.007,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260204",
+          "z": -0.007,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260205",
+          "z": -0.006,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260206",
+          "z": -0.006,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260207",
+          "z": -0.006,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": -0.006,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260209",
+          "z": -0.006,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260210",
+          "z": -0.006,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260211",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260212",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260214",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260215",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260216",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260217",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260218",
+          "z": -0.005,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260219",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260220",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260221",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260222",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260223",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260224",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260225",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260226",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260227",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260228",
+          "z": -0.004,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260301",
+          "z": 0.992,
+          "sources": 1.25,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260302",
+          "z": 3.924,
+          "sources": 1.12,
+          "goldstein": -10.0
+        }
+      ],
+      "delta_z": 2.932,
+      "consecutive_anomaly_days": 1,
+      "satellite_passes": [
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-03T17:51:23Z",
+          "max_elevation_deg": 62.2,
+          "within_swath": true,
+          "cloud_cover_pct": 33,
+          "cloud_status": "partial",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "주의",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T17:36:57Z",
+          "max_elevation_deg": 78.7,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "주의",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "SkySat-C12",
+          "norad_id": 43797,
+          "sensor_type": "EO",
+          "resolution_m": 0.5,
+          "pass_time_utc": "2026-03-05T04:31:34Z",
+          "max_elevation_deg": 57.3,
+          "within_swath": true,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "주의",
+          "capture_condition_label": "EO 촬영 매우 좋음",
+          "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+        }
+      ]
+    },
+    {
+      "city": "Bekaa Valley",
+      "display_name": "Bekaa Valley",
+      "lat": 33.83330154418945,
+      "lng": 36.0,
+      "tier": "C",
+      "innov_z": 3.747,
+      "risk_label": "위험",
+      "events": 14,
+      "conflict_index": 12.412,
+      "sources_total": 23,
+      "mentions_total": 83,
+      "llm_status": "SUCCESS",
+      "llm_message": "이스라엘군이 Bekaa Valley 지역에 공습을 감행하여 타격함.",
+      "urls_sent": [
+        "https://www.asiaone.com/asia/israeli-military-launches-strikes-against-hezbollah-after-group-attacks-israel",
+        "https://www.benzinga.com/news/politics/26/03/50955703/israel-strikes-beirut-promises-to-bring-ruin-as-retaliation-for-hezbollah-attack-on-behalf-of-iranian-regime"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": -0.078,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260202",
+          "z": -0.076,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260203",
+          "z": 0.269,
+          "sources": 2.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260204",
+          "z": -0.082,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260205",
+          "z": 0.137,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260206",
+          "z": -0.083,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260207",
+          "z": -0.081,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": -0.079,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260209",
+          "z": -0.076,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260210",
+          "z": -0.074,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260211",
+          "z": -0.073,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260212",
+          "z": -0.071,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": -0.069,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260214",
+          "z": -0.067,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260215",
+          "z": -0.066,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260216",
+          "z": -0.064,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260217",
+          "z": -0.063,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260218",
+          "z": -0.061,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260219",
+          "z": -0.06,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260220",
+          "z": -0.059,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260221",
+          "z": 1.931,
+          "sources": 1.25,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260222",
+          "z": 0.553,
+          "sources": 1.0,
+          "goldstein": -9.67
+        },
+        {
+          "date": "20260223",
+          "z": -0.11,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260224",
+          "z": -0.107,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260225",
+          "z": -0.105,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260226",
+          "z": 0.765,
+          "sources": 3.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260227",
+          "z": 0.533,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260228",
+          "z": 0.65,
+          "sources": 3.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260301",
+          "z": 0.076,
+          "sources": 1.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260302",
+          "z": 3.747,
+          "sources": 1.64,
+          "goldstein": -10.0
+        }
+      ],
+      "delta_z": 3.671,
+      "consecutive_anomaly_days": 1,
+      "satellite_passes": [
+        {
+          "satellite": "SkySat-C12",
+          "norad_id": 43797,
+          "sensor_type": "EO",
+          "resolution_m": 0.5,
+          "pass_time_utc": "2026-03-04T05:11:51Z",
+          "max_elevation_deg": 84.5,
+          "within_swath": true,
+          "cloud_cover_pct": 23,
+          "cloud_status": "partial",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "주의",
+          "capture_condition_label": "EO 촬영 좋음",
+          "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T07:02:29Z",
+          "max_elevation_deg": 86.4,
+          "within_swath": true,
+          "cloud_cover_pct": 85,
+          "cloud_status": "overcast",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "주의",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "KOMPSAT-7",
+          "norad_id": 66820,
+          "sensor_type": "EO",
+          "resolution_m": 0.3,
+          "pass_time_utc": "2026-03-04T11:29:36Z",
+          "max_elevation_deg": 64.4,
+          "within_swath": true,
+          "cloud_cover_pct": 32,
+          "cloud_status": "partial",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "주의",
+          "capture_condition_label": "EO 촬영 좋음",
+          "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+        }
+      ]
+    },
+    {
+      "city": "Ras Laffan",
+      "display_name": "Ras Laffan",
+      "lat": 25.908599853515625,
+      "lng": 51.57830047607422,
+      "tier": "C",
+      "innov_z": 3.729,
+      "risk_label": "위험",
+      "events": 14,
+      "conflict_index": 11.901,
+      "sources_total": 20,
+      "mentions_total": 98,
+      "llm_status": "SUCCESS",
+      "llm_message": "이란의 드론 공격으로 Ras Laffan 내 QatarEnergy 시설이 타격받고 생산이 중단되었습니다.",
+      "urls_sent": [
+        "http://thepeninsulaqatar.com/article/02/03/2026/iran-drones-target-mesaieed-power-plant-qatarenergy-ras-laffan-facility-ministry-of-defense",
+        "https://economictimes.indiatimes.com/news/defence/qatar-air-force-shoots-down-two-aircraft-from-iran-defence-ministry/articleshow/128951513.cms"
+      ],
+      "history_30d": [
+        {
+          "date": "20260201",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260202",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260203",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260204",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260205",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260206",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260207",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260208",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260209",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260210",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260211",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260212",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260213",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260214",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260215",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260216",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260217",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260218",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260219",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260220",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260221",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260222",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260223",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260224",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260225",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260226",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260227",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260228",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260301",
+          "z": 0.0,
+          "sources": 0.0,
+          "goldstein": 0
+        },
+        {
+          "date": "20260302",
+          "z": 3.729,
+          "sources": 1.43,
+          "goldstein": -9.93
+        }
+      ],
+      "delta_z": 3.729,
+      "consecutive_anomaly_days": 1,
+      "satellite_passes": [
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-04T17:35:54Z",
+          "max_elevation_deg": 65.5,
+          "within_swath": true,
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "주의",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-05T17:21:28Z",
+          "max_elevation_deg": 73.5,
+          "within_swath": true,
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "주의",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-X2",
+          "norad_id": 43800,
+          "sensor_type": "sar",
+          "resolution_m": 1,
+          "pass_time_utc": "2026-03-08T06:06:01Z",
+          "max_elevation_deg": 63.0,
+          "within_swath": true,
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "주의",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        }
+      ]
+    }
+  ]
+}

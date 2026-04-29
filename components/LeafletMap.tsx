@@ -39,6 +39,9 @@ export interface Target {
   llm_message: string;
   urls_sent: string[];
   satellite_passes: SatPass[];
+  history_30d?: { date: string; z: number; sources: number; goldstein: number; }[];
+  delta_z?: number;
+  consecutive_anomaly_days?: number;
 }
 
 interface LeafletMapProps {
@@ -200,7 +203,7 @@ export default function LeafletMap({ targets, selected, onSelect }: LeafletMapPr
         zoomControl={false}
       >
         <TileLayer
-          url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
           attribution=""
         />
         <MapController targets={targets} selected={selected} />
