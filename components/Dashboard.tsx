@@ -314,7 +314,7 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel }: {
 
       <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:4, marginBottom:10 }}>
         {([
-          ['Goldstein 점수', target.innov_z.toFixed(1),             S.red],
+          ['innov_z 점수', target.innov_z.toFixed(1),             S.red],
           ['언급 수',        target.mentions_total.toLocaleString(), '#ffffff'],
           ['이벤트',         String(target.events),                  '#ffffff'],
         ] as [string,string,string][]).map(([l,v,c])=>(
