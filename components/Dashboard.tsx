@@ -202,7 +202,6 @@ function TrendChart({ city, currentDate }: { city: string; currentDate: string }
   return (
     <div style={{ marginBottom:12 }}>
       <div style={{ fontFamily:S.body, fontSize:9, color:S.textDim, letterSpacing:'.08em', textTransform:'uppercase', marginBottom:4 }}>7일 트렌드</div>
-      <div style={{ fontFamily:S.mono, fontSize:8, color:S.textDim, marginBottom:2 }}>AVG TONE</div>
       <ResponsiveContainer width="100%" height={90}>
         <ComposedChart data={trend} margin={{ top:4, right:4, bottom:0, left:-10 }}>
           <CartesianGrid strokeDasharray="2 4" stroke="rgba(255,255,255,0.05)" vertical={false}/>
@@ -214,12 +213,10 @@ function TrendChart({ city, currentDate }: { city: string; currentDate: string }
         </ComposedChart>
       </ResponsiveContainer>
       <div style={{ display:'flex', gap:10, marginTop:3 }}>
-        {([['—','Z-score'],['- -','충돌지수']] as [string,string][]).map(([sym,label]) => (
-          <div key={label} style={{ display:'flex', alignItems:'center', gap:3 }}>
-            <span style={{ fontFamily:S.mono, fontSize:9, color:'#5fe6a0' }}>{sym}</span>
-            <span style={{ fontSize:9, color:S.textDim }}>{label}</span>
-          </div>
-        ))}
+        <div style={{ display:'flex', alignItems:'center', gap:3 }}>
+          <span style={{ fontFamily:S.mono, fontSize:9, color:'#5fe6a0' }}>—</span>
+          <span style={{ fontSize:9, color:S.textDim }}>Z-score</span>
+        </div>
       </div>
     </div>
   );
@@ -250,14 +247,8 @@ function ScheduleRow({ pass, rank, approved, onSelect }: {
         </div>
         <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>{fmtMD(pass.pass_time_utc)} {fmtUTC(pass.pass_time_utc)}</span>
       </div>
-      <div style={{ display:'flex', alignItems:'center', gap:8, flexWrap:'wrap' }}>
-        <span style={{ fontSize:10, color:urgent?S.red:S.textDim, fontWeight:urgent?600:400 }}>{pass.action_priority_label}</span>
-        <span style={{ fontSize:10, color:S.textDim }}>{pass.daylight?'주간':'야간'}</span>
+      <div style={{ display:'flex', alignItems:'center', gap:8 }}>
         {approved && <span style={{ fontSize:10, color:S.green }}>✓ 승인</span>}
-        <div style={{ flex:1, minWidth:30, height:2, background:'rgba(255,255,255,0.06)', marginLeft:'auto' }}>
-          <div style={{ height:'100%', width:`${cp}%`, background:cloudColor, opacity:.7 }}/>
-        </div>
-        <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>{cp}%</span>
       </div>
     </div>
   );
@@ -307,13 +298,11 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel, currentDate 
     <div style={{ padding:12 }}>
       <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:5 }}>
         <span className={`badge b-${target.risk_label==='위기'?'red':'amber'}`}>{target.risk_label}</span>
-        <span style={{ fontSize:10, color:'#ffffff' }}>TIER {target.tier}</span>
-        {pass && <span style={{ fontFamily:S.mono, fontSize:9, color:'#ffffff', marginLeft:'auto' }}>{pass.satellite}</span>}
       </div>
-      <div style={{ fontFamily:S.display, fontSize:24, fontWeight:800, marginBottom:6, lineHeight:1.2, color:'#ffffff' }}>
+      <div style={{ fontFamily:S.display, fontSize:24, fontWeight:800, marginBottom:8, lineHeight:1.2, color:'#ffffff' }}>
         {target.display_name}
       </div>
-      <div style={{ fontSize:11, color:'#ffffff', lineHeight:1.6, marginBottom:10, paddingBottom:10, borderBottom:`1px solid ${S.border}` }}>
+      <div style={{ fontSize:13, color:'#ffffff', lineHeight:1.7, marginBottom:10, paddingBottom:10, borderBottom:`1px solid ${S.border}` }}>
         {target.llm_message}
       </div>
 
@@ -322,11 +311,8 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel, currentDate 
       <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:4, marginBottom:10 }}>
         {([
           ['Goldstein 점수', target.innov_z.toFixed(1),             S.red],
-          ['충돌 지수',      target.conflict_index.toFixed(0),       S.amber],
           ['언급 수',        target.mentions_total.toLocaleString(), '#ffffff'],
           ['이벤트',         String(target.events),                  '#ffffff'],
-          ['소스',           String(target.sources_total),           '#ffffff'],
-          ['LLM',            target.llm_status,                      target.llm_status==='SUCCESS'?S.green:S.amber],
         ] as [string,string,string][]).map(([l,v,c])=>(
           <div key={l} style={{ background:S.bg3, padding:'5px 7px', border:`1px solid ${S.border}` }}>
             <div style={{ fontSize:8, color:'#aaaaaa', marginBottom:2 }}>{l}</div>
@@ -343,7 +329,7 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel, currentDate 
               <span style={{ fontFamily:S.mono, fontSize:11, color:'#ffffff' }}>{pass.satellite}</span>
               <span style={{ fontFamily:S.mono, fontSize:9, color:'#ffffff' }}>{fmtMD(pass.pass_time_utc)} {fmtUTC(pass.pass_time_utc)}</span>
             </div>
-            <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:3, marginBottom:6 }}>
+            <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:3 }}>
               {([
                 ['앙각',   `${pass.max_elevation_deg.toFixed(0)}°`, '#ffffff'],
                 ['운량',   `${pass.cloud_cover_pct}%`,              pass.cloud_cover_pct>70?S.amber:S.green],
@@ -356,7 +342,6 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel, currentDate 
                 </div>
               ))}
             </div>
-            <div style={{ fontSize:10, color:'#ffffff' }}>{pass.recommendation_reason}</div>
           </div>
           <button
             className={`approve-btn${approved?' done':''}`}
@@ -365,22 +350,6 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel, currentDate 
             {approved ? '✓ 촬영 승인됨 — 클릭하여 취소' : '촬영 승인 / 스케줄 확정'}
           </button>
         </>
-      )}
-
-      {target.satellite_passes.length > 0 && (
-        <div style={{ marginTop:10 }}>
-          <div style={{ fontSize:9, color:'#aaaaaa', letterSpacing:'.08em', textTransform:'uppercase', marginBottom:5 }}>
-            전체 패스 ({target.satellite_passes.length})
-          </div>
-          {target.satellite_passes.map((p,i)=>(
-            <div key={i} style={{ display:'flex', gap:8, padding:'4px 0', borderBottom:`1px solid rgba(255,255,255,0.04)` }}>
-              <span style={{ fontSize:9, color:p.sensor_type==='sar'?S.blue:S.green, width:28, fontWeight:500 }}>{p.sensor_type.toUpperCase()}</span>
-              <span style={{ fontSize:10, color:'#ffffff', flex:1 }}>{p.satellite}</span>
-              <span style={{ fontFamily:S.mono, fontSize:9, color:'#ffffff' }}>{fmtUTC(p.pass_time_utc)}</span>
-              <span style={{ fontFamily:S.mono, fontSize:9, color:S.amber }}>{p.cloud_cover_pct}%</span>
-            </div>
-          ))}
-        </div>
       )}
 
       {target.urls_sent?.length > 0 && (
@@ -482,7 +451,6 @@ export default function Dashboard() {
               </select>
               <span style={{ position:'absolute', right:6, top:'50%', transform:'translateY(-50%)', color:S.textDim, fontSize:9, pointerEvents:'none' }}>▾</span>
             </div>
-            <span style={{ fontFamily:S.mono, fontSize:11, color:S.textSub }}>{targets.length} targets</span>
           </div>
         </div>
 
@@ -603,7 +571,7 @@ export default function Dashboard() {
 
             {/* 스케줄 — flex:1 로 남은 공간 채움 */}
             <div className="panel" style={{ flex:1, minHeight:0 }}>
-              <PanelHeader title="촬영 스케줄" right={`즉시 ${urgentCount}건`}/>
+              <PanelHeader title="촬영 스케줄"/>
               <div style={{ overflowY:'auto', flex:1 }}>
                 {grouped.map(({ target, passes, rank }) => (
                   <div key={target.city}>

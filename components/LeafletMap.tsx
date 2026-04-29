@@ -126,19 +126,9 @@ function MarkersLayer({ targets, selected, onSelect }: LeafletMapProps) {
               <div style={{ fontSize:15, fontWeight:700, marginBottom:8, color:'#0f172a', lineHeight:1.2 }}>
                 {target.display_name}
               </div>
-              <div style={{ fontSize:11, color:'#374151', lineHeight:1.6, marginBottom:10 }}>
+              <div style={{ fontSize:11, color:'#374151', lineHeight:1.6 }}>
                 {target.llm_message}
               </div>
-              <button
-                onClick={() => onSelect(target.city)}
-                style={{
-                  width:'100%', padding:'6px 0', fontSize:11, fontWeight:600,
-                  background:'#0f172a', color:'#ffffff', border:'none',
-                  borderRadius:4, cursor:'pointer', letterSpacing:'.02em',
-                }}
-              >
-                상세 분석 보기 →
-              </button>
             </div>
           </Popup>
         </Marker>
