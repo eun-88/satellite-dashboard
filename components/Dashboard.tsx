@@ -53,11 +53,17 @@ const fmtDateLabel = (date: string) => {
 const fmtDateShort = (date: string) =>
   `${date.slice(4,6)}/${date.slice(6,8)}`;
 
-const riskDisplay = (label: string) =>
-  label === '위기' ? '심각' : label === '위험' ? '주의' : '관심';
+const riskDisplay = (label: string) => {
+  if (label === '위기') return '심각';
+  if (label === '위험') return '주의';
+  return label; // 심각/주의/관심 그대로
+};
 
-const riskClass = (label: string) =>
-  label === '위기' ? 'red' : label === '위험' ? 'amber' : 'yellow';
+const riskClass = (label: string) => {
+  if (label === '위기' || label === '심각') return 'red';
+  if (label === '위험' || label === '주의') return 'amber';
+  return 'yellow'; // 관심
+};
 
 function flattenPasses(targets: Target[]): FlatPass[] {
   const sorted = [...targets].sort((a,b) => b.innov_z - a.innov_z);
@@ -251,7 +257,10 @@ function ScheduleRow({ pass, rank, approved, onSelect }: {
         </div>
         <div style={{ display:'flex', alignItems:'center', gap:8 }}>
           {approved && <span style={{ fontSize:10, color:S.green }}>✓ 승인</span>}
-          <span style={{ fontFamily:S.mono, fontSize:9, color:S.textDim }}>{fmtMD(pass.pass_time_utc)} {fmtUTC(pass.pass_time_utc)}</span>
+          <div style={{ textAlign:'right' }}>
+            <div style={{ fontFamily:S.mono, fontSize:9, color:S.amber, fontWeight:600 }}>{fmtMD(pass.pass_time_utc)}</div>
+            <div style={{ fontFamily:S.mono, fontSize:8, color:S.textDim }}>{fmtUTC(pass.pass_time_utc)}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -314,9 +323,9 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel }: {
 
       <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:4, marginBottom:10 }}>
         {([
-          ['innov_z 점수', target.innov_z.toFixed(1),             S.red],
-          ['언급 수',        target.mentions_total.toLocaleString(), '#ffffff'],
-          ['이벤트',         String(target.events),                  '#ffffff'],
+          ['innov_z 점수', target.innov_z.toFixed(1),                                S.red],
+          ['언급 수',      target.mentions_total.toLocaleString(),                   '#ffffff'],
+          ['이벤트',       String(target.events_count ?? target.events ?? 0),        '#ffffff'],
         ] as [string,string,string][]).map(([l,v,c])=>(
           <div key={l} style={{ background:S.bg3, padding:'5px 7px', border:`1px solid ${S.border}` }}>
             <div style={{ fontSize:8, color:'#aaaaaa', marginBottom:2 }}>{l}</div>
@@ -335,9 +344,9 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel }: {
             </div>
             <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:3 }}>
               {([
-                ['앙각',   `${pass.max_elevation_deg.toFixed(0)}°`, '#ffffff'],
+                ['Off-Nadir', pass.off_nadir_deg !== undefined ? `${pass.off_nadir_deg.toFixed(1)}°` : `${pass.max_elevation_deg.toFixed(0)}°`, '#ffffff'],
                 ['운량',   `${pass.cloud_cover_pct}%`,              pass.cloud_cover_pct>70?S.amber:S.green],
-                ['센서',   pass.sensor_type.toUpperCase(),          '#ffffff'],
+                ['센서',   pass.sensor_type === 'optical' ? 'EO' : pass.sensor_type.toUpperCase(), '#ffffff'],
                 ['해상도', `${pass.resolution_m}m`,                 '#ffffff'],
               ] as [string,string,string][]).map(([l,v,c])=>(
                 <div key={l} style={{ background:S.bg4, padding:'4px 6px' }}>
@@ -354,6 +363,36 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel }: {
             {approved ? '✓ 촬영 승인됨 — 클릭하여 취소' : '촬영 승인 / 스케줄 확정'}
           </button>
         </>
+      )}
+
+      {/* SpaceEye-T / PlanetScope 옵션 */}
+      {(target.spaceeye_option || target.planetscope_option) && (
+        <div style={{ marginTop:10, marginBottom:10 }}>
+          <div style={{ fontSize:9, color:'#aaaaaa', letterSpacing:'.08em', textTransform:'uppercase', marginBottom:6 }}>SIA 자산 옵션</div>
+          {[target.spaceeye_option, target.planetscope_option].filter(Boolean).map((opt, i) => (
+            opt && (
+              <div key={i} style={{ background:S.bg3, border:`1px solid rgba(95,230,160,0.2)`, padding:'8px 10px', marginBottom:6, borderRadius:2 }}>
+                <div style={{ display:'flex', justifyContent:'space-between', marginBottom:6 }}>
+                  <span style={{ fontFamily:S.mono, fontSize:11, color:S.green }}>{opt.satellite}</span>
+                  <span style={{ fontFamily:S.mono, fontSize:9, color:S.textSub }}>{fmtMD(opt.pass_time_utc)} {fmtUTC(opt.pass_time_utc)}</span>
+                </div>
+                <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:3 }}>
+                  {([
+                    ['Off-Nadir', opt.off_nadir_deg !== undefined ? `${opt.off_nadir_deg.toFixed(1)}°` : '-', '#ffffff'],
+                    ['운량',      `${opt.cloud_cover_pct}%`, opt.cloud_cover_pct > 70 ? S.amber : S.green],
+                    ['센서',      opt.sensor_type === 'optical' ? 'EO' : opt.sensor_type.toUpperCase(), '#ffffff'],
+                    ['해상도',    `${opt.resolution_m}m`, '#ffffff'],
+                  ] as [string,string,string][]).map(([l,v,c]) => (
+                    <div key={l} style={{ background:S.bg4, padding:'4px 6px' }}>
+                      <div style={{ fontSize:8, color:'#aaaaaa' }}>{l}</div>
+                      <div style={{ fontFamily:S.mono, fontSize:11, fontWeight:500, color:c }}>{v}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          ))}
+        </div>
       )}
 
       {target.urls_sent?.length > 0 && (
@@ -497,55 +536,87 @@ export default function Dashboard() {
 
             {/* 타임라인 */}
             <div className="panel" style={{ flexShrink:0 }}>
-              <PanelHeader title="24H 촬영 타임라인"/>
+              <PanelHeader title="24H 촬영 타임라인 (D+1)"/>
               <div style={{ padding:'8px 10px' }}>
-                <div style={{ display:'flex', marginLeft:80, marginBottom:4 }}>
-                  {[0,4,8,12,16,20,24].map(h=>(
-                    <div key={h} style={{ flex:1, fontFamily:S.mono, fontSize:8, color:S.textDim, textAlign:'center' }}>{String(h).padStart(2,'0')}</div>
-                  ))}
-                </div>
-                {Object.entries(satGroups).map(([sat,passes])=>(
-                  <div key={sat} style={{ display:'flex', alignItems:'center', marginBottom:5, gap:5 }}>
-                    <div style={{ fontSize:8, color:S.textSub, width:76, flexShrink:0, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }} title={sat}>
-                      {sat.replace('ICEYE-','').replace('Sentinel-','S-').replace('SpaceEye-','SE-')}
-                    </div>
-                    <div style={{ flex:1, height:16, background:'rgba(255,255,255,0.04)', position:'relative', borderRadius:1 }}>
-                      {passes.map((p,ei)=>{
-                        const d=new Date(p.pass_time_utc), hr=d.getUTCHours()+d.getUTCMinutes()/60;
-                        const key = `${p.city}-${p.satellite}-${p.pass_time_utc}`;
-                        const isApproved = approved.includes(key);
-                        return (
-                          <div key={ei}
-                            title={`${p.city} | ${p.action_priority_label} | ${p.cloud_cover_pct}%`}
-                            onClick={()=>{ setSelected(p.city); setSelPass(p); }}
-                            style={{
-                              position:'absolute', height:'100%',
-                              left:`${(hr/24*100).toFixed(1)}%`, width:'5%', minWidth:3,
-                              borderRadius:1, display:'flex', alignItems:'center',
-                              padding:'0 2px', fontSize:7, overflow:'hidden',
-                              whiteSpace:'nowrap', cursor:'pointer',
-                              background: isApproved ? '#5fe6a0' : '#3a3a3a',
-                              color: isApproved ? '#000' : '#aaa',
-                              opacity: isApproved ? 1 : 0.8,
-                              transition: 'background 0.3s, opacity 0.3s',
-                            }}>
-                            {p.city.substring(0,3)}
+                {(() => {
+                  // D+1 날짜 계산
+                  const baseDate = new Date(`${date.slice(0,4)}-${date.slice(4,6)}-${date.slice(6,8)}T00:00:00Z`);
+                  baseDate.setUTCDate(baseDate.getUTCDate() + 1);
+                  const d1 = baseDate.toISOString().slice(0,10);
+
+                  // 개별 위성별로 나열 (D+1 패스)
+                  const satPasses: Record<string, FlatPass[]> = {};
+                  const d1Passes = allPasses.filter(p => p.pass_time_utc.slice(0,10) === d1);
+
+                  // spaceeye_option, planetscope_option 추가
+                  targets.forEach(t => {
+                    [t.spaceeye_option, t.planetscope_option].filter(Boolean).forEach(opt => {
+                      if (opt && opt.pass_time_utc.slice(0,10) === d1) {
+                        d1Passes.push({ ...opt, city: t.city, innov_z: t.innov_z, tier: t.tier });
+                      }
+                    });
+                  });
+
+                  d1Passes.forEach(p => {
+                    (satPasses[p.satellite] ??= []).push(p);
+                  });
+
+                  return (
+                    <>
+                      <div style={{ fontFamily:S.mono, fontSize:8, color:S.amber, marginBottom:4 }}>{d1}</div>
+                      <div style={{ display:'flex', marginLeft:110, marginBottom:4 }}>
+                        {[0,4,8,12,16,20,24].map(h=>(
+                          <div key={h} style={{ flex:1, fontFamily:S.mono, fontSize:8, color:S.textDim, textAlign:'center' }}>{String(h).padStart(2,'0')}</div>
+                        ))}
+                      </div>
+                      {Object.entries(satPasses).map(([sat, passes]) => (
+                        <div key={sat} style={{ display:'flex', alignItems:'center', marginBottom:5, gap:5 }}>
+                          <div style={{ fontSize:8, color:S.textSub, width:106, flexShrink:0, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }} title={sat}>
+                            {sat}
                           </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                ))}
-                <div style={{ display:'flex', gap:8, marginTop:5, paddingTop:5, borderTop:`1px solid ${S.border}` }}>
-                  <div style={{ display:'flex', alignItems:'center', gap:3 }}>
-                    <div style={{ width:8, height:8, borderRadius:1, background:'#5fe6a0' }}/>
-                    <span style={{ fontSize:8, color:S.textDim }}>촬영 승인</span>
-                  </div>
-                  <div style={{ display:'flex', alignItems:'center', gap:3 }}>
-                    <div style={{ width:8, height:8, borderRadius:1, background:'#3a3a3a' }}/>
-                    <span style={{ fontSize:8, color:S.textDim }}>미승인</span>
-                  </div>
-                </div>
+                          <div style={{ flex:1, height:16, background:'rgba(255,255,255,0.04)', position:'relative', borderRadius:1 }}>
+                            {passes.map((p, ei) => {
+                              const hr = new Date(p.pass_time_utc).getUTCHours() + new Date(p.pass_time_utc).getUTCMinutes()/60;
+                              const key = `${p.city}-${p.satellite}-${p.pass_time_utc}`;
+                              const isApproved = approved.includes(key);
+                              return (
+                                <div key={ei}
+                                  title={`${p.city} | ${p.satellite} | ${p.action_priority_label}`}
+                                  onClick={() => { setSelected(p.city); setSelPass(p); }}
+                                  style={{
+                                    position:'absolute', height:'100%',
+                                    left:`${(hr/24*100).toFixed(1)}%`, width:'5%', minWidth:3,
+                                    borderRadius:1, display:'flex', alignItems:'center',
+                                    padding:'0 2px', fontSize:7, overflow:'hidden',
+                                    whiteSpace:'nowrap', cursor:'pointer',
+                                    background: isApproved ? '#5fe6a0' : '#3a3a3a',
+                                    color: isApproved ? '#000' : '#aaa',
+                                    opacity: isApproved ? 1 : 0.8,
+                                    transition: 'background 0.3s, opacity 0.3s',
+                                  }}>
+                                  {p.city.substring(0,3)}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
+                      {Object.keys(satPasses).length === 0 && (
+                        <div style={{ fontSize:10, color:S.textDim, padding:'8px 0' }}>D+1 패스 없음</div>
+                      )}
+                      <div style={{ display:'flex', gap:8, marginTop:5, paddingTop:5, borderTop:`1px solid ${S.border}` }}>
+                        <div style={{ display:'flex', alignItems:'center', gap:3 }}>
+                          <div style={{ width:8, height:8, borderRadius:1, background:'#5fe6a0' }}/>
+                          <span style={{ fontSize:8, color:S.textDim }}>촬영 승인</span>
+                        </div>
+                        <div style={{ display:'flex', alignItems:'center', gap:3 }}>
+                          <div style={{ width:8, height:8, borderRadius:1, background:'#3a3a3a' }}/>
+                          <span style={{ fontSize:8, color:S.textDim }}>미승인</span>
+                        </div>
+                      </div>
+                    </>
+                  );
+                })()}
               </div>
             </div>
 

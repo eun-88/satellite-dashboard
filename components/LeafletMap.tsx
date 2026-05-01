@@ -11,6 +11,8 @@ export interface SatPass {
   resolution_m: number;
   pass_time_utc: string;
   max_elevation_deg: number;
+  off_nadir_deg?: number;
+  off_nadir_limit_deg?: number;
   within_swath: boolean;
   cloud_cover_pct: number;
   cloud_status: string;
@@ -26,11 +28,13 @@ export interface Target {
   city: string;
   display_name: string;
   lat: number;
-  lng: number;
+  lon: number;
+  lng?: number; // 하위 호환
   tier: string;
   innov_z: number;
   risk_label: string;
-  events: number;
+  events_count?: number;
+  events?: number; // 하위 호환
   conflict_index: number;
   sources_total: number;
   mentions_total: number;
@@ -41,6 +45,10 @@ export interface Target {
   history_30d?: { date: string; z: number; sources: number; goldstein: number; }[];
   delta_z?: number;
   consecutive_anomaly_days?: number;
+  volume_7d_ratio?: number;
+  anomaly_signals?: { type: string; value: number; message: string; }[];
+  spaceeye_option?: SatPass & { pass_time_utc: string; };
+  planetscope_option?: SatPass & { pass_time_utc: string; };
 }
 
 interface LeafletMapProps {
@@ -50,13 +58,16 @@ interface LeafletMapProps {
 }
 
 function getRiskColor(risk_label: string) {
-  if (risk_label === '위기') return '#e05252';
-  if (risk_label === '위험') return '#d4883a';
+  if (risk_label === '위기' || risk_label === '심각') return '#e05252';
+  if (risk_label === '위험' || risk_label === '주의') return '#d4883a';
   return '#f5c842';
 }
 
-const riskDisplay = (label: string) =>
-  label === '위기' ? '심각' : label === '위험' ? '주의' : '관심';
+const riskDisplay = (label: string) => {
+  if (label === '위기') return '심각';
+  if (label === '위험') return '주의';
+  return label;
+};
 
 export default function MapLibreMap({ targets, selected, onSelect }: LeafletMapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
@@ -64,8 +75,9 @@ export default function MapLibreMap({ targets, selected, onSelect }: LeafletMapP
   const markersRef = useRef<maplibregl.Marker[]>([]);
   const popupRef = useRef<maplibregl.Popup | null>(null);
 
+  const getLng = (t: Target): number => t.lon ?? t.lng ?? 0;
   const centerLat = targets.reduce((s, t) => s + t.lat, 0) / (targets.length || 1);
-  const centerLng = targets.reduce((s, t) => s + t.lng, 0) / (targets.length || 1);
+  const centerLng = targets.reduce((s, t) => s + getLng(t), 0) / (targets.length || 1);
 
   // 지도 초기화
   useEffect(() => {
@@ -80,6 +92,16 @@ export default function MapLibreMap({ targets, selected, onSelect }: LeafletMapP
     });
 
     map.addControl(new maplibregl.NavigationControl({ showCompass: true }), 'bottom-left');
+
+    map.on('load', () => {
+      // 라벨 언어 영어로 강제 변경
+      const layers = map.getStyle().layers;
+      layers?.forEach(layer => {
+        if (layer.type === 'symbol' && layer.layout && 'text-field' in layer.layout) {
+          map.setLayoutProperty(layer.id, 'text-field', ['coalesce', ['get', 'name_en'], ['get', 'name']]);
+        }
+      });
+    });
 
     mapRef.current = map;
 
@@ -145,7 +167,7 @@ export default function MapLibreMap({ targets, selected, onSelect }: LeafletMapP
 
         // 점 마커 - anchor center로 정확히 좌표에 고정
         const marker = new maplibregl.Marker({ element: el, anchor: 'center' })
-          .setLngLat([target.lng, target.lat])
+          .setLngLat([getLng(target), target.lat])
           .setPopup(popup)
           .addTo(map);
 
@@ -168,7 +190,7 @@ export default function MapLibreMap({ targets, selected, onSelect }: LeafletMapP
         labelEl.textContent = target.display_name;
 
         const labelMarker = new maplibregl.Marker({ element: labelEl, anchor: 'top' })
-          .setLngLat([target.lng, target.lat])
+          .setLngLat([getLng(target), target.lat])
           .addTo(map);
 
         markersRef.current.push(labelMarker);
@@ -189,7 +211,7 @@ export default function MapLibreMap({ targets, selected, onSelect }: LeafletMapP
     const t = targets.find(t => t.city === selected);
     if (t) {
       map.flyTo({
-        center: [t.lng, t.lat],
+        center: [getLng(t), t.lat],
         zoom: 10,
         duration: 800,
         essential: true,

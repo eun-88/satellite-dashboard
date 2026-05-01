@@ -1,6 +1,6 @@
 {
   "date": "20260327",
-  "generated_at": "2026-04-29T04:29:21Z",
+  "generated_at": "2026-04-30T09:12:44Z",
   "config": {
     "model": "gemini-3.1-flash-lite-preview",
     "prompt_version": "v8",
@@ -26,11 +26,11 @@
       "city": "Isfahan",
       "display_name": "Isfahan",
       "lat": 32.659698486328125,
-      "lng": 51.6713981628418,
+      "lon": 51.6713981628418,
       "tier": "A",
       "innov_z": 12.21,
-      "risk_label": "위기",
-      "events": 45,
+      "risk_label": "심각",
+      "events_count": 45,
       "conflict_index": 48.926,
       "sources_total": 143,
       "mentions_total": 676,
@@ -38,525 +38,335 @@
       "llm_message": "이스라엘이 이란의 군사 기반 시설과 철강 생산 시설을 타격했습니다.",
       "urls_sent": [
         "https://www.wcsufm.org/latest-from-npr/2026-03-26/trump-grants-iran-another-extension-on-a-deadline-to-reopen-the-strait-of-hormuz",
-        "https://www.wishtv.com/news/politics/trump-extends-deadline-for-iran-to-open-strait-of-hormuz/"
+        "https://www.wishtv.com/news/politics/trump-extends-deadline-for-iran-to-open-strait-of-hormuz/",
+        "http://www.northkoreatimes.com/news/278948469/g7-calls-for-halt-to-attacks-on-civilian-infrastructure"
       ],
       "history_30d": [
         {
           "date": "20260226",
           "z": -0.022,
-          "sources": 1.0,
+          "sources": 4.0,
           "goldstein": -9.3
         },
         {
           "date": "20260227",
           "z": 1.445,
-          "sources": 1.33,
+          "sources": 12.0,
           "goldstein": -9.38
         },
         {
           "date": "20260228",
           "z": 13.095,
-          "sources": 2.16,
+          "sources": 106.0,
           "goldstein": -9.82
         },
         {
           "date": "20260301",
           "z": 8.295,
-          "sources": 2.79,
+          "sources": 78.0,
           "goldstein": -9.98
         },
         {
           "date": "20260302",
           "z": 2.625,
-          "sources": 1.31,
+          "sources": 21.0,
           "goldstein": -9.95
         },
         {
           "date": "20260303",
           "z": 9.846,
-          "sources": 2.41,
+          "sources": 82.0,
           "goldstein": -9.74
         },
         {
           "date": "20260304",
           "z": 6.017,
-          "sources": 2.04,
+          "sources": 55.0,
           "goldstein": -9.79
         },
         {
           "date": "20260305",
           "z": 1.203,
-          "sources": 1.64,
+          "sources": 18.0,
           "goldstein": -10.0
         },
         {
           "date": "20260306",
           "z": 3.174,
-          "sources": 1.32,
+          "sources": 25.0,
           "goldstein": -9.92
         },
         {
           "date": "20260307",
           "z": 5.218,
-          "sources": 2.05,
+          "sources": 45.0,
           "goldstein": -10.0
         },
         {
           "date": "20260308",
           "z": 5.092,
-          "sources": 1.56,
+          "sources": 39.0,
           "goldstein": -9.61
         },
         {
           "date": "20260309",
           "z": 9.719,
-          "sources": 3.14,
+          "sources": 113.0,
           "goldstein": -9.58
         },
         {
           "date": "20260310",
           "z": 3.713,
-          "sources": 3.0,
+          "sources": 57.0,
           "goldstein": -9.88
         },
         {
           "date": "20260311",
           "z": 3.802,
-          "sources": 2.16,
+          "sources": 41.0,
           "goldstein": -9.81
         },
         {
           "date": "20260312",
           "z": 0.188,
-          "sources": 1.0,
+          "sources": 11.0,
           "goldstein": -9.65
         },
         {
           "date": "20260313",
           "z": -0.685,
-          "sources": 1.0,
+          "sources": 7.0,
           "goldstein": -9.6
         },
         {
           "date": "20260314",
           "z": 1.045,
-          "sources": 1.31,
+          "sources": 17.0,
           "goldstein": -9.78
         },
         {
           "date": "20260315",
           "z": 10.256,
-          "sources": 8.33,
+          "sources": 250.0,
           "goldstein": -10.0
         },
         {
           "date": "20260316",
           "z": 2.642,
-          "sources": 1.3,
+          "sources": 26.0,
           "goldstein": -9.72
         },
         {
           "date": "20260317",
           "z": -1.077,
-          "sources": 1.4,
+          "sources": 7.0,
           "goldstein": -10.0
         },
         {
           "date": "20260318",
           "z": -1.532,
-          "sources": 1.67,
+          "sources": 5.0,
           "goldstein": -10.0
         },
         {
           "date": "20260319",
           "z": -1.726,
-          "sources": 1.0,
+          "sources": 3.0,
           "goldstein": -10.0
         },
         {
           "date": "20260320",
           "z": 1.368,
-          "sources": 2.55,
+          "sources": 28.0,
           "goldstein": -9.88
         },
         {
           "date": "20260321",
           "z": 9.388,
-          "sources": 3.06,
+          "sources": 101.0,
           "goldstein": -9.97
         },
         {
           "date": "20260322",
           "z": 7.138,
-          "sources": 5.55,
+          "sources": 122.0,
           "goldstein": -9.87
         },
         {
           "date": "20260323",
           "z": 4.552,
-          "sources": 5.82,
+          "sources": 99.0,
           "goldstein": -9.78
         },
         {
           "date": "20260324",
           "z": 0.792,
-          "sources": 1.0,
+          "sources": 16.0,
           "goldstein": -9.82
         },
         {
           "date": "20260325",
           "z": 2.993,
-          "sources": 1.08,
+          "sources": 27.0,
           "goldstein": -9.53
         },
         {
           "date": "20260326",
           "z": 27.985,
-          "sources": 22.92,
+          "sources": 1146.0,
           "goldstein": -9.82
         },
         {
           "date": "20260327",
           "z": 12.21,
-          "sources": 3.18,
+          "sources": 143.0,
           "goldstein": -9.84
         }
       ],
       "delta_z": -15.775,
       "consecutive_anomaly_days": 3,
+      "volume_7d_ratio": 4.92,
+      "anomaly_signals": [
+        {
+          "type": "volume_7d_boost",
+          "value": 4.92,
+          "message": "최근 7일 보도량 4.92배 급증"
+        },
+        {
+          "type": "anomaly_streak",
+          "value": 3,
+          "message": "3일 연속 이상 신호 탐지"
+        },
+        {
+          "type": "z_change",
+          "value": -15.775,
+          "message": "어제 대비 이상 신호 15.8 감소"
+        }
+      ],
       "satellite_passes": [
         {
-          "satellite": "SpaceEye-T",
-          "norad_id": 63229,
-          "sensor_type": "EO",
-          "resolution_m": 0.25,
-          "pass_time_utc": "2026-03-29T06:19:09Z",
-          "max_elevation_deg": 49.2,
+          "satellite": "ICEYE-59102",
+          "norad_id": 59102,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:13:58Z",
+          "max_elevation_deg": 67.7,
+          "off_nadir_deg": 20.4,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 0,
+          "cloud_cover_pct": 9,
           "cloud_status": "clear",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "우선 촬영",
           "urgency_label": "높음",
-          "capture_condition_label": "EO 촬영 좋음",
-          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역의 선제 확인용 SAR 후보"
         },
         {
-          "satellite": "SkySat-C12",
-          "norad_id": 43797,
-          "sensor_type": "EO",
-          "resolution_m": 0.5,
-          "pass_time_utc": "2026-03-30T04:12:53Z",
-          "max_elevation_deg": 61.9,
+          "satellite": "ICEYE-46496",
+          "norad_id": 46496,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:23:30Z",
+          "max_elevation_deg": 58.5,
+          "off_nadir_deg": 28.6,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 1,
+          "cloud_cover_pct": 9,
           "cloud_status": "clear",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "우선 촬영",
           "urgency_label": "높음",
-          "capture_condition_label": "EO 촬영 매우 좋음",
-          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
-        },
-        {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
-          "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T17:34:47Z",
-          "max_elevation_deg": 57.5,
-          "within_swath": true,
-          "cloud_cover_pct": 60,
-          "cloud_status": "overcast",
-          "daylight": false,
-          "shootable": true,
-          "action_priority_label": "즉시 촬영",
-          "urgency_label": "높음",
           "capture_condition_label": "SAR 관측 보통",
-          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
-        }
-      ]
-    },
-    {
-      "city": "Beirut",
-      "display_name": "Beirut",
-      "lat": 33.87189865112305,
-      "lng": 35.509700775146484,
-      "tier": "A",
-      "innov_z": 8.379,
-      "risk_label": "위기",
-      "events": 63,
-      "conflict_index": 69.325,
-      "sources_total": 238,
-      "mentions_total": 896,
-      "llm_status": "SUCCESS",
-      "llm_message": "이스라엘군이 Beirut 남부 교외 지역에 공습을 감행하여 폭발이 발생했습니다.",
-      "urls_sent": [
-        "https://www.wcsufm.org/latest-from-npr/2026-03-27/how-civilians-are-being-impacted-by-israels-invasion-of-lebanon",
-        "https://www.wcsufm.org/latest-from-npr/2026-03-26/trump-grants-iran-another-extension-on-a-deadline-to-reopen-the-strait-of-hormuz"
-      ],
-      "history_30d": [
-        {
-          "date": "20260226",
-          "z": -0.019,
-          "sources": 1.0,
-          "goldstein": -10.0
+          "recommendation_reason": "RED 지역의 선제 확인용 SAR 후보"
         },
         {
-          "date": "20260227",
-          "z": -0.018,
-          "sources": 1.5,
-          "goldstein": -9.88
-        },
-        {
-          "date": "20260228",
-          "z": 24.198,
-          "sources": 15.03,
-          "goldstein": -10.0
-        },
-        {
-          "date": "20260301",
-          "z": 12.077,
-          "sources": 4.76,
-          "goldstein": -9.97
-        },
-        {
-          "date": "20260302",
-          "z": 72.471,
-          "sources": 3.75,
-          "goldstein": -9.95
-        },
-        {
-          "date": "20260303",
-          "z": 77.043,
-          "sources": 5.5,
-          "goldstein": -9.7
-        },
-        {
-          "date": "20260304",
-          "z": 51.844,
-          "sources": 4.88,
-          "goldstein": -9.84
-        },
-        {
-          "date": "20260305",
-          "z": 38.859,
-          "sources": 5.58,
-          "goldstein": -9.89
-        },
-        {
-          "date": "20260306",
-          "z": 68.863,
-          "sources": 7.75,
-          "goldstein": -9.88
-        },
-        {
-          "date": "20260307",
-          "z": 35.532,
-          "sources": 9.36,
-          "goldstein": -9.91
-        },
-        {
-          "date": "20260308",
-          "z": 36.307,
-          "sources": 4.84,
-          "goldstein": -9.88
-        },
-        {
-          "date": "20260309",
-          "z": 26.096,
-          "sources": 2.88,
-          "goldstein": -9.96
-        },
-        {
-          "date": "20260310",
-          "z": 5.103,
-          "sources": 1.85,
-          "goldstein": -9.96
-        },
-        {
-          "date": "20260311",
-          "z": 11.667,
-          "sources": 1.84,
-          "goldstein": -9.93
-        },
-        {
-          "date": "20260312",
-          "z": 45.682,
-          "sources": 5.58,
-          "goldstein": -9.94
-        },
-        {
-          "date": "20260313",
-          "z": 43.773,
-          "sources": 8.22,
-          "goldstein": -9.95
-        },
-        {
-          "date": "20260314",
-          "z": 20.979,
-          "sources": 7.68,
-          "goldstein": -9.85
-        },
-        {
-          "date": "20260315",
-          "z": 4.442,
-          "sources": 3.62,
-          "goldstein": -9.92
-        },
-        {
-          "date": "20260316",
-          "z": 19.613,
-          "sources": 7.73,
-          "goldstein": -9.81
-        },
-        {
-          "date": "20260317",
-          "z": 13.188,
-          "sources": 2.7,
-          "goldstein": -9.95
-        },
-        {
-          "date": "20260318",
-          "z": 32.103,
-          "sources": 4.28,
-          "goldstein": -9.9
-        },
-        {
-          "date": "20260319",
-          "z": 18.218,
-          "sources": 2.94,
-          "goldstein": -9.9
-        },
-        {
-          "date": "20260320",
-          "z": -1.44,
-          "sources": 2.03,
-          "goldstein": -9.86
-        },
-        {
-          "date": "20260321",
-          "z": 14.367,
-          "sources": 12.23,
-          "goldstein": -9.82
-        },
-        {
-          "date": "20260322",
-          "z": 2.913,
-          "sources": 4.63,
-          "goldstein": -9.88
-        },
-        {
-          "date": "20260323",
-          "z": 3.532,
-          "sources": 3.0,
-          "goldstein": -9.83
-        },
-        {
-          "date": "20260324",
-          "z": 21.338,
-          "sources": 6.27,
-          "goldstein": -9.85
-        },
-        {
-          "date": "20260325",
-          "z": 14.737,
-          "sources": 4.68,
-          "goldstein": -9.86
-        },
-        {
-          "date": "20260326",
-          "z": 4.662,
-          "sources": 5.6,
-          "goldstein": -9.88
-        },
-        {
-          "date": "20260327",
-          "z": 8.379,
-          "sources": 3.78,
-          "goldstein": -9.84
-        }
-      ],
-      "delta_z": 3.717,
-      "consecutive_anomaly_days": 7,
-      "satellite_passes": [
-        {
-          "satellite": "KOMPSAT-7",
-          "norad_id": 66820,
-          "sensor_type": "EO",
-          "resolution_m": 0.3,
-          "pass_time_utc": "2026-03-28T11:17:41Z",
-          "max_elevation_deg": 81.6,
+          "satellite": "ICEYE-56963",
+          "norad_id": 56963,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:51:15Z",
+          "max_elevation_deg": 65.4,
+          "off_nadir_deg": 22.4,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 25,
-          "cloud_status": "partial",
+          "cloud_cover_pct": 16,
+          "cloud_status": "clear",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "우선 촬영",
-          "urgency_label": "상당함",
-          "capture_condition_label": "EO 촬영 좋음",
-          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 좋음"
-        },
-        {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
-          "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T07:14:27Z",
-          "max_elevation_deg": 66.9,
-          "within_swath": true,
-          "cloud_cover_pct": 90,
-          "cloud_status": "overcast",
-          "daylight": true,
-          "shootable": true,
-          "action_priority_label": "즉시 촬영",
-          "urgency_label": "상당함",
+          "urgency_label": "높음",
           "capture_condition_label": "SAR 관측 보통",
-          "recommendation_reason": "RED 지역이며 구름이 많아 SAR 촬영 우선"
-        },
-        {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
-          "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T06:59:46Z",
-          "max_elevation_deg": 74.6,
-          "within_swath": true,
-          "cloud_cover_pct": 56,
-          "cloud_status": "overcast",
-          "daylight": true,
-          "shootable": true,
-          "action_priority_label": "즉시 촬영",
-          "urgency_label": "상당함",
-          "capture_condition_label": "SAR 관측 보통",
-          "recommendation_reason": "RED 지역이며 구름이 많아 SAR 촬영 우선"
+          "recommendation_reason": "RED 지역의 선제 확인용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-04-11T06:46:34Z",
+        "max_elevation_deg": 61.6,
+        "off_nadir_deg": 26.1,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "높음",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60481",
+        "norad_id": 60481,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-29T07:39:54Z",
+        "max_elevation_deg": 63.5,
+        "off_nadir_deg": 24.3,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "높음",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      }
     },
     {
       "city": "Kharg Island",
       "display_name": "Kharg Island",
       "lat": 29.245800018310547,
-      "lng": 50.315799713134766,
+      "lon": 50.315799713134766,
       "tier": "A",
-      "innov_z": 8.046,
-      "risk_label": "위기",
-      "events": 44,
-      "conflict_index": 39.961,
-      "sources_total": 85,
-      "mentions_total": 397,
+      "innov_z": 8.652,
+      "risk_label": "심각",
+      "events_count": 54,
+      "conflict_index": 47.704,
+      "sources_total": 97,
+      "mentions_total": 462,
       "llm_status": "AMBIGUOUS",
-      "llm_message": "미국이 Kharg Island를 점령할 가능성을 고려하고 있다는 보도가 있지만, 실제 충돌 사건에 대한 직접적인 언급은 없습니다.",
+      "llm_message": "Kharg Island에 대한 미군의 점령 가능성 및 전략적 관심이 언급되었으나 실제 교전은 발생하지 않았습니다.",
       "urls_sent": [
+        "https://theconversation.com/why-hasnt-the-us-military-used-force-to-secure-the-strait-of-hormuz-279224",
         "https://news.webindia123.com/news/Articles/World/20260327/4432027.html",
-        "https://www.wcsufm.org/latest-from-npr/2026-03-26/trump-grants-iran-another-extension-on-a-deadline-to-reopen-the-strait-of-hormuz"
+        "https://www.wcsufm.org/latest-from-npr/2026-03-26/trump-grants-iran-another-extension-on-a-deadline-to-reopen-the-strait-of-hormuz",
+        "https://www.mirror.co.uk/news/world-news/trump-bad-gambler-hes-upping-36934150"
       ],
       "history_30d": [
         {
           "date": "20260226",
           "z": 0.824,
-          "sources": 1.0,
+          "sources": 4.0,
           "goldstein": -7.9
         },
         {
@@ -568,184 +378,514 @@
         {
           "date": "20260228",
           "z": 7.209,
-          "sources": 7.79,
+          "sources": 109.0,
           "goldstein": -10.0
         },
         {
           "date": "20260301",
-          "z": 2.459,
-          "sources": 8.4,
+          "z": 3.545,
+          "sources": 47.0,
           "goldstein": -10.0
         },
         {
           "date": "20260302",
-          "z": 1.061,
-          "sources": 1.0,
-          "goldstein": -9.53
+          "z": 1.602,
+          "sources": 11.0,
+          "goldstein": -9.6
         },
         {
           "date": "20260303",
-          "z": 1.042,
-          "sources": 1.0,
+          "z": 1.011,
+          "sources": 6.0,
           "goldstein": -9.83
         },
         {
           "date": "20260304",
-          "z": -0.063,
+          "z": -0.093,
           "sources": 1.0,
           "goldstein": -10.0
         },
         {
           "date": "20260305",
-          "z": -0.062,
+          "z": -0.091,
           "sources": 1.0,
           "goldstein": -10.0
         },
         {
           "date": "20260306",
-          "z": -0.061,
+          "z": -0.09,
           "sources": 1.0,
           "goldstein": -10.0
         },
         {
           "date": "20260307",
-          "z": -0.06,
-          "sources": 1.0,
+          "z": 0.781,
+          "sources": 5.0,
           "goldstein": -10.0
         },
         {
           "date": "20260308",
-          "z": 1.245,
-          "sources": 1.0,
+          "z": 1.202,
+          "sources": 7.0,
           "goldstein": -9.64
         },
         {
           "date": "20260309",
-          "z": 1.441,
-          "sources": 1.0,
-          "goldstein": -9.75
+          "z": 1.834,
+          "sources": 10.0,
+          "goldstein": -9.52
         },
         {
           "date": "20260310",
-          "z": 1.199,
-          "sources": 1.0,
-          "goldstein": -9.53
+          "z": 1.803,
+          "sources": 10.0,
+          "goldstein": -9.67
         },
         {
           "date": "20260311",
-          "z": 3.311,
-          "sources": 1.86,
-          "goldstein": -9.4
+          "z": 4.032,
+          "sources": 37.0,
+          "goldstein": -9.25
         },
         {
           "date": "20260312",
-          "z": 7.552,
-          "sources": 9.78,
-          "goldstein": -10.0
+          "z": 7.916,
+          "sources": 178.0,
+          "goldstein": -9.95
         },
         {
           "date": "20260313",
-          "z": 3.122,
-          "sources": 1.2,
-          "goldstein": -9.78
+          "z": 5.818,
+          "sources": 32.0,
+          "goldstein": -9.83
         },
         {
           "date": "20260314",
-          "z": 53.639,
-          "sources": 6.37,
-          "goldstein": -9.84
+          "z": 96.878,
+          "sources": 1490.0,
+          "goldstein": -9.86
         },
         {
           "date": "20260315",
-          "z": 49.812,
-          "sources": 11.64,
+          "z": 64.102,
+          "sources": 1579.0,
           "goldstein": -9.91
         },
         {
           "date": "20260316",
-          "z": 29.391,
-          "sources": 3.77,
-          "goldstein": -9.86
+          "z": 35.577,
+          "sources": 417.0,
+          "goldstein": -9.87
         },
         {
           "date": "20260317",
-          "z": 5.552,
-          "sources": 1.17,
-          "goldstein": -9.65
+          "z": 8.617,
+          "sources": 63.0,
+          "goldstein": -9.73
         },
         {
           "date": "20260318",
-          "z": 4.563,
-          "sources": 1.16,
-          "goldstein": -9.77
+          "z": 4.589,
+          "sources": 42.0,
+          "goldstein": -9.8
         },
         {
           "date": "20260319",
-          "z": 20.503,
-          "sources": 1.95,
-          "goldstein": -9.23
+          "z": 38.118,
+          "sources": 355.0,
+          "goldstein": -9.13
         },
         {
           "date": "20260320",
-          "z": 7.581,
-          "sources": 1.62,
-          "goldstein": -9.35
+          "z": 18.885,
+          "sources": 138.0,
+          "goldstein": -9.24
         },
         {
           "date": "20260321",
-          "z": 15.424,
-          "sources": 2.21,
-          "goldstein": -9.58
+          "z": 19.793,
+          "sources": 167.0,
+          "goldstein": -9.56
         },
         {
           "date": "20260322",
-          "z": 5.642,
-          "sources": 1.5,
-          "goldstein": -9.37
+          "z": 5.812,
+          "sources": 62.0,
+          "goldstein": -9.39
         },
         {
           "date": "20260323",
-          "z": 6.147,
-          "sources": 2.65,
-          "goldstein": -9.57
+          "z": 7.945,
+          "sources": 126.0,
+          "goldstein": -9.6
         },
         {
           "date": "20260324",
-          "z": 14.045,
-          "sources": 11.22,
-          "goldstein": -9.46
+          "z": 15.705,
+          "sources": 448.0,
+          "goldstein": -9.37
         },
         {
           "date": "20260325",
-          "z": 10.855,
-          "sources": 3.11,
-          "goldstein": -9.16
+          "z": 12.531,
+          "sources": 158.0,
+          "goldstein": -9.14
         },
         {
           "date": "20260326",
-          "z": 30.835,
-          "sources": 9.26,
-          "goldstein": -9.31
+          "z": 34.154,
+          "sources": 823.0,
+          "goldstein": -9.33
         },
         {
           "date": "20260327",
-          "z": 8.046,
-          "sources": 1.93,
-          "goldstein": -9.14
+          "z": 8.652,
+          "sources": 97.0,
+          "goldstein": -9.08
         }
       ],
-      "delta_z": -22.789,
+      "delta_z": -25.502,
       "consecutive_anomaly_days": 17,
+      "volume_7d_ratio": 0.46,
+      "anomaly_signals": [
+        {
+          "type": "anomaly_streak",
+          "value": 17,
+          "message": "17일 연속 이상 신호 탐지"
+        },
+        {
+          "type": "z_change",
+          "value": -25.502,
+          "message": "어제 대비 이상 신호 25.5 감소"
+        }
+      ],
       "satellite_passes": [
         {
-          "satellite": "SkySat-C12",
-          "norad_id": 43797,
-          "sensor_type": "EO",
-          "resolution_m": 0.5,
-          "pass_time_utc": "2026-03-30T04:13:48Z",
-          "max_elevation_deg": 67.3,
+          "satellite": "ICEYE-59102",
+          "norad_id": 59102,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:14:55Z",
+          "max_elevation_deg": 62.5,
+          "off_nadir_deg": 25.0,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 38,
+          "cloud_cover_pct": 3,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역의 선제 확인용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-46496",
+          "norad_id": 46496,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:22:41Z",
+          "max_elevation_deg": 81.0,
+          "off_nadir_deg": 8.3,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 3,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "RED 지역의 선제 확인용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-56963",
+          "norad_id": 56963,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:52:10Z",
+          "max_elevation_deg": 70.9,
+          "off_nadir_deg": 17.4,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 20,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "우선 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역의 선제 확인용 SAR 후보"
+        }
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-04-01T06:53:31Z",
+        "max_elevation_deg": 63.0,
+        "off_nadir_deg": 24.9,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "상당함",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60481",
+        "norad_id": 60481,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-29T07:40:49Z",
+        "max_elevation_deg": 57.4,
+        "off_nadir_deg": 29.9,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "상당함",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      }
+    },
+    {
+      "city": "Beirut",
+      "display_name": "Beirut",
+      "lat": 33.87189865112305,
+      "lon": 35.509700775146484,
+      "tier": "A",
+      "innov_z": 8.379,
+      "risk_label": "심각",
+      "events_count": 63,
+      "conflict_index": 69.325,
+      "sources_total": 238,
+      "mentions_total": 896,
+      "llm_status": "SUCCESS",
+      "llm_message": "이스라엘군이 Beirut 남부 교외 지역을 공습하여 폭발이 발생했습니다.",
+      "urls_sent": [
+        "https://www.wcsufm.org/latest-from-npr/2026-03-27/how-civilians-are-being-impacted-by-israels-invasion-of-lebanon",
+        "https://www.wcsufm.org/latest-from-npr/2026-03-26/trump-grants-iran-another-extension-on-a-deadline-to-reopen-the-strait-of-hormuz",
+        "https://www.deccanchronicle.com/world/explosions-heard-from-south-beirut-as-local-media-report-israeli-strike-1946585"
+      ],
+      "history_30d": [
+        {
+          "date": "20260226",
+          "z": -0.019,
+          "sources": 5.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260227",
+          "z": -0.018,
+          "sources": 6.0,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260228",
+          "z": 24.198,
+          "sources": 932.0,
+          "goldstein": -10.0
+        },
+        {
+          "date": "20260301",
+          "z": 12.077,
+          "sources": 162.0,
+          "goldstein": -9.97
+        },
+        {
+          "date": "20260302",
+          "z": 72.471,
+          "sources": 813.0,
+          "goldstein": -9.95
+        },
+        {
+          "date": "20260303",
+          "z": 77.043,
+          "sources": 1128.0,
+          "goldstein": -9.7
+        },
+        {
+          "date": "20260304",
+          "z": 51.844,
+          "sources": 668.0,
+          "goldstein": -9.84
+        },
+        {
+          "date": "20260305",
+          "z": 38.859,
+          "sources": 642.0,
+          "goldstein": -9.89
+        },
+        {
+          "date": "20260306",
+          "z": 68.863,
+          "sources": 1433.0,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260307",
+          "z": 35.532,
+          "sources": 1011.0,
+          "goldstein": -9.91
+        },
+        {
+          "date": "20260308",
+          "z": 36.307,
+          "sources": 591.0,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260309",
+          "z": 26.096,
+          "sources": 299.0,
+          "goldstein": -9.96
+        },
+        {
+          "date": "20260310",
+          "z": 5.103,
+          "sources": 89.0,
+          "goldstein": -9.96
+        },
+        {
+          "date": "20260311",
+          "z": 11.667,
+          "sources": 134.0,
+          "goldstein": -9.93
+        },
+        {
+          "date": "20260312",
+          "z": 45.682,
+          "sources": 764.0,
+          "goldstein": -9.94
+        },
+        {
+          "date": "20260313",
+          "z": 43.773,
+          "sources": 1060.0,
+          "goldstein": -9.95
+        },
+        {
+          "date": "20260314",
+          "z": 20.979,
+          "sources": 553.0,
+          "goldstein": -9.85
+        },
+        {
+          "date": "20260315",
+          "z": 4.442,
+          "sources": 163.0,
+          "goldstein": -9.92
+        },
+        {
+          "date": "20260316",
+          "z": 19.613,
+          "sources": 611.0,
+          "goldstein": -9.81
+        },
+        {
+          "date": "20260317",
+          "z": 13.188,
+          "sources": 200.0,
+          "goldstein": -9.95
+        },
+        {
+          "date": "20260318",
+          "z": 32.103,
+          "sources": 531.0,
+          "goldstein": -9.9
+        },
+        {
+          "date": "20260319",
+          "z": 18.218,
+          "sources": 276.0,
+          "goldstein": -9.9
+        },
+        {
+          "date": "20260320",
+          "z": -1.44,
+          "sources": 75.0,
+          "goldstein": -9.86
+        },
+        {
+          "date": "20260321",
+          "z": 14.367,
+          "sources": 758.0,
+          "goldstein": -9.82
+        },
+        {
+          "date": "20260322",
+          "z": 2.913,
+          "sources": 213.0,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260323",
+          "z": 3.532,
+          "sources": 156.0,
+          "goldstein": -9.83
+        },
+        {
+          "date": "20260324",
+          "z": 21.338,
+          "sources": 571.0,
+          "goldstein": -9.85
+        },
+        {
+          "date": "20260325",
+          "z": 14.737,
+          "sources": 309.0,
+          "goldstein": -9.86
+        },
+        {
+          "date": "20260326",
+          "z": 4.662,
+          "sources": 241.0,
+          "goldstein": -9.88
+        },
+        {
+          "date": "20260327",
+          "z": 8.379,
+          "sources": 238.0,
+          "goldstein": -9.84
+        }
+      ],
+      "delta_z": 3.717,
+      "consecutive_anomaly_days": 7,
+      "volume_7d_ratio": 1.03,
+      "anomaly_signals": [
+        {
+          "type": "anomaly_streak",
+          "value": 7,
+          "message": "7일 연속 이상 신호 탐지"
+        },
+        {
+          "type": "z_change",
+          "value": 3.717,
+          "message": "어제 대비 이상 신호 3.7 증가"
+        }
+      ],
+      "satellite_passes": [
+        {
+          "satellite": "KOMPSAT-7",
+          "norad_id": 66820,
+          "sensor_type": "EO",
+          "resolution_m": 0.3,
+          "pass_time_utc": "2026-03-28T11:17:38Z",
+          "max_elevation_deg": 81.3,
+          "off_nadir_deg": 8.0,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 25,
           "cloud_status": "partial",
           "daylight": true,
           "shootable": true,
@@ -755,50 +895,93 @@
           "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 좋음"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-59103",
+          "norad_id": 59103,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T17:33:58Z",
-          "max_elevation_deg": 77.5,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T12:18:25Z",
+          "max_elevation_deg": 57.5,
+          "off_nadir_deg": 29.5,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 100,
-          "cloud_status": "overcast",
-          "daylight": false,
+          "cloud_cover_pct": 0,
+          "cloud_status": "clear",
+          "daylight": true,
           "shootable": true,
-          "action_priority_label": "즉시 촬영",
+          "action_priority_label": "우선 촬영",
           "urgency_label": "상당함",
-          "capture_condition_label": "SAR 관측 양호",
-          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역의 선제 확인용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-46497",
+          "norad_id": 46497,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-31T17:19:16Z",
-          "max_elevation_deg": 63.0,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T13:53:06Z",
+          "max_elevation_deg": 68.4,
+          "off_nadir_deg": 19.7,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 1,
-          "cloud_status": "clear",
-          "daylight": false,
+          "cloud_cover_pct": 96,
+          "cloud_status": "overcast",
+          "daylight": true,
           "shootable": true,
           "action_priority_label": "즉시 촬영",
           "urgency_label": "상당함",
           "capture_condition_label": "SAR 관측 보통",
-          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+          "recommendation_reason": "RED 지역이며 구름이 많아 SAR 촬영 우선"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-03-30T07:34:15Z",
+        "max_elevation_deg": 74.9,
+        "off_nadir_deg": 14.0,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 32,
+        "cloud_status": "partial",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "상당함",
+        "capture_condition_label": "EO 촬영 좋음",
+        "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60489",
+        "norad_id": 60489,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-30T08:49:00Z",
+        "max_elevation_deg": 82.5,
+        "off_nadir_deg": 6.9,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 23,
+        "cloud_status": "partial",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "상당함",
+        "capture_condition_label": "EO 촬영 좋음",
+        "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+      }
     },
     {
       "city": "Bandar Abbas",
       "display_name": "Bandar Abbas",
       "lat": 27.186500549316406,
-      "lng": 56.280799865722656,
+      "lon": 56.280799865722656,
       "tier": "A",
       "innov_z": 5.014,
-      "risk_label": "위기",
-      "events": 21,
+      "risk_label": "심각",
+      "events_count": 21,
       "conflict_index": 18.817,
       "sources_total": 35,
       "mentions_total": 94,
@@ -806,7 +989,8 @@
       "llm_message": "이스라엘 공군이 Bandar Abbas에서 알리레자 탕시리를 포함한 이란 혁명수비대 해군 고위 장교들을 공습으로 제거했습니다.",
       "urls_sent": [
         "https://news.webindia123.com/news/Articles/World/20260327/4431944.html",
-        "http://www.mexicostar.com/news/278946515/eus-kallas-urges-us-to-pressure-russia-not-to-help-iran"
+        "http://www.mexicostar.com/news/278946515/eus-kallas-urges-us-to-pressure-russia-not-to-help-iran",
+        "https://www.ibtimes.co.uk/trump-says-talks-iran-are-going-very-well-strait-hormuz-deadline-extended-will-diplomacy-1788642"
       ],
       "history_30d": [
         {
@@ -824,43 +1008,43 @@
         {
           "date": "20260228",
           "z": 0.164,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
           "date": "20260301",
           "z": 1.246,
-          "sources": 1.0,
+          "sources": 7.0,
           "goldstein": -9.86
         },
         {
           "date": "20260302",
           "z": 0.916,
-          "sources": 1.2,
+          "sources": 6.0,
           "goldstein": -9.8
         },
         {
           "date": "20260303",
           "z": 1.641,
-          "sources": 1.0,
+          "sources": 9.0,
           "goldstein": -9.8
         },
         {
           "date": "20260304",
           "z": 0.742,
-          "sources": 1.0,
+          "sources": 5.0,
           "goldstein": -9.8
         },
         {
           "date": "20260305",
           "z": 1.598,
-          "sources": 1.0,
+          "sources": 9.0,
           "goldstein": -9.36
         },
         {
           "date": "20260306",
           "z": 1.262,
-          "sources": 1.14,
+          "sources": 8.0,
           "goldstein": -9.86
         },
         {
@@ -872,31 +1056,31 @@
         {
           "date": "20260308",
           "z": 0.251,
-          "sources": 1.0,
+          "sources": 3.0,
           "goldstein": -9.67
         },
         {
           "date": "20260309",
           "z": 0.464,
-          "sources": 1.67,
+          "sources": 5.0,
           "goldstein": -9.67
         },
         {
           "date": "20260310",
           "z": 1.76,
-          "sources": 1.0,
+          "sources": 10.0,
           "goldstein": -9.7
         },
         {
           "date": "20260311",
           "z": 0.119,
-          "sources": 1.5,
+          "sources": 3.0,
           "goldstein": -10.0
         },
         {
           "date": "20260312",
           "z": 0.642,
-          "sources": 1.0,
+          "sources": 5.0,
           "goldstein": -9.8
         },
         {
@@ -908,13 +1092,13 @@
         {
           "date": "20260314",
           "z": 0.204,
-          "sources": 2.0,
+          "sources": 4.0,
           "goldstein": -9.25
         },
         {
           "date": "20260315",
           "z": 1.67,
-          "sources": 1.38,
+          "sources": 11.0,
           "goldstein": -9.88
         },
         {
@@ -926,25 +1110,25 @@
         {
           "date": "20260317",
           "z": 0.182,
-          "sources": 1.0,
+          "sources": 3.0,
           "goldstein": -9.73
         },
         {
           "date": "20260318",
           "z": 0.397,
-          "sources": 1.0,
+          "sources": 4.0,
           "goldstein": -10.0
         },
         {
           "date": "20260319",
           "z": 2.169,
-          "sources": 10.0,
+          "sources": 40.0,
           "goldstein": -10.0
         },
         {
           "date": "20260320",
           "z": 0.792,
-          "sources": 1.0,
+          "sources": 6.0,
           "goldstein": -10.0
         },
         {
@@ -956,19 +1140,19 @@
         {
           "date": "20260322",
           "z": 0.132,
-          "sources": 1.0,
+          "sources": 3.0,
           "goldstein": -9.83
         },
         {
           "date": "20260323",
           "z": 5.619,
-          "sources": 1.64,
+          "sources": 36.0,
           "goldstein": -10.0
         },
         {
           "date": "20260324",
           "z": 0.737,
-          "sources": 1.4,
+          "sources": 7.0,
           "goldstein": -9.9
         },
         {
@@ -980,81 +1164,144 @@
         {
           "date": "20260326",
           "z": 19.722,
-          "sources": 2.87,
+          "sources": 172.0,
           "goldstein": -9.98
         },
         {
           "date": "20260327",
           "z": 5.014,
-          "sources": 1.67,
+          "sources": 35.0,
           "goldstein": -9.77
         }
       ],
       "delta_z": -14.708,
       "consecutive_anomaly_days": 2,
+      "volume_7d_ratio": 3.74,
+      "anomaly_signals": [
+        {
+          "type": "volume_7d_boost",
+          "value": 3.74,
+          "message": "최근 7일 보도량 3.74배 급증"
+        },
+        {
+          "type": "anomaly_streak",
+          "value": 2,
+          "message": "2일 연속 이상 신호 탐지"
+        },
+        {
+          "type": "z_change",
+          "value": -14.708,
+          "message": "어제 대비 이상 신호 14.7 감소"
+        }
+      ],
       "satellite_passes": [
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-62389",
+          "norad_id": 62389,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T05:41:17Z",
-          "max_elevation_deg": 79.5,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T14:20:20Z",
+          "max_elevation_deg": 86.3,
+          "off_nadir_deg": 3.4,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 0,
-          "cloud_status": "clear",
-          "daylight": true,
-          "shootable": true,
-          "action_priority_label": "우선 촬영",
-          "urgency_label": "상당함",
-          "capture_condition_label": "SAR 관측 양호",
-          "recommendation_reason": "RED 지역의 선제 확인용 SAR 후보"
-        },
-        {
-          "satellite": "SpaceEye-T",
-          "norad_id": 63229,
-          "sensor_type": "EO",
-          "resolution_m": 0.25,
-          "pass_time_utc": "2026-03-29T06:17:32Z",
-          "max_elevation_deg": 78.5,
-          "within_swath": true,
-          "cloud_cover_pct": 0,
-          "cloud_status": "clear",
-          "daylight": true,
-          "shootable": true,
-          "action_priority_label": "우선 촬영",
-          "urgency_label": "상당함",
-          "capture_condition_label": "EO 촬영 매우 좋음",
-          "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
-        },
-        {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
-          "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T05:26:36Z",
-          "max_elevation_deg": 60.1,
-          "within_swath": true,
-          "cloud_cover_pct": 80,
+          "cloud_cover_pct": 76,
           "cloud_status": "overcast",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "즉시 촬영",
           "urgency_label": "상당함",
-          "capture_condition_label": "SAR 관측 보통",
+          "capture_condition_label": "SAR 관측 양호",
           "recommendation_reason": "RED 지역이며 구름이 많아 SAR 촬영 우선"
+        },
+        {
+          "satellite": "ICEYE-62384",
+          "norad_id": 62384,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T14:35:21Z",
+          "max_elevation_deg": 69.4,
+          "off_nadir_deg": 18.8,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 66,
+          "cloud_status": "overcast",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
+        },
+        {
+          "satellite": "ICEYE-44389",
+          "norad_id": 44389,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T16:33:27Z",
+          "max_elevation_deg": 88.5,
+          "off_nadir_deg": 1.4,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 3,
+          "cloud_status": "clear",
+          "daylight": false,
+          "shootable": true,
+          "action_priority_label": "즉시 촬영",
+          "urgency_label": "상당함",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "RED 지역이며 야간 통과라 SAR로 우선 확인"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-03-29T06:17:25Z",
+        "max_elevation_deg": 78.3,
+        "off_nadir_deg": 10.8,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "상당함",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60513",
+        "norad_id": 60513,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-29T07:12:46Z",
+        "max_elevation_deg": 57.3,
+        "off_nadir_deg": 29.9,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "상당함",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "RED 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      }
     },
     {
       "city": "Ahvaz",
       "display_name": "Ahvaz",
       "lat": 31.32029914855957,
-      "lng": 48.6693000793457,
+      "lon": 48.6693000793457,
       "tier": "A",
       "innov_z": 3.16,
-      "risk_label": "위험",
-      "events": 7,
+      "risk_label": "주의",
+      "events_count": 7,
       "conflict_index": 10.808,
       "sources_total": 30,
       "mentions_total": 162,
@@ -1062,7 +1309,8 @@
       "llm_message": "이란의 Ahvaz 철강 생산 공장이 2026년 3월 27일에 공격받아 일부 손상을 입었습니다.",
       "urls_sent": [
         "http://www.shanghainews.net/news/278948341/rubio-meets-with-g7-leaders-in-france-to-discuss-iran",
-        "http://www.northkoreatimes.com/news/278948469/g7-calls-for-halt-to-attacks-on-civilian-infrastructure"
+        "http://www.northkoreatimes.com/news/278948469/g7-calls-for-halt-to-attacks-on-civilian-infrastructure",
+        "https://original.antiwar.com/jd_hester/2026/03/26/how-the-west-is-quietly-legitimizing-anti-iran-terrorists/"
       ],
       "history_30d": [
         {
@@ -1104,7 +1352,7 @@
         {
           "date": "20260304",
           "z": 0.283,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
@@ -1128,13 +1376,13 @@
         {
           "date": "20260308",
           "z": 1.97,
-          "sources": 28.5,
+          "sources": 57.0,
           "goldstein": -9.5
         },
         {
           "date": "20260309",
           "z": 1.053,
-          "sources": 7.5,
+          "sources": 15.0,
           "goldstein": -9.5
         },
         {
@@ -1158,13 +1406,13 @@
         {
           "date": "20260313",
           "z": 3.337,
-          "sources": 4.25,
+          "sources": 34.0,
           "goldstein": -10.0
         },
         {
           "date": "20260314",
           "z": 0.4,
-          "sources": 1.0,
+          "sources": 3.0,
           "goldstein": -10.0
         },
         {
@@ -1182,7 +1430,7 @@
         {
           "date": "20260317",
           "z": 0.185,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
@@ -1206,7 +1454,7 @@
         {
           "date": "20260321",
           "z": 0.193,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
@@ -1242,41 +1490,39 @@
         {
           "date": "20260327",
           "z": 3.16,
-          "sources": 4.29,
+          "sources": 30.0,
           "goldstein": -10.0
         }
       ],
       "delta_z": 3.176,
       "consecutive_anomaly_days": 1,
-      "satellite_passes": [
+      "volume_7d_ratio": 6.8,
+      "anomaly_signals": [
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
-          "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T17:49:17Z",
-          "max_elevation_deg": 54.1,
-          "within_swath": true,
-          "cloud_cover_pct": 100,
-          "cloud_status": "overcast",
-          "daylight": false,
-          "shootable": true,
-          "action_priority_label": "정밀 관측",
-          "urgency_label": "주의",
-          "capture_condition_label": "SAR 관측 제한",
-          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+          "type": "volume_7d_boost",
+          "value": 6.8,
+          "message": "최근 7일 보도량 6.8배 급증"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "type": "z_change",
+          "value": 3.176,
+          "message": "어제 대비 이상 신호 3.2 증가"
+        }
+      ],
+      "satellite_passes": [
+        {
+          "satellite": "ICEYE-46496",
+          "norad_id": 46496,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T17:34:34Z",
-          "max_elevation_deg": 89.8,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:23:17Z",
+          "max_elevation_deg": 85.5,
+          "off_nadir_deg": 4.1,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 83,
-          "cloud_status": "overcast",
-          "daylight": false,
+          "cloud_cover_pct": 5,
+          "cloud_status": "clear",
+          "daylight": true,
           "shootable": true,
           "action_priority_label": "정밀 관측",
           "urgency_label": "주의",
@@ -1284,33 +1530,93 @@
           "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-56963",
+          "norad_id": 56963,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-31T17:19:53Z",
-          "max_elevation_deg": 54.1,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:51:43Z",
+          "max_elevation_deg": 79.6,
+          "off_nadir_deg": 9.5,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 0,
-          "cloud_status": "clear",
-          "daylight": false,
+          "cloud_cover_pct": 39,
+          "cloud_status": "partial",
+          "daylight": true,
           "shootable": true,
           "action_priority_label": "정밀 관측",
           "urgency_label": "주의",
-          "capture_condition_label": "SAR 관측 제한",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-59100",
+          "norad_id": 59100,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:56:16Z",
+          "max_elevation_deg": 87.3,
+          "off_nadir_deg": 2.4,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 39,
+          "cloud_status": "partial",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "주의",
+          "capture_condition_label": "SAR 관측 양호",
           "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-04-01T06:54:07Z",
+        "max_elevation_deg": 75.2,
+        "off_nadir_deg": 13.6,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "주의",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-58307",
+        "norad_id": 58307,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-30T08:40:31Z",
+        "max_elevation_deg": 70.2,
+        "off_nadir_deg": 18.3,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "주의",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      }
     },
     {
       "city": "Yazd",
       "display_name": "Yazd",
       "lat": 31.897199630737305,
-      "lng": 54.36750030517578,
-      "tier": "C",
+      "lon": 54.36750030517578,
+      "tier": "A",
       "innov_z": 2.644,
-      "risk_label": "위험",
-      "events": 12,
+      "risk_label": "주의",
+      "events_count": 12,
       "conflict_index": 8.723,
       "sources_total": 13,
       "mentions_total": 49,
@@ -1318,7 +1624,8 @@
       "llm_message": "이스라엘 방위군이 이란의 미사일 및 해상 기뢰 생산 시설을 타격했습니다.",
       "urls_sent": [
         "https://openthemagazine.com/world/iran-would-persist-in-its-defence-as-long-as-needed-abbas-araghchi-at-un",
-        "https://legalinsurrection.com/2026/03/yemens-houthis-fire-ballistic-missiles-at-israel-declare-war-on-israel/"
+        "https://legalinsurrection.com/2026/03/yemens-houthis-fire-ballistic-missiles-at-israel-declare-war-on-israel/",
+        "https://www.foxnews.com/live-news/us-israel-iran-war-strait-hormuz-updates-03-27-2026"
       ],
       "history_30d": [
         {
@@ -1336,19 +1643,19 @@
         {
           "date": "20260228",
           "z": 0.702,
-          "sources": 3.0,
+          "sources": 6.0,
           "goldstein": -10.0
         },
         {
           "date": "20260301",
           "z": 0.779,
-          "sources": 1.0,
+          "sources": 4.0,
           "goldstein": -9.75
         },
         {
           "date": "20260302",
           "z": 0.547,
-          "sources": 1.0,
+          "sources": 3.0,
           "goldstein": -10.0
         },
         {
@@ -1390,7 +1697,7 @@
         {
           "date": "20260309",
           "z": 0.325,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
@@ -1498,75 +1805,128 @@
         {
           "date": "20260327",
           "z": 2.644,
-          "sources": 1.08,
+          "sources": 13.0,
           "goldstein": -9.92
         }
       ],
       "delta_z": 2.74,
       "consecutive_anomaly_days": 1,
+      "volume_7d_ratio": null,
+      "anomaly_signals": [
+        {
+          "type": "z_change",
+          "value": 2.74,
+          "message": "어제 대비 이상 신호 2.7 증가"
+        }
+      ],
       "satellite_passes": [
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-59102",
+          "norad_id": 59102,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T05:40:11Z",
-          "max_elevation_deg": 67.5,
-          "within_swath": true,
-          "cloud_cover_pct": 87,
-          "cloud_status": "overcast",
-          "daylight": true,
-          "shootable": true,
-          "action_priority_label": "정밀 관측",
-          "urgency_label": "주의",
-          "capture_condition_label": "SAR 관측 보통",
-          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
-        },
-        {
-          "satellite": "Sentinel-2A",
-          "norad_id": 40697,
-          "sensor_type": "EO",
-          "resolution_m": 10,
-          "pass_time_utc": "2026-03-30T07:11:51Z",
-          "max_elevation_deg": 85.8,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:14:03Z",
+          "max_elevation_deg": 83.9,
+          "off_nadir_deg": 5.6,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
           "cloud_cover_pct": 11,
           "cloud_status": "clear",
           "daylight": true,
           "shootable": true,
-          "action_priority_label": "우선 촬영",
+          "action_priority_label": "정밀 관측",
           "urgency_label": "주의",
-          "capture_condition_label": "EO 촬영 매우 좋음",
-          "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-56961",
+          "norad_id": 56961,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-31T17:19:46Z",
-          "max_elevation_deg": 67.9,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T12:36:32Z",
+          "max_elevation_deg": 88.2,
+          "off_nadir_deg": 1.6,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 14,
+          "cloud_cover_pct": 80,
+          "cloud_status": "overcast",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "주의",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-44389",
+          "norad_id": 44389,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T16:34:43Z",
+          "max_elevation_deg": 81.6,
+          "off_nadir_deg": 7.7,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 9,
           "cloud_status": "clear",
           "daylight": false,
           "shootable": true,
           "action_priority_label": "정밀 관측",
           "urgency_label": "주의",
-          "capture_condition_label": "SAR 관측 보통",
+          "capture_condition_label": "SAR 관측 양호",
           "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-04-02T06:34:33Z",
+        "max_elevation_deg": 65.8,
+        "off_nadir_deg": 22.3,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 4,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "주의",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60492",
+        "norad_id": 60492,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-29T07:37:38Z",
+        "max_elevation_deg": 86.3,
+        "off_nadir_deg": 3.4,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 16,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "주의",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      }
     },
     {
       "city": "Shiraz",
       "display_name": "Shiraz",
       "lat": 29.603599548339844,
-      "lng": 52.53879928588867,
+      "lon": 52.53879928588867,
       "tier": "A",
       "innov_z": 2.357,
-      "risk_label": "위험",
-      "events": 6,
+      "risk_label": "주의",
+      "events_count": 6,
       "conflict_index": 8.862,
       "sources_total": 27,
       "mentions_total": 91,
@@ -1574,13 +1934,14 @@
       "llm_message": "이란의 Shiraz 인근 마을에서 미군이 지뢰를 살포하여 민간인 사상자가 발생했습니다.",
       "urls_sent": [
         "https://economictimes.indiatimes.com/news/defence/iaea-flags-radiological-accident-concerns-after-reports-of-strike-on-irans-bushehr-nuclear-plant/articleshow/129837822.cms",
-        "https://www.adn.com/nation-world/2026/03/27/iran-images-appear-to-show-land-mines-scattered-by-us-forces-a-first-in-years/"
+        "https://www.adn.com/nation-world/2026/03/27/iran-images-appear-to-show-land-mines-scattered-by-us-forces-a-first-in-years/",
+        "https://www.sbs.com.au/news/article/trump-denies-being-desperate-for-iran-deal-oil-prices-soar-and-political-pressure-mounts/9xkr9p1js"
       ],
       "history_30d": [
         {
           "date": "20260226",
           "z": 0.819,
-          "sources": 1.0,
+          "sources": 5.0,
           "goldstein": -8.68
         },
         {
@@ -1592,13 +1953,13 @@
         {
           "date": "20260228",
           "z": 0.158,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
           "date": "20260301",
           "z": 1.023,
-          "sources": 1.0,
+          "sources": 6.0,
           "goldstein": -10.0
         },
         {
@@ -1610,7 +1971,7 @@
         {
           "date": "20260303",
           "z": 1.821,
-          "sources": 4.4,
+          "sources": 22.0,
           "goldstein": -10.0
         },
         {
@@ -1622,13 +1983,13 @@
         {
           "date": "20260305",
           "z": 0.11,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
           "date": "20260306",
           "z": 3.706,
-          "sources": 1.79,
+          "sources": 25.0,
           "goldstein": -10.0
         },
         {
@@ -1646,7 +2007,7 @@
         {
           "date": "20260309",
           "z": 1.267,
-          "sources": 1.14,
+          "sources": 8.0,
           "goldstein": -10.0
         },
         {
@@ -1670,19 +2031,19 @@
         {
           "date": "20260313",
           "z": 0.392,
-          "sources": 1.33,
+          "sources": 4.0,
           "goldstein": -9.83
         },
         {
           "date": "20260314",
           "z": 0.259,
-          "sources": 1.0,
+          "sources": 3.0,
           "goldstein": -9.07
         },
         {
           "date": "20260315",
           "z": 2.121,
-          "sources": 1.3,
+          "sources": 13.0,
           "goldstein": -10.0
         },
         {
@@ -1694,7 +2055,7 @@
         {
           "date": "20260317",
           "z": 0.572,
-          "sources": 1.25,
+          "sources": 5.0,
           "goldstein": -10.0
         },
         {
@@ -1748,29 +2109,58 @@
         {
           "date": "20260326",
           "z": 1.906,
-          "sources": 2.71,
+          "sources": 19.0,
           "goldstein": -10.0
         },
         {
           "date": "20260327",
           "z": 2.357,
-          "sources": 4.5,
+          "sources": 27.0,
           "goldstein": -10.0
         }
       ],
       "delta_z": 0.451,
       "consecutive_anomaly_days": 1,
+      "volume_7d_ratio": 2.09,
+      "anomaly_signals": [
+        {
+          "type": "volume_7d_boost",
+          "value": 2.09,
+          "message": "최근 7일 보도량 2.09배 급증"
+        }
+      ],
       "satellite_passes": [
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-59102",
+          "norad_id": 59102,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T05:40:50Z",
-          "max_elevation_deg": 55.6,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:14:43Z",
+          "max_elevation_deg": 83.2,
+          "off_nadir_deg": 6.2,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 0,
-          "cloud_status": "clear",
+          "cloud_cover_pct": 31,
+          "cloud_status": "partial",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "정밀 관측",
+          "urgency_label": "주의",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-56961",
+          "norad_id": 56961,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T12:37:10Z",
+          "max_elevation_deg": 68.1,
+          "off_nadir_deg": 20.0,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 55,
+          "cloud_status": "overcast",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "정밀 관측",
@@ -1779,50 +2169,74 @@
           "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "SpaceEye-T",
-          "norad_id": 63229,
-          "sensor_type": "EO",
-          "resolution_m": 0.25,
-          "pass_time_utc": "2026-03-29T06:18:20Z",
-          "max_elevation_deg": 49.1,
-          "within_swath": true,
-          "cloud_cover_pct": 0,
-          "cloud_status": "clear",
-          "daylight": true,
-          "shootable": true,
-          "action_priority_label": "우선 촬영",
-          "urgency_label": "주의",
-          "capture_condition_label": "EO 촬영 좋음",
-          "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 좋음"
-        },
-        {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-62384",
+          "norad_id": 62384,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T17:33:58Z",
-          "max_elevation_deg": 55.6,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T14:35:03Z",
+          "max_elevation_deg": 62.1,
+          "off_nadir_deg": 25.4,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 100,
+          "cloud_cover_pct": 79,
           "cloud_status": "overcast",
-          "daylight": false,
+          "daylight": true,
           "shootable": true,
           "action_priority_label": "정밀 관측",
           "urgency_label": "주의",
           "capture_condition_label": "SAR 관측 보통",
           "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-04-02T06:34:03Z",
+        "max_elevation_deg": 88.2,
+        "off_nadir_deg": 1.7,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 15,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "주의",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60492",
+        "norad_id": 60492,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-29T07:38:17Z",
+        "max_elevation_deg": 70.6,
+        "off_nadir_deg": 17.9,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "주의",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      }
     },
     {
       "city": "Jerusalem",
       "display_name": "Jerusalem",
       "lat": 31.766700744628906,
-      "lng": 35.233299255371094,
+      "lon": 35.233299255371094,
       "tier": "A",
       "innov_z": 2.342,
-      "risk_label": "위험",
-      "events": 86,
+      "risk_label": "주의",
+      "events_count": 86,
       "conflict_index": 74.521,
       "sources_total": 142,
       "mentions_total": 607,
@@ -1830,200 +2244,216 @@
       "llm_message": "이란이 예루살렘과 텔아비브를 겨냥한 미사일 공격으로 사망자 1명 발생",
       "urls_sent": [
         "https://www.wcsufm.org/latest-from-npr/2026-03-26/trump-grants-iran-another-extension-on-a-deadline-to-reopen-the-strait-of-hormuz",
-        "https://en.tempo.co/read/2094750/iaea-chief-warns-severe-radiation-risks-over-strikes-near-irans-bushehr-plant"
+        "https://en.tempo.co/read/2094750/iaea-chief-warns-severe-radiation-risks-over-strikes-near-irans-bushehr-plant",
+        "https://www.middletownpress.com/business/article/the-latest-israel-launches-strikes-on-heart-of-22154892.php"
       ],
       "history_30d": [
         {
           "date": "20260226",
           "z": 0.953,
-          "sources": 1.38,
+          "sources": 62.0,
           "goldstein": -9.54
         },
         {
           "date": "20260227",
           "z": -2.132,
-          "sources": 1.18,
+          "sources": 40.0,
           "goldstein": -9.66
         },
         {
           "date": "20260228",
           "z": 43.245,
-          "sources": 2.76,
+          "sources": 475.0,
           "goldstein": -9.94
         },
         {
           "date": "20260301",
           "z": 61.601,
-          "sources": 3.98,
+          "sources": 831.0,
           "goldstein": -9.9
         },
         {
           "date": "20260302",
           "z": 59.622,
-          "sources": 5.62,
+          "sources": 1153.0,
           "goldstein": -9.94
         },
         {
           "date": "20260303",
           "z": 69.337,
-          "sources": 7.73,
+          "sources": 1584.0,
           "goldstein": -9.88
         },
         {
           "date": "20260304",
           "z": 57.392,
-          "sources": 6.46,
+          "sources": 1214.0,
           "goldstein": -9.85
         },
         {
           "date": "20260305",
           "z": 37.837,
-          "sources": 3.94,
+          "sources": 591.0,
           "goldstein": -9.84
         },
         {
           "date": "20260306",
           "z": 14.795,
-          "sources": 2.08,
+          "sources": 214.0,
           "goldstein": -9.84
         },
         {
           "date": "20260307",
           "z": 53.558,
-          "sources": 13.72,
+          "sources": 2030.0,
           "goldstein": -9.98
         },
         {
           "date": "20260308",
           "z": 15.012,
-          "sources": 2.32,
+          "sources": 234.0,
           "goldstein": -9.85
         },
         {
           "date": "20260309",
           "z": 10.159,
-          "sources": 1.43,
+          "sources": 156.0,
           "goldstein": -9.79
         },
         {
           "date": "20260310",
           "z": 3.023,
-          "sources": 1.38,
+          "sources": 112.0,
           "goldstein": -9.73
         },
         {
           "date": "20260311",
           "z": 5.977,
-          "sources": 1.3,
+          "sources": 126.0,
           "goldstein": -9.75
         },
         {
           "date": "20260312",
           "z": 19.382,
-          "sources": 5.12,
+          "sources": 548.0,
           "goldstein": -9.75
         },
         {
           "date": "20260313",
           "z": 19.711,
-          "sources": 4.78,
+          "sources": 497.0,
           "goldstein": -9.78
         },
         {
           "date": "20260314",
           "z": -1.008,
-          "sources": 2.1,
+          "sources": 132.0,
           "goldstein": -9.86
         },
         {
           "date": "20260315",
           "z": 13.467,
-          "sources": 4.16,
+          "sources": 366.0,
           "goldstein": -9.85
         },
         {
           "date": "20260316",
           "z": 11.231,
-          "sources": 2.34,
+          "sources": 236.0,
           "goldstein": -9.88
         },
         {
           "date": "20260317",
           "z": 28.149,
-          "sources": 3.19,
+          "sources": 446.0,
           "goldstein": -9.86
         },
         {
           "date": "20260318",
           "z": 19.25,
-          "sources": 1.46,
+          "sources": 214.0,
           "goldstein": -9.82
         },
         {
           "date": "20260319",
           "z": 15.875,
-          "sources": 6.02,
+          "sources": 566.0,
           "goldstein": -9.76
         },
         {
           "date": "20260320",
           "z": 56.752,
-          "sources": 6.21,
+          "sources": 1274.0,
           "goldstein": -9.83
         },
         {
           "date": "20260321",
           "z": 15.335,
-          "sources": 5.96,
+          "sources": 596.0,
           "goldstein": -9.74
         },
         {
           "date": "20260322",
           "z": -4.162,
-          "sources": 2.41,
+          "sources": 130.0,
           "goldstein": -9.9
         },
         {
           "date": "20260323",
           "z": -4.19,
-          "sources": 1.86,
+          "sources": 108.0,
           "goldstein": -9.81
         },
         {
           "date": "20260324",
           "z": -0.877,
-          "sources": 1.61,
+          "sources": 116.0,
           "goldstein": -9.85
         },
         {
           "date": "20260325",
           "z": -6.809,
-          "sources": 1.35,
+          "sources": 74.0,
           "goldstein": -9.78
         },
         {
           "date": "20260326",
           "z": 13.444,
-          "sources": 6.38,
+          "sources": 568.0,
           "goldstein": -9.61
         },
         {
           "date": "20260327",
           "z": 2.342,
-          "sources": 1.65,
+          "sources": 142.0,
           "goldstein": -9.91
         }
       ],
       "delta_z": -11.102,
       "consecutive_anomaly_days": 2,
+      "volume_7d_ratio": 0.54,
+      "anomaly_signals": [
+        {
+          "type": "anomaly_streak",
+          "value": 2,
+          "message": "2일 연속 이상 신호 탐지"
+        },
+        {
+          "type": "z_change",
+          "value": -11.102,
+          "message": "어제 대비 이상 신호 11.1 감소"
+        }
+      ],
       "satellite_passes": [
         {
           "satellite": "KOMPSAT-7",
           "norad_id": 66820,
           "sensor_type": "EO",
           "resolution_m": 0.3,
-          "pass_time_utc": "2026-03-28T11:17:09Z",
-          "max_elevation_deg": 73.5,
+          "pass_time_utc": "2026-03-28T11:17:06Z",
+          "max_elevation_deg": 73.2,
+          "off_nadir_deg": 15.4,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
           "cloud_cover_pct": 0,
           "cloud_status": "clear",
@@ -2035,15 +2465,17 @@
           "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-59103",
+          "norad_id": 59103,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T07:15:00Z",
-          "max_elevation_deg": 63.9,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T12:18:58Z",
+          "max_elevation_deg": 59.0,
+          "off_nadir_deg": 28.2,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 59,
-          "cloud_status": "overcast",
+          "cloud_cover_pct": 10,
+          "cloud_status": "clear",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "정밀 관측",
@@ -2052,33 +2484,74 @@
           "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-46497",
+          "norad_id": 46497,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T07:00:19Z",
-          "max_elevation_deg": 77.1,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T13:52:35Z",
+          "max_elevation_deg": 60.7,
+          "off_nadir_deg": 26.7,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 59,
+          "cloud_cover_pct": 100,
           "cloud_status": "overcast",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "정밀 관측",
           "urgency_label": "주의",
-          "capture_condition_label": "SAR 관측 양호",
+          "capture_condition_label": "SAR 관측 보통",
           "recommendation_reason": "ORANGE 지역의 보조 감시용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-04-04T07:30:04Z",
+        "max_elevation_deg": 57.9,
+        "off_nadir_deg": 29.5,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 1,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "주의",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60512",
+        "norad_id": 60512,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-04-03T08:53:45Z",
+        "max_elevation_deg": 73.6,
+        "off_nadir_deg": 15.1,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 28,
+        "cloud_status": "partial",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "우선 촬영",
+        "urgency_label": "주의",
+        "capture_condition_label": "EO 촬영 좋음",
+        "recommendation_reason": "ORANGE 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+      }
     },
     {
       "city": "Tel Aviv",
       "display_name": "Tel Aviv",
       "lat": 32.06669998168945,
-      "lng": 34.766700744628906,
+      "lon": 34.766700744628906,
       "tier": "A",
       "innov_z": 1.781,
-      "risk_label": "주의",
-      "events": 66,
+      "risk_label": "관심",
+      "events_count": 66,
       "conflict_index": 62.445,
       "sources_total": 144,
       "mentions_total": 432,
@@ -2086,200 +2559,211 @@
       "llm_message": "이란이 발사한 미사일로 인해 Tel Aviv에서 사망자가 발생했습니다.",
       "urls_sent": [
         "https://www.clickondetroit.com/news/world/2026/03/27/israel-launches-new-wave-of-strikes-on-iran-with-no-sign-of-diplomatic-breakthrough/",
-        "https://www.wcsufm.org/latest-from-npr/2026-03-26/trump-grants-iran-another-extension-on-a-deadline-to-reopen-the-strait-of-hormuz"
+        "https://www.wcsufm.org/latest-from-npr/2026-03-26/trump-grants-iran-another-extension-on-a-deadline-to-reopen-the-strait-of-hormuz",
+        "https://www.local10.com/news/world/2026/03/27/israel-hits-tehran-with-wave-of-strikes-and-warns-attacks-on-iran-will-escalate-and-expand/"
       ],
       "history_30d": [
         {
           "date": "20260226",
           "z": 1.238,
-          "sources": 1.43,
+          "sources": 20.0,
           "goldstein": -9.93
         },
         {
           "date": "20260227",
           "z": 0.833,
-          "sources": 1.14,
+          "sources": 16.0,
           "goldstein": -9.39
         },
         {
           "date": "20260228",
           "z": 82.477,
-          "sources": 6.95,
+          "sources": 1544.0,
           "goldstein": -9.87
         },
         {
           "date": "20260301",
           "z": 141.633,
-          "sources": 9.82,
+          "sources": 3279.0,
           "goldstein": -9.9
         },
         {
           "date": "20260302",
           "z": 63.627,
-          "sources": 3.89,
+          "sources": 782.0,
           "goldstein": -9.94
         },
         {
           "date": "20260303",
           "z": 55.121,
-          "sources": 4.43,
+          "sources": 819.0,
           "goldstein": -9.77
         },
         {
           "date": "20260304",
           "z": 37.673,
-          "sources": 3.78,
+          "sources": 514.0,
           "goldstein": -9.87
         },
         {
           "date": "20260305",
           "z": 57.054,
-          "sources": 5.77,
+          "sources": 1010.0,
           "goldstein": -9.82
         },
         {
           "date": "20260306",
           "z": 39.166,
-          "sources": 4.16,
+          "sources": 583.0,
           "goldstein": -9.84
         },
         {
           "date": "20260307",
           "z": 21.056,
-          "sources": 2.5,
+          "sources": 262.0,
           "goldstein": -9.75
         },
         {
           "date": "20260308",
           "z": 36.476,
-          "sources": 4.93,
+          "sources": 626.0,
           "goldstein": -9.83
         },
         {
           "date": "20260309",
           "z": 31.667,
-          "sources": 4.23,
+          "sources": 487.0,
           "goldstein": -9.74
         },
         {
           "date": "20260310",
           "z": 11.951,
-          "sources": 2.83,
+          "sources": 221.0,
           "goldstein": -9.84
         },
         {
           "date": "20260311",
           "z": 20.199,
-          "sources": 2.23,
+          "sources": 241.0,
           "goldstein": -9.84
         },
         {
           "date": "20260312",
           "z": 13.599,
-          "sources": 5.23,
+          "sources": 382.0,
           "goldstein": -9.89
         },
         {
           "date": "20260313",
           "z": 12.148,
-          "sources": 4.58,
+          "sources": 330.0,
           "goldstein": -9.83
         },
         {
           "date": "20260314",
           "z": -1.615,
-          "sources": 2.37,
+          "sources": 97.0,
           "goldstein": -9.91
         },
         {
           "date": "20260315",
           "z": 23.578,
-          "sources": 4.9,
+          "sources": 475.0,
           "goldstein": -9.97
         },
         {
           "date": "20260316",
           "z": 5.729,
-          "sources": 1.94,
+          "sources": 130.0,
           "goldstein": -10.0
         },
         {
           "date": "20260317",
           "z": 28.398,
-          "sources": 9.22,
+          "sources": 848.0,
           "goldstein": -9.95
         },
         {
           "date": "20260318",
           "z": 59.036,
-          "sources": 5.44,
+          "sources": 1137.0,
           "goldstein": -9.97
         },
         {
           "date": "20260319",
           "z": 10.797,
-          "sources": 1.82,
+          "sources": 167.0,
           "goldstein": -9.88
         },
         {
           "date": "20260320",
           "z": 12.398,
-          "sources": 2.05,
+          "sources": 197.0,
           "goldstein": -9.82
         },
         {
           "date": "20260321",
           "z": 22.421,
-          "sources": 14.84,
+          "sources": 1128.0,
           "goldstein": -9.93
         },
         {
           "date": "20260322",
           "z": 4.297,
-          "sources": 2.41,
+          "sources": 154.0,
           "goldstein": -9.92
         },
         {
           "date": "20260323",
           "z": 7.374,
-          "sources": 6.29,
+          "sources": 434.0,
           "goldstein": -9.8
         },
         {
           "date": "20260324",
           "z": 33.533,
-          "sources": 5.91,
+          "sources": 763.0,
           "goldstein": -9.84
         },
         {
           "date": "20260325",
           "z": 24.331,
-          "sources": 5.41,
+          "sources": 579.0,
           "goldstein": -9.86
         },
         {
           "date": "20260326",
           "z": 41.112,
-          "sources": 9.46,
+          "sources": 1220.0,
           "goldstein": -9.85
         },
         {
           "date": "20260327",
           "z": 1.781,
-          "sources": 2.18,
+          "sources": 144.0,
           "goldstein": -9.83
         }
       ],
       "delta_z": -39.331,
       "consecutive_anomaly_days": 0,
+      "volume_7d_ratio": 1.45,
+      "anomaly_signals": [
+        {
+          "type": "z_change",
+          "value": -39.331,
+          "message": "어제 대비 이상 신호 39.3 감소"
+        }
+      ],
       "satellite_passes": [
         {
           "satellite": "KOMPSAT-7",
           "norad_id": 66820,
           "sensor_type": "EO",
           "resolution_m": 0.3,
-          "pass_time_utc": "2026-03-28T11:17:15Z",
-          "max_elevation_deg": 70.1,
+          "pass_time_utc": "2026-03-28T11:17:12Z",
+          "max_elevation_deg": 69.6,
+          "off_nadir_deg": 18.6,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
           "cloud_cover_pct": 0,
           "cloud_status": "clear",
@@ -2291,14 +2775,16 @@
           "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-46497",
+          "norad_id": 46497,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T07:14:57Z",
-          "max_elevation_deg": 68.9,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T13:52:41Z",
+          "max_elevation_deg": 57.7,
+          "off_nadir_deg": 29.3,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 56,
+          "cloud_cover_pct": 100,
           "cloud_status": "overcast",
           "daylight": true,
           "shootable": true,
@@ -2308,15 +2794,17 @@
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-62389",
+          "norad_id": 62389,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T07:00:16Z",
-          "max_elevation_deg": 71.6,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T15:56:47Z",
+          "max_elevation_deg": 59.2,
+          "off_nadir_deg": 28.0,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 29,
-          "cloud_status": "partial",
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "주의 관측",
@@ -2324,17 +2812,56 @@
           "capture_condition_label": "SAR 관측 보통",
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-03-30T07:33:50Z",
+        "max_elevation_deg": 62.7,
+        "off_nadir_deg": 25.2,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 29,
+        "cloud_status": "partial",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60489",
+        "norad_id": 60489,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-30T08:49:30Z",
+        "max_elevation_deg": 78.8,
+        "off_nadir_deg": 10.3,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 27,
+        "cloud_status": "partial",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+      }
     },
     {
       "city": "Khondāb",
       "display_name": "Khondab",
       "lat": 35.90299987792969,
-      "lng": 49.38309860229492,
-      "tier": "C",
+      "lon": 49.38309860229492,
+      "tier": "A",
       "innov_z": 1.775,
-      "risk_label": "주의",
-      "events": 7,
+      "risk_label": "관심",
+      "events_count": 7,
       "conflict_index": 5.663,
       "sources_total": 9,
       "mentions_total": 31,
@@ -2342,7 +2869,8 @@
       "llm_message": "미국과 이스라엘이 Khondāb의 중수로 연구 시설을 공격했습니다.",
       "urls_sent": [
         "https://www.yahoo.com/news/articles/iran-says-israeli-attacks-plants-230025740.html",
-        "https://article.wn.com/view/2026/03/27/USIsraeli_strikes_target_heavy_water_reactor_in_central_Iran/"
+        "https://article.wn.com/view/2026/03/27/USIsraeli_strikes_target_heavy_water_reactor_in_central_Iran/",
+        "https://english.news.cn/20260328/9d0d05b6c5224fe2b8f291ecbed74b6c/c.html"
       ],
       "history_30d": [
         {
@@ -2522,75 +3050,122 @@
         {
           "date": "20260327",
           "z": 1.775,
-          "sources": 1.29,
+          "sources": 9.0,
           "goldstein": -9.71
         }
       ],
       "delta_z": 1.778,
       "consecutive_anomaly_days": 0,
+      "volume_7d_ratio": null,
+      "anomaly_signals": [],
       "satellite_passes": [
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-46496",
+          "norad_id": 46496,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T17:35:43Z",
-          "max_elevation_deg": 71.2,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:24:25Z",
+          "max_elevation_deg": 73.2,
+          "off_nadir_deg": 15.3,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 2,
-          "cloud_status": "clear",
-          "daylight": false,
-          "shootable": true,
-          "action_priority_label": "주의 관측",
-          "urgency_label": "낮음",
-          "capture_condition_label": "SAR 관측 보통",
-          "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
-        },
-        {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
-          "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-31T17:21:01Z",
-          "max_elevation_deg": 71.5,
-          "within_swath": true,
-          "cloud_cover_pct": 52,
+          "cloud_cover_pct": 100,
           "cloud_status": "overcast",
-          "daylight": false,
-          "shootable": true,
-          "action_priority_label": "주의 관측",
-          "urgency_label": "낮음",
-          "capture_condition_label": "SAR 관측 보통",
-          "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
-        },
-        {
-          "satellite": "SkySat-C12",
-          "norad_id": 43797,
-          "sensor_type": "EO",
-          "resolution_m": 0.5,
-          "pass_time_utc": "2026-04-01T04:20:59Z",
-          "max_elevation_deg": 71.4,
-          "within_swath": true,
-          "cloud_cover_pct": 0,
-          "cloud_status": "clear",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
-          "capture_condition_label": "EO 촬영 매우 좋음",
-          "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-56963",
+          "norad_id": 56963,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:50:33Z",
+          "max_elevation_deg": 74.4,
+          "off_nadir_deg": 14.3,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "주의 관측",
+          "urgency_label": "낮음",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-59100",
+          "norad_id": 59100,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:55:04Z",
+          "max_elevation_deg": 82.4,
+          "off_nadir_deg": 7.0,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "주의 관측",
+          "urgency_label": "낮음",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-04-01T06:55:15Z",
+        "max_elevation_deg": 58.4,
+        "off_nadir_deg": 29.0,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60505",
+        "norad_id": 60505,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-30T07:53:55Z",
+        "max_elevation_deg": 59.6,
+        "off_nadir_deg": 27.9,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 33,
+        "cloud_status": "partial",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+      }
     },
     {
       "city": "Arāk",
       "display_name": "Arak",
       "lat": 34.09170150756836,
-      "lng": 49.68920135498047,
-      "tier": "C",
+      "lon": 49.68920135498047,
+      "tier": "A",
       "innov_z": 1.42,
-      "risk_label": "주의",
-      "events": 5,
+      "risk_label": "관심",
+      "events_count": 5,
       "conflict_index": 4.564,
       "sources_total": 9,
       "mentions_total": 23,
@@ -2598,7 +3173,8 @@
       "llm_message": "이스라엘군이 아라크의 핵 시설을 폭격했습니다.",
       "urls_sent": [
         "http://www.northkoreatimes.com/news/278948469/g7-calls-for-halt-to-attacks-on-civilian-infrastructure",
-        "https://londonlovesbusiness.com/iranian-nuclear-site-hit-with-a-massive-bombardment/"
+        "https://londonlovesbusiness.com/iranian-nuclear-site-hit-with-a-massive-bombardment/",
+        "https://legalinsurrection.com/2026/03/idf-uncovers-hezbollah-terror-tunnel-near-church-as-groud-offensive-intensifies-in-south-lebanon/"
       ],
       "history_30d": [
         {
@@ -2778,83 +3354,131 @@
         {
           "date": "20260327",
           "z": 1.42,
-          "sources": 1.8,
+          "sources": 9.0,
           "goldstein": -10.0
         }
       ],
       "delta_z": 1.433,
       "consecutive_anomaly_days": 0,
+      "volume_7d_ratio": null,
+      "anomaly_signals": [],
       "satellite_passes": [
         {
-          "satellite": "SkySat-C12",
-          "norad_id": 43797,
-          "sensor_type": "EO",
-          "resolution_m": 0.5,
-          "pass_time_utc": "2026-03-30T04:12:37Z",
-          "max_elevation_deg": 89.9,
+          "satellite": "ICEYE-46496",
+          "norad_id": 46496,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:23:57Z",
+          "max_elevation_deg": 74.8,
+          "off_nadir_deg": 13.9,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 4,
+          "cloud_cover_pct": 20,
           "cloud_status": "clear",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
-          "capture_condition_label": "EO 촬영 매우 좋음",
-          "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
-        },
-        {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
-          "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T17:35:14Z",
-          "max_elevation_deg": 72.4,
-          "within_swath": true,
-          "cloud_cover_pct": 10,
-          "cloud_status": "clear",
-          "daylight": false,
-          "shootable": true,
-          "action_priority_label": "주의 관측",
-          "urgency_label": "낮음",
           "capture_condition_label": "SAR 관측 보통",
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-56963",
+          "norad_id": 56963,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-31T17:20:32Z",
-          "max_elevation_deg": 69.5,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:50:59Z",
+          "max_elevation_deg": 84.2,
+          "off_nadir_deg": 5.3,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 84,
-          "cloud_status": "overcast",
-          "daylight": false,
+          "cloud_cover_pct": 8,
+          "cloud_status": "clear",
+          "daylight": true,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
-          "capture_condition_label": "SAR 관측 보통",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-59100",
+          "norad_id": 59100,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:55:31Z",
+          "max_elevation_deg": 89.5,
+          "off_nadir_deg": 0.5,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 8,
+          "cloud_status": "clear",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "주의 관측",
+          "urgency_label": "낮음",
+          "capture_condition_label": "SAR 관측 양호",
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-04-01T06:54:47Z",
+        "max_elevation_deg": 59.2,
+        "off_nadir_deg": 28.3,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-58307",
+        "norad_id": 58307,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-30T08:39:47Z",
+        "max_elevation_deg": 66.7,
+        "off_nadir_deg": 21.4,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 27,
+        "cloud_status": "partial",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+      }
     },
     {
       "city": "Ardakān",
       "display_name": "Ardakan",
       "lat": 32.310001373291016,
-      "lng": 54.01750183105469,
+      "lon": 54.01750183105469,
       "tier": "C",
       "innov_z": 1.34,
-      "risk_label": "주의",
-      "events": 5,
+      "risk_label": "관심",
+      "events_count": 5,
       "conflict_index": 4.277,
       "sources_total": 7,
       "mentions_total": 26,
       "llm_status": "SUCCESS",
-      "llm_message": "이스라엘이 Ardakān의 우라늄 농축 시설을 공격했습니다.",
+      "llm_message": "이스라엘군이 Ardakan의 우라늄 농축 시설을 공습하여 타격함.",
       "urls_sent": [
         "http://www.jpost.com/middle-east/iran-news/article-891437",
-        "https://www.middleeasteye.net/live-blog/live-blog-update/irgc-tells-allies-us-and-israeli-industrial-companies-evacuate-workplaces"
+        "https://www.middleeasteye.net/live-blog/live-blog-update/irgc-tells-allies-us-and-israeli-industrial-companies-evacuate-workplaces",
+        "https://www.mirror.co.uk/news/world-news/breaking-major-radiation-update-issued-36936089"
       ],
       "history_30d": [
         {
@@ -3034,75 +3658,122 @@
         {
           "date": "20260327",
           "z": 1.34,
-          "sources": 1.4,
+          "sources": 7.0,
           "goldstein": -9.8
         }
       ],
       "delta_z": 1.343,
       "consecutive_anomaly_days": 0,
+      "volume_7d_ratio": null,
+      "anomaly_signals": [],
       "satellite_passes": [
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-59102",
+          "norad_id": 59102,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T05:40:05Z",
-          "max_elevation_deg": 63.4,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:13:57Z",
+          "max_elevation_deg": 88.5,
+          "off_nadir_deg": 1.3,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 95,
-          "cloud_status": "overcast",
+          "cloud_cover_pct": 48,
+          "cloud_status": "partial",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
-          "capture_condition_label": "SAR 관측 보통",
+          "capture_condition_label": "SAR 관측 양호",
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "Sentinel-2A",
-          "norad_id": 40697,
-          "sensor_type": "EO",
-          "resolution_m": 10,
-          "pass_time_utc": "2026-03-30T07:11:45Z",
-          "max_elevation_deg": 82.3,
+          "satellite": "ICEYE-56961",
+          "norad_id": 56961,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T12:36:26Z",
+          "max_elevation_deg": 81.0,
+          "off_nadir_deg": 8.2,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 0,
+          "cloud_cover_pct": 1,
           "cloud_status": "clear",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
-          "capture_condition_label": "EO 촬영 매우 좋음",
-          "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-44389",
+          "norad_id": 44389,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-31T17:19:53Z",
-          "max_elevation_deg": 70.4,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T16:34:50Z",
+          "max_elevation_deg": 78.6,
+          "off_nadir_deg": 10.5,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 3,
+          "cloud_cover_pct": 0,
           "cloud_status": "clear",
           "daylight": false,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
-          "capture_condition_label": "SAR 관측 보통",
+          "capture_condition_label": "SAR 관측 양호",
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-04-02T06:34:40Z",
+        "max_elevation_deg": 68.4,
+        "off_nadir_deg": 19.9,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 3,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60492",
+        "norad_id": 60492,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-29T07:37:33Z",
+        "max_elevation_deg": 80.8,
+        "off_nadir_deg": 8.5,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 5,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      }
     },
     {
       "city": "Qū Cham",
       "display_name": "Qeshm",
-      "lat": 35.442100524902344,
-      "lng": 47.35060119628906,
+      "lat": 26.95330047607422,
+      "lon": 56.27190017700195,
       "tier": "A",
       "innov_z": 1.309,
-      "risk_label": "주의",
-      "events": 9,
+      "risk_label": "관심",
+      "events_count": 9,
       "conflict_index": 7.049,
       "sources_total": 11,
       "mentions_total": 50,
@@ -3110,7 +3781,8 @@
       "llm_message": "Qū Cham에 대한 직접적인 충돌 사건은 보고되지 않았지만, 잠재적인 군사 작전에 대한 언급이 있습니다.",
       "urls_sent": [
         "https://yourdemocracy.net/drupal/node/59208",
-        "https://www.naharnet.com:443/stories/en/319187-trump-denies-he-s-desperate-for-iran-deal"
+        "https://www.naharnet.com:443/stories/en/319187-trump-denies-he-s-desperate-for-iran-deal",
+        "https://timesofindia.indiatimes.com/world/middle-east/from-kharg-to-qeshm-6-iranian-islands-trump-may-target-amid-strait-of-hormuz-tensions/articleshow/129851456.cms"
       ],
       "history_30d": [
         {
@@ -3128,13 +3800,13 @@
         {
           "date": "20260228",
           "z": 0.405,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
           "date": "20260301",
           "z": 0.397,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
@@ -3146,13 +3818,13 @@
         {
           "date": "20260303",
           "z": 0.608,
-          "sources": 1.0,
+          "sources": 3.0,
           "goldstein": -10.0
         },
         {
           "date": "20260304",
           "z": 0.814,
-          "sources": 1.0,
+          "sources": 4.0,
           "goldstein": -10.0
         },
         {
@@ -3164,49 +3836,49 @@
         {
           "date": "20260306",
           "z": 0.363,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -9.0
         },
         {
           "date": "20260307",
           "z": 4.522,
-          "sources": 1.1,
+          "sources": 22.0,
           "goldstein": -9.75
         },
         {
           "date": "20260308",
           "z": 25.845,
-          "sources": 16.18,
+          "sources": 890.0,
           "goldstein": -9.97
         },
         {
           "date": "20260309",
           "z": 16.484,
-          "sources": 4.37,
+          "sources": 166.0,
           "goldstein": -9.93
         },
         {
           "date": "20260310",
           "z": 2.508,
-          "sources": 1.21,
+          "sources": 17.0,
           "goldstein": -10.0
         },
         {
           "date": "20260311",
           "z": 1.168,
-          "sources": 2.67,
+          "sources": 16.0,
           "goldstein": -9.83
         },
         {
           "date": "20260312",
           "z": 1.935,
-          "sources": 2.0,
+          "sources": 18.0,
           "goldstein": -10.0
         },
         {
           "date": "20260313",
           "z": -0.538,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
@@ -3224,49 +3896,49 @@
         {
           "date": "20260316",
           "z": 0.15,
-          "sources": 1.0,
+          "sources": 5.0,
           "goldstein": -9.24
         },
         {
           "date": "20260317",
           "z": -0.287,
-          "sources": 1.0,
+          "sources": 3.0,
           "goldstein": -10.0
         },
         {
           "date": "20260318",
           "z": -0.283,
-          "sources": 1.0,
+          "sources": 3.0,
           "goldstein": -9.07
         },
         {
           "date": "20260319",
           "z": -0.496,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -8.35
         },
         {
           "date": "20260320",
           "z": -0.488,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -9.5
         },
         {
           "date": "20260321",
           "z": -0.481,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -8.6
         },
         {
           "date": "20260322",
           "z": 0.089,
-          "sources": 2.0,
+          "sources": 6.0,
           "goldstein": -10.0
         },
         {
           "date": "20260323",
           "z": 0.777,
-          "sources": 1.5,
+          "sources": 9.0,
           "goldstein": -10.0
         },
         {
@@ -3278,34 +3950,63 @@
         {
           "date": "20260325",
           "z": -0.038,
-          "sources": 1.0,
+          "sources": 4.0,
           "goldstein": -9.8
         },
         {
           "date": "20260326",
           "z": -0.255,
-          "sources": 1.0,
+          "sources": 3.0,
           "goldstein": -10.0
         },
         {
           "date": "20260327",
           "z": 1.309,
-          "sources": 1.22,
+          "sources": 11.0,
           "goldstein": -9.58
         }
       ],
       "delta_z": 1.564,
       "consecutive_anomaly_days": 0,
+      "volume_7d_ratio": 2.19,
+      "anomaly_signals": [
+        {
+          "type": "volume_7d_boost",
+          "value": 2.19,
+          "message": "최근 7일 보도량 2.19배 급증"
+        }
+      ],
       "satellite_passes": [
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-62389",
+          "norad_id": 62389,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T17:50:23Z",
-          "max_elevation_deg": 57.5,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T14:20:17Z",
+          "max_elevation_deg": 88.5,
+          "off_nadir_deg": 1.3,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
           "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "주의 관측",
+          "urgency_label": "낮음",
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-62384",
+          "norad_id": 62384,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T14:35:18Z",
+          "max_elevation_deg": 67.4,
+          "off_nadir_deg": 20.7,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 68,
           "cloud_status": "overcast",
           "daylight": false,
           "shootable": true,
@@ -3315,50 +4016,74 @@
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-44389",
+          "norad_id": 44389,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T17:35:41Z",
-          "max_elevation_deg": 87.0,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T16:33:23Z",
+          "max_elevation_deg": 89.4,
+          "off_nadir_deg": 0.5,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 21,
-          "cloud_status": "partial",
+          "cloud_cover_pct": 14,
+          "cloud_status": "clear",
           "daylight": false,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
           "capture_condition_label": "SAR 관측 양호",
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
-        },
-        {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
-          "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-31T17:21:00Z",
-          "max_elevation_deg": 53.5,
-          "within_swath": true,
-          "cloud_cover_pct": 1,
-          "cloud_status": "clear",
-          "daylight": false,
-          "shootable": true,
-          "action_priority_label": "주의 관측",
-          "urgency_label": "낮음",
-          "capture_condition_label": "SAR 관측 제한",
-          "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-03-29T06:17:22Z",
+        "max_elevation_deg": 77.6,
+        "off_nadir_deg": 11.5,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60513",
+        "norad_id": 60513,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-29T07:12:49Z",
+        "max_elevation_deg": 57.7,
+        "off_nadir_deg": 29.6,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      }
     },
     {
       "city": "Galilee",
       "display_name": "Galilee",
       "lat": 32.900001525878906,
-      "lng": 35.33330154418945,
+      "lon": 35.33330154418945,
       "tier": "A",
       "innov_z": 1.243,
-      "risk_label": "주의",
-      "events": 8,
+      "risk_label": "관심",
+      "events_count": 8,
       "conflict_index": 5.951,
       "sources_total": 9,
       "mentions_total": 53,
@@ -3366,7 +4091,8 @@
       "llm_message": "이스라엘군이 로켓 공격을 받았습니다.",
       "urls_sent": [
         "http://www.jpost.com/conferences/article-891288",
-        "https://www.bankingnews.gr/diethni/articles/864970/iran-s-final-warning-avoid-us-bases-or-they-will-burn-a-historic-hell-awaits-if-americans-invade"
+        "https://www.bankingnews.gr/diethni/articles/864970/iran-s-final-warning-avoid-us-bases-or-they-will-burn-a-historic-hell-awaits-if-americans-invade",
+        "https://www.ynetnews.com/opinions-analysis/article/bk8mszeszg"
       ],
       "history_30d": [
         {
@@ -3378,7 +4104,7 @@
         {
           "date": "20260227",
           "z": 0.792,
-          "sources": 1.0,
+          "sources": 4.0,
           "goldstein": -9.5
         },
         {
@@ -3396,25 +4122,25 @@
         {
           "date": "20260302",
           "z": 1.858,
-          "sources": 1.0,
+          "sources": 9.0,
           "goldstein": -9.78
         },
         {
           "date": "20260303",
           "z": 2.603,
-          "sources": 1.08,
+          "sources": 13.0,
           "goldstein": -9.52
         },
         {
           "date": "20260304",
           "z": 2.211,
-          "sources": 1.0,
+          "sources": 11.0,
           "goldstein": -9.95
         },
         {
           "date": "20260305",
           "z": 0.651,
-          "sources": 1.0,
+          "sources": 4.0,
           "goldstein": -10.0
         },
         {
@@ -3426,49 +4152,49 @@
         {
           "date": "20260307",
           "z": 1.587,
-          "sources": 1.67,
+          "sources": 10.0,
           "goldstein": -10.0
         },
         {
           "date": "20260308",
           "z": 0.182,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
           "date": "20260309",
           "z": 0.523,
-          "sources": 2.5,
+          "sources": 5.0,
           "goldstein": -10.0
         },
         {
           "date": "20260310",
           "z": 0.604,
-          "sources": 1.0,
+          "sources": 4.0,
           "goldstein": -9.88
         },
         {
           "date": "20260311",
           "z": 1.898,
-          "sources": 1.0,
+          "sources": 10.0,
           "goldstein": -10.0
         },
         {
           "date": "20260312",
           "z": 2.085,
-          "sources": 1.0,
+          "sources": 11.0,
           "goldstein": -9.88
         },
         {
           "date": "20260313",
           "z": 0.746,
-          "sources": 1.0,
+          "sources": 5.0,
           "goldstein": -10.0
         },
         {
           "date": "20260314",
           "z": 2.109,
-          "sources": 1.56,
+          "sources": 14.0,
           "goldstein": -9.38
         },
         {
@@ -3480,49 +4206,49 @@
         {
           "date": "20260316",
           "z": 1.486,
-          "sources": 1.12,
+          "sources": 9.0,
           "goldstein": -10.0
         },
         {
           "date": "20260317",
           "z": 2.333,
-          "sources": 1.08,
+          "sources": 13.0,
           "goldstein": -9.83
         },
         {
           "date": "20260318",
           "z": 1.496,
-          "sources": 2.17,
+          "sources": 13.0,
           "goldstein": -9.5
         },
         {
           "date": "20260319",
           "z": -0.029,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -9.5
         },
         {
           "date": "20260320",
           "z": 1.059,
-          "sources": 1.0,
+          "sources": 7.0,
           "goldstein": -10.0
         },
         {
           "date": "20260321",
           "z": 1.478,
-          "sources": 1.0,
+          "sources": 9.0,
           "goldstein": -10.0
         },
         {
           "date": "20260322",
           "z": 2.055,
-          "sources": 1.3,
+          "sources": 13.0,
           "goldstein": -9.8
         },
         {
           "date": "20260323",
           "z": 1.009,
-          "sources": 6.67,
+          "sources": 20.0,
           "goldstein": -10.0
         },
         {
@@ -3534,34 +4260,63 @@
         {
           "date": "20260325",
           "z": 2.051,
-          "sources": 2.0,
+          "sources": 16.0,
           "goldstein": -9.88
         },
         {
           "date": "20260326",
           "z": 3.856,
-          "sources": 1.86,
+          "sources": 26.0,
           "goldstein": -9.89
         },
         {
           "date": "20260327",
           "z": 1.243,
-          "sources": 1.12,
+          "sources": 9.0,
           "goldstein": -9.45
         }
       ],
       "delta_z": -2.613,
       "consecutive_anomaly_days": 0,
+      "volume_7d_ratio": 1.6,
+      "anomaly_signals": [
+        {
+          "type": "z_change",
+          "value": -2.613,
+          "message": "어제 대비 이상 신호 2.6 감소"
+        }
+      ],
       "satellite_passes": [
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-59103",
+          "norad_id": 59103,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T07:14:43Z",
-          "max_elevation_deg": 65.8,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T12:18:40Z",
+          "max_elevation_deg": 57.8,
+          "off_nadir_deg": 29.2,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 83,
+          "cloud_cover_pct": 45,
+          "cloud_status": "partial",
+          "daylight": true,
+          "shootable": true,
+          "action_priority_label": "주의 관측",
+          "urgency_label": "낮음",
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
+        },
+        {
+          "satellite": "ICEYE-46497",
+          "norad_id": 46497,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T13:52:52Z",
+          "max_elevation_deg": 64.3,
+          "off_nadir_deg": 23.4,
+          "off_nadir_limit_deg": 30.0,
+          "within_swath": true,
+          "cloud_cover_pct": 100,
           "cloud_status": "overcast",
           "daylight": true,
           "shootable": true,
@@ -3571,50 +4326,74 @@
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-62384",
+          "norad_id": 62384,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T07:00:02Z",
-          "max_elevation_deg": 75.3,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T16:12:03Z",
+          "max_elevation_deg": 74.7,
+          "off_nadir_deg": 14.0,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 72,
+          "cloud_cover_pct": 100,
           "cloud_status": "overcast",
-          "daylight": true,
+          "daylight": false,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
-          "capture_condition_label": "SAR 관측 양호",
+          "capture_condition_label": "SAR 관측 보통",
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
-        },
-        {
-          "satellite": "KOMPSAT-7",
-          "norad_id": 66820,
-          "sensor_type": "EO",
-          "resolution_m": 0.3,
-          "pass_time_utc": "2026-03-30T11:16:15Z",
-          "max_elevation_deg": 74.5,
-          "within_swath": true,
-          "cloud_cover_pct": 37,
-          "cloud_status": "partial",
-          "daylight": true,
-          "shootable": true,
-          "action_priority_label": "주의 관측",
-          "urgency_label": "낮음",
-          "capture_condition_label": "EO 촬영 좋음",
-          "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 좋음"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-04-03T07:49:49Z",
+        "max_elevation_deg": 66.4,
+        "off_nadir_deg": 21.7,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60489",
+        "norad_id": 60489,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-30T08:49:15Z",
+        "max_elevation_deg": 83.3,
+        "off_nadir_deg": 6.2,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 37,
+        "cloud_status": "partial",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+      }
     },
     {
       "city": "Abu Dhabi",
       "display_name": "Abu Dhabi",
-      "lat": 24.466699600219727,
-      "lng": 54.36669921875,
+      "lat": 23.64929962158203,
+      "lon": 54.184898376464844,
       "tier": "A",
       "innov_z": 1.195,
-      "risk_label": "주의",
-      "events": 3,
+      "risk_label": "관심",
+      "events_count": 3,
       "conflict_index": 4.852,
       "sources_total": 15,
       "mentions_total": 20,
@@ -3640,37 +4419,37 @@
         {
           "date": "20260228",
           "z": 0.838,
-          "sources": 1.0,
+          "sources": 4.0,
           "goldstein": -10.0
         },
         {
           "date": "20260301",
           "z": 3.73,
-          "sources": 1.77,
+          "sources": 23.0,
           "goldstein": -10.0
         },
         {
           "date": "20260302",
           "z": 1.404,
-          "sources": 1.0,
+          "sources": 7.0,
           "goldstein": -10.0
         },
         {
           "date": "20260303",
           "z": 1.288,
-          "sources": 1.17,
+          "sources": 7.0,
           "goldstein": -10.0
         },
         {
           "date": "20260304",
           "z": 0.269,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
           "date": "20260305",
           "z": 0.481,
-          "sources": 1.0,
+          "sources": 3.0,
           "goldstein": -10.0
         },
         {
@@ -3706,7 +4485,7 @@
         {
           "date": "20260311",
           "z": 0.956,
-          "sources": 1.5,
+          "sources": 6.0,
           "goldstein": -8.6
         },
         {
@@ -3736,13 +4515,13 @@
         {
           "date": "20260316",
           "z": 4.218,
-          "sources": 10.0,
+          "sources": 70.0,
           "goldstein": -10.0
         },
         {
           "date": "20260317",
           "z": 1.715,
-          "sources": 1.25,
+          "sources": 10.0,
           "goldstein": -9.88
         },
         {
@@ -3796,26 +4575,36 @@
         {
           "date": "20260326",
           "z": 5.646,
-          "sources": 10.27,
+          "sources": 113.0,
           "goldstein": -9.64
         },
         {
           "date": "20260327",
           "z": 1.195,
-          "sources": 5.0,
+          "sources": 15.0,
           "goldstein": -10.0
         }
       ],
       "delta_z": -4.451,
       "consecutive_anomaly_days": 0,
+      "volume_7d_ratio": 1.52,
+      "anomaly_signals": [
+        {
+          "type": "z_change",
+          "value": -4.451,
+          "message": "어제 대비 이상 신호 4.5 감소"
+        }
+      ],
       "satellite_passes": [
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-59102",
+          "norad_id": 59102,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T05:42:04Z",
-          "max_elevation_deg": 85.5,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:16:10Z",
+          "max_elevation_deg": 64.7,
+          "off_nadir_deg": 23.1,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
           "cloud_cover_pct": 0,
           "cloud_status": "clear",
@@ -3823,54 +4612,97 @@
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
-          "capture_condition_label": "SAR 관측 양호",
+          "capture_condition_label": "SAR 관측 보통",
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "SpaceEye-T",
-          "norad_id": 63229,
-          "sensor_type": "EO",
-          "resolution_m": 0.25,
-          "pass_time_utc": "2026-03-29T06:16:57Z",
-          "max_elevation_deg": 52.7,
+          "satellite": "ICEYE-56961",
+          "norad_id": 56961,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T12:38:33Z",
+          "max_elevation_deg": 63.3,
+          "off_nadir_deg": 24.3,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 0,
+          "cloud_cover_pct": 4,
           "cloud_status": "clear",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
-          "capture_condition_label": "EO 촬영 매우 좋음",
-          "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+          "capture_condition_label": "SAR 관측 보통",
+          "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-62389",
+          "norad_id": 62389,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-31T17:17:52Z",
-          "max_elevation_deg": 85.7,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T14:19:18Z",
+          "max_elevation_deg": 75.1,
+          "off_nadir_deg": 13.7,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 83,
-          "cloud_status": "overcast",
-          "daylight": false,
+          "cloud_cover_pct": 1,
+          "cloud_status": "clear",
+          "daylight": true,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
           "capture_condition_label": "SAR 관측 양호",
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-04-02T06:32:28Z",
+        "max_elevation_deg": 88.4,
+        "off_nadir_deg": 1.5,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 16,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60492",
+        "norad_id": 60492,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-29T07:39:43Z",
+        "max_elevation_deg": 71.3,
+        "off_nadir_deg": 17.2,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      }
     },
     {
       "city": "Modi‘in Makkabbim Re‘ut",
       "display_name": "Modiin",
       "lat": 31.933900833129883,
-      "lng": 34.985599517822266,
+      "lon": 34.985599517822266,
       "tier": "C",
       "innov_z": 1.16,
-      "risk_label": "주의",
-      "events": 3,
+      "risk_label": "관심",
+      "events_count": 3,
       "conflict_index": 3.784,
       "sources_total": 12,
       "mentions_total": 18,
@@ -4045,7 +4877,7 @@
         {
           "date": "20260325",
           "z": 0.412,
-          "sources": 1.0,
+          "sources": 2.0,
           "goldstein": -10.0
         },
         {
@@ -4057,20 +4889,24 @@
         {
           "date": "20260327",
           "z": 1.16,
-          "sources": 4.0,
+          "sources": 12.0,
           "goldstein": -10.0
         }
       ],
       "delta_z": 1.189,
       "consecutive_anomaly_days": 0,
+      "volume_7d_ratio": null,
+      "anomaly_signals": [],
       "satellite_passes": [
         {
           "satellite": "KOMPSAT-7",
           "norad_id": 66820,
           "sensor_type": "EO",
           "resolution_m": 0.3,
-          "pass_time_utc": "2026-03-28T11:17:12Z",
-          "max_elevation_deg": 71.6,
+          "pass_time_utc": "2026-03-28T11:17:10Z",
+          "max_elevation_deg": 71.3,
+          "off_nadir_deg": 17.1,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
           "cloud_cover_pct": 0,
           "cloud_status": "clear",
@@ -4082,15 +4918,17 @@
           "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-46497",
+          "norad_id": 46497,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T07:14:59Z",
-          "max_elevation_deg": 66.6,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T13:52:39Z",
+          "max_elevation_deg": 59.1,
+          "off_nadir_deg": 28.1,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 48,
-          "cloud_status": "partial",
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "주의 관측",
@@ -4099,33 +4937,74 @@
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-62389",
+          "norad_id": 62389,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T07:00:17Z",
-          "max_elevation_deg": 74.1,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T15:56:49Z",
+          "max_elevation_deg": 61.4,
+          "off_nadir_deg": 26.0,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 48,
-          "cloud_status": "partial",
-          "daylight": true,
+          "cloud_cover_pct": 100,
+          "cloud_status": "overcast",
+          "daylight": false,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
           "capture_condition_label": "SAR 관측 보통",
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-03-30T07:33:47Z",
+        "max_elevation_deg": 64.4,
+        "off_nadir_deg": 23.6,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 30,
+        "cloud_status": "partial",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60489",
+        "norad_id": 60489,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-30T08:49:31Z",
+        "max_elevation_deg": 81.9,
+        "off_nadir_deg": 7.5,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 48,
+        "cloud_status": "partial",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 보통",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 가능"
+      }
     },
     {
       "city": "Shaveyyeb",
       "display_name": "Shuwaib",
       "lat": 31.483299255371094,
-      "lng": 47.849998474121094,
+      "lon": 47.849998474121094,
       "tier": "C",
       "innov_z": 1.088,
-      "risk_label": "주의",
-      "events": 5,
+      "risk_label": "관심",
+      "events_count": 5,
       "conflict_index": 3.466,
       "sources_total": 5,
       "mentions_total": 19,
@@ -4312,41 +5191,47 @@
         {
           "date": "20260327",
           "z": 1.088,
-          "sources": 1.0,
+          "sources": 5.0,
           "goldstein": -10.0
         }
       ],
       "delta_z": 1.088,
       "consecutive_anomaly_days": 0,
+      "volume_7d_ratio": null,
+      "anomaly_signals": [],
       "satellite_passes": [
         {
-          "satellite": "Sentinel-2A",
-          "norad_id": 40697,
-          "sensor_type": "EO",
-          "resolution_m": 10,
-          "pass_time_utc": "2026-03-29T07:41:31Z",
-          "max_elevation_deg": 86.5,
+          "satellite": "ICEYE-46496",
+          "norad_id": 46496,
+          "sensor_type": "sar",
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:23:22Z",
+          "max_elevation_deg": 76.5,
+          "off_nadir_deg": 12.3,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 27,
+          "cloud_cover_pct": 30,
           "cloud_status": "partial",
           "daylight": true,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
-          "capture_condition_label": "EO 촬영 좋음",
-          "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+          "capture_condition_label": "SAR 관측 양호",
+          "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-56963",
+          "norad_id": 56963,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-29T17:49:21Z",
-          "max_elevation_deg": 60.5,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:51:43Z",
+          "max_elevation_deg": 68.6,
+          "off_nadir_deg": 19.6,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 98,
+          "cloud_cover_pct": 57,
           "cloud_status": "overcast",
-          "daylight": false,
+          "daylight": true,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
@@ -4354,23 +5239,64 @@
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         },
         {
-          "satellite": "ICEYE-X2",
-          "norad_id": 43800,
+          "satellite": "ICEYE-59100",
+          "norad_id": 59100,
           "sensor_type": "sar",
-          "resolution_m": 1,
-          "pass_time_utc": "2026-03-30T17:34:39Z",
-          "max_elevation_deg": 81.4,
+          "resolution_m": 1.0,
+          "pass_time_utc": "2026-03-28T11:56:16Z",
+          "max_elevation_deg": 78.2,
+          "off_nadir_deg": 10.8,
+          "off_nadir_limit_deg": 30.0,
           "within_swath": true,
-          "cloud_cover_pct": 59,
+          "cloud_cover_pct": 57,
           "cloud_status": "overcast",
-          "daylight": false,
+          "daylight": true,
           "shootable": true,
           "action_priority_label": "주의 관측",
           "urgency_label": "낮음",
           "capture_condition_label": "SAR 관측 양호",
           "recommendation_reason": "YELLOW 지역의 보조 감시용 SAR 후보"
         }
-      ]
+      ],
+      "delayed_capture": null,
+      "spaceeye_option": {
+        "satellite": "SpaceEye-T",
+        "norad_id": 63229,
+        "sensor_type": "EO",
+        "resolution_m": 0.25,
+        "pass_time_utc": "2026-04-01T06:54:12Z",
+        "max_elevation_deg": 84.0,
+        "off_nadir_deg": 5.6,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 0,
+        "cloud_status": "clear",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 매우 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 매우 좋음"
+      },
+      "planetscope_option": {
+        "satellite": "PlanetScope-60497",
+        "norad_id": 60497,
+        "sensor_type": "EO",
+        "resolution_m": 4.0,
+        "pass_time_utc": "2026-03-29T08:00:33Z",
+        "max_elevation_deg": 73.1,
+        "off_nadir_deg": 15.6,
+        "off_nadir_limit_deg": 30.0,
+        "within_swath": true,
+        "cloud_cover_pct": 27,
+        "cloud_status": "partial",
+        "daylight": true,
+        "shootable": true,
+        "action_priority_label": "주의 관측",
+        "urgency_label": "낮음",
+        "capture_condition_label": "EO 촬영 좋음",
+        "recommendation_reason": "YELLOW 지역이며 광학 촬영 여건이 EO 촬영 좋음"
+      }
     }
   ]
 }
