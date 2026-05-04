@@ -557,9 +557,9 @@ export default function Dashboard() {
           >
 
             {/* 타임라인 */}
-            <div className="panel" style={{ flexShrink:0 }}>
+            <div className="panel" style={{ display:'flex', flexDirection:'column', minHeight:0, overflow:'hidden' }}>
               <PanelHeader title="24H 촬영 타임라인 (D+1)"/>
-              <div style={{ padding:'8px 10px' }}>
+              <div style={{ padding:'8px 10px', overflowY:'auto', flex:1, minHeight:0 }}>
                 {(() => {
                   // D+1 날짜 계산
                   const baseDate = new Date(`${date.slice(0,4)}-${date.slice(4,6)}-${date.slice(6,8)}T00:00:00Z`);
