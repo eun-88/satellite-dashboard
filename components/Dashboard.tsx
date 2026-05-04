@@ -122,6 +122,11 @@ const globalStyles = `
   }
   .gutter-horizontal:hover { background:rgba(74,144,212,0.2); }
   .gutter-horizontal:hover::after { background:${S.blue}; }
+  .gutter-vertical {
+    cursor:row-resize; background:${S.bg};
+    height:5px !important; flex-shrink:0; position:relative; transition:background .15s;
+  }
+  .gutter-vertical:hover { background:rgba(74,144,212,0.2); }
 
   .panel { background:${S.bg2}; border:1px solid ${S.border}; display:flex; flex-direction:column; overflow:hidden; }
   .panel-hdr { display:flex; align-items:center; justify-content:space-between; padding:8px 12px; border-bottom:1px solid ${S.border}; background:${S.bg3}; flex-shrink:0; }
@@ -400,12 +405,23 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel }: {
           <div style={{ fontSize:9, color:'#aaaaaa', letterSpacing:'.08em', textTransform:'uppercase', marginBottom:5 }}>참조 기사</div>
           {target.urls_sent.map((url,i)=>{
             const domain=(()=>{ try{ return new URL(url).hostname.replace('www.',''); }catch{ return url; }})();
+            const title=(()=>{
+              try {
+                const path = new URL(url).pathname;
+                const slug = path.split('/').filter(Boolean).pop() || '';
+                return slug
+                  .replace(/[-_]/g, ' ')
+                  .replace(/\.\w+$/, '')
+                  .replace(/\b\w/g, c => c.toUpperCase())
+                  .slice(0, 60) + (slug.length > 60 ? '...' : '');
+              } catch { return '기사 원문 바로가기'; }
+            })();
             return (
               <a key={i} href={url} target="_blank" rel="noopener noreferrer" className="art-link">
                 <span style={{ fontFamily:S.mono, fontSize:9, color:S.blue, flexShrink:0 }}>↗</span>
                 <div style={{ minWidth:0 }}>
                   <div style={{ fontSize:9, color:'#aaaaaa', marginBottom:1 }}>{domain}</div>
-                  <div style={{ fontSize:10, color:S.blue, fontWeight:500 }}>기사 원문 바로가기</div>
+                  <div style={{ fontSize:10, color:S.blue, fontWeight:500, lineHeight:1.4 }}>{title}</div>
                 </div>
               </a>
             );
@@ -532,7 +548,13 @@ export default function Dashboard() {
           style={{ flex:1, minHeight:0 }}
         >
           {/* 1열: 타임라인 + 스케줄 */}
-          <div style={{ display:'flex', flexDirection:'column', gap:6, minHeight:0 }}>
+          <Split
+            direction="vertical"
+            sizes={[35, 65]}
+            minSize={80}
+            gutterSize={5}
+            style={{ display:'flex', flexDirection:'column', minHeight:0, height:'100%' }}
+          >
 
             {/* 타임라인 */}
             <div className="panel" style={{ flexShrink:0 }}>
@@ -643,7 +665,7 @@ export default function Dashboard() {
                 ))}
               </div>
             </div>
-          </div>
+          </Split>
 
           {/* 2열: 지도 + 장바구니 (가운데) */}
           <div className="panel" style={{ position:'relative' }}>
