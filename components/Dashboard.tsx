@@ -405,23 +405,12 @@ function DetailPanel({ target, pass, approved, onApprove, onCancel }: {
           <div style={{ fontSize:9, color:'#aaaaaa', letterSpacing:'.08em', textTransform:'uppercase', marginBottom:5 }}>참조 기사</div>
           {target.urls_sent.map((url,i)=>{
             const domain=(()=>{ try{ return new URL(url).hostname.replace('www.',''); }catch{ return url; }})();
-            const title=(()=>{
-              try {
-                const path = new URL(url).pathname;
-                const slug = path.split('/').filter(Boolean).pop() || '';
-                return slug
-                  .replace(/[-_]/g, ' ')
-                  .replace(/\.\w+$/, '')
-                  .replace(/\b\w/g, c => c.toUpperCase())
-                  .slice(0, 60) + (slug.length > 60 ? '...' : '');
-              } catch { return '기사 원문 바로가기'; }
-            })();
             return (
               <a key={i} href={url} target="_blank" rel="noopener noreferrer" className="art-link">
                 <span style={{ fontFamily:S.mono, fontSize:9, color:S.blue, flexShrink:0 }}>↗</span>
                 <div style={{ minWidth:0 }}>
                   <div style={{ fontSize:9, color:'#aaaaaa', marginBottom:1 }}>{domain}</div>
-                  <div style={{ fontSize:10, color:S.blue, fontWeight:500, lineHeight:1.4 }}>{title}</div>
+                  <div style={{ fontSize:10, color:S.blue, fontWeight:500 }}>기사 원문 바로가기</div>
                 </div>
               </a>
             );
@@ -566,9 +555,9 @@ export default function Dashboard() {
                   baseDate.setUTCDate(baseDate.getUTCDate() + 1);
                   const d1 = baseDate.toISOString().slice(0,10);
 
-                  // 개별 위성별로 나열 (D+1 패스)
-                  const satPasses: Record<string, FlatPass[]> = {};
-                  const d1Passes = allPasses.filter(p => p.pass_time_utc.slice(0,10) === d1);
+                  // 도시별로 나열 (D+1 패스)
+                  const cityPasses: Record<string, FlatPass[]> = {};
+                  const d1Passes: FlatPass[] = [...allPasses.filter(p => p.pass_time_utc.slice(0,10) === d1)];
 
                   // spaceeye_option, planetscope_option 추가
                   targets.forEach(t => {
@@ -580,7 +569,7 @@ export default function Dashboard() {
                   });
 
                   d1Passes.forEach(p => {
-                    (satPasses[p.satellite] ??= []).push(p);
+                    (cityPasses[p.city] ??= []).push(p);
                   });
 
                   return (
@@ -591,16 +580,15 @@ export default function Dashboard() {
                           <div key={h} style={{ flex:1, fontFamily:S.mono, fontSize:8, color:S.textDim, textAlign:'center' }}>{String(h).padStart(2,'0')}</div>
                         ))}
                       </div>
-                      {Object.entries(satPasses).map(([sat, passes]) => (
-                        <div key={sat} style={{ display:'flex', alignItems:'center', marginBottom:5, gap:5 }}>
-                          <div style={{ fontSize:8, color:S.textSub, width:106, flexShrink:0, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }} title={sat}>
-                            {sat}
+                      {Object.entries(cityPasses).map(([city, passes]) => (
+                        <div key={city} style={{ display:'flex', alignItems:'center', marginBottom:5, gap:5 }}>
+                          <div style={{ fontSize:8, color:S.textSub, width:106, flexShrink:0, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }} title={city}>
+                            {city}
                           </div>
                           <div style={{ flex:1, height:16, background:'rgba(255,255,255,0.04)', position:'relative', borderRadius:1 }}>
                             {passes.map((p, ei) => {
                               const hr = new Date(p.pass_time_utc).getUTCHours() + new Date(p.pass_time_utc).getUTCMinutes()/60;
-                              const key = `${p.city}-${p.satellite}-${p.pass_time_utc}`;
-                              const isApproved = approved.includes(key);
+                              const isApproved = approved.includes(passKey(p));
                               return (
                                 <div key={ei}
                                   title={`${p.city} | ${p.satellite} | ${p.action_priority_label}`}
@@ -613,8 +601,8 @@ export default function Dashboard() {
                                     whiteSpace:'nowrap', cursor:'pointer',
                                     background: isApproved ? '#5fe6a0' : '#3a3a3a',
                                     color: isApproved ? '#000' : '#aaa',
-                                    opacity: isApproved ? 1 : 0.8,
-                                    transition: 'background 0.3s, opacity 0.3s',
+                                    opacity: 1,
+                                    transition: 'background 0.3s',
                                   }}>
                                   {p.city.substring(0,3)}
                                 </div>
@@ -623,7 +611,7 @@ export default function Dashboard() {
                           </div>
                         </div>
                       ))}
-                      {Object.keys(satPasses).length === 0 && (
+                      {Object.keys(cityPasses).length === 0 && (
                         <div style={{ fontSize:10, color:S.textDim, padding:'8px 0' }}>D+1 패스 없음</div>
                       )}
                       <div style={{ display:'flex', gap:8, marginTop:5, paddingTop:5, borderTop:`1px solid ${S.border}` }}>
