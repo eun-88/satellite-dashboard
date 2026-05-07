@@ -21,7 +21,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "SI ANALYSIS",
+  title: "SI Analytics",
   description: "위성 촬영 스케줄링 자동화 대시보드",
 };
 
